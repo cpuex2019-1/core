@@ -3,7 +3,8 @@
 module write(
 	input wire enable,
 	output reg done,
-	input wire[1:0] wselector,
+	input wire[3:0] wselector,
+	input wire[31:0] pc,
 	input wire[31:0] data,
 	input wire[4:0] rd,
 	output reg pcenable,
@@ -24,17 +25,16 @@ module write(
 		end else begin
 			if(enable) begin
 				done <= 1'b1;
-				if(selector == 2'b01) begin
+				if(wselector[3]) begin
+					//out
+				end
+				if(wselector[2]) begin
 					pcenable <= 1'b1;
-					next_pc <= data;
-				end else if(selector == 2'b10) begin
+					next_pc <= pc;
+				end
+				if(wselector[1]) begin
 					wenable <= 1'b1;
-					fmode <= 1'b0;
-					wreg <= rd;
-					wdata <= data;
-				end else if(selector == 2'b11) begin
-					wenable <= 1'b1;
-					fmode <= 1'b1;
+					fmode <= wselector[0];
 					wreg <= rd;
 					wdata <= data;
 				end

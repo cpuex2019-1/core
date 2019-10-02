@@ -5,6 +5,7 @@ module fetch(
 	output reg done,
 	output reg pcread,
 	input wire[31:0] pc,
+	output reg[31:0] pc_out,
 	output reg[31:0] command,
 	output reg[28:0] araddr,
 	output reg[1:0] arburst,
@@ -46,6 +47,7 @@ module fetch(
 			pcread <= 1'b0;
 			if(enable) begin
 				pcread <= 1'b1;
+				pc_out <= pc;
 				arvalid <= 1'b1;
 				rready <= 1'b1;
 				araddr <= pc[28:0];
