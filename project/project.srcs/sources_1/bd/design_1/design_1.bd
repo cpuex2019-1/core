@@ -17,10 +17,10 @@
       "axi_bram_ctrl_0": "",
       "axi_bram_ctrl_0_bram": "",
       "core_wrapper_0": "",
-      "decode_0": "",
       "fetch_0": "",
-      "exec_0": "",
-      "write_0": ""
+      "decode_0": "",
+      "write_0": "",
+      "exec_0": ""
     },
     "interface_ports": {
       "sysclk_125": {
@@ -207,104 +207,6 @@
             "right": "0"
           },
           "wdata": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          }
-        }
-      },
-      "decode_0": {
-        "vlnv": "xilinx.com:module_ref:decode:1.0",
-        "xci_name": "design_1_decode_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "decode",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I"
-          },
-          "rstn": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "enable": {
-            "direction": "I"
-          },
-          "done": {
-            "direction": "O"
-          },
-          "pc": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "command": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "exec_command": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "alu_command": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "pc_out": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "addr": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "rs": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "rt": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "sh": {
-            "direction": "O",
-            "left": "4",
-            "right": "0"
-          },
-          "rd": {
-            "direction": "O",
-            "left": "5",
-            "right": "0"
-          },
-          "fmode": {
-            "direction": "O"
-          },
-          "reg1": {
-            "direction": "O",
-            "left": "4",
-            "right": "0"
-          },
-          "reg2": {
-            "direction": "O",
-            "left": "4",
-            "right": "0"
-          },
-          "reg_out1": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "reg_out2": {
             "direction": "I",
             "left": "31",
             "right": "0"
@@ -552,6 +454,173 @@
               "range": "512M",
               "width": "32"
             }
+          }
+        }
+      },
+      "decode_0": {
+        "vlnv": "xilinx.com:module_ref:decode:1.0",
+        "xci_name": "design_1_decode_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "decode",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rstn": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "enable": {
+            "direction": "I"
+          },
+          "done": {
+            "direction": "O"
+          },
+          "pc": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "command": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "exec_command": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "alu_command": {
+            "direction": "O",
+            "left": "5",
+            "right": "0"
+          },
+          "pc_out": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "addr": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "rs": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "rt": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "sh": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "rd": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "fmode": {
+            "direction": "O"
+          },
+          "reg1": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "reg2": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "reg_out1": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "reg_out2": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
+      "write_0": {
+        "vlnv": "xilinx.com:module_ref:write:1.0",
+        "xci_name": "design_1_write_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "write",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rstn": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "enable": {
+            "direction": "I"
+          },
+          "done": {
+            "direction": "O"
+          },
+          "wselector": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "pc": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "data": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "rd": {
+            "direction": "I",
+            "left": "4",
+            "right": "0"
+          },
+          "pcenable": {
+            "direction": "O"
+          },
+          "next_pc": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "wenable": {
+            "direction": "O"
+          },
+          "fmode": {
+            "direction": "O"
+          },
+          "wreg": {
+            "direction": "O",
+            "left": "4",
+            "right": "0"
+          },
+          "wdata": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
           }
         }
       },
@@ -944,100 +1013,31 @@
             }
           }
         }
-      },
-      "write_0": {
-        "vlnv": "xilinx.com:module_ref:write:1.0",
-        "xci_name": "design_1_write_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "write",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I"
-          },
-          "rstn": {
-            "type": "rst",
-            "direction": "I"
-          },
-          "enable": {
-            "direction": "I"
-          },
-          "done": {
-            "direction": "O"
-          },
-          "wselector": {
-            "direction": "I",
-            "left": "3",
-            "right": "0"
-          },
-          "pc": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "data": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "rd": {
-            "direction": "I",
-            "left": "4",
-            "right": "0"
-          },
-          "pcenable": {
-            "direction": "O"
-          },
-          "next_pc": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          },
-          "wenable": {
-            "direction": "O"
-          },
-          "fmode": {
-            "direction": "O"
-          },
-          "wreg": {
-            "direction": "O",
-            "left": "4",
-            "right": "0"
-          },
-          "wdata": {
-            "direction": "O",
-            "left": "31",
-            "right": "0"
-          }
-        }
       }
     },
     "interface_nets": {
-      "axi_bram_ctrl_0_BRAM_PORTA": {
-        "interface_ports": [
-          "axi_bram_ctrl_0_bram/BRAM_PORTA",
-          "axi_bram_ctrl_0/BRAM_PORTA"
-        ]
-      },
       "axi_uart16550_0_UART": {
         "interface_ports": [
           "rs232_uart",
           "axi_uart16550_0/UART"
         ]
       },
-      "sysclk_125_1": {
-        "interface_ports": [
-          "sysclk_125",
-          "clk_wiz_0/CLK_IN1_D"
-        ]
-      },
       "data_memory_C0_DDR4": {
         "interface_ports": [
           "ddr4_sdram",
           "data_memory/C0_DDR4"
+        ]
+      },
+      "axi_bram_ctrl_0_BRAM_PORTA": {
+        "interface_ports": [
+          "axi_bram_ctrl_0_bram/BRAM_PORTA",
+          "axi_bram_ctrl_0/BRAM_PORTA"
+        ]
+      },
+      "sysclk_125_1": {
+        "interface_ports": [
+          "sysclk_125",
+          "clk_wiz_0/CLK_IN1_D"
         ]
       }
     },
@@ -1057,10 +1057,10 @@
           "axi_uart16550_0/s_axi_aclk",
           "axi_bram_ctrl_0/s_axi_aclk",
           "core_wrapper_0/clk",
-          "decode_0/clk",
           "fetch_0/clk",
-          "exec_0/clk",
-          "write_0/clk"
+          "decode_0/clk",
+          "write_0/clk",
+          "exec_0/clk"
         ]
       },
       "util_vector_logic_0_Res": {
@@ -1076,10 +1076,10 @@
           "axi_uart16550_0/s_axi_aresetn",
           "axi_bram_ctrl_0/s_axi_aresetn",
           "core_wrapper_0/rstn",
-          "decode_0/rstn",
           "fetch_0/rstn",
-          "exec_0/rstn",
-          "write_0/rstn"
+          "decode_0/rstn",
+          "write_0/rstn",
+          "exec_0/rstn"
         ]
       },
       "core_wrapper_0_pc": {

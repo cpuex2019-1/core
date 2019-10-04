@@ -12,7 +12,7 @@ module decode(
 	output reg[31:0] rs,
 	output reg[31:0] rt,
 	output reg[4:0] sh,
-	output reg[5:0] rd,
+	output reg[4:0] rd,
 	output reg fmode,
 	output wire[4:0] reg1,
 	output wire[4:0] reg2,
@@ -23,7 +23,7 @@ module decode(
 );
 
 	assign reg1 = command[20:16];
-	assign reg2 = command[31:27] == 5'b00010 ? command[25:21] : command[15:11];
+	assign reg2 = command[31:27] == 5'b00010 || command[31:29] == 3'b101 ? command[25:21] : command[15:11];
 
 	always @(posedge clk) begin
 		if(~rstn) begin
@@ -39,6 +39,7 @@ module decode(
 				rt <= reg_out2;
 				sh <= command[10:6];
 				alu_command <= command[5:0];
+				done <= 1'b1;
 				if(command[31:26] == 6'b000010 || command[31:26] == 6'b000011) begin
 					addr <= {4'b0, command[25:0], 2'b00};
 				end else if(command[31:26] == 6'b000100 || command[31:26] == 6'b000101) begin
