@@ -94,12 +94,19 @@ module exec(
 				done <= 1'b1;
 				if(exec_command == 6'b000000) begin
 					wselector <= 4'b0010;
-					if(alu_command == 6'b000000) begin	//SLL
+					if(alu_command == 6'b000000) begin	//SLLI
 						data <= rs << sh;
-					end else if(alu_command == 6'b000010) begin	//SRL
+					end else if(alu_command == 6'b000010) begin	//SRLI
 						data <= rs >> sh;
-					end else if(alu_command == 6'b000011) begin	//SRA
+					end else if(alu_command == 6'b000011) begin	//SRAI
 						tmp = {rs[31] ? 32'hffffffff : 32'h0, rs} >> sh;
+						data <= tmp[31:0];
+					end if(alu_command == 6'b000100) begin	//SLL
+						data <= rs << rt[4:0];
+					end else if(alu_command == 6'b000110) begin	//SRL
+						data <= rs >> rt[4:0];
+					end else if(alu_command == 6'b000111) begin	//SRA
+						tmp = {rs[31] ? 32'hffffffff : 32'h0, rs} >> rt[4:0];
 						data <= tmp[31:0];
 					end else if(alu_command == 6'b001001) begin	//JALR
 						data <= pc + 32'h4;
