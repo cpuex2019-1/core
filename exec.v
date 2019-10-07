@@ -187,7 +187,8 @@ module exec(
 					pc_out <= pc + addr + 32'h4;
 					wselector <= 4'b0100;
 				end else if(exec_command == 6'b111111) begin	//OUT
-					//TODO
+					data <= rs;
+					wselector <= 4'b1000;
 				end
 			end
 			if(arready && arvalid) begin
