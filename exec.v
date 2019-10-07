@@ -91,72 +91,124 @@ module exec(
 		end else begin
 			wselector <= 4'b0000;
 			if(enable) begin
+				done <= 1'b1;
 				if(exec_command == 6'b000000) begin
 					wselector <= 4'b0010;
-					if(alu_command == 6'b000000) begin
+					if(alu_command == 6'b000000) begin	//SLL
 						data <= rs << sh;
-					end else if(alu_command == 6'b000010) begin
+					end else if(alu_command == 6'b000010) begin	//SRL
 						data <= rs >> sh;
-					end else if(alu_command == 6'b000011) begin
+					end else if(alu_command == 6'b000011) begin	//SRA
 						tmp = {rs[31] ? 32'hffffffff : 32'h0, rs} >> sh;
 						data <= tmp[31:0];
-					end else if(alu_command == 6'b001001) begin
+					end else if(alu_command == 6'b001001) begin	//JALR
 						data <= pc + 32'h4;
 						pc_out <= {rs[31:2], 2'b00};
 						wselector <= 4'b0110;
-					end else if(alu_command == 6'b011000) begin
+					end else if(alu_command == 6'b011000) begin	//MUL
 						data <= rs * rt;
-					end else if(alu_command == 6'b011010) begin
+					end else if(alu_command == 6'b011010) begin	//DIV, MOD
 						if(sh === 5'b00010) begin
 							data <= rs / rt;
 						end else begin
 							data <= rs % rt;
 						end
-					end else if(alu_command == 6'b100000) begin
+					end else if(alu_command == 6'b100000) begin	//ADD
 						data <= rs + rt;
-					end else if(alu_command == 6'b100010) begin
+					end else if(alu_command == 6'b100010) begin	//SUB
 						data <= rs - rt;
-					end else if(alu_command == 6'b100100) begin
+					end else if(alu_command == 6'b100100) begin	//AND
 						data <= rs & rt;
-					end else if(alu_command == 6'b100101) begin
+					end else if(alu_command == 6'b100101) begin	//OR
 						data <= rs | rt;
-					end else if(alu_command == 6'b100110) begin
+					end else if(alu_command == 6'b100110) begin	//XOR
 						data <= rs ^ rt;
-					end else if(alu_command == 6'b100111) begin
+					end else if(alu_command == 6'b100111) begin	//NOR
 						data <= ~(rs | rt);
-					end else if(alu_command == 6'b101010) begin
+					end else if(alu_command == 6'b101010) begin	//SLT
 						data <= {31'h0, rs < rt};
 					end
-				end else if(exec_command == 6'b000010) begin
+				end else if(exec_command == 6'b000010) begin	//J
 					pc_out <= addr;
 					wselector <= 4'b0100;
-				end else if(exec_command == 6'b000011) begin
+				end else if(exec_command == 6'b000011) begin	//JAL
 					data <= pc + 32'h4;
 					rd_out <= 5'h1f;
 					pc_out <= addr;
 					wselector <= 4'b0110;
-				end else if(exec_command == 6'b000100 || exec_command == 6'b000101) begin
+				end else if(exec_command == 6'b000100 || exec_command == 6'b000101) begin	//BEQ, BNE
 					if(exec_command[0] ^ (rs == rt)) begin
 						pc_out <= pc + addr;
 						wselector <= 4'b0100;
 					end
-				end else if(exec_command == 6'b001000) begin
+				end else if(exec_command == 6'b001000) begin	//ADDI
 					data <= rs + rt;
 					wselector <= 4'b0010;
-				end else if(exec_command == 6'b001100) begin
+				end else if(exec_command == 6'b001100) begin	//ANDI
 					data <= rs & rt;
 					wselector <= 4'b0010;
-				end else if(exec_command == 6'b001101) begin
+				end else if(exec_command == 6'b001101) begin	//ORI
 					data <= rs | rt;
 					wselector <= 4'b0010;
-				end else if(exec_command == 6'b001110) begin
+				end else if(exec_command == 6'b001110) begin	//XORI
 					data <= rs ^ rt;
 					wselector <= 4'b0010;
-				end else if(exec_command == 6'b110010) begin
+				end else if(exec_command == 6'b100000) begin	//LB
+					arvalid <= 1'b1;
+					rready <= 1'b1;
+					arsize <= 3'b000;
+					araddr <= addr[28:0];
+					done <= 1'b0;
+				end else if(exec_command == 6'b100011) begin	//LW
+					arvalid <= 1'b1;
+					rready <= 1'b1;
+					arsize <= 3'b010;
+					araddr <= addr[28:0];
+					done <= 1'b0;
+				end else if(exec_command == 6'b101000) begin	//SB
+					awvalid <= 1'b1;
+					awsize <= 3'b000;
+					awaddr <= addr[28:0];
+					wvalid <= 1'b1;
+					wdata <= rt;
+					wlast <= 1'b1;
+					bready <= 1'b1;
+					done <= 1'b0;
+				end else if(exec_command == 6'b101011) begin	//SW
+					awvalid <= 1'b1;
+					awsize <= 3'b010;
+					awaddr <= addr[28:0];
+					wvalid <= 1'b1;
+					wdata <= rt;
+					wlast <= 1'b1;
+					bready <= 1'b1;
+					done <= 1'b0;
+				end else if(exec_command == 6'b110010) begin	//BC
 					pc_out <= pc + addr + 32'h4;
 					wselector <= 4'b0100;
+				end else if(exec_command == 6'b111111) begin	//OUT
+					//TODO
 				end
-				//TODO : memory store/load, out
+			end
+			if(arready && arvalid) begin
+				arvalid <= 1'b0;
+			end
+			if(rready && rvalid) begin
+				rready <= 1'b0;
+				data <= rdata;
+				wselector <= 4'b0010;
+				done <= 1'b1;
+			end
+			if(awready && awvalid) begin
+				awvalid <= 1'b0;
+			end
+			if(wready && wvalid) begin
+				wlast <= 1'b0;
+				wvalid <= 1'b0;
+			end
+			if(bready && bvalid) begin
+				bready <= 1'b0;
+				done <= 1'b1;
 			end
 		end
 	end

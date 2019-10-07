@@ -17,14 +17,17 @@ module write(
 	input wire rstn
 );
 
+	reg set;
+
 	always @(posedge clk) begin
+		set <= 1'b0;
 		done <= 1'b0;
 		pcenable <= 1'b0;
 		wenable <= 1'b0;
 		if(~rstn) begin
 		end else begin
 			if(enable) begin
-				done <= 1'b1;
+				set <= 1'b1;
 				if(wselector[3]) begin
 					//out
 				end
@@ -38,6 +41,10 @@ module write(
 					wreg <= rd;
 					wdata <= data;
 				end
+			end
+			if(set) begin
+				set <= 1'b0;
+				done <= 1'b1;
 			end
 		end
 	end
