@@ -28,7 +28,6 @@ module decode(
 	always @(posedge clk) begin
 		if(~rstn) begin
 			done <= 1'b0;
-			wselector <= 2'b00;
 		end else begin
 			done <= 1'b0;
 			if(enable) begin

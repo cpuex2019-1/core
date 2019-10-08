@@ -2,7 +2,7 @@ module core_wrapper(
 	input wire pcread,
 	input wire pcenable,
 	input wire[31:0] next_pc,
-	output reg[31:0] pc,
+	output wire[31:0] pc,
 	input wire rfmode,
 	input wire[4:0] rreg1,
 	input wire[4:0] rreg2,

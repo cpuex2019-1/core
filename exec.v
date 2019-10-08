@@ -15,7 +15,7 @@ module exec(
 	output reg[31:0] data,
 	input wire[4:0] rd_in,
 	output reg[4:0] rd_out,
-	output reg[28:0] araddr,
+	output reg[30:0] araddr,
 	output reg[1:0] arburst,
 	output reg[3:0] arcache,
 	output reg[3:0] arid,
@@ -32,7 +32,7 @@ module exec(
 	output reg rready,
 	input wire[1:0] rresp,
 	input wire rvalid,
-	output reg[28:0] awaddr,
+	output reg[30:0] awaddr,
 	output reg[1:0] awburst,
 	output reg[3:0] awcache,
 	output reg[3:0] awid,
@@ -62,7 +62,7 @@ module exec(
 		rd_out <= rd_in;
 		if(~rstn) begin
 			done <= 1'b0;
-			araddr <= 29'h0;
+			araddr <= 31'h0;
 			arburst <= 2'b00;
 			arcache <= 4'b0011;
 			arid <= 4'b0;
@@ -73,7 +73,7 @@ module exec(
 			arsize <= 3'b010;
 			arvalid <= 1'b0;
 			rready <= 1'b0;
-			awaddr <= 29'h0;
+			awaddr <= 31'h0;
 			awburst <= 2'b00;
 			awcache <= 4'b0011;
 			awid <= 4'b0;
@@ -164,18 +164,18 @@ module exec(
 					arvalid <= 1'b1;
 					rready <= 1'b1;
 					arsize <= 3'b000;
-					araddr <= addr[28:0];
+					araddr <= addr[30:0];
 					done <= 1'b0;
 				end else if(exec_command == 6'b100011) begin	//LW
 					arvalid <= 1'b1;
 					rready <= 1'b1;
 					arsize <= 3'b010;
-					araddr <= addr[28:0];
+					araddr <= addr[30:0];
 					done <= 1'b0;
 				end else if(exec_command == 6'b101000) begin	//SB
 					awvalid <= 1'b1;
 					awsize <= 3'b000;
-					awaddr <= addr[28:0];
+					awaddr <= addr[30:0];
 					wvalid <= 1'b1;
 					wdata <= rt;
 					wlast <= 1'b1;
@@ -184,7 +184,7 @@ module exec(
 				end else if(exec_command == 6'b101011) begin	//SW
 					awvalid <= 1'b1;
 					awsize <= 3'b010;
-					awaddr <= addr[28:0];
+					awaddr <= addr[30:0];
 					wvalid <= 1'b1;
 					wdata <= rt;
 					wlast <= 1'b1;
