@@ -367,6 +367,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net fetch_0_rready [get_bd_pins axi_bram_ctrl_0/s_axi_rready] [get_bd_pins fetch_0/rready]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins data_memory/sys_rst]
   connect_bd_net -net rst_data_memory_300M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_uart16550_0/s_axi_aresetn] [get_bd_pins core_wrapper_0/rstn] [get_bd_pins decode_0/rstn] [get_bd_pins exec_0/rstn] [get_bd_pins fetch_0/rstn] [get_bd_pins rst_data_memory_300M/peripheral_aresetn] [get_bd_pins uart_buffer_0/rstn] [get_bd_pins write_0/rstn]
+  connect_bd_net -net uart_buffer_0_rdone [get_bd_pins uart_buffer_0/rdone] [get_bd_pins uart_buffer_0/renable]
   connect_bd_net -net uart_buffer_0_wdone [get_bd_pins uart_buffer_0/wdone] [get_bd_pins write_0/uart_wdone]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins fetch_0/enable] [get_bd_pins util_vector_logic_0/Res]
   connect_bd_net -net write_0_done [get_bd_pins util_vector_logic_0/Op2] [get_bd_pins write_0/done]

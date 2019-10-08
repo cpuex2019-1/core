@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Tue Oct  8 15:16:15 2019
+//Date        : Tue Oct  8 17:30:59 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -157,6 +157,7 @@ module design_1
   wire fetch_0_rready;
   wire reset_1;
   wire [0:0]rst_data_memory_300M_peripheral_aresetn;
+  wire uart_buffer_0_rdone;
   wire [12:0]uart_buffer_0_uart_ARADDR;
   wire uart_buffer_0_uart_ARREADY;
   wire uart_buffer_0_uart_ARVALID;
@@ -455,7 +456,8 @@ module design_1
         .slowest_sync_clk(data_memory_c0_ddr4_ui_clk));
   design_1_uart_buffer_0_0 uart_buffer_0
        (.clk(data_memory_c0_ddr4_ui_clk),
-        .renable(1'b0),
+        .rdone(uart_buffer_0_rdone),
+        .renable(uart_buffer_0_rdone),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .uart_araddr(uart_buffer_0_uart_ARADDR),
         .uart_arready(uart_buffer_0_uart_ARREADY),
