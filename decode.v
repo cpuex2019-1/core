@@ -3,15 +3,16 @@
 module decode(
 	input wire enable,
 	output reg done,
+	input wire[31:0] pc,
 	input wire[31:0] command,
 	output reg[5:0] exec_command,
 	output reg[5:0] alu_command,
-	output reg[28:0] addr,
+	output reg[31:0] pc_out,
+	output reg[31:0] addr,
 	output reg[31:0] rs,
 	output reg[31:0] rt,
-	output reg[1:0] wselector,
-	output reg[31:0] data,
-	output reg[5:0] rd,
+	output reg[4:0] sh,
+	output reg[4:0] rd,
 	output reg fmode,
 	output wire[4:0] reg1,
 	output wire[4:0] reg2,
@@ -21,25 +22,43 @@ module decode(
 	input wire rstn
 );
 
+	reg set;
+
 	assign reg1 = command[20:16];
-	assign reg2 = command[15:11];
+	assign reg2 = command[31:27] == 5'b00010 || command[31:29] == 3'b101 ? command[25:21] : command[15:11];
 
 	always @(posedge clk) begin
 		if(~rstn) begin
+			set <= 1'b0;
 			done <= 1'b0;
-			wselector <= 2'b00;
+			fmode <= 1'b0;
 		end else begin
 			done <= 1'b0;
-			exec_command <= command[31:26];
-			rd <= command[25:21];
-			rs <= reg_out1;
-			rt <= reg_out2;
-			alu_command <= command[5:0];
 			if(enable) begin
-				if(command[31:26] == 6'h0) begin
-					//
-				end else if(command[31:26] == 6'h1) begin
-					//
+				pc_out <= pc;
+				exec_command <= command[31:26];
+				rd <= command[25:21];
+				sh <= command[10:6];
+				alu_command <= command[5:0];
+				set <= 1'b1;
+			end
+			if(set) begin
+				set <= 1'b0;
+				done <= 1'b1;
+				rs <= reg_out1;
+				rt <= reg_out2;
+				if(command[31:26] == 6'b000010 || command[31:26] == 6'b000011) begin
+					addr <= {4'b0, command[25:0], 2'b00};
+				end else if(command[31:26] == 6'b000100 || command[31:26] == 6'b000101) begin
+					addr <= {command[15] ? 14'h3fff : 14'h0000, command[15:0], 2'b00};
+				end else if(command[31:26] == 6'b001000) begin
+					rt <= {command[15] ? 16'hffff : 16'h0000, command[15:0]};
+				end else if(command[31:28] == 4'b0011) begin
+					rt <= {16'h0000, command[15:0]};
+				end else if(command[31:30] == 2'b10) begin
+					addr <= reg_out1 + {command[15] ? 16'hffff : 16'h0000, command[15:0]};
+				end else if(command[31:26] == 6'b110010) begin
+					addr <= {command[25] ? 4'hf : 4'h0, command[25:0], 2'b00};
 				end
 			end
 		end
