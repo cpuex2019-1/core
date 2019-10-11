@@ -7,10 +7,10 @@ module uart_buffer(
 	input wire wenable,
 	output reg wdone,
 	input wire[31:0] wdata,
-	output reg[12:0] uart_araddr,
+	output reg[31:0] uart_araddr,
 	input wire uart_arready,
 	output reg uart_arvalid,
-	output reg[12:0] uart_awaddr,
+	output reg[31:0] uart_awaddr,
 	input wire uart_awready,
 	output reg uart_awvalid,
 	output reg uart_bready,
@@ -28,38 +28,40 @@ module uart_buffer(
 	input wire rstn
 );
 
-	reg[12:0] uart_rpointer, uart_wpointer;
-
 	always @(posedge clk) begin
 		rdone <= 1'b0;
 		wdone <= 1'b0;
 		if(~rstn) begin
-			uart_rpointer <= 13'h0;
-			uart_wpointer <= 13'h0;
+			uart_araddr <= 32'h0;
+			uart_awaddr <= 32'h4;
 			uart_arvalid <= 1'b0;
 			uart_awvalid <= 1'b0;
 			uart_bready <= 1'b0;
 			uart_rready <= 1'b0;
 			uart_wvalid <= 1'b0;
-			uart_wstrb <= 4'b1111;
+			uart_wstrb <= 4'b0001;
 		end else begin
 			if(wenable) begin
-				uart_awaddr <= uart_wpointer;
 				uart_awvalid <= 1'b1;
 				uart_bready <= 1'b1;
 				uart_wdata <= wdata;
 				uart_wvalid <= 1'b1;
 			end
 			if(uart_awready && uart_awvalid) begin
-				uart_wpointer <= uart_wpointer + 13'h4;
 				uart_awvalid <= 1'b0;
 			end
 			if(uart_wready && uart_wvalid) begin
 				uart_wvalid <= 1'b0;
 			end
 			if(uart_bready && uart_bvalid) begin
-				uart_bready <= 1'b0;
-				wdone <= 1'b1;
+				if(uart_bresp[1]) begin
+					uart_awvalid <= 1'b1;
+					uart_bready <= 1'b1;
+					uart_wvalid <= 1'b1;
+				end else begin
+					uart_bready <= 1'b0;
+					wdone <= 1'b1;
+				end
 			end
 		end
 	end

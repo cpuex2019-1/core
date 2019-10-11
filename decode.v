@@ -31,6 +31,7 @@ module decode(
 		if(~rstn) begin
 			set <= 1'b0;
 			done <= 1'b0;
+			fmode <= 1'b0;
 		end else begin
 			done <= 1'b0;
 			if(enable) begin
@@ -39,7 +40,13 @@ module decode(
 				rd <= command[25:21];
 				sh <= command[10:6];
 				alu_command <= command[5:0];
+				set <= 1'b1;
+			end
+			if(set) begin
+				set <= 1'b0;
 				done <= 1'b1;
+				rs <= reg_out1;
+				rt <= reg_out2;
 				if(command[31:26] == 6'b000010 || command[31:26] == 6'b000011) begin
 					addr <= {4'b0, command[25:0], 2'b00};
 				end else if(command[31:26] == 6'b000100 || command[31:26] == 6'b000101) begin
@@ -49,18 +56,9 @@ module decode(
 				end else if(command[31:28] == 4'b0011) begin
 					rt <= {16'h0000, command[15:0]};
 				end else if(command[31:30] == 2'b10) begin
-					// addr <= reg_out1 + {command[15] ? 16'hffff : 16'h0000, command[15:0]};
+					addr <= reg_out1 + {command[15] ? 16'hffff : 16'h0000, command[15:0]};
 				end else if(command[31:26] == 6'b110010) begin
 					addr <= {command[25] ? 4'hf : 4'h0, command[25:0], 2'b00};
-				end
-			end
-			if(set) begin
-				set <= 1'b0;
-				done <= 1'b1;
-				rs <= reg_out1;
-				rt <= reg_out2;
-				if(command[31:30] == 2'b10) begin
-					addr <= reg_out1 + {command[15] ? 16'hffff : 16'h0000, command[15:0]};
 				end
 			end
 		end

@@ -185,13 +185,16 @@ proc create_root_design { parentCell } {
 
   # Create instance: axi_bram_ctrl_0_bram, and set properties
   set axi_bram_ctrl_0_bram [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 axi_bram_ctrl_0_bram ]
-
-  # Create instance: axi_uart16550_0, and set properties
-  set axi_uart16550_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uart16550:2.0 axi_uart16550_0 ]
   set_property -dict [ list \
-   CONFIG.UART_BOARD_INTERFACE {rs232_uart} \
-   CONFIG.USE_BOARD_FLOW {true} \
- ] $axi_uart16550_0
+   CONFIG.Coe_File {../../../../../../../inst_memory.coe} \
+   CONFIG.Load_Init_File {true} \
+   CONFIG.Memory_Type {Single_Port_ROM} \
+   CONFIG.Port_A_Write_Rate {0} \
+   CONFIG.Use_Byte_Write_Enable {false} \
+ ] $axi_bram_ctrl_0_bram
+
+  # Create instance: axi_uartlite_0, and set properties
+  set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
 
   # Create instance: core_wrapper_0, and set properties
   set block_name core_wrapper
@@ -281,33 +284,19 @@ proc create_root_design { parentCell } {
   
   # Create interface connections
   connect_bd_intf_net -intf_net axi_bram_ctrl_0_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_0/BRAM_PORTA] [get_bd_intf_pins axi_bram_ctrl_0_bram/BRAM_PORTA]
-  connect_bd_intf_net -intf_net axi_uart16550_0_UART [get_bd_intf_ports rs232_uart] [get_bd_intf_pins axi_uart16550_0/UART]
+  connect_bd_intf_net -intf_net axi_uartlite_0_UART [get_bd_intf_ports rs232_uart] [get_bd_intf_pins axi_uartlite_0/UART]
   connect_bd_intf_net -intf_net data_memory_C0_DDR4 [get_bd_intf_ports ddr4_sdram] [get_bd_intf_pins data_memory/C0_DDR4]
   connect_bd_intf_net -intf_net default_sysclk_300_1 [get_bd_intf_ports default_sysclk_300] [get_bd_intf_pins data_memory/C0_SYS_CLK]
-  connect_bd_intf_net -intf_net uart_buffer_0_uart [get_bd_intf_pins axi_uart16550_0/S_AXI] [get_bd_intf_pins uart_buffer_0/uart]
+  connect_bd_intf_net -intf_net exec_0_interface_aximm [get_bd_intf_pins data_memory/C0_DDR4_S_AXI] [get_bd_intf_pins exec_0/interface_aximm]
+  connect_bd_intf_net -intf_net fetch_0_interface_aximm [get_bd_intf_pins axi_bram_ctrl_0/S_AXI] [get_bd_intf_pins fetch_0/interface_aximm]
+  connect_bd_intf_net -intf_net uart_buffer_0_uart [get_bd_intf_pins axi_uartlite_0/S_AXI] [get_bd_intf_pins uart_buffer_0/uart]
 
   # Create port connections
   connect_bd_net -net SW7_1 [get_bd_ports SW7] [get_bd_pins util_vector_logic_0/Op1]
-  connect_bd_net -net axi_bram_ctrl_0_s_axi_arready [get_bd_pins axi_bram_ctrl_0/s_axi_arready] [get_bd_pins fetch_0/arready]
-  connect_bd_net -net axi_bram_ctrl_0_s_axi_rdata [get_bd_pins axi_bram_ctrl_0/s_axi_rdata] [get_bd_pins fetch_0/rdata]
-  connect_bd_net -net axi_bram_ctrl_0_s_axi_rlast [get_bd_pins axi_bram_ctrl_0/s_axi_rlast] [get_bd_pins fetch_0/rlast]
-  connect_bd_net -net axi_bram_ctrl_0_s_axi_rresp [get_bd_pins axi_bram_ctrl_0/s_axi_rresp] [get_bd_pins fetch_0/rresp]
-  connect_bd_net -net axi_bram_ctrl_0_s_axi_rvalid [get_bd_pins axi_bram_ctrl_0/s_axi_rvalid] [get_bd_pins fetch_0/rvalid]
   connect_bd_net -net core_wrapper_0_pc [get_bd_pins core_wrapper_0/pc] [get_bd_pins fetch_0/pc]
   connect_bd_net -net core_wrapper_0_reg_out1 [get_bd_pins core_wrapper_0/reg_out1] [get_bd_pins decode_0/reg_out1]
   connect_bd_net -net core_wrapper_0_reg_out2 [get_bd_pins core_wrapper_0/reg_out2] [get_bd_pins decode_0/reg_out2]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_arready [get_bd_pins data_memory/c0_ddr4_s_axi_arready] [get_bd_pins exec_0/arready]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_awready [get_bd_pins data_memory/c0_ddr4_s_axi_awready] [get_bd_pins exec_0/awready]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_bid [get_bd_pins data_memory/c0_ddr4_s_axi_bid] [get_bd_pins exec_0/bid]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_bresp [get_bd_pins data_memory/c0_ddr4_s_axi_bresp] [get_bd_pins exec_0/bresp]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_bvalid [get_bd_pins data_memory/c0_ddr4_s_axi_bvalid] [get_bd_pins exec_0/bvalid]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_rdata [get_bd_pins data_memory/c0_ddr4_s_axi_rdata] [get_bd_pins exec_0/rdata]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_rid [get_bd_pins data_memory/c0_ddr4_s_axi_rid] [get_bd_pins exec_0/rid]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_rlast [get_bd_pins data_memory/c0_ddr4_s_axi_rlast] [get_bd_pins exec_0/rlast]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_rresp [get_bd_pins data_memory/c0_ddr4_s_axi_rresp] [get_bd_pins exec_0/rresp]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_rvalid [get_bd_pins data_memory/c0_ddr4_s_axi_rvalid] [get_bd_pins exec_0/rvalid]
-  connect_bd_net -net data_memory_c0_ddr4_s_axi_wready [get_bd_pins data_memory/c0_ddr4_s_axi_wready] [get_bd_pins exec_0/wready]
-  connect_bd_net -net data_memory_c0_ddr4_ui_clk [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_uart16550_0/s_axi_aclk] [get_bd_pins core_wrapper_0/clk] [get_bd_pins data_memory/c0_ddr4_ui_clk] [get_bd_pins decode_0/clk] [get_bd_pins exec_0/clk] [get_bd_pins fetch_0/clk] [get_bd_pins rst_data_memory_300M/slowest_sync_clk] [get_bd_pins uart_buffer_0/clk] [get_bd_pins write_0/clk]
+  connect_bd_net -net data_memory_c0_ddr4_ui_clk [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins core_wrapper_0/clk] [get_bd_pins data_memory/c0_ddr4_ui_clk] [get_bd_pins decode_0/clk] [get_bd_pins exec_0/clk] [get_bd_pins fetch_0/clk] [get_bd_pins rst_data_memory_300M/slowest_sync_clk] [get_bd_pins uart_buffer_0/clk] [get_bd_pins write_0/clk]
   connect_bd_net -net data_memory_c0_ddr4_ui_clk_sync_rst [get_bd_pins data_memory/c0_ddr4_ui_clk_sync_rst] [get_bd_pins rst_data_memory_300M/ext_reset_in]
   connect_bd_net -net decode_0_addr [get_bd_pins decode_0/addr] [get_bd_pins exec_0/addr]
   connect_bd_net -net decode_0_alu_command [get_bd_pins decode_0/alu_command] [get_bd_pins exec_0/alu_command]
@@ -321,52 +310,17 @@ proc create_root_design { parentCell } {
   connect_bd_net -net decode_0_rs [get_bd_pins decode_0/rs] [get_bd_pins exec_0/rs]
   connect_bd_net -net decode_0_rt [get_bd_pins decode_0/rt] [get_bd_pins exec_0/rt]
   connect_bd_net -net decode_0_sh [get_bd_pins decode_0/sh] [get_bd_pins exec_0/sh]
-  connect_bd_net -net exec_0_araddr [get_bd_pins data_memory/c0_ddr4_s_axi_araddr] [get_bd_pins exec_0/araddr]
-  connect_bd_net -net exec_0_arburst [get_bd_pins data_memory/c0_ddr4_s_axi_arburst] [get_bd_pins exec_0/arburst]
-  connect_bd_net -net exec_0_arcache [get_bd_pins data_memory/c0_ddr4_s_axi_arcache] [get_bd_pins exec_0/arcache]
-  connect_bd_net -net exec_0_arid [get_bd_pins data_memory/c0_ddr4_s_axi_arid] [get_bd_pins exec_0/arid]
-  connect_bd_net -net exec_0_arlen [get_bd_pins data_memory/c0_ddr4_s_axi_arlen] [get_bd_pins exec_0/arlen]
-  connect_bd_net -net exec_0_arlock [get_bd_pins data_memory/c0_ddr4_s_axi_arlock] [get_bd_pins exec_0/arlock]
-  connect_bd_net -net exec_0_arprot [get_bd_pins data_memory/c0_ddr4_s_axi_arprot] [get_bd_pins exec_0/arprot]
-  connect_bd_net -net exec_0_arqos [get_bd_pins data_memory/c0_ddr4_s_axi_arqos] [get_bd_pins exec_0/arqos]
-  connect_bd_net -net exec_0_arsize [get_bd_pins data_memory/c0_ddr4_s_axi_arsize] [get_bd_pins exec_0/arsize]
-  connect_bd_net -net exec_0_arvalid [get_bd_pins data_memory/c0_ddr4_s_axi_arvalid] [get_bd_pins exec_0/arvalid]
-  connect_bd_net -net exec_0_awaddr [get_bd_pins data_memory/c0_ddr4_s_axi_awaddr] [get_bd_pins exec_0/awaddr]
-  connect_bd_net -net exec_0_awburst [get_bd_pins data_memory/c0_ddr4_s_axi_awburst] [get_bd_pins exec_0/awburst]
-  connect_bd_net -net exec_0_awcache [get_bd_pins data_memory/c0_ddr4_s_axi_awcache] [get_bd_pins exec_0/awcache]
-  connect_bd_net -net exec_0_awid [get_bd_pins data_memory/c0_ddr4_s_axi_awid] [get_bd_pins exec_0/awid]
-  connect_bd_net -net exec_0_awlen [get_bd_pins data_memory/c0_ddr4_s_axi_awlen] [get_bd_pins exec_0/awlen]
-  connect_bd_net -net exec_0_awlock [get_bd_pins data_memory/c0_ddr4_s_axi_awlock] [get_bd_pins exec_0/awlock]
-  connect_bd_net -net exec_0_awprot [get_bd_pins data_memory/c0_ddr4_s_axi_awprot] [get_bd_pins exec_0/awprot]
-  connect_bd_net -net exec_0_awqos [get_bd_pins data_memory/c0_ddr4_s_axi_awqos] [get_bd_pins exec_0/awqos]
-  connect_bd_net -net exec_0_awsize [get_bd_pins data_memory/c0_ddr4_s_axi_awsize] [get_bd_pins exec_0/awsize]
-  connect_bd_net -net exec_0_awvalid [get_bd_pins data_memory/c0_ddr4_s_axi_awvalid] [get_bd_pins exec_0/awvalid]
-  connect_bd_net -net exec_0_bready [get_bd_pins data_memory/c0_ddr4_s_axi_bready] [get_bd_pins exec_0/bready]
   connect_bd_net -net exec_0_data_out [get_bd_pins exec_0/data] [get_bd_pins write_0/data]
   connect_bd_net -net exec_0_done [get_bd_pins exec_0/done] [get_bd_pins write_0/enable]
   connect_bd_net -net exec_0_pc_out [get_bd_pins exec_0/pc_out] [get_bd_pins write_0/pc]
   connect_bd_net -net exec_0_rd_out [get_bd_pins exec_0/rd_out] [get_bd_pins write_0/rd]
-  connect_bd_net -net exec_0_rready [get_bd_pins data_memory/c0_ddr4_s_axi_rready] [get_bd_pins exec_0/rready]
-  connect_bd_net -net exec_0_wdata [get_bd_pins data_memory/c0_ddr4_s_axi_wdata] [get_bd_pins exec_0/wdata]
-  connect_bd_net -net exec_0_wlast [get_bd_pins data_memory/c0_ddr4_s_axi_wlast] [get_bd_pins exec_0/wlast]
   connect_bd_net -net exec_0_wselector_out [get_bd_pins exec_0/wselector] [get_bd_pins write_0/wselector]
-  connect_bd_net -net exec_0_wstrb [get_bd_pins data_memory/c0_ddr4_s_axi_wstrb] [get_bd_pins exec_0/wstrb]
-  connect_bd_net -net exec_0_wvalid [get_bd_pins data_memory/c0_ddr4_s_axi_wvalid] [get_bd_pins exec_0/wvalid]
-  connect_bd_net -net fetch_0_araddr [get_bd_pins axi_bram_ctrl_0/s_axi_araddr] [get_bd_pins fetch_0/araddr]
-  connect_bd_net -net fetch_0_arburst [get_bd_pins axi_bram_ctrl_0/s_axi_arburst] [get_bd_pins fetch_0/arburst]
-  connect_bd_net -net fetch_0_arcache [get_bd_pins axi_bram_ctrl_0/s_axi_arcache] [get_bd_pins fetch_0/arcache]
-  connect_bd_net -net fetch_0_arlen [get_bd_pins axi_bram_ctrl_0/s_axi_arlen] [get_bd_pins fetch_0/arlen]
-  connect_bd_net -net fetch_0_arlock [get_bd_pins axi_bram_ctrl_0/s_axi_arlock] [get_bd_pins fetch_0/arlock]
-  connect_bd_net -net fetch_0_arprot [get_bd_pins axi_bram_ctrl_0/s_axi_arprot] [get_bd_pins fetch_0/arprot]
-  connect_bd_net -net fetch_0_arsize [get_bd_pins axi_bram_ctrl_0/s_axi_arsize] [get_bd_pins fetch_0/arsize]
-  connect_bd_net -net fetch_0_arvalid [get_bd_pins axi_bram_ctrl_0/s_axi_arvalid] [get_bd_pins fetch_0/arvalid]
   connect_bd_net -net fetch_0_command [get_bd_pins decode_0/command] [get_bd_pins fetch_0/command]
   connect_bd_net -net fetch_0_done [get_bd_pins decode_0/enable] [get_bd_pins fetch_0/done]
   connect_bd_net -net fetch_0_pc_out [get_bd_pins decode_0/pc] [get_bd_pins fetch_0/pc_out]
   connect_bd_net -net fetch_0_pcread [get_bd_pins core_wrapper_0/pcread] [get_bd_pins fetch_0/pcread]
-  connect_bd_net -net fetch_0_rready [get_bd_pins axi_bram_ctrl_0/s_axi_rready] [get_bd_pins fetch_0/rready]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins data_memory/sys_rst]
-  connect_bd_net -net rst_data_memory_300M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_uart16550_0/s_axi_aresetn] [get_bd_pins core_wrapper_0/rstn] [get_bd_pins decode_0/rstn] [get_bd_pins exec_0/rstn] [get_bd_pins fetch_0/rstn] [get_bd_pins rst_data_memory_300M/peripheral_aresetn] [get_bd_pins uart_buffer_0/rstn] [get_bd_pins write_0/rstn]
+  connect_bd_net -net rst_data_memory_300M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins core_wrapper_0/rstn] [get_bd_pins decode_0/rstn] [get_bd_pins exec_0/rstn] [get_bd_pins fetch_0/rstn] [get_bd_pins rst_data_memory_300M/peripheral_aresetn] [get_bd_pins uart_buffer_0/rstn] [get_bd_pins write_0/rstn]
   connect_bd_net -net uart_buffer_0_rdone [get_bd_pins uart_buffer_0/rdone] [get_bd_pins uart_buffer_0/renable]
   connect_bd_net -net uart_buffer_0_wdone [get_bd_pins uart_buffer_0/wdone] [get_bd_pins write_0/uart_wdone]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins fetch_0/enable] [get_bd_pins util_vector_logic_0/Res]
@@ -381,7 +335,9 @@ proc create_root_design { parentCell } {
   connect_bd_net -net write_0_wreg [get_bd_pins core_wrapper_0/wreg] [get_bd_pins write_0/wreg]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00002000 -offset 0x00000000 [get_bd_addr_spaces uart_buffer_0/uart] [get_bd_addr_segs axi_uart16550_0/S_AXI/Reg] SEG_axi_uart16550_0_Reg
+  create_bd_addr_seg -range 0x80000000 -offset 0x00000000 [get_bd_addr_spaces exec_0/interface_aximm] [get_bd_addr_segs data_memory/C0_DDR4_MEMORY_MAP/C0_DDR4_ADDRESS_BLOCK] SEG_data_memory_C0_DDR4_ADDRESS_BLOCK
+  create_bd_addr_seg -range 0x00001000 -offset 0x00000000 [get_bd_addr_spaces fetch_0/interface_aximm] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+  create_bd_addr_seg -range 0x00010000 -offset 0x40600000 [get_bd_addr_spaces uart_buffer_0/uart] [get_bd_addr_segs axi_uartlite_0/S_AXI/Reg] SEG_axi_uartlite_0_Reg
 
 
   # Restore current instance

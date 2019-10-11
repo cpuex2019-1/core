@@ -46,23 +46,22 @@
 -- 
 -- DO NOT MODIFY THIS FILE.
 
--- IP VLNV: xilinx.com:ip:axi_uart16550:2.0
--- IP Revision: 20
+-- IP VLNV: xilinx.com:ip:axi_uartlite:2.0
+-- IP Revision: 22
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
 
-LIBRARY axi_uart16550_v2_0_20;
-USE axi_uart16550_v2_0_20.axi_uart16550;
+LIBRARY axi_uartlite_v2_0_22;
+USE axi_uartlite_v2_0_22.axi_uartlite;
 
-ENTITY design_1_axi_uart16550_0_0 IS
+ENTITY design_1_axi_uartlite_0_0 IS
   PORT (
     s_axi_aclk : IN STD_LOGIC;
     s_axi_aresetn : IN STD_LOGIC;
-    ip2intc_irpt : OUT STD_LOGIC;
-    freeze : IN STD_LOGIC;
-    s_axi_awaddr : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
+    interrupt : OUT STD_LOGIC;
+    s_axi_awaddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     s_axi_awvalid : IN STD_LOGIC;
     s_axi_awready : OUT STD_LOGIC;
     s_axi_wdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -72,50 +71,37 @@ ENTITY design_1_axi_uart16550_0_0 IS
     s_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_bvalid : OUT STD_LOGIC;
     s_axi_bready : IN STD_LOGIC;
-    s_axi_araddr : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
+    s_axi_araddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
     s_axi_arvalid : IN STD_LOGIC;
     s_axi_arready : OUT STD_LOGIC;
     s_axi_rdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
     s_axi_rvalid : OUT STD_LOGIC;
     s_axi_rready : IN STD_LOGIC;
-    baudoutn : OUT STD_LOGIC;
-    ctsn : IN STD_LOGIC;
-    dcdn : IN STD_LOGIC;
-    ddis : OUT STD_LOGIC;
-    dsrn : IN STD_LOGIC;
-    dtrn : OUT STD_LOGIC;
-    out1n : OUT STD_LOGIC;
-    out2n : OUT STD_LOGIC;
-    rin : IN STD_LOGIC;
-    rtsn : OUT STD_LOGIC;
-    rxrdyn : OUT STD_LOGIC;
-    sin : IN STD_LOGIC;
-    sout : OUT STD_LOGIC;
-    txrdyn : OUT STD_LOGIC
+    rx : IN STD_LOGIC;
+    tx : OUT STD_LOGIC
   );
-END design_1_axi_uart16550_0_0;
+END design_1_axi_uartlite_0_0;
 
-ARCHITECTURE design_1_axi_uart16550_0_0_arch OF design_1_axi_uart16550_0_0 IS
+ARCHITECTURE design_1_axi_uartlite_0_0_arch OF design_1_axi_uartlite_0_0 IS
   ATTRIBUTE DowngradeIPIdentifiedWarnings : STRING;
-  ATTRIBUTE DowngradeIPIdentifiedWarnings OF design_1_axi_uart16550_0_0_arch: ARCHITECTURE IS "yes";
-  COMPONENT axi_uart16550 IS
+  ATTRIBUTE DowngradeIPIdentifiedWarnings OF design_1_axi_uartlite_0_0_arch: ARCHITECTURE IS "yes";
+  COMPONENT axi_uartlite IS
     GENERIC (
       C_FAMILY : STRING;
       C_S_AXI_ACLK_FREQ_HZ : INTEGER;
       C_S_AXI_ADDR_WIDTH : INTEGER;
       C_S_AXI_DATA_WIDTH : INTEGER;
-      C_IS_A_16550 : INTEGER;
-      C_HAS_EXTERNAL_XIN : INTEGER;
-      C_HAS_EXTERNAL_RCLK : INTEGER;
-      C_EXTERNAL_XIN_CLK_HZ : INTEGER
+      C_BAUDRATE : INTEGER;
+      C_DATA_BITS : INTEGER;
+      C_USE_PARITY : INTEGER;
+      C_ODD_PARITY : INTEGER
     );
     PORT (
       s_axi_aclk : IN STD_LOGIC;
       s_axi_aresetn : IN STD_LOGIC;
-      ip2intc_irpt : OUT STD_LOGIC;
-      freeze : IN STD_LOGIC;
-      s_axi_awaddr : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
+      interrupt : OUT STD_LOGIC;
+      s_axi_awaddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       s_axi_awvalid : IN STD_LOGIC;
       s_axi_awready : OUT STD_LOGIC;
       s_axi_wdata : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
@@ -125,55 +111,22 @@ ARCHITECTURE design_1_axi_uart16550_0_0_arch OF design_1_axi_uart16550_0_0 IS
       s_axi_bresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_bvalid : OUT STD_LOGIC;
       s_axi_bready : IN STD_LOGIC;
-      s_axi_araddr : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
+      s_axi_araddr : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
       s_axi_arvalid : IN STD_LOGIC;
       s_axi_arready : OUT STD_LOGIC;
       s_axi_rdata : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
       s_axi_rresp : OUT STD_LOGIC_VECTOR(1 DOWNTO 0);
       s_axi_rvalid : OUT STD_LOGIC;
       s_axi_rready : IN STD_LOGIC;
-      baudoutn : OUT STD_LOGIC;
-      ctsn : IN STD_LOGIC;
-      dcdn : IN STD_LOGIC;
-      ddis : OUT STD_LOGIC;
-      dsrn : IN STD_LOGIC;
-      dtrn : OUT STD_LOGIC;
-      out1n : OUT STD_LOGIC;
-      out2n : OUT STD_LOGIC;
-      rclk : IN STD_LOGIC;
-      rin : IN STD_LOGIC;
-      rtsn : OUT STD_LOGIC;
-      rxrdyn : OUT STD_LOGIC;
-      sin : IN STD_LOGIC;
-      sout : OUT STD_LOGIC;
-      txrdyn : OUT STD_LOGIC;
-      xin : IN STD_LOGIC;
-      xout : OUT STD_LOGIC
+      rx : IN STD_LOGIC;
+      tx : OUT STD_LOGIC
     );
-  END COMPONENT axi_uart16550;
-  ATTRIBUTE X_CORE_INFO : STRING;
-  ATTRIBUTE X_CORE_INFO OF design_1_axi_uart16550_0_0_arch: ARCHITECTURE IS "axi_uart16550,Vivado 2018.3";
-  ATTRIBUTE CHECK_LICENSE_TYPE : STRING;
-  ATTRIBUTE CHECK_LICENSE_TYPE OF design_1_axi_uart16550_0_0_arch : ARCHITECTURE IS "design_1_axi_uart16550_0_0,axi_uart16550,{}";
-  ATTRIBUTE CORE_GENERATION_INFO : STRING;
-  ATTRIBUTE CORE_GENERATION_INFO OF design_1_axi_uart16550_0_0_arch: ARCHITECTURE IS "design_1_axi_uart16550_0_0,axi_uart16550,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=axi_uart16550,x_ipVersion=2.0,x_ipCoreRevision=20,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_FAMILY=kintexu,C_S_AXI_ACLK_FREQ_HZ=300000000,C_S_AXI_ADDR_WIDTH=13,C_S_AXI_DATA_WIDTH=32,C_IS_A_16550=1,C_HAS_EXTERNAL_XIN=0,C_HAS_EXTERNAL_RCLK=0,C_EXTERNAL_XIN_CLK_HZ=25000000}";
+  END COMPONENT axi_uartlite;
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
-  ATTRIBUTE X_INTERFACE_INFO OF txrdyn: SIGNAL IS "xilinx.com:interface:uart:1.0 UART TXRDYn";
-  ATTRIBUTE X_INTERFACE_INFO OF sout: SIGNAL IS "xilinx.com:interface:uart:1.0 UART TxD";
-  ATTRIBUTE X_INTERFACE_INFO OF sin: SIGNAL IS "xilinx.com:interface:uart:1.0 UART RxD";
-  ATTRIBUTE X_INTERFACE_INFO OF rxrdyn: SIGNAL IS "xilinx.com:interface:uart:1.0 UART RXRDYn";
-  ATTRIBUTE X_INTERFACE_INFO OF rtsn: SIGNAL IS "xilinx.com:interface:uart:1.0 UART RTSn";
-  ATTRIBUTE X_INTERFACE_INFO OF rin: SIGNAL IS "xilinx.com:interface:uart:1.0 UART RI";
-  ATTRIBUTE X_INTERFACE_INFO OF out2n: SIGNAL IS "xilinx.com:interface:uart:1.0 UART OUT2n";
-  ATTRIBUTE X_INTERFACE_INFO OF out1n: SIGNAL IS "xilinx.com:interface:uart:1.0 UART OUT1n";
-  ATTRIBUTE X_INTERFACE_INFO OF dtrn: SIGNAL IS "xilinx.com:interface:uart:1.0 UART DTRn";
-  ATTRIBUTE X_INTERFACE_INFO OF dsrn: SIGNAL IS "xilinx.com:interface:uart:1.0 UART DSRn";
-  ATTRIBUTE X_INTERFACE_INFO OF ddis: SIGNAL IS "xilinx.com:interface:uart:1.0 UART DDIS";
-  ATTRIBUTE X_INTERFACE_INFO OF dcdn: SIGNAL IS "xilinx.com:interface:uart:1.0 UART DCDn";
-  ATTRIBUTE X_INTERFACE_INFO OF ctsn: SIGNAL IS "xilinx.com:interface:uart:1.0 UART CTSn";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF baudoutn: SIGNAL IS "XIL_INTERFACENAME UART, BOARD.ASSOCIATED_PARAM UART_BOARD_INTERFACE";
-  ATTRIBUTE X_INTERFACE_INFO OF baudoutn: SIGNAL IS "xilinx.com:interface:uart:1.0 UART BAUDOUTn";
+  ATTRIBUTE X_INTERFACE_INFO OF tx: SIGNAL IS "xilinx.com:interface:uart:1.0 UART TxD";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF rx: SIGNAL IS "XIL_INTERFACENAME UART, BOARD.ASSOCIATED_PARAM UARTLITE_BOARD_INTERFACE";
+  ATTRIBUTE X_INTERFACE_INFO OF rx: SIGNAL IS "xilinx.com:interface:uart:1.0 UART RxD";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI RREADY";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI RVALID";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_rresp: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI RRESP";
@@ -190,32 +143,31 @@ ARCHITECTURE design_1_axi_uart16550_0_0_arch OF design_1_axi_uart16550_0_0 IS
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_wdata: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI WDATA";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_awready: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI AWREADY";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_awvalid: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI AWVALID";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axi_awaddr: SIGNAL IS "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 300000000, ID_WIDTH 0, ADDR_WIDTH 13, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, NUM_READ_THREADS 1, NUM_W" & 
-"RITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF s_axi_awaddr: SIGNAL IS "XIL_INTERFACENAME S_AXI, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 300000000, ID_WIDTH 0, ADDR_WIDTH 4, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, NUM_READ_THREADS 1, NUM_WR" & 
+"ITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_awaddr: SIGNAL IS "xilinx.com:interface:aximm:1.0 S_AXI AWADDR";
-  ATTRIBUTE X_INTERFACE_PARAMETER OF ip2intc_irpt: SIGNAL IS "XIL_INTERFACENAME INTERRUPT, SENSITIVITY LEVEL_HIGH, PortWidth 1";
-  ATTRIBUTE X_INTERFACE_INFO OF ip2intc_irpt: SIGNAL IS "xilinx.com:signal:interrupt:1.0 INTERRUPT INTERRUPT";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF interrupt: SIGNAL IS "XIL_INTERFACENAME INTERRUPT, SENSITIVITY EDGE_RISING, PortWidth 1";
+  ATTRIBUTE X_INTERFACE_INFO OF interrupt: SIGNAL IS "xilinx.com:signal:interrupt:1.0 INTERRUPT INTERRUPT";
   ATTRIBUTE X_INTERFACE_PARAMETER OF s_axi_aresetn: SIGNAL IS "XIL_INTERFACENAME ARESETN, POLARITY ACTIVE_LOW, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_aresetn: SIGNAL IS "xilinx.com:signal:reset:1.0 ARESETN RST";
   ATTRIBUTE X_INTERFACE_PARAMETER OF s_axi_aclk: SIGNAL IS "XIL_INTERFACENAME ACLK, ASSOCIATED_BUSIF S_AXI, ASSOCIATED_RESET s_axi_aresetn, FREQ_HZ 300000000, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF s_axi_aclk: SIGNAL IS "xilinx.com:signal:clock:1.0 ACLK CLK";
 BEGIN
-  U0 : axi_uart16550
+  U0 : axi_uartlite
     GENERIC MAP (
       C_FAMILY => "kintexu",
       C_S_AXI_ACLK_FREQ_HZ => 300000000,
-      C_S_AXI_ADDR_WIDTH => 13,
+      C_S_AXI_ADDR_WIDTH => 4,
       C_S_AXI_DATA_WIDTH => 32,
-      C_IS_A_16550 => 1,
-      C_HAS_EXTERNAL_XIN => 0,
-      C_HAS_EXTERNAL_RCLK => 0,
-      C_EXTERNAL_XIN_CLK_HZ => 25000000
+      C_BAUDRATE => 9600,
+      C_DATA_BITS => 8,
+      C_USE_PARITY => 0,
+      C_ODD_PARITY => 0
     )
     PORT MAP (
       s_axi_aclk => s_axi_aclk,
       s_axi_aresetn => s_axi_aresetn,
-      ip2intc_irpt => ip2intc_irpt,
-      freeze => freeze,
+      interrupt => interrupt,
       s_axi_awaddr => s_axi_awaddr,
       s_axi_awvalid => s_axi_awvalid,
       s_axi_awready => s_axi_awready,
@@ -233,21 +185,7 @@ BEGIN
       s_axi_rresp => s_axi_rresp,
       s_axi_rvalid => s_axi_rvalid,
       s_axi_rready => s_axi_rready,
-      baudoutn => baudoutn,
-      ctsn => ctsn,
-      dcdn => dcdn,
-      ddis => ddis,
-      dsrn => dsrn,
-      dtrn => dtrn,
-      out1n => out1n,
-      out2n => out2n,
-      rclk => '0',
-      rin => rin,
-      rtsn => rtsn,
-      rxrdyn => rxrdyn,
-      sin => sin,
-      sout => sout,
-      txrdyn => txrdyn,
-      xin => '0'
+      rx => rx,
+      tx => tx
     );
-END design_1_axi_uart16550_0_0_arch;
+END design_1_axi_uartlite_0_0_arch;

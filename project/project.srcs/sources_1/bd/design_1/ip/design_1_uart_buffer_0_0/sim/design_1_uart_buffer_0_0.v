@@ -89,13 +89,13 @@ input wire wenable;
 output wire wdone;
 input wire [31 : 0] wdata;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart ARADDR" *)
-output wire [12 : 0] uart_araddr;
+output wire [31 : 0] uart_araddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart ARREADY" *)
 input wire uart_arready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart ARVALID" *)
 output wire uart_arvalid;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart AWADDR" *)
-output wire [12 : 0] uart_awaddr;
+output wire [31 : 0] uart_awaddr;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart AWREADY" *)
 input wire uart_awready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart AWVALID" *)
@@ -120,7 +120,7 @@ output wire [31 : 0] uart_wdata;
 input wire uart_wready;
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart WSTRB" *)
 output wire [3 : 0] uart_wstrb;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME uart, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 300000000, ID_WIDTH 0, ADDR_WIDTH 13, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, NUM_READ_THREADS 1, NUM_WR\
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME uart, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 300000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, NUM_READ_THREADS 1, NUM_WR\
 ITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart WVALID" *)
 output wire uart_wvalid;

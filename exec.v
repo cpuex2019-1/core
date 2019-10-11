@@ -90,6 +90,7 @@ module exec(
 			wvalid <= 1'b0;
 		end else begin
 			wselector <= 4'b0000;
+			done <= 1'b0;
 			if(enable) begin
 				done <= 1'b1;
 				if(exec_command == 6'b000000) begin

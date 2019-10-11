@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Tue Oct  8 17:30:59 2019
+//Date        : Fri Oct 11 12:11:10 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=12,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=7,da_bram_cntlr_cnt=1,da_clkrst_cnt=4,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=12,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=7,da_bram_cntlr_cnt=1,da_clkrst_cnt=5,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (SW7,
     ddr4_sdram_act_n,
@@ -53,20 +53,13 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart TxD" *) output rs232_uart_txd;
 
   wire SW7_1;
-  wire [14:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
+  wire [11:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
-  wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DIN;
   wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
   wire axi_bram_ctrl_0_BRAM_PORTA_EN;
   wire axi_bram_ctrl_0_BRAM_PORTA_RST;
-  wire [3:0]axi_bram_ctrl_0_BRAM_PORTA_WE;
-  wire axi_bram_ctrl_0_s_axi_arready;
-  wire [31:0]axi_bram_ctrl_0_s_axi_rdata;
-  wire axi_bram_ctrl_0_s_axi_rlast;
-  wire [1:0]axi_bram_ctrl_0_s_axi_rresp;
-  wire axi_bram_ctrl_0_s_axi_rvalid;
-  wire axi_uart16550_0_UART_RxD;
-  wire axi_uart16550_0_UART_TxD;
+  wire axi_uartlite_0_UART_RxD;
+  wire axi_uartlite_0_UART_TxD;
   wire [31:0]core_wrapper_0_pc;
   wire [31:0]core_wrapper_0_reg_out1;
   wire [31:0]core_wrapper_0_reg_out2;
@@ -84,17 +77,6 @@ module design_1
   wire [7:0]data_memory_C0_DDR4_DQS_T;
   wire [0:0]data_memory_C0_DDR4_ODT;
   wire data_memory_C0_DDR4_RESET_N;
-  wire data_memory_c0_ddr4_s_axi_arready;
-  wire data_memory_c0_ddr4_s_axi_awready;
-  wire [3:0]data_memory_c0_ddr4_s_axi_bid;
-  wire [1:0]data_memory_c0_ddr4_s_axi_bresp;
-  wire data_memory_c0_ddr4_s_axi_bvalid;
-  wire [511:0]data_memory_c0_ddr4_s_axi_rdata;
-  wire [3:0]data_memory_c0_ddr4_s_axi_rid;
-  wire data_memory_c0_ddr4_s_axi_rlast;
-  wire [1:0]data_memory_c0_ddr4_s_axi_rresp;
-  wire data_memory_c0_ddr4_s_axi_rvalid;
-  wire data_memory_c0_ddr4_s_axi_wready;
   wire data_memory_c0_ddr4_ui_clk;
   wire data_memory_c0_ddr4_ui_clk_sync_rst;
   wire [31:0]decode_0_addr;
@@ -111,57 +93,75 @@ module design_1
   wire [4:0]decode_0_sh;
   wire default_sysclk_300_1_CLK_N;
   wire default_sysclk_300_1_CLK_P;
-  wire [30:0]exec_0_araddr;
-  wire [1:0]exec_0_arburst;
-  wire [3:0]exec_0_arcache;
-  wire [3:0]exec_0_arid;
-  wire [7:0]exec_0_arlen;
-  wire exec_0_arlock;
-  wire [2:0]exec_0_arprot;
-  wire [3:0]exec_0_arqos;
-  wire [2:0]exec_0_arsize;
-  wire exec_0_arvalid;
-  wire [30:0]exec_0_awaddr;
-  wire [1:0]exec_0_awburst;
-  wire [3:0]exec_0_awcache;
-  wire [3:0]exec_0_awid;
-  wire [7:0]exec_0_awlen;
-  wire exec_0_awlock;
-  wire [2:0]exec_0_awprot;
-  wire [3:0]exec_0_awqos;
-  wire [2:0]exec_0_awsize;
-  wire exec_0_awvalid;
-  wire exec_0_bready;
   wire [31:0]exec_0_data_out;
   wire exec_0_done;
+  wire [30:0]exec_0_interface_aximm_ARADDR;
+  wire [1:0]exec_0_interface_aximm_ARBURST;
+  wire [3:0]exec_0_interface_aximm_ARCACHE;
+  wire [3:0]exec_0_interface_aximm_ARID;
+  wire [7:0]exec_0_interface_aximm_ARLEN;
+  wire exec_0_interface_aximm_ARLOCK;
+  wire [2:0]exec_0_interface_aximm_ARPROT;
+  wire [3:0]exec_0_interface_aximm_ARQOS;
+  wire exec_0_interface_aximm_ARREADY;
+  wire [2:0]exec_0_interface_aximm_ARSIZE;
+  wire exec_0_interface_aximm_ARVALID;
+  wire [30:0]exec_0_interface_aximm_AWADDR;
+  wire [1:0]exec_0_interface_aximm_AWBURST;
+  wire [3:0]exec_0_interface_aximm_AWCACHE;
+  wire [3:0]exec_0_interface_aximm_AWID;
+  wire [7:0]exec_0_interface_aximm_AWLEN;
+  wire exec_0_interface_aximm_AWLOCK;
+  wire [2:0]exec_0_interface_aximm_AWPROT;
+  wire [3:0]exec_0_interface_aximm_AWQOS;
+  wire exec_0_interface_aximm_AWREADY;
+  wire [2:0]exec_0_interface_aximm_AWSIZE;
+  wire exec_0_interface_aximm_AWVALID;
+  wire [3:0]exec_0_interface_aximm_BID;
+  wire exec_0_interface_aximm_BREADY;
+  wire [1:0]exec_0_interface_aximm_BRESP;
+  wire exec_0_interface_aximm_BVALID;
+  wire [511:0]exec_0_interface_aximm_RDATA;
+  wire [3:0]exec_0_interface_aximm_RID;
+  wire exec_0_interface_aximm_RLAST;
+  wire exec_0_interface_aximm_RREADY;
+  wire [1:0]exec_0_interface_aximm_RRESP;
+  wire exec_0_interface_aximm_RVALID;
+  wire [511:0]exec_0_interface_aximm_WDATA;
+  wire exec_0_interface_aximm_WLAST;
+  wire exec_0_interface_aximm_WREADY;
+  wire [63:0]exec_0_interface_aximm_WSTRB;
+  wire exec_0_interface_aximm_WVALID;
   wire [31:0]exec_0_pc_out;
   wire [4:0]exec_0_rd_out;
-  wire exec_0_rready;
-  wire [511:0]exec_0_wdata;
-  wire exec_0_wlast;
   wire [3:0]exec_0_wselector_out;
-  wire [63:0]exec_0_wstrb;
-  wire exec_0_wvalid;
-  wire [14:0]fetch_0_araddr;
-  wire [1:0]fetch_0_arburst;
-  wire [3:0]fetch_0_arcache;
-  wire [7:0]fetch_0_arlen;
-  wire fetch_0_arlock;
-  wire [2:0]fetch_0_arprot;
-  wire [2:0]fetch_0_arsize;
-  wire fetch_0_arvalid;
   wire [31:0]fetch_0_command;
   wire fetch_0_done;
+  wire [14:0]fetch_0_interface_aximm_ARADDR;
+  wire [1:0]fetch_0_interface_aximm_ARBURST;
+  wire [3:0]fetch_0_interface_aximm_ARCACHE;
+  wire [3:0]fetch_0_interface_aximm_ARID;
+  wire [7:0]fetch_0_interface_aximm_ARLEN;
+  wire fetch_0_interface_aximm_ARLOCK;
+  wire [2:0]fetch_0_interface_aximm_ARPROT;
+  wire fetch_0_interface_aximm_ARREADY;
+  wire [2:0]fetch_0_interface_aximm_ARSIZE;
+  wire fetch_0_interface_aximm_ARVALID;
+  wire [31:0]fetch_0_interface_aximm_RDATA;
+  wire [3:0]fetch_0_interface_aximm_RID;
+  wire fetch_0_interface_aximm_RLAST;
+  wire fetch_0_interface_aximm_RREADY;
+  wire [1:0]fetch_0_interface_aximm_RRESP;
+  wire fetch_0_interface_aximm_RVALID;
   wire [31:0]fetch_0_pc_out;
   wire fetch_0_pcread;
-  wire fetch_0_rready;
   wire reset_1;
   wire [0:0]rst_data_memory_300M_peripheral_aresetn;
   wire uart_buffer_0_rdone;
-  wire [12:0]uart_buffer_0_uart_ARADDR;
+  wire [31:0]uart_buffer_0_uart_ARADDR;
   wire uart_buffer_0_uart_ARREADY;
   wire uart_buffer_0_uart_ARVALID;
-  wire [12:0]uart_buffer_0_uart_AWADDR;
+  wire [31:0]uart_buffer_0_uart_AWADDR;
   wire uart_buffer_0_uart_AWREADY;
   wire uart_buffer_0_uart_AWVALID;
   wire uart_buffer_0_uart_BREADY;
@@ -188,7 +188,7 @@ module design_1
   wire [4:0]write_0_wreg;
 
   assign SW7_1 = SW7;
-  assign axi_uart16550_0_UART_RxD = rs232_uart_rxd;
+  assign axi_uartlite_0_UART_RxD = rs232_uart_rxd;
   assign ddr4_sdram_act_n = data_memory_C0_DDR4_ACT_N;
   assign ddr4_sdram_adr[16:0] = data_memory_C0_DDR4_ADR;
   assign ddr4_sdram_ba[1:0] = data_memory_C0_DDR4_BA;
@@ -202,64 +202,59 @@ module design_1
   assign default_sysclk_300_1_CLK_N = default_sysclk_300_clk_n;
   assign default_sysclk_300_1_CLK_P = default_sysclk_300_clk_p;
   assign reset_1 = reset;
-  assign rs232_uart_txd = axi_uart16550_0_UART_TxD;
+  assign rs232_uart_txd = axi_uartlite_0_UART_TxD;
   design_1_axi_bram_ctrl_0_0 axi_bram_ctrl_0
        (.bram_addr_a(axi_bram_ctrl_0_BRAM_PORTA_ADDR),
         .bram_clk_a(axi_bram_ctrl_0_BRAM_PORTA_CLK),
         .bram_en_a(axi_bram_ctrl_0_BRAM_PORTA_EN),
         .bram_rddata_a(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
         .bram_rst_a(axi_bram_ctrl_0_BRAM_PORTA_RST),
-        .bram_we_a(axi_bram_ctrl_0_BRAM_PORTA_WE),
-        .bram_wrdata_a(axi_bram_ctrl_0_BRAM_PORTA_DIN),
         .s_axi_aclk(data_memory_c0_ddr4_ui_clk),
-        .s_axi_araddr(fetch_0_araddr),
-        .s_axi_arburst(fetch_0_arburst),
-        .s_axi_arcache(fetch_0_arcache),
+        .s_axi_araddr(fetch_0_interface_aximm_ARADDR[11:0]),
+        .s_axi_arburst(fetch_0_interface_aximm_ARBURST),
+        .s_axi_arcache(fetch_0_interface_aximm_ARCACHE),
         .s_axi_aresetn(rst_data_memory_300M_peripheral_aresetn),
-        .s_axi_arlen(fetch_0_arlen),
-        .s_axi_arlock(fetch_0_arlock),
-        .s_axi_arprot(fetch_0_arprot),
-        .s_axi_arready(axi_bram_ctrl_0_s_axi_arready),
-        .s_axi_arsize(fetch_0_arsize),
-        .s_axi_arvalid(fetch_0_arvalid),
-        .s_axi_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi_arid(fetch_0_interface_aximm_ARID),
+        .s_axi_arlen(fetch_0_interface_aximm_ARLEN),
+        .s_axi_arlock(fetch_0_interface_aximm_ARLOCK),
+        .s_axi_arprot(fetch_0_interface_aximm_ARPROT),
+        .s_axi_arready(fetch_0_interface_aximm_ARREADY),
+        .s_axi_arsize(fetch_0_interface_aximm_ARSIZE),
+        .s_axi_arvalid(fetch_0_interface_aximm_ARVALID),
+        .s_axi_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .s_axi_awburst({1'b0,1'b1}),
         .s_axi_awcache({1'b0,1'b0,1'b1,1'b1}),
+        .s_axi_awid({1'b0,1'b0,1'b0,1'b0}),
         .s_axi_awlen({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .s_axi_awlock(1'b0),
         .s_axi_awprot({1'b0,1'b0,1'b0}),
         .s_axi_awsize({1'b0,1'b1,1'b0}),
         .s_axi_awvalid(1'b0),
         .s_axi_bready(1'b0),
-        .s_axi_rdata(axi_bram_ctrl_0_s_axi_rdata),
-        .s_axi_rlast(axi_bram_ctrl_0_s_axi_rlast),
-        .s_axi_rready(fetch_0_rready),
-        .s_axi_rresp(axi_bram_ctrl_0_s_axi_rresp),
-        .s_axi_rvalid(axi_bram_ctrl_0_s_axi_rvalid),
+        .s_axi_rdata(fetch_0_interface_aximm_RDATA),
+        .s_axi_rid(fetch_0_interface_aximm_RID),
+        .s_axi_rlast(fetch_0_interface_aximm_RLAST),
+        .s_axi_rready(fetch_0_interface_aximm_RREADY),
+        .s_axi_rresp(fetch_0_interface_aximm_RRESP),
+        .s_axi_rvalid(fetch_0_interface_aximm_RVALID),
         .s_axi_wdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .s_axi_wlast(1'b0),
         .s_axi_wstrb({1'b1,1'b1,1'b1,1'b1}),
         .s_axi_wvalid(1'b0));
   design_1_axi_bram_ctrl_0_bram_0 axi_bram_ctrl_0_bram
-       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
+       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
         .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
-        .dina(axi_bram_ctrl_0_BRAM_PORTA_DIN),
         .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
         .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
-        .rsta(axi_bram_ctrl_0_BRAM_PORTA_RST),
-        .wea(axi_bram_ctrl_0_BRAM_PORTA_WE));
-  design_1_axi_uart16550_0_0 axi_uart16550_0
-       (.ctsn(1'b1),
-        .dcdn(1'b1),
-        .dsrn(1'b1),
-        .freeze(1'b0),
-        .rin(1'b1),
+        .rsta(axi_bram_ctrl_0_BRAM_PORTA_RST));
+  design_1_axi_uartlite_0_0 axi_uartlite_0
+       (.rx(axi_uartlite_0_UART_RxD),
         .s_axi_aclk(data_memory_c0_ddr4_ui_clk),
-        .s_axi_araddr(uart_buffer_0_uart_ARADDR),
+        .s_axi_araddr(uart_buffer_0_uart_ARADDR[3:0]),
         .s_axi_aresetn(rst_data_memory_300M_peripheral_aresetn),
         .s_axi_arready(uart_buffer_0_uart_ARREADY),
         .s_axi_arvalid(uart_buffer_0_uart_ARVALID),
-        .s_axi_awaddr(uart_buffer_0_uart_AWADDR),
+        .s_axi_awaddr(uart_buffer_0_uart_AWADDR[3:0]),
         .s_axi_awready(uart_buffer_0_uart_AWREADY),
         .s_axi_awvalid(uart_buffer_0_uart_AWVALID),
         .s_axi_bready(uart_buffer_0_uart_BREADY),
@@ -273,8 +268,7 @@ module design_1
         .s_axi_wready(uart_buffer_0_uart_WREADY),
         .s_axi_wstrb(uart_buffer_0_uart_WSTRB),
         .s_axi_wvalid(uart_buffer_0_uart_WVALID),
-        .sin(axi_uart16550_0_UART_RxD),
-        .sout(axi_uart16550_0_UART_TxD));
+        .tx(axi_uartlite_0_UART_TxD));
   design_1_core_wrapper_0_0 core_wrapper_0
        (.clk(data_memory_c0_ddr4_ui_clk),
         .next_pc(write_0_next_pc),
@@ -307,43 +301,43 @@ module design_1
         .c0_ddr4_dqs_t(ddr4_sdram_dqs_t[7:0]),
         .c0_ddr4_odt(data_memory_C0_DDR4_ODT),
         .c0_ddr4_reset_n(data_memory_C0_DDR4_RESET_N),
-        .c0_ddr4_s_axi_araddr(exec_0_araddr),
-        .c0_ddr4_s_axi_arburst(exec_0_arburst),
-        .c0_ddr4_s_axi_arcache(exec_0_arcache),
-        .c0_ddr4_s_axi_arid(exec_0_arid),
-        .c0_ddr4_s_axi_arlen(exec_0_arlen),
-        .c0_ddr4_s_axi_arlock(exec_0_arlock),
-        .c0_ddr4_s_axi_arprot(exec_0_arprot),
-        .c0_ddr4_s_axi_arqos(exec_0_arqos),
-        .c0_ddr4_s_axi_arready(data_memory_c0_ddr4_s_axi_arready),
-        .c0_ddr4_s_axi_arsize(exec_0_arsize),
-        .c0_ddr4_s_axi_arvalid(exec_0_arvalid),
-        .c0_ddr4_s_axi_awaddr(exec_0_awaddr),
-        .c0_ddr4_s_axi_awburst(exec_0_awburst),
-        .c0_ddr4_s_axi_awcache(exec_0_awcache),
-        .c0_ddr4_s_axi_awid(exec_0_awid),
-        .c0_ddr4_s_axi_awlen(exec_0_awlen),
-        .c0_ddr4_s_axi_awlock(exec_0_awlock),
-        .c0_ddr4_s_axi_awprot(exec_0_awprot),
-        .c0_ddr4_s_axi_awqos(exec_0_awqos),
-        .c0_ddr4_s_axi_awready(data_memory_c0_ddr4_s_axi_awready),
-        .c0_ddr4_s_axi_awsize(exec_0_awsize),
-        .c0_ddr4_s_axi_awvalid(exec_0_awvalid),
-        .c0_ddr4_s_axi_bid(data_memory_c0_ddr4_s_axi_bid),
-        .c0_ddr4_s_axi_bready(exec_0_bready),
-        .c0_ddr4_s_axi_bresp(data_memory_c0_ddr4_s_axi_bresp),
-        .c0_ddr4_s_axi_bvalid(data_memory_c0_ddr4_s_axi_bvalid),
-        .c0_ddr4_s_axi_rdata(data_memory_c0_ddr4_s_axi_rdata),
-        .c0_ddr4_s_axi_rid(data_memory_c0_ddr4_s_axi_rid),
-        .c0_ddr4_s_axi_rlast(data_memory_c0_ddr4_s_axi_rlast),
-        .c0_ddr4_s_axi_rready(exec_0_rready),
-        .c0_ddr4_s_axi_rresp(data_memory_c0_ddr4_s_axi_rresp),
-        .c0_ddr4_s_axi_rvalid(data_memory_c0_ddr4_s_axi_rvalid),
-        .c0_ddr4_s_axi_wdata(exec_0_wdata),
-        .c0_ddr4_s_axi_wlast(exec_0_wlast),
-        .c0_ddr4_s_axi_wready(data_memory_c0_ddr4_s_axi_wready),
-        .c0_ddr4_s_axi_wstrb(exec_0_wstrb),
-        .c0_ddr4_s_axi_wvalid(exec_0_wvalid),
+        .c0_ddr4_s_axi_araddr(exec_0_interface_aximm_ARADDR),
+        .c0_ddr4_s_axi_arburst(exec_0_interface_aximm_ARBURST),
+        .c0_ddr4_s_axi_arcache(exec_0_interface_aximm_ARCACHE),
+        .c0_ddr4_s_axi_arid(exec_0_interface_aximm_ARID),
+        .c0_ddr4_s_axi_arlen(exec_0_interface_aximm_ARLEN),
+        .c0_ddr4_s_axi_arlock(exec_0_interface_aximm_ARLOCK),
+        .c0_ddr4_s_axi_arprot(exec_0_interface_aximm_ARPROT),
+        .c0_ddr4_s_axi_arqos(exec_0_interface_aximm_ARQOS),
+        .c0_ddr4_s_axi_arready(exec_0_interface_aximm_ARREADY),
+        .c0_ddr4_s_axi_arsize(exec_0_interface_aximm_ARSIZE),
+        .c0_ddr4_s_axi_arvalid(exec_0_interface_aximm_ARVALID),
+        .c0_ddr4_s_axi_awaddr(exec_0_interface_aximm_AWADDR),
+        .c0_ddr4_s_axi_awburst(exec_0_interface_aximm_AWBURST),
+        .c0_ddr4_s_axi_awcache(exec_0_interface_aximm_AWCACHE),
+        .c0_ddr4_s_axi_awid(exec_0_interface_aximm_AWID),
+        .c0_ddr4_s_axi_awlen(exec_0_interface_aximm_AWLEN),
+        .c0_ddr4_s_axi_awlock(exec_0_interface_aximm_AWLOCK),
+        .c0_ddr4_s_axi_awprot(exec_0_interface_aximm_AWPROT),
+        .c0_ddr4_s_axi_awqos(exec_0_interface_aximm_AWQOS),
+        .c0_ddr4_s_axi_awready(exec_0_interface_aximm_AWREADY),
+        .c0_ddr4_s_axi_awsize(exec_0_interface_aximm_AWSIZE),
+        .c0_ddr4_s_axi_awvalid(exec_0_interface_aximm_AWVALID),
+        .c0_ddr4_s_axi_bid(exec_0_interface_aximm_BID),
+        .c0_ddr4_s_axi_bready(exec_0_interface_aximm_BREADY),
+        .c0_ddr4_s_axi_bresp(exec_0_interface_aximm_BRESP),
+        .c0_ddr4_s_axi_bvalid(exec_0_interface_aximm_BVALID),
+        .c0_ddr4_s_axi_rdata(exec_0_interface_aximm_RDATA),
+        .c0_ddr4_s_axi_rid(exec_0_interface_aximm_RID),
+        .c0_ddr4_s_axi_rlast(exec_0_interface_aximm_RLAST),
+        .c0_ddr4_s_axi_rready(exec_0_interface_aximm_RREADY),
+        .c0_ddr4_s_axi_rresp(exec_0_interface_aximm_RRESP),
+        .c0_ddr4_s_axi_rvalid(exec_0_interface_aximm_RVALID),
+        .c0_ddr4_s_axi_wdata(exec_0_interface_aximm_WDATA),
+        .c0_ddr4_s_axi_wlast(exec_0_interface_aximm_WLAST),
+        .c0_ddr4_s_axi_wready(exec_0_interface_aximm_WREADY),
+        .c0_ddr4_s_axi_wstrb(exec_0_interface_aximm_WSTRB),
+        .c0_ddr4_s_axi_wvalid(exec_0_interface_aximm_WVALID),
         .c0_ddr4_ui_clk(data_memory_c0_ddr4_ui_clk),
         .c0_ddr4_ui_clk_sync_rst(data_memory_c0_ddr4_ui_clk_sync_rst),
         .c0_sys_clk_n(default_sysclk_300_1_CLK_N),
@@ -372,32 +366,32 @@ module design_1
   design_1_exec_0_0 exec_0
        (.addr(decode_0_addr),
         .alu_command(decode_0_alu_command),
-        .araddr(exec_0_araddr),
-        .arburst(exec_0_arburst),
-        .arcache(exec_0_arcache),
-        .arid(exec_0_arid),
-        .arlen(exec_0_arlen),
-        .arlock(exec_0_arlock),
-        .arprot(exec_0_arprot),
-        .arqos(exec_0_arqos),
-        .arready(data_memory_c0_ddr4_s_axi_arready),
-        .arsize(exec_0_arsize),
-        .arvalid(exec_0_arvalid),
-        .awaddr(exec_0_awaddr),
-        .awburst(exec_0_awburst),
-        .awcache(exec_0_awcache),
-        .awid(exec_0_awid),
-        .awlen(exec_0_awlen),
-        .awlock(exec_0_awlock),
-        .awprot(exec_0_awprot),
-        .awqos(exec_0_awqos),
-        .awready(data_memory_c0_ddr4_s_axi_awready),
-        .awsize(exec_0_awsize),
-        .awvalid(exec_0_awvalid),
-        .bid(data_memory_c0_ddr4_s_axi_bid),
-        .bready(exec_0_bready),
-        .bresp(data_memory_c0_ddr4_s_axi_bresp),
-        .bvalid(data_memory_c0_ddr4_s_axi_bvalid),
+        .araddr(exec_0_interface_aximm_ARADDR),
+        .arburst(exec_0_interface_aximm_ARBURST),
+        .arcache(exec_0_interface_aximm_ARCACHE),
+        .arid(exec_0_interface_aximm_ARID),
+        .arlen(exec_0_interface_aximm_ARLEN),
+        .arlock(exec_0_interface_aximm_ARLOCK),
+        .arprot(exec_0_interface_aximm_ARPROT),
+        .arqos(exec_0_interface_aximm_ARQOS),
+        .arready(exec_0_interface_aximm_ARREADY),
+        .arsize(exec_0_interface_aximm_ARSIZE),
+        .arvalid(exec_0_interface_aximm_ARVALID),
+        .awaddr(exec_0_interface_aximm_AWADDR),
+        .awburst(exec_0_interface_aximm_AWBURST),
+        .awcache(exec_0_interface_aximm_AWCACHE),
+        .awid(exec_0_interface_aximm_AWID),
+        .awlen(exec_0_interface_aximm_AWLEN),
+        .awlock(exec_0_interface_aximm_AWLOCK),
+        .awprot(exec_0_interface_aximm_AWPROT),
+        .awqos(exec_0_interface_aximm_AWQOS),
+        .awready(exec_0_interface_aximm_AWREADY),
+        .awsize(exec_0_interface_aximm_AWSIZE),
+        .awvalid(exec_0_interface_aximm_AWVALID),
+        .bid(exec_0_interface_aximm_BID),
+        .bready(exec_0_interface_aximm_BREADY),
+        .bresp(exec_0_interface_aximm_BRESP),
+        .bvalid(exec_0_interface_aximm_BVALID),
         .clk(data_memory_c0_ddr4_ui_clk),
         .data(exec_0_data_out),
         .done(exec_0_done),
@@ -407,32 +401,33 @@ module design_1
         .pc_out(exec_0_pc_out),
         .rd_in(decode_0_rd),
         .rd_out(exec_0_rd_out),
-        .rdata(data_memory_c0_ddr4_s_axi_rdata),
-        .rid(data_memory_c0_ddr4_s_axi_rid),
-        .rlast(data_memory_c0_ddr4_s_axi_rlast),
-        .rready(exec_0_rready),
-        .rresp(data_memory_c0_ddr4_s_axi_rresp),
+        .rdata(exec_0_interface_aximm_RDATA),
+        .rid(exec_0_interface_aximm_RID),
+        .rlast(exec_0_interface_aximm_RLAST),
+        .rready(exec_0_interface_aximm_RREADY),
+        .rresp(exec_0_interface_aximm_RRESP),
         .rs(decode_0_rs),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .rt(decode_0_rt),
-        .rvalid(data_memory_c0_ddr4_s_axi_rvalid),
+        .rvalid(exec_0_interface_aximm_RVALID),
         .sh(decode_0_sh),
-        .wdata(exec_0_wdata),
-        .wlast(exec_0_wlast),
-        .wready(data_memory_c0_ddr4_s_axi_wready),
+        .wdata(exec_0_interface_aximm_WDATA),
+        .wlast(exec_0_interface_aximm_WLAST),
+        .wready(exec_0_interface_aximm_WREADY),
         .wselector(exec_0_wselector_out),
-        .wstrb(exec_0_wstrb),
-        .wvalid(exec_0_wvalid));
+        .wstrb(exec_0_interface_aximm_WSTRB),
+        .wvalid(exec_0_interface_aximm_WVALID));
   design_1_fetch_0_0 fetch_0
-       (.araddr(fetch_0_araddr),
-        .arburst(fetch_0_arburst),
-        .arcache(fetch_0_arcache),
-        .arlen(fetch_0_arlen),
-        .arlock(fetch_0_arlock),
-        .arprot(fetch_0_arprot),
-        .arready(axi_bram_ctrl_0_s_axi_arready),
-        .arsize(fetch_0_arsize),
-        .arvalid(fetch_0_arvalid),
+       (.araddr(fetch_0_interface_aximm_ARADDR),
+        .arburst(fetch_0_interface_aximm_ARBURST),
+        .arcache(fetch_0_interface_aximm_ARCACHE),
+        .arid(fetch_0_interface_aximm_ARID),
+        .arlen(fetch_0_interface_aximm_ARLEN),
+        .arlock(fetch_0_interface_aximm_ARLOCK),
+        .arprot(fetch_0_interface_aximm_ARPROT),
+        .arready(fetch_0_interface_aximm_ARREADY),
+        .arsize(fetch_0_interface_aximm_ARSIZE),
+        .arvalid(fetch_0_interface_aximm_ARVALID),
         .clk(data_memory_c0_ddr4_ui_clk),
         .command(fetch_0_command),
         .done(fetch_0_done),
@@ -440,13 +435,13 @@ module design_1
         .pc(core_wrapper_0_pc),
         .pc_out(fetch_0_pc_out),
         .pcread(fetch_0_pcread),
-        .rdata(axi_bram_ctrl_0_s_axi_rdata),
-        .rid({1'b0,1'b0,1'b0,1'b0}),
-        .rlast(axi_bram_ctrl_0_s_axi_rlast),
-        .rready(fetch_0_rready),
-        .rresp(axi_bram_ctrl_0_s_axi_rresp),
+        .rdata(fetch_0_interface_aximm_RDATA),
+        .rid(fetch_0_interface_aximm_RID),
+        .rlast(fetch_0_interface_aximm_RLAST),
+        .rready(fetch_0_interface_aximm_RREADY),
+        .rresp(fetch_0_interface_aximm_RRESP),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
-        .rvalid(axi_bram_ctrl_0_s_axi_rvalid));
+        .rvalid(fetch_0_interface_aximm_RVALID));
   design_1_rst_data_memory_300M_0 rst_data_memory_300M
        (.aux_reset_in(1'b1),
         .dcm_locked(1'b1),
