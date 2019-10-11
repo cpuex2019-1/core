@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Fri Oct 11 12:11:10 2019
+//Date        : Fri Oct 11 18:49:34 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1_wrapper.bd
 //Design      : design_1_wrapper
@@ -10,7 +10,7 @@
 `timescale 1 ps / 1 ps
 
 module design_1_wrapper
-   (SW7,
+   (LED,
     ddr4_sdram_act_n,
     ddr4_sdram_adr,
     ddr4_sdram_ba,
@@ -30,7 +30,7 @@ module design_1_wrapper
     reset,
     rs232_uart_rxd,
     rs232_uart_txd);
-  input SW7;
+  output [7:0]LED;
   output ddr4_sdram_act_n;
   output [16:0]ddr4_sdram_adr;
   output [1:0]ddr4_sdram_ba;
@@ -51,7 +51,7 @@ module design_1_wrapper
   input rs232_uart_rxd;
   output rs232_uart_txd;
 
-  wire SW7;
+  wire [7:0]LED;
   wire ddr4_sdram_act_n;
   wire [16:0]ddr4_sdram_adr;
   wire [1:0]ddr4_sdram_ba;
@@ -73,7 +73,7 @@ module design_1_wrapper
   wire rs232_uart_txd;
 
   design_1 design_1_i
-       (.SW7(SW7),
+       (.LED(LED),
         .ddr4_sdram_act_n(ddr4_sdram_act_n),
         .ddr4_sdram_adr(ddr4_sdram_adr),
         .ddr4_sdram_ba(ddr4_sdram_ba),

@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Fri Oct 11 12:11:10 2019
+//Date        : Fri Oct 11 18:49:33 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,9 +9,9 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=12,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=7,da_bram_cntlr_cnt=1,da_clkrst_cnt=5,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=12,numReposBlks=12,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=7,da_bram_cntlr_cnt=1,da_clkrst_cnt=11,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
-   (SW7,
+   (LED,
     ddr4_sdram_act_n,
     ddr4_sdram_adr,
     ddr4_sdram_ba,
@@ -31,7 +31,7 @@ module design_1
     reset,
     rs232_uart_rxd,
     rs232_uart_txd);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.SW7 DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.SW7, LAYERED_METADATA undef" *) input SW7;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.LED DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.LED, LAYERED_METADATA undef" *) output [7:0]LED;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_sdram ACT_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME ddr4_sdram, AXI_ARBITRATION_SCHEME RD_PRI_REG, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 17, CAS_WRITE_LATENCY 12, CS_ENABLED true, CUSTOM_PARTS no_file_loaded, DATA_MASK_ENABLED DM_NO_DBI, DATA_WIDTH 64, MEMORY_PART EDY4016AABG-DR-F, MEMORY_TYPE Components, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 833" *) output ddr4_sdram_act_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_sdram ADR" *) output [16:0]ddr4_sdram_adr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddr4:1.0 ddr4_sdram BA" *) output [1:0]ddr4_sdram_ba;
@@ -52,7 +52,6 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart RxD" *) input rs232_uart_rxd;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart TxD" *) output rs232_uart_txd;
 
-  wire SW7_1;
   wire [11:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
@@ -176,7 +175,6 @@ module design_1
   wire [3:0]uart_buffer_0_uart_WSTRB;
   wire uart_buffer_0_uart_WVALID;
   wire uart_buffer_0_wdone;
-  wire [0:0]util_vector_logic_0_Res;
   wire write_0_done;
   wire write_0_fmode;
   wire [31:0]write_0_next_pc;
@@ -186,8 +184,9 @@ module design_1
   wire [31:0]write_0_wdata;
   wire write_0_wenable;
   wire [4:0]write_0_wreg;
+  wire [7:0]xlslice_0_Dout;
 
-  assign SW7_1 = SW7;
+  assign LED[7:0] = xlslice_0_Dout;
   assign axi_uartlite_0_UART_RxD = rs232_uart_rxd;
   assign ddr4_sdram_act_n = data_memory_C0_DDR4_ACT_N;
   assign ddr4_sdram_adr[16:0] = data_memory_C0_DDR4_ADR;
@@ -431,7 +430,7 @@ module design_1
         .clk(data_memory_c0_ddr4_ui_clk),
         .command(fetch_0_command),
         .done(fetch_0_done),
-        .enable(util_vector_logic_0_Res),
+        .enable(write_0_done),
         .pc(core_wrapper_0_pc),
         .pc_out(fetch_0_pc_out),
         .pcread(fetch_0_pcread),
@@ -474,10 +473,6 @@ module design_1
         .wdata(write_0_uart_wdata),
         .wdone(uart_buffer_0_wdone),
         .wenable(write_0_uart_wenable));
-  design_1_util_vector_logic_0_1 util_vector_logic_0
-       (.Op1(SW7_1),
-        .Op2(write_0_done),
-        .Res(util_vector_logic_0_Res));
   design_1_write_0_0 write_0
        (.clk(data_memory_c0_ddr4_ui_clk),
         .data(exec_0_data_out),
@@ -496,4 +491,7 @@ module design_1
         .wenable(write_0_wenable),
         .wreg(write_0_wreg),
         .wselector(exec_0_wselector_out));
+  design_1_xlslice_0_0 xlslice_0
+       (.Din(fetch_0_pc_out),
+        .Dout(xlslice_0_Dout));
 endmodule

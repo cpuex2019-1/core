@@ -47,28 +47,26 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:ip:util_vector_logic:2.0
+// IP VLNV: xilinx.com:ip:xlslice:1.0
 // IP Revision: 1
 
 `timescale 1ns/1ps
 
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module design_1_util_vector_logic_0_1 (
-  Op1,
-  Op2,
-  Res
+module design_1_xlslice_0_0 (
+  Din,
+  Dout
 );
 
-input wire [0 : 0] Op1;
-input wire [0 : 0] Op2;
-output wire [0 : 0] Res;
+input wire [31 : 0] Din;
+output wire [7 : 0] Dout;
 
-  util_vector_logic_v2_0_1_util_vector_logic #(
-    .C_OPERATION("or"),
-    .C_SIZE(1)
+  xlslice_v1_0_1_xlslice #(
+    .DIN_WIDTH(32),
+    .DIN_FROM(9),
+    .DIN_TO(2)
   ) inst (
-    .Op1(Op1),
-    .Op2(Op2),
-    .Res(Res)
+    .Din(Din),
+    .Dout(Dout)
   );
 endmodule

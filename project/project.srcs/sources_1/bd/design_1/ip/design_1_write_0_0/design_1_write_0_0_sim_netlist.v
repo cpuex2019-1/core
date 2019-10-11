@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Tue Oct  8 15:11:32 2019
+// Date        : Fri Oct 11 18:50:07 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_write_0_0/design_1_write_0_0_sim_netlist.v
@@ -91,8 +91,7 @@ endmodule
 
 (* ORIG_REF_NAME = "write" *) 
 module design_1_write_0_0_write
-   (done,
-    uart_wenable,
+   (uart_wenable,
     uart_wdata,
     pcenable,
     next_pc,
@@ -100,15 +99,15 @@ module design_1_write_0_0_write
     wreg,
     wdata,
     fmode,
+    done,
     clk,
     data,
     pc,
     rd,
-    wselector,
+    rstn,
     enable,
-    uart_wdone,
-    rstn);
-  output done;
+    wselector,
+    uart_wdone);
   output uart_wenable;
   output [31:0]uart_wdata;
   output pcenable;
@@ -117,19 +116,21 @@ module design_1_write_0_0_write
   output [4:0]wreg;
   output [31:0]wdata;
   output fmode;
+  output done;
   input clk;
   input [31:0]data;
   input [31:0]pc;
   input [4:0]rd;
-  input [3:0]wselector;
-  input enable;
-  input uart_wdone;
   input rstn;
+  input enable;
+  input [3:0]wselector;
+  input uart_wdone;
 
   wire clk;
   wire [31:0]data;
   wire done;
-  wire \done_inferred__0/i__n_0 ;
+  wire done_i_1_n_0;
+  wire done_i_2_n_0;
   wire enable;
   wire fmode;
   wire fmode_i_1_n_0;
@@ -147,43 +148,35 @@ module design_1_write_0_0_write
   wire \uart_wdata[31]_i_1_n_0 ;
   wire uart_wdone;
   wire uart_wenable;
-  wire uart_wenable_i_1_n_0;
+  wire uart_wenable_i_2_n_0;
   wire [31:0]wdata;
   wire wenable;
   wire wenable_i_1_n_0;
   wire [4:0]wreg;
   wire [3:0]wselector;
 
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h00E0)) 
-    \__0/i_ 
-       (.I0(wselector[1]),
-        .I1(wselector[2]),
-        .I2(enable),
-        .I3(set_reg_n_0),
-        .O(set5_out));
-  LUT1 #(
-    .INIT(2'h1)) 
+  LUT2 #(
+    .INIT(4'hB)) 
     done_i_1
-       (.I0(rstn),
-        .O(p_0_in));
+       (.I0(done_i_2_n_0),
+        .I1(rstn),
+        .O(done_i_1_n_0));
   LUT6 #(
     .INIT(64'hFFFFFFFFAAAAAAAE)) 
-    \done_inferred__0/i_ 
+    done_i_2
        (.I0(set_reg_n_0),
         .I1(enable),
         .I2(wselector[3]),
         .I3(wselector[1]),
         .I4(wselector[2]),
         .I5(uart_wdone),
-        .O(\done_inferred__0/i__n_0 ));
+        .O(done_i_2_n_0));
   FDRE done_reg
        (.C(clk),
         .CE(1'b1),
-        .D(\done_inferred__0/i__n_0 ),
+        .D(done_i_1_n_0),
         .Q(done),
-        .R(p_0_in));
+        .R(1'b0));
   LUT3 #(
     .INIT(8'h80)) 
     fmode_i_1
@@ -409,6 +402,15 @@ module design_1_write_0_0_write
         .D(pcenable_i_1_n_0),
         .Q(pcenable),
         .R(p_0_in));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h00E0)) 
+    set_i_1
+       (.I0(wselector[1]),
+        .I1(wselector[2]),
+        .I2(enable),
+        .I3(set_reg_n_0),
+        .O(set5_out));
   FDRE set_reg
        (.C(clk),
         .CE(1'b1),
@@ -614,17 +616,22 @@ module design_1_write_0_0_write
         .D(data[9]),
         .Q(uart_wdata[9]),
         .R(1'b0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    uart_wenable_i_1
+       (.I0(rstn),
+        .O(p_0_in));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    uart_wenable_i_1
+    uart_wenable_i_2
        (.I0(enable),
         .I1(wselector[3]),
-        .O(uart_wenable_i_1_n_0));
+        .O(uart_wenable_i_2_n_0));
   FDRE uart_wenable_reg
        (.C(clk),
         .CE(1'b1),
-        .D(uart_wenable_i_1_n_0),
+        .D(uart_wenable_i_2_n_0),
         .Q(uart_wenable),
         .R(p_0_in));
   FDRE \wdata_reg[0] 

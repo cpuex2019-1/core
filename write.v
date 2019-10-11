@@ -29,6 +29,7 @@ module write(
 		wenable <= 1'b0;
 		uart_wenable <= 1'b0;
 		if(~rstn) begin
+			done <= 1'b1;
 		end else begin
 			if(enable) begin
 				if(wselector[3]) begin

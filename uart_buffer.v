@@ -28,10 +28,17 @@ module uart_buffer(
 	input wire rstn
 );
 
+	reg[31:0] buffer;
+	reg[1:0] count;
+	reg go;
+
 	always @(posedge clk) begin
 		rdone <= 1'b0;
 		wdone <= 1'b0;
 		if(~rstn) begin
+			buffer <= 32'h0;
+			count <= 2'b00;
+			go <= 1'b0;
 			uart_araddr <= 32'h0;
 			uart_awaddr <= 32'h4;
 			uart_arvalid <= 1'b0;
@@ -42,10 +49,21 @@ module uart_buffer(
 			uart_wstrb <= 4'b0001;
 		end else begin
 			if(wenable) begin
+				buffer <= wdata;
+				count <= 2'b11;
+				go <= 1'b1;
+			end
+			if(go && ~uart_bready) begin
 				uart_awvalid <= 1'b1;
 				uart_bready <= 1'b1;
-				uart_wdata <= wdata;
 				uart_wvalid <= 1'b1;
+				uart_wdata[7:0] <= buffer[7:0];
+				buffer <= {8'h0, buffer[31:8]};
+				if(count == 2'b00) begin
+					go <= 1'b0;
+				end else begin
+					count <= count - 2'b01;
+				end
 			end
 			if(uart_awready && uart_awvalid) begin
 				uart_awvalid <= 1'b0;
@@ -60,7 +78,9 @@ module uart_buffer(
 					uart_wvalid <= 1'b1;
 				end else begin
 					uart_bready <= 1'b0;
-					wdone <= 1'b1;
+					if(~go) begin
+						wdone <= 1'b1;
+					end
 				end
 			end
 		end

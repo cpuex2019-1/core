@@ -47,29 +47,27 @@
 // DO NOT MODIFY THIS FILE.
 
 
-// IP VLNV: xilinx.com:ip:util_vector_logic:2.0
+// IP VLNV: xilinx.com:ip:xlslice:1.0
 // IP Revision: 1
 
-(* X_CORE_INFO = "util_vector_logic_v2_0_1_util_vector_logic,Vivado 2018.3" *)
-(* CHECK_LICENSE_TYPE = "design_1_util_vector_logic_0_1,util_vector_logic_v2_0_1_util_vector_logic,{}" *)
-(* CORE_GENERATION_INFO = "design_1_util_vector_logic_0_1,util_vector_logic_v2_0_1_util_vector_logic,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=util_vector_logic,x_ipVersion=2.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,C_OPERATION=or,C_SIZE=1}" *)
+(* X_CORE_INFO = "xlslice_v1_0_1_xlslice,Vivado 2018.3" *)
+(* CHECK_LICENSE_TYPE = "design_1_xlslice_0_0,xlslice_v1_0_1_xlslice,{}" *)
+(* CORE_GENERATION_INFO = "design_1_xlslice_0_0,xlslice_v1_0_1_xlslice,{x_ipProduct=Vivado 2018.3,x_ipVendor=xilinx.com,x_ipLibrary=ip,x_ipName=xlslice,x_ipVersion=1.0,x_ipCoreRevision=1,x_ipLanguage=VERILOG,x_ipSimLanguage=MIXED,DIN_WIDTH=32,DIN_FROM=9,DIN_TO=2}" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
-module design_1_util_vector_logic_0_1 (
-  Op1,
-  Op2,
-  Res
+module design_1_xlslice_0_0 (
+  Din,
+  Dout
 );
 
-input wire [0 : 0] Op1;
-input wire [0 : 0] Op2;
-output wire [0 : 0] Res;
+input wire [31 : 0] Din;
+output wire [7 : 0] Dout;
 
-  util_vector_logic_v2_0_1_util_vector_logic #(
-    .C_OPERATION("or"),
-    .C_SIZE(1)
+  xlslice_v1_0_1_xlslice #(
+    .DIN_WIDTH(32),
+    .DIN_FROM(9),
+    .DIN_TO(2)
   ) inst (
-    .Op1(Op1),
-    .Op2(Op2),
-    .Res(Res)
+    .Din(Din),
+    .Dout(Dout)
   );
 endmodule

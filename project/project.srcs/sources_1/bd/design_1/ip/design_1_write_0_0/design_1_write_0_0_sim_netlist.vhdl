@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Tue Oct  8 15:11:32 2019
+-- Date        : Fri Oct 11 18:50:07 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_write_0_0/design_1_write_0_0_sim_netlist.vhdl
@@ -16,7 +16,6 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_write_0_0_write is
   port (
-    done : out STD_LOGIC;
     uart_wenable : out STD_LOGIC;
     uart_wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     pcenable : out STD_LOGIC;
@@ -25,21 +24,23 @@ entity design_1_write_0_0_write is
     wreg : out STD_LOGIC_VECTOR ( 4 downto 0 );
     wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     fmode : out STD_LOGIC;
+    done : out STD_LOGIC;
     clk : in STD_LOGIC;
     data : in STD_LOGIC_VECTOR ( 31 downto 0 );
     pc : in STD_LOGIC_VECTOR ( 31 downto 0 );
     rd : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    wselector : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    rstn : in STD_LOGIC;
     enable : in STD_LOGIC;
-    uart_wdone : in STD_LOGIC;
-    rstn : in STD_LOGIC
+    wselector : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    uart_wdone : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of design_1_write_0_0_write : entity is "write";
 end design_1_write_0_0_write;
 
 architecture STRUCTURE of design_1_write_0_0_write is
-  signal \done_inferred__0/i__n_0\ : STD_LOGIC;
+  signal done_i_1_n_0 : STD_LOGIC;
+  signal done_i_2_n_0 : STD_LOGIC;
   signal fmode_i_1_n_0 : STD_LOGIC;
   signal \next_pc[31]_i_1_n_0\ : STD_LOGIC;
   signal p_0_in : STD_LOGIC;
@@ -47,34 +48,24 @@ architecture STRUCTURE of design_1_write_0_0_write is
   signal set5_out : STD_LOGIC;
   signal set_reg_n_0 : STD_LOGIC;
   signal \uart_wdata[31]_i_1_n_0\ : STD_LOGIC;
-  signal uart_wenable_i_1_n_0 : STD_LOGIC;
+  signal uart_wenable_i_2_n_0 : STD_LOGIC;
   signal wenable_i_1_n_0 : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \__0/i_\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of pcenable_i_1 : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of uart_wenable_i_1 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of set_i_1 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of uart_wenable_i_2 : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of wenable_i_1 : label is "soft_lutpair1";
 begin
-\__0/i_\: unisim.vcomponents.LUT4
+done_i_1: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"00E0"
+      INIT => X"B"
     )
         port map (
-      I0 => wselector(1),
-      I1 => wselector(2),
-      I2 => enable,
-      I3 => set_reg_n_0,
-      O => set5_out
+      I0 => done_i_2_n_0,
+      I1 => rstn,
+      O => done_i_1_n_0
     );
-done_i_1: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => rstn,
-      O => p_0_in
-    );
-\done_inferred__0/i_\: unisim.vcomponents.LUT6
+done_i_2: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FFFFFFFFAAAAAAAE"
     )
@@ -85,15 +76,15 @@ done_i_1: unisim.vcomponents.LUT1
       I3 => wselector(1),
       I4 => wselector(2),
       I5 => uart_wdone,
-      O => \done_inferred__0/i__n_0\
+      O => done_i_2_n_0
     );
 done_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
-      D => \done_inferred__0/i__n_0\,
+      D => done_i_1_n_0,
       Q => done,
-      R => p_0_in
+      R => '0'
     );
 fmode_i_1: unisim.vcomponents.LUT3
     generic map(
@@ -396,6 +387,17 @@ pcenable_reg: unisim.vcomponents.FDRE
       Q => pcenable,
       R => p_0_in
     );
+set_i_1: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"00E0"
+    )
+        port map (
+      I0 => wselector(1),
+      I1 => wselector(2),
+      I2 => enable,
+      I3 => set_reg_n_0,
+      O => set5_out
+    );
 set_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
@@ -670,20 +672,28 @@ set_reg: unisim.vcomponents.FDRE
       Q => uart_wdata(9),
       R => '0'
     );
-uart_wenable_i_1: unisim.vcomponents.LUT2
+uart_wenable_i_1: unisim.vcomponents.LUT1
+    generic map(
+      INIT => X"1"
+    )
+        port map (
+      I0 => rstn,
+      O => p_0_in
+    );
+uart_wenable_i_2: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
       I0 => enable,
       I1 => wselector(3),
-      O => uart_wenable_i_1_n_0
+      O => uart_wenable_i_2_n_0
     );
 uart_wenable_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
-      D => uart_wenable_i_1_n_0,
+      D => uart_wenable_i_2_n_0,
       Q => uart_wenable,
       R => p_0_in
     );

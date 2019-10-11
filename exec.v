@@ -192,7 +192,7 @@ module exec(
 					bready <= 1'b1;
 					done <= 1'b0;
 				end else if(exec_command == 6'b110010) begin	//BC
-					pc_out <= pc + addr + 32'h4;
+					pc_out <= pc + addr;
 					wselector <= 4'b0100;
 				end else if(exec_command == 6'b111111) begin	//OUT
 					data <= rs;
@@ -204,7 +204,7 @@ module exec(
 			end
 			if(rready && rvalid) begin
 				rready <= 1'b0;
-				data <= rdata;
+				data <= rdata[31:0];
 				wselector <= 4'b0010;
 				done <= 1'b1;
 			end
