@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Fri Oct 11 18:08:57 2019
+// Date        : Sun Oct 13 17:12:42 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_uart_buffer_0_0/design_1_uart_buffer_0_0_sim_netlist.v
@@ -63,8 +63,8 @@ module design_1_uart_buffer_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart WDATA" *) output [31:0]uart_wdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart WREADY" *) input uart_wready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart WSTRB" *) output [3:0]uart_wstrb;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart WVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME uart, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 300000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) output uart_wvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF uart, ASSOCIATED_RESET rstn, FREQ_HZ 300000000, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 uart WVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME uart, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 25000000, ID_WIDTH 0, ADDR_WIDTH 32, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 0, NUM_READ_OUTSTANDING 1, NUM_WRITE_OUTSTANDING 1, MAX_BURST_LENGTH 1, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) output uart_wvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF uart, ASSOCIATED_RESET rstn, FREQ_HZ 25000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rstn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rstn;
 
   wire \<const0> ;
@@ -76,7 +76,7 @@ module design_1_uart_buffer_0_0
   wire uart_bready;
   wire [1:0]uart_bresp;
   wire uart_bvalid;
-  wire [31:0]uart_wdata;
+  wire [7:0]\^uart_wdata ;
   wire uart_wready;
   wire uart_wvalid;
   wire [31:0]wdata;
@@ -150,6 +150,31 @@ module design_1_uart_buffer_0_0
   assign uart_awaddr[1] = \<const0> ;
   assign uart_awaddr[0] = \<const0> ;
   assign uart_rready = \<const0> ;
+  assign uart_wdata[31] = \<const0> ;
+  assign uart_wdata[30] = \<const0> ;
+  assign uart_wdata[29] = \<const0> ;
+  assign uart_wdata[28] = \<const0> ;
+  assign uart_wdata[27] = \<const0> ;
+  assign uart_wdata[26] = \<const0> ;
+  assign uart_wdata[25] = \<const0> ;
+  assign uart_wdata[24] = \<const0> ;
+  assign uart_wdata[23] = \<const0> ;
+  assign uart_wdata[22] = \<const0> ;
+  assign uart_wdata[21] = \<const0> ;
+  assign uart_wdata[20] = \<const0> ;
+  assign uart_wdata[19] = \<const0> ;
+  assign uart_wdata[18] = \<const0> ;
+  assign uart_wdata[17] = \<const0> ;
+  assign uart_wdata[16] = \<const0> ;
+  assign uart_wdata[15] = \<const0> ;
+  assign uart_wdata[14] = \<const0> ;
+  assign uart_wdata[13] = \<const0> ;
+  assign uart_wdata[12] = \<const0> ;
+  assign uart_wdata[11] = \<const0> ;
+  assign uart_wdata[10] = \<const0> ;
+  assign uart_wdata[9] = \<const0> ;
+  assign uart_wdata[8] = \<const0> ;
+  assign uart_wdata[7:0] = \^uart_wdata [7:0];
   assign uart_wstrb[3] = \<const0> ;
   assign uart_wstrb[2] = \<const0> ;
   assign uart_wstrb[1] = \<const0> ;
@@ -166,7 +191,7 @@ module design_1_uart_buffer_0_0
         .uart_bready_reg_0(uart_bready),
         .uart_bresp(uart_bresp[1]),
         .uart_bvalid(uart_bvalid),
-        .uart_wdata(uart_wdata[7:0]),
+        .uart_wdata(\^uart_wdata ),
         .uart_wready(uart_wready),
         .uart_wvalid(uart_wvalid),
         .wdata(wdata),
@@ -185,9 +210,9 @@ module design_1_uart_buffer_0_0_uart_buffer
     uart_awready,
     uart_bresp,
     uart_bvalid,
-    uart_wready,
     wenable,
     wdata,
+    uart_wready,
     rstn);
   output uart_awvalid;
   output uart_bready_reg_0;
@@ -198,13 +223,12 @@ module design_1_uart_buffer_0_0_uart_buffer
   input uart_awready;
   input [0:0]uart_bresp;
   input uart_bvalid;
-  input uart_wready;
   input wenable;
   input [31:0]wdata;
+  input uart_wready;
   input rstn;
 
-  wire [31:0]buffer;
-  wire \buffer[0]_i_1_n_0 ;
+  wire buffer1;
   wire \buffer[10]_i_1_n_0 ;
   wire \buffer[11]_i_1_n_0 ;
   wire \buffer[12]_i_1_n_0 ;
@@ -215,7 +239,6 @@ module design_1_uart_buffer_0_0_uart_buffer
   wire \buffer[17]_i_1_n_0 ;
   wire \buffer[18]_i_1_n_0 ;
   wire \buffer[19]_i_1_n_0 ;
-  wire \buffer[1]_i_1_n_0 ;
   wire \buffer[20]_i_1_n_0 ;
   wire \buffer[21]_i_1_n_0 ;
   wire \buffer[22]_i_1_n_0 ;
@@ -226,24 +249,50 @@ module design_1_uart_buffer_0_0_uart_buffer
   wire \buffer[27]_i_1_n_0 ;
   wire \buffer[28]_i_1_n_0 ;
   wire \buffer[29]_i_1_n_0 ;
-  wire \buffer[2]_i_1_n_0 ;
   wire \buffer[30]_i_1_n_0 ;
   wire \buffer[31]_i_1_n_0 ;
   wire \buffer[31]_i_2_n_0 ;
-  wire \buffer[3]_i_1_n_0 ;
-  wire \buffer[4]_i_1_n_0 ;
-  wire \buffer[5]_i_1_n_0 ;
-  wire \buffer[6]_i_1_n_0 ;
   wire \buffer[7]_i_1_n_0 ;
   wire \buffer[8]_i_1_n_0 ;
   wire \buffer[9]_i_1_n_0 ;
+  wire \buffer_reg_n_0_[0] ;
+  wire \buffer_reg_n_0_[10] ;
+  wire \buffer_reg_n_0_[11] ;
+  wire \buffer_reg_n_0_[12] ;
+  wire \buffer_reg_n_0_[13] ;
+  wire \buffer_reg_n_0_[14] ;
+  wire \buffer_reg_n_0_[15] ;
+  wire \buffer_reg_n_0_[16] ;
+  wire \buffer_reg_n_0_[17] ;
+  wire \buffer_reg_n_0_[18] ;
+  wire \buffer_reg_n_0_[19] ;
+  wire \buffer_reg_n_0_[1] ;
+  wire \buffer_reg_n_0_[20] ;
+  wire \buffer_reg_n_0_[21] ;
+  wire \buffer_reg_n_0_[22] ;
+  wire \buffer_reg_n_0_[23] ;
+  wire \buffer_reg_n_0_[24] ;
+  wire \buffer_reg_n_0_[25] ;
+  wire \buffer_reg_n_0_[26] ;
+  wire \buffer_reg_n_0_[27] ;
+  wire \buffer_reg_n_0_[28] ;
+  wire \buffer_reg_n_0_[29] ;
+  wire \buffer_reg_n_0_[2] ;
+  wire \buffer_reg_n_0_[30] ;
+  wire \buffer_reg_n_0_[31] ;
+  wire \buffer_reg_n_0_[3] ;
+  wire \buffer_reg_n_0_[4] ;
+  wire \buffer_reg_n_0_[5] ;
+  wire \buffer_reg_n_0_[6] ;
+  wire \buffer_reg_n_0_[7] ;
+  wire \buffer_reg_n_0_[8] ;
+  wire \buffer_reg_n_0_[9] ;
   wire clk;
   wire [1:0]count__0;
+  wire count_n_0;
   wire go_i_1_n_0;
   wire go_reg_n_0;
   wire p_0_in;
-  wire p_1_in;
-  wire [7:7]p_1_out;
   wire [1:0]p_2_in;
   wire rstn;
   wire uart_awready;
@@ -264,16 +313,8 @@ module design_1_uart_buffer_0_0_uart_buffer
 
   LUT4 #(
     .INIT(16'hFB08)) 
-    \buffer[0]_i_1 
-       (.I0(buffer[8]),
-        .I1(go_reg_n_0),
-        .I2(uart_bready_reg_0),
-        .I3(wdata[0]),
-        .O(\buffer[0]_i_1_n_0 ));
-  LUT4 #(
-    .INIT(16'hFB08)) 
     \buffer[10]_i_1 
-       (.I0(buffer[18]),
+       (.I0(\buffer_reg_n_0_[2] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[10]),
@@ -281,7 +322,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[11]_i_1 
-       (.I0(buffer[19]),
+       (.I0(\buffer_reg_n_0_[3] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[11]),
@@ -289,7 +330,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[12]_i_1 
-       (.I0(buffer[20]),
+       (.I0(\buffer_reg_n_0_[4] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[12]),
@@ -297,7 +338,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[13]_i_1 
-       (.I0(buffer[21]),
+       (.I0(\buffer_reg_n_0_[5] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[13]),
@@ -305,7 +346,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[14]_i_1 
-       (.I0(buffer[22]),
+       (.I0(\buffer_reg_n_0_[6] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[14]),
@@ -313,7 +354,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[15]_i_1 
-       (.I0(buffer[23]),
+       (.I0(\buffer_reg_n_0_[7] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[15]),
@@ -321,7 +362,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[16]_i_1 
-       (.I0(buffer[24]),
+       (.I0(\buffer_reg_n_0_[8] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[16]),
@@ -329,7 +370,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[17]_i_1 
-       (.I0(buffer[25]),
+       (.I0(\buffer_reg_n_0_[9] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[17]),
@@ -337,7 +378,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[18]_i_1 
-       (.I0(buffer[26]),
+       (.I0(\buffer_reg_n_0_[10] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[18]),
@@ -345,24 +386,15 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[19]_i_1 
-       (.I0(buffer[27]),
+       (.I0(\buffer_reg_n_0_[11] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[19]),
         .O(\buffer[19]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT4 #(
-    .INIT(16'hFB08)) 
-    \buffer[1]_i_1 
-       (.I0(buffer[9]),
-        .I1(go_reg_n_0),
-        .I2(uart_bready_reg_0),
-        .I3(wdata[1]),
-        .O(\buffer[1]_i_1_n_0 ));
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[20]_i_1 
-       (.I0(buffer[28]),
+       (.I0(\buffer_reg_n_0_[12] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[20]),
@@ -370,7 +402,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[21]_i_1 
-       (.I0(buffer[29]),
+       (.I0(\buffer_reg_n_0_[13] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[21]),
@@ -378,7 +410,7 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[22]_i_1 
-       (.I0(buffer[30]),
+       (.I0(\buffer_reg_n_0_[14] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[22]),
@@ -386,75 +418,66 @@ module design_1_uart_buffer_0_0_uart_buffer
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[23]_i_1 
-       (.I0(buffer[31]),
+       (.I0(\buffer_reg_n_0_[15] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[23]),
         .O(\buffer[23]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
-  LUT3 #(
-    .INIT(8'h8A)) 
-    \buffer[24]_i_1 
-       (.I0(wdata[24]),
-        .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
-        .O(\buffer[24]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT3 #(
-    .INIT(8'h8A)) 
-    \buffer[25]_i_1 
-       (.I0(wdata[25]),
-        .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
-        .O(\buffer[25]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT3 #(
-    .INIT(8'h8A)) 
-    \buffer[26]_i_1 
-       (.I0(wdata[26]),
-        .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
-        .O(\buffer[26]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT3 #(
-    .INIT(8'h8A)) 
-    \buffer[27]_i_1 
-       (.I0(wdata[27]),
-        .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
-        .O(\buffer[27]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT3 #(
-    .INIT(8'h8A)) 
-    \buffer[28]_i_1 
-       (.I0(wdata[28]),
-        .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
-        .O(\buffer[28]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT3 #(
-    .INIT(8'h8A)) 
-    \buffer[29]_i_1 
-       (.I0(wdata[29]),
-        .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
-        .O(\buffer[29]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT4 #(
     .INIT(16'hFB08)) 
-    \buffer[2]_i_1 
-       (.I0(buffer[10]),
+    \buffer[24]_i_1 
+       (.I0(\buffer_reg_n_0_[16] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
-        .I3(wdata[2]),
-        .O(\buffer[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'h8A)) 
+        .I3(wdata[24]),
+        .O(\buffer[24]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hFB08)) 
+    \buffer[25]_i_1 
+       (.I0(\buffer_reg_n_0_[17] ),
+        .I1(go_reg_n_0),
+        .I2(uart_bready_reg_0),
+        .I3(wdata[25]),
+        .O(\buffer[25]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hFB08)) 
+    \buffer[26]_i_1 
+       (.I0(\buffer_reg_n_0_[18] ),
+        .I1(go_reg_n_0),
+        .I2(uart_bready_reg_0),
+        .I3(wdata[26]),
+        .O(\buffer[26]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hFB08)) 
+    \buffer[27]_i_1 
+       (.I0(\buffer_reg_n_0_[19] ),
+        .I1(go_reg_n_0),
+        .I2(uart_bready_reg_0),
+        .I3(wdata[27]),
+        .O(\buffer[27]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hFB08)) 
+    \buffer[28]_i_1 
+       (.I0(\buffer_reg_n_0_[20] ),
+        .I1(go_reg_n_0),
+        .I2(uart_bready_reg_0),
+        .I3(wdata[28]),
+        .O(\buffer[28]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hFB08)) 
+    \buffer[29]_i_1 
+       (.I0(\buffer_reg_n_0_[21] ),
+        .I1(go_reg_n_0),
+        .I2(uart_bready_reg_0),
+        .I3(wdata[29]),
+        .O(\buffer[29]_i_1_n_0 ));
+  LUT4 #(
+    .INIT(16'hFB08)) 
     \buffer[30]_i_1 
-       (.I0(wdata[30]),
-        .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
+       (.I0(\buffer_reg_n_0_[22] ),
+        .I1(go_reg_n_0),
+        .I2(uart_bready_reg_0),
+        .I3(wdata[30]),
         .O(\buffer[30]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'hF4)) 
@@ -463,267 +486,228 @@ module design_1_uart_buffer_0_0_uart_buffer
         .I1(go_reg_n_0),
         .I2(wenable),
         .O(\buffer[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT3 #(
-    .INIT(8'h8A)) 
+  LUT4 #(
+    .INIT(16'hFB08)) 
     \buffer[31]_i_2 
-       (.I0(wdata[31]),
-        .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
+       (.I0(\buffer_reg_n_0_[23] ),
+        .I1(go_reg_n_0),
+        .I2(uart_bready_reg_0),
+        .I3(wdata[31]),
         .O(\buffer[31]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'hFB08)) 
-    \buffer[3]_i_1 
-       (.I0(buffer[11]),
-        .I1(go_reg_n_0),
-        .I2(uart_bready_reg_0),
-        .I3(wdata[3]),
-        .O(\buffer[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
-  LUT4 #(
-    .INIT(16'hFB08)) 
-    \buffer[4]_i_1 
-       (.I0(buffer[12]),
-        .I1(go_reg_n_0),
-        .I2(uart_bready_reg_0),
-        .I3(wdata[4]),
-        .O(\buffer[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT4 #(
-    .INIT(16'hFB08)) 
-    \buffer[5]_i_1 
-       (.I0(buffer[13]),
-        .I1(go_reg_n_0),
-        .I2(uart_bready_reg_0),
-        .I3(wdata[5]),
-        .O(\buffer[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
-  LUT4 #(
-    .INIT(16'hFB08)) 
-    \buffer[6]_i_1 
-       (.I0(buffer[14]),
-        .I1(go_reg_n_0),
-        .I2(uart_bready_reg_0),
-        .I3(wdata[6]),
-        .O(\buffer[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT4 #(
-    .INIT(16'hFB08)) 
+  LUT3 #(
+    .INIT(8'h4F)) 
     \buffer[7]_i_1 
-       (.I0(buffer[15]),
+       (.I0(uart_bready_reg_0),
         .I1(go_reg_n_0),
-        .I2(uart_bready_reg_0),
-        .I3(wdata[7]),
+        .I2(rstn),
         .O(\buffer[7]_i_1_n_0 ));
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[8]_i_1 
-       (.I0(buffer[16]),
+       (.I0(\buffer_reg_n_0_[0] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[8]),
         .O(\buffer[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'hFB08)) 
     \buffer[9]_i_1 
-       (.I0(buffer[17]),
+       (.I0(\buffer_reg_n_0_[1] ),
         .I1(go_reg_n_0),
         .I2(uart_bready_reg_0),
         .I3(wdata[9]),
         .O(\buffer[9]_i_1_n_0 ));
   FDRE \buffer_reg[0] 
        (.C(clk),
-        .CE(\buffer[31]_i_1_n_0 ),
-        .D(\buffer[0]_i_1_n_0 ),
-        .Q(buffer[0]),
-        .R(p_0_in));
+        .CE(wenable),
+        .D(wdata[0]),
+        .Q(\buffer_reg_n_0_[0] ),
+        .R(\buffer[7]_i_1_n_0 ));
   FDRE \buffer_reg[10] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[10]_i_1_n_0 ),
-        .Q(buffer[10]),
+        .Q(\buffer_reg_n_0_[10] ),
         .R(p_0_in));
   FDRE \buffer_reg[11] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[11]_i_1_n_0 ),
-        .Q(buffer[11]),
+        .Q(\buffer_reg_n_0_[11] ),
         .R(p_0_in));
   FDRE \buffer_reg[12] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[12]_i_1_n_0 ),
-        .Q(buffer[12]),
+        .Q(\buffer_reg_n_0_[12] ),
         .R(p_0_in));
   FDRE \buffer_reg[13] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[13]_i_1_n_0 ),
-        .Q(buffer[13]),
+        .Q(\buffer_reg_n_0_[13] ),
         .R(p_0_in));
   FDRE \buffer_reg[14] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[14]_i_1_n_0 ),
-        .Q(buffer[14]),
+        .Q(\buffer_reg_n_0_[14] ),
         .R(p_0_in));
   FDRE \buffer_reg[15] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[15]_i_1_n_0 ),
-        .Q(buffer[15]),
+        .Q(\buffer_reg_n_0_[15] ),
         .R(p_0_in));
   FDRE \buffer_reg[16] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[16]_i_1_n_0 ),
-        .Q(buffer[16]),
+        .Q(\buffer_reg_n_0_[16] ),
         .R(p_0_in));
   FDRE \buffer_reg[17] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[17]_i_1_n_0 ),
-        .Q(buffer[17]),
+        .Q(\buffer_reg_n_0_[17] ),
         .R(p_0_in));
   FDRE \buffer_reg[18] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[18]_i_1_n_0 ),
-        .Q(buffer[18]),
+        .Q(\buffer_reg_n_0_[18] ),
         .R(p_0_in));
   FDRE \buffer_reg[19] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[19]_i_1_n_0 ),
-        .Q(buffer[19]),
+        .Q(\buffer_reg_n_0_[19] ),
         .R(p_0_in));
   FDRE \buffer_reg[1] 
        (.C(clk),
-        .CE(\buffer[31]_i_1_n_0 ),
-        .D(\buffer[1]_i_1_n_0 ),
-        .Q(buffer[1]),
-        .R(p_0_in));
+        .CE(wenable),
+        .D(wdata[1]),
+        .Q(\buffer_reg_n_0_[1] ),
+        .R(\buffer[7]_i_1_n_0 ));
   FDRE \buffer_reg[20] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[20]_i_1_n_0 ),
-        .Q(buffer[20]),
+        .Q(\buffer_reg_n_0_[20] ),
         .R(p_0_in));
   FDRE \buffer_reg[21] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[21]_i_1_n_0 ),
-        .Q(buffer[21]),
+        .Q(\buffer_reg_n_0_[21] ),
         .R(p_0_in));
   FDRE \buffer_reg[22] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[22]_i_1_n_0 ),
-        .Q(buffer[22]),
+        .Q(\buffer_reg_n_0_[22] ),
         .R(p_0_in));
   FDRE \buffer_reg[23] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[23]_i_1_n_0 ),
-        .Q(buffer[23]),
+        .Q(\buffer_reg_n_0_[23] ),
         .R(p_0_in));
   FDRE \buffer_reg[24] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[24]_i_1_n_0 ),
-        .Q(buffer[24]),
+        .Q(\buffer_reg_n_0_[24] ),
         .R(p_0_in));
   FDRE \buffer_reg[25] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[25]_i_1_n_0 ),
-        .Q(buffer[25]),
+        .Q(\buffer_reg_n_0_[25] ),
         .R(p_0_in));
   FDRE \buffer_reg[26] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[26]_i_1_n_0 ),
-        .Q(buffer[26]),
+        .Q(\buffer_reg_n_0_[26] ),
         .R(p_0_in));
   FDRE \buffer_reg[27] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[27]_i_1_n_0 ),
-        .Q(buffer[27]),
+        .Q(\buffer_reg_n_0_[27] ),
         .R(p_0_in));
   FDRE \buffer_reg[28] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[28]_i_1_n_0 ),
-        .Q(buffer[28]),
+        .Q(\buffer_reg_n_0_[28] ),
         .R(p_0_in));
   FDRE \buffer_reg[29] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[29]_i_1_n_0 ),
-        .Q(buffer[29]),
+        .Q(\buffer_reg_n_0_[29] ),
         .R(p_0_in));
   FDRE \buffer_reg[2] 
        (.C(clk),
-        .CE(\buffer[31]_i_1_n_0 ),
-        .D(\buffer[2]_i_1_n_0 ),
-        .Q(buffer[2]),
-        .R(p_0_in));
+        .CE(wenable),
+        .D(wdata[2]),
+        .Q(\buffer_reg_n_0_[2] ),
+        .R(\buffer[7]_i_1_n_0 ));
   FDRE \buffer_reg[30] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[30]_i_1_n_0 ),
-        .Q(buffer[30]),
+        .Q(\buffer_reg_n_0_[30] ),
         .R(p_0_in));
   FDRE \buffer_reg[31] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[31]_i_2_n_0 ),
-        .Q(buffer[31]),
+        .Q(\buffer_reg_n_0_[31] ),
         .R(p_0_in));
   FDRE \buffer_reg[3] 
        (.C(clk),
-        .CE(\buffer[31]_i_1_n_0 ),
-        .D(\buffer[3]_i_1_n_0 ),
-        .Q(buffer[3]),
-        .R(p_0_in));
+        .CE(wenable),
+        .D(wdata[3]),
+        .Q(\buffer_reg_n_0_[3] ),
+        .R(\buffer[7]_i_1_n_0 ));
   FDRE \buffer_reg[4] 
        (.C(clk),
-        .CE(\buffer[31]_i_1_n_0 ),
-        .D(\buffer[4]_i_1_n_0 ),
-        .Q(buffer[4]),
-        .R(p_0_in));
+        .CE(wenable),
+        .D(wdata[4]),
+        .Q(\buffer_reg_n_0_[4] ),
+        .R(\buffer[7]_i_1_n_0 ));
   FDRE \buffer_reg[5] 
        (.C(clk),
-        .CE(\buffer[31]_i_1_n_0 ),
-        .D(\buffer[5]_i_1_n_0 ),
-        .Q(buffer[5]),
-        .R(p_0_in));
+        .CE(wenable),
+        .D(wdata[5]),
+        .Q(\buffer_reg_n_0_[5] ),
+        .R(\buffer[7]_i_1_n_0 ));
   FDRE \buffer_reg[6] 
        (.C(clk),
-        .CE(\buffer[31]_i_1_n_0 ),
-        .D(\buffer[6]_i_1_n_0 ),
-        .Q(buffer[6]),
-        .R(p_0_in));
+        .CE(wenable),
+        .D(wdata[6]),
+        .Q(\buffer_reg_n_0_[6] ),
+        .R(\buffer[7]_i_1_n_0 ));
   FDRE \buffer_reg[7] 
        (.C(clk),
-        .CE(\buffer[31]_i_1_n_0 ),
-        .D(\buffer[7]_i_1_n_0 ),
-        .Q(buffer[7]),
-        .R(p_0_in));
+        .CE(wenable),
+        .D(wdata[7]),
+        .Q(\buffer_reg_n_0_[7] ),
+        .R(\buffer[7]_i_1_n_0 ));
   FDRE \buffer_reg[8] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[8]_i_1_n_0 ),
-        .Q(buffer[8]),
+        .Q(\buffer_reg_n_0_[8] ),
         .R(p_0_in));
   FDRE \buffer_reg[9] 
        (.C(clk),
         .CE(\buffer[31]_i_1_n_0 ),
         .D(\buffer[9]_i_1_n_0 ),
-        .Q(buffer[9]),
+        .Q(\buffer_reg_n_0_[9] ),
         .R(p_0_in));
   LUT5 #(
     .INIT(32'hFFFF00E0)) 
@@ -733,7 +717,7 @@ module design_1_uart_buffer_0_0_uart_buffer
         .I2(go_reg_n_0),
         .I3(uart_bready_reg_0),
         .I4(wenable),
-        .O(p_1_in));
+        .O(count_n_0));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'hFF5F0040)) 
@@ -756,13 +740,13 @@ module design_1_uart_buffer_0_0_uart_buffer
         .O(p_2_in[1]));
   FDRE \count_reg[0] 
        (.C(clk),
-        .CE(p_1_in),
+        .CE(count_n_0),
         .D(p_2_in[0]),
         .Q(count__0[0]),
         .R(p_0_in));
   FDRE \count_reg[1] 
        (.C(clk),
-        .CE(p_1_in),
+        .CE(count_n_0),
         .D(p_2_in[1]),
         .Q(count__0[1]),
         .R(p_0_in));
@@ -817,61 +801,60 @@ module design_1_uart_buffer_0_0_uart_buffer
         .D(uart_bready_i_1_n_0),
         .Q(uart_bready_reg_0),
         .R(p_0_in));
-  LUT3 #(
-    .INIT(8'h20)) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \uart_wdata[7]_i_1 
-       (.I0(rstn),
+       (.I0(go_reg_n_0),
         .I1(uart_bready_reg_0),
-        .I2(go_reg_n_0),
-        .O(p_1_out));
+        .O(buffer1));
   FDRE \uart_wdata_reg[0] 
        (.C(clk),
-        .CE(p_1_out),
-        .D(buffer[0]),
+        .CE(buffer1),
+        .D(\buffer_reg_n_0_[24] ),
         .Q(uart_wdata[0]),
-        .R(1'b0));
+        .R(p_0_in));
   FDRE \uart_wdata_reg[1] 
        (.C(clk),
-        .CE(p_1_out),
-        .D(buffer[1]),
+        .CE(buffer1),
+        .D(\buffer_reg_n_0_[25] ),
         .Q(uart_wdata[1]),
-        .R(1'b0));
+        .R(p_0_in));
   FDRE \uart_wdata_reg[2] 
        (.C(clk),
-        .CE(p_1_out),
-        .D(buffer[2]),
+        .CE(buffer1),
+        .D(\buffer_reg_n_0_[26] ),
         .Q(uart_wdata[2]),
-        .R(1'b0));
+        .R(p_0_in));
   FDRE \uart_wdata_reg[3] 
        (.C(clk),
-        .CE(p_1_out),
-        .D(buffer[3]),
+        .CE(buffer1),
+        .D(\buffer_reg_n_0_[27] ),
         .Q(uart_wdata[3]),
-        .R(1'b0));
+        .R(p_0_in));
   FDRE \uart_wdata_reg[4] 
        (.C(clk),
-        .CE(p_1_out),
-        .D(buffer[4]),
+        .CE(buffer1),
+        .D(\buffer_reg_n_0_[28] ),
         .Q(uart_wdata[4]),
-        .R(1'b0));
+        .R(p_0_in));
   FDRE \uart_wdata_reg[5] 
        (.C(clk),
-        .CE(p_1_out),
-        .D(buffer[5]),
+        .CE(buffer1),
+        .D(\buffer_reg_n_0_[29] ),
         .Q(uart_wdata[5]),
-        .R(1'b0));
+        .R(p_0_in));
   FDRE \uart_wdata_reg[6] 
        (.C(clk),
-        .CE(p_1_out),
-        .D(buffer[6]),
+        .CE(buffer1),
+        .D(\buffer_reg_n_0_[30] ),
         .Q(uart_wdata[6]),
-        .R(1'b0));
+        .R(p_0_in));
   FDRE \uart_wdata_reg[7] 
        (.C(clk),
-        .CE(p_1_out),
-        .D(buffer[7]),
+        .CE(buffer1),
+        .D(\buffer_reg_n_0_[31] ),
         .Q(uart_wdata[7]),
-        .R(1'b0));
+        .R(p_0_in));
   LUT6 #(
     .INIT(64'hFF303A3A30303A3A)) 
     uart_wvalid_i_1

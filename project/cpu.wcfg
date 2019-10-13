@@ -15,15 +15,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="12590343300fs"></ZoomStartTime>
-      <ZoomEndTime time="13239704558fs"></ZoomEndTime>
-      <Cursor1Time time="13340000000fs"></Cursor1Time>
+      <ZoomStartTime time="16031070690fs"></ZoomStartTime>
+      <ZoomEndTime time="21993785863fs"></ZoomEndTime>
+      <Cursor1Time time="17310827000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="117"></ValueColumnWidth>
+      <ValueColumnWidth column_width="92"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="109" />
+   <WVObjectSize size="122" />
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/pcread" type="logic">
       <obj_property name="ElementShortName">pcread</obj_property>
       <obj_property name="ObjectShortName">pcread</obj_property>
@@ -47,6 +47,7 @@
       <obj_property name="ObjectShortName">pc[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/rfmode" type="logic">
       <obj_property name="ElementShortName">rfmode</obj_property>
@@ -119,136 +120,6 @@
       <obj_property name="ObjectShortName">greg[31:0][31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[31]" type="array">
-         <obj_property name="ElementShortName">[31][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[30]" type="array">
-         <obj_property name="ElementShortName">[30][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[29]" type="array">
-         <obj_property name="ElementShortName">[29][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[28]" type="array">
-         <obj_property name="ElementShortName">[28][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[27]" type="array">
-         <obj_property name="ElementShortName">[27][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[26]" type="array">
-         <obj_property name="ElementShortName">[26][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[25]" type="array">
-         <obj_property name="ElementShortName">[25][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[24]" type="array">
-         <obj_property name="ElementShortName">[24][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[23]" type="array">
-         <obj_property name="ElementShortName">[23][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[22]" type="array">
-         <obj_property name="ElementShortName">[22][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[21]" type="array">
-         <obj_property name="ElementShortName">[21][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[20]" type="array">
-         <obj_property name="ElementShortName">[20][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[19]" type="array">
-         <obj_property name="ElementShortName">[19][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[18]" type="array">
-         <obj_property name="ElementShortName">[18][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[17]" type="array">
-         <obj_property name="ElementShortName">[17][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[16]" type="array">
-         <obj_property name="ElementShortName">[16][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[15]" type="array">
-         <obj_property name="ElementShortName">[15][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[14]" type="array">
-         <obj_property name="ElementShortName">[14][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[13]" type="array">
-         <obj_property name="ElementShortName">[13][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[12]" type="array">
-         <obj_property name="ElementShortName">[12][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[11]" type="array">
-         <obj_property name="ElementShortName">[11][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[10]" type="array">
-         <obj_property name="ElementShortName">[10][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[9]" type="array">
-         <obj_property name="ElementShortName">[9][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[8]" type="array">
-         <obj_property name="ElementShortName">[8][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[7]" type="array">
-         <obj_property name="ElementShortName">[7][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[6]" type="array">
-         <obj_property name="ElementShortName">[6][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[5]" type="array">
-         <obj_property name="ElementShortName">[5][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[4]" type="array">
-         <obj_property name="ElementShortName">[4][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[3]" type="array">
-         <obj_property name="ElementShortName">[3][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
-         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[2]" type="array">
-         <obj_property name="ElementShortName">[2][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[1]" type="array">
-         <obj_property name="ElementShortName">[1][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
-      </wvobject>
-      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[0]" type="array">
-         <obj_property name="ElementShortName">[0][31:0]</obj_property>
-         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg" type="array">
       <obj_property name="ElementShortName">freg[31:0][31:0]</obj_property>
@@ -719,64 +590,116 @@
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/rst" type="logic">
-      <obj_property name="ElementShortName">rst</obj_property>
-      <obj_property name="ObjectShortName">rst</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/renable" type="logic">
+      <obj_property name="ElementShortName">renable</obj_property>
+      <obj_property name="ObjectShortName">renable</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_act_n" type="logic">
-      <obj_property name="ElementShortName">ddr4_sdram_act_n</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_act_n</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/rdone" type="logic">
+      <obj_property name="ElementShortName">rdone</obj_property>
+      <obj_property name="ObjectShortName">rdone</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_adr" type="array">
-      <obj_property name="ElementShortName">ddr4_sdram_adr[16:0]</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_adr[16:0]</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/rdata" type="array">
+      <obj_property name="ElementShortName">rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_ba" type="array">
-      <obj_property name="ElementShortName">ddr4_sdram_ba[1:0]</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_ba[1:0]</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/wenable" type="logic">
+      <obj_property name="ElementShortName">wenable</obj_property>
+      <obj_property name="ObjectShortName">wenable</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_bg" type="logic">
-      <obj_property name="ElementShortName">ddr4_sdram_bg</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_bg</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/wdone" type="logic">
+      <obj_property name="ElementShortName">wdone</obj_property>
+      <obj_property name="ObjectShortName">wdone</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_ck_c" type="logic">
-      <obj_property name="ElementShortName">ddr4_sdram_ck_c</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_ck_c</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/wdata" type="array">
+      <obj_property name="ElementShortName">wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_ck_t" type="logic">
-      <obj_property name="ElementShortName">ddr4_sdram_ck_t</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_ck_t</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_arready" type="logic">
+      <obj_property name="ElementShortName">uart_arready</obj_property>
+      <obj_property name="ObjectShortName">uart_arready</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_cke" type="logic">
-      <obj_property name="ElementShortName">ddr4_sdram_cke</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_cke</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_arvalid" type="logic">
+      <obj_property name="ElementShortName">uart_arvalid</obj_property>
+      <obj_property name="ObjectShortName">uart_arvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_cs_n" type="logic">
-      <obj_property name="ElementShortName">ddr4_sdram_cs_n</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_cs_n</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_rdata" type="array">
+      <obj_property name="ElementShortName">uart_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_rdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_dm_n" type="array">
-      <obj_property name="ElementShortName">ddr4_sdram_dm_n[7:0]</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_dm_n[7:0]</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_rready" type="logic">
+      <obj_property name="ElementShortName">uart_rready</obj_property>
+      <obj_property name="ObjectShortName">uart_rready</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_dq" type="array">
-      <obj_property name="ElementShortName">ddr4_sdram_dq[63:0]</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_dq[63:0]</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_rresp" type="array">
+      <obj_property name="ElementShortName">uart_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_rresp[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_dqs_c" type="array">
-      <obj_property name="ElementShortName">ddr4_sdram_dqs_c[7:0]</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_dqs_c[7:0]</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_rvalid" type="logic">
+      <obj_property name="ElementShortName">uart_rvalid</obj_property>
+      <obj_property name="ObjectShortName">uart_rvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_dqs_t" type="array">
-      <obj_property name="ElementShortName">ddr4_sdram_dqs_t[7:0]</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_dqs_t[7:0]</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_awready" type="logic">
+      <obj_property name="ElementShortName">uart_awready</obj_property>
+      <obj_property name="ObjectShortName">uart_awready</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_odt" type="logic">
-      <obj_property name="ElementShortName">ddr4_sdram_odt</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_odt</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_awvalid" type="logic">
+      <obj_property name="ElementShortName">uart_awvalid</obj_property>
+      <obj_property name="ObjectShortName">uart_awvalid</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/ddr4_sdram_reset_n" type="logic">
-      <obj_property name="ElementShortName">ddr4_sdram_reset_n</obj_property>
-      <obj_property name="ObjectShortName">ddr4_sdram_reset_n</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_bready" type="logic">
+      <obj_property name="ElementShortName">uart_bready</obj_property>
+      <obj_property name="ObjectShortName">uart_bready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_bresp" type="array">
+      <obj_property name="ElementShortName">uart_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_bvalid" type="logic">
+      <obj_property name="ElementShortName">uart_bvalid</obj_property>
+      <obj_property name="ObjectShortName">uart_bvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_wdata" type="array">
+      <obj_property name="ElementShortName">uart_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_wready" type="logic">
+      <obj_property name="ElementShortName">uart_wready</obj_property>
+      <obj_property name="ObjectShortName">uart_wready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_wstrb" type="array">
+      <obj_property name="ElementShortName">uart_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">uart_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/uart_wvalid" type="logic">
+      <obj_property name="ElementShortName">uart_wvalid</obj_property>
+      <obj_property name="ObjectShortName">uart_wvalid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/buffer" type="array">
+      <obj_property name="ElementShortName">buffer[31:0]</obj_property>
+      <obj_property name="ObjectShortName">buffer[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/count" type="array">
+      <obj_property name="ElementShortName">count[1:0]</obj_property>
+      <obj_property name="ObjectShortName">count[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/go" type="logic">
+      <obj_property name="ElementShortName">go</obj_property>
+      <obj_property name="ObjectShortName">go</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/rxd" type="logic">
+      <obj_property name="ElementShortName">rxd</obj_property>
+      <obj_property name="ObjectShortName">rxd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/txd" type="logic">
+      <obj_property name="ElementShortName">txd</obj_property>
+      <obj_property name="ObjectShortName">txd</obj_property>
    </wvobject>
 </wave_config>

@@ -32,7 +32,7 @@ module fetch(
 			done <= 1'b0;
 			pcread <= 1'b0;
 			araddr <= 15'h0;
-			arburst <= 2'b00;
+			arburst <= 2'b01;
 			arcache <= 4'b0011;
 			arid <= 4'b0;
 			arlen <= 8'h0;

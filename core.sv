@@ -26,7 +26,7 @@ module core(
 		reg_out1 <= rfmode ? freg[rreg1] : greg[rreg1];
 		reg_out2 <= rfmode ? freg[rreg2] : greg[rreg2];
 		if(~rstn) begin
-			pc <= 0;
+			pc <= 32'h0;
 		end else begin
 			if(pcenable) begin
 				pc <= next_pc;

@@ -47,6 +47,7 @@ module uart_buffer(
 			uart_rready <= 1'b0;
 			uart_wvalid <= 1'b0;
 			uart_wstrb <= 4'b0001;
+			uart_wdata <= 32'h0;
 		end else begin
 			if(wenable) begin
 				buffer <= wdata;
@@ -57,8 +58,8 @@ module uart_buffer(
 				uart_awvalid <= 1'b1;
 				uart_bready <= 1'b1;
 				uart_wvalid <= 1'b1;
-				uart_wdata[7:0] <= buffer[7:0];
-				buffer <= {8'h0, buffer[31:8]};
+				uart_wdata[7:0] <= buffer[31:24];
+				buffer <= {buffer[23:0], 8'h0};
 				if(count == 2'b00) begin
 					go <= 1'b0;
 				end else begin

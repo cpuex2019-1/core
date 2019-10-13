@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Fri Oct 11 16:50:45 2019
+// Date        : Sun Oct 13 15:26:47 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_exec_0_0/design_1_exec_0_0_sim_netlist.v
@@ -33,16 +33,13 @@ module design_1_exec_0_0
     araddr,
     arburst,
     arcache,
-    arid,
     arlen,
     arlock,
     arprot,
-    arqos,
     arready,
     arsize,
     arvalid,
     rdata,
-    rid,
     rlast,
     rready,
     rresp,
@@ -50,11 +47,9 @@ module design_1_exec_0_0
     awaddr,
     awburst,
     awcache,
-    awid,
     awlen,
     awlock,
     awprot,
-    awqos,
     awready,
     awsize,
     awvalid,
@@ -83,31 +78,26 @@ module design_1_exec_0_0
   output [31:0]data;
   input [4:0]rd_in;
   output [4:0]rd_out;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARADDR" *) output [30:0]araddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARADDR" *) output [14:0]araddr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARBURST" *) output [1:0]arburst;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARCACHE" *) output [3:0]arcache;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARID" *) output [3:0]arid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARLEN" *) output [7:0]arlen;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARLOCK" *) output arlock;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARPROT" *) output [2:0]arprot;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARQOS" *) output [3:0]arqos;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARREADY" *) input arready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARSIZE" *) output [2:0]arsize;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARVALID" *) output arvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RDATA" *) input [511:0]rdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RID" *) input [3:0]rid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RDATA" *) input [31:0]rdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RLAST" *) input rlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RREADY" *) output rready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RRESP" *) input [1:0]rresp;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RVALID" *) input rvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWADDR" *) output [30:0]awaddr;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWADDR" *) output [14:0]awaddr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWBURST" *) output [1:0]awburst;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWCACHE" *) output [3:0]awcache;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWID" *) output [3:0]awid;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWLEN" *) output [7:0]awlen;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWLOCK" *) output awlock;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWPROT" *) output [2:0]awprot;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWQOS" *) output [3:0]awqos;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWREADY" *) input awready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWSIZE" *) output [2:0]awsize;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWVALID" *) output awvalid;
@@ -115,23 +105,23 @@ module design_1_exec_0_0
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BREADY" *) output bready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BRESP" *) input [1:0]bresp;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BVALID" *) input bvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WDATA" *) output [511:0]wdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WDATA" *) output [31:0]wdata;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WLAST" *) output wlast;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WREADY" *) input wready;
   (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WSTRB" *) output [63:0]wstrb;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME interface_aximm, DATA_WIDTH 512, PROTOCOL AXI4, FREQ_HZ 300000000, ID_WIDTH 4, ADDR_WIDTH 31, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) output wvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET rstn, FREQ_HZ 300000000, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WVALID" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME interface_aximm, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 4, ADDR_WIDTH 15, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) output wvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET rstn, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rstn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rstn;
 
   wire \<const0> ;
   wire \<const1> ;
   wire [31:0]addr;
   wire [5:0]alu_command;
-  wire [30:0]araddr;
+  wire [14:0]araddr;
   wire arready;
   wire [1:1]\^arsize ;
   wire arvalid;
-  wire [30:0]awaddr;
+  wire [14:0]awaddr;
   wire awready;
   wire [1:1]\^awsize ;
   wire awvalid;
@@ -181,14 +171,14 @@ module design_1_exec_0_0
   wire \pc_out_reg[31]_i_4_n_7 ;
   wire [4:0]rd_in;
   wire [4:0]rd_out;
-  wire [511:0]rdata;
+  wire [31:0]rdata;
   wire rready;
   wire [31:0]rs;
   wire rstn;
   wire [31:0]rt;
   wire rvalid;
   wire [4:0]sh;
-  wire [31:0]\^wdata ;
+  wire [31:0]wdata;
   wire wready;
   wire [3:1]\^wselector ;
   wire wvalid;
@@ -196,15 +186,11 @@ module design_1_exec_0_0
   wire [7:7]\NLW_pc_out_reg[31]_i_4_CO_UNCONNECTED ;
 
   assign arburst[1] = \<const0> ;
-  assign arburst[0] = \<const0> ;
+  assign arburst[0] = \<const1> ;
   assign arcache[3] = \<const0> ;
   assign arcache[2] = \<const0> ;
   assign arcache[1] = \<const1> ;
   assign arcache[0] = \<const1> ;
-  assign arid[3] = \<const0> ;
-  assign arid[2] = \<const0> ;
-  assign arid[1] = \<const0> ;
-  assign arid[0] = \<const0> ;
   assign arlen[7] = \<const0> ;
   assign arlen[6] = \<const0> ;
   assign arlen[5] = \<const0> ;
@@ -217,23 +203,15 @@ module design_1_exec_0_0
   assign arprot[2] = \<const0> ;
   assign arprot[1] = \<const0> ;
   assign arprot[0] = \<const0> ;
-  assign arqos[3] = \<const0> ;
-  assign arqos[2] = \<const0> ;
-  assign arqos[1] = \<const0> ;
-  assign arqos[0] = \<const0> ;
   assign arsize[2] = \<const0> ;
   assign arsize[1] = \^arsize [1];
   assign arsize[0] = \<const0> ;
   assign awburst[1] = \<const0> ;
-  assign awburst[0] = \<const0> ;
+  assign awburst[0] = \<const1> ;
   assign awcache[3] = \<const0> ;
   assign awcache[2] = \<const0> ;
   assign awcache[1] = \<const1> ;
   assign awcache[0] = \<const1> ;
-  assign awid[3] = \<const0> ;
-  assign awid[2] = \<const0> ;
-  assign awid[1] = \<const0> ;
-  assign awid[0] = \<const0> ;
   assign awlen[7] = \<const0> ;
   assign awlen[6] = \<const0> ;
   assign awlen[5] = \<const0> ;
@@ -246,495 +224,10 @@ module design_1_exec_0_0
   assign awprot[2] = \<const0> ;
   assign awprot[1] = \<const0> ;
   assign awprot[0] = \<const0> ;
-  assign awqos[3] = \<const0> ;
-  assign awqos[2] = \<const0> ;
-  assign awqos[1] = \<const0> ;
-  assign awqos[0] = \<const0> ;
   assign awsize[2] = \<const0> ;
   assign awsize[1] = \^awsize [1];
   assign awsize[0] = \<const0> ;
-  assign wdata[511] = \<const0> ;
-  assign wdata[510] = \<const0> ;
-  assign wdata[509] = \<const0> ;
-  assign wdata[508] = \<const0> ;
-  assign wdata[507] = \<const0> ;
-  assign wdata[506] = \<const0> ;
-  assign wdata[505] = \<const0> ;
-  assign wdata[504] = \<const0> ;
-  assign wdata[503] = \<const0> ;
-  assign wdata[502] = \<const0> ;
-  assign wdata[501] = \<const0> ;
-  assign wdata[500] = \<const0> ;
-  assign wdata[499] = \<const0> ;
-  assign wdata[498] = \<const0> ;
-  assign wdata[497] = \<const0> ;
-  assign wdata[496] = \<const0> ;
-  assign wdata[495] = \<const0> ;
-  assign wdata[494] = \<const0> ;
-  assign wdata[493] = \<const0> ;
-  assign wdata[492] = \<const0> ;
-  assign wdata[491] = \<const0> ;
-  assign wdata[490] = \<const0> ;
-  assign wdata[489] = \<const0> ;
-  assign wdata[488] = \<const0> ;
-  assign wdata[487] = \<const0> ;
-  assign wdata[486] = \<const0> ;
-  assign wdata[485] = \<const0> ;
-  assign wdata[484] = \<const0> ;
-  assign wdata[483] = \<const0> ;
-  assign wdata[482] = \<const0> ;
-  assign wdata[481] = \<const0> ;
-  assign wdata[480] = \<const0> ;
-  assign wdata[479] = \<const0> ;
-  assign wdata[478] = \<const0> ;
-  assign wdata[477] = \<const0> ;
-  assign wdata[476] = \<const0> ;
-  assign wdata[475] = \<const0> ;
-  assign wdata[474] = \<const0> ;
-  assign wdata[473] = \<const0> ;
-  assign wdata[472] = \<const0> ;
-  assign wdata[471] = \<const0> ;
-  assign wdata[470] = \<const0> ;
-  assign wdata[469] = \<const0> ;
-  assign wdata[468] = \<const0> ;
-  assign wdata[467] = \<const0> ;
-  assign wdata[466] = \<const0> ;
-  assign wdata[465] = \<const0> ;
-  assign wdata[464] = \<const0> ;
-  assign wdata[463] = \<const0> ;
-  assign wdata[462] = \<const0> ;
-  assign wdata[461] = \<const0> ;
-  assign wdata[460] = \<const0> ;
-  assign wdata[459] = \<const0> ;
-  assign wdata[458] = \<const0> ;
-  assign wdata[457] = \<const0> ;
-  assign wdata[456] = \<const0> ;
-  assign wdata[455] = \<const0> ;
-  assign wdata[454] = \<const0> ;
-  assign wdata[453] = \<const0> ;
-  assign wdata[452] = \<const0> ;
-  assign wdata[451] = \<const0> ;
-  assign wdata[450] = \<const0> ;
-  assign wdata[449] = \<const0> ;
-  assign wdata[448] = \<const0> ;
-  assign wdata[447] = \<const0> ;
-  assign wdata[446] = \<const0> ;
-  assign wdata[445] = \<const0> ;
-  assign wdata[444] = \<const0> ;
-  assign wdata[443] = \<const0> ;
-  assign wdata[442] = \<const0> ;
-  assign wdata[441] = \<const0> ;
-  assign wdata[440] = \<const0> ;
-  assign wdata[439] = \<const0> ;
-  assign wdata[438] = \<const0> ;
-  assign wdata[437] = \<const0> ;
-  assign wdata[436] = \<const0> ;
-  assign wdata[435] = \<const0> ;
-  assign wdata[434] = \<const0> ;
-  assign wdata[433] = \<const0> ;
-  assign wdata[432] = \<const0> ;
-  assign wdata[431] = \<const0> ;
-  assign wdata[430] = \<const0> ;
-  assign wdata[429] = \<const0> ;
-  assign wdata[428] = \<const0> ;
-  assign wdata[427] = \<const0> ;
-  assign wdata[426] = \<const0> ;
-  assign wdata[425] = \<const0> ;
-  assign wdata[424] = \<const0> ;
-  assign wdata[423] = \<const0> ;
-  assign wdata[422] = \<const0> ;
-  assign wdata[421] = \<const0> ;
-  assign wdata[420] = \<const0> ;
-  assign wdata[419] = \<const0> ;
-  assign wdata[418] = \<const0> ;
-  assign wdata[417] = \<const0> ;
-  assign wdata[416] = \<const0> ;
-  assign wdata[415] = \<const0> ;
-  assign wdata[414] = \<const0> ;
-  assign wdata[413] = \<const0> ;
-  assign wdata[412] = \<const0> ;
-  assign wdata[411] = \<const0> ;
-  assign wdata[410] = \<const0> ;
-  assign wdata[409] = \<const0> ;
-  assign wdata[408] = \<const0> ;
-  assign wdata[407] = \<const0> ;
-  assign wdata[406] = \<const0> ;
-  assign wdata[405] = \<const0> ;
-  assign wdata[404] = \<const0> ;
-  assign wdata[403] = \<const0> ;
-  assign wdata[402] = \<const0> ;
-  assign wdata[401] = \<const0> ;
-  assign wdata[400] = \<const0> ;
-  assign wdata[399] = \<const0> ;
-  assign wdata[398] = \<const0> ;
-  assign wdata[397] = \<const0> ;
-  assign wdata[396] = \<const0> ;
-  assign wdata[395] = \<const0> ;
-  assign wdata[394] = \<const0> ;
-  assign wdata[393] = \<const0> ;
-  assign wdata[392] = \<const0> ;
-  assign wdata[391] = \<const0> ;
-  assign wdata[390] = \<const0> ;
-  assign wdata[389] = \<const0> ;
-  assign wdata[388] = \<const0> ;
-  assign wdata[387] = \<const0> ;
-  assign wdata[386] = \<const0> ;
-  assign wdata[385] = \<const0> ;
-  assign wdata[384] = \<const0> ;
-  assign wdata[383] = \<const0> ;
-  assign wdata[382] = \<const0> ;
-  assign wdata[381] = \<const0> ;
-  assign wdata[380] = \<const0> ;
-  assign wdata[379] = \<const0> ;
-  assign wdata[378] = \<const0> ;
-  assign wdata[377] = \<const0> ;
-  assign wdata[376] = \<const0> ;
-  assign wdata[375] = \<const0> ;
-  assign wdata[374] = \<const0> ;
-  assign wdata[373] = \<const0> ;
-  assign wdata[372] = \<const0> ;
-  assign wdata[371] = \<const0> ;
-  assign wdata[370] = \<const0> ;
-  assign wdata[369] = \<const0> ;
-  assign wdata[368] = \<const0> ;
-  assign wdata[367] = \<const0> ;
-  assign wdata[366] = \<const0> ;
-  assign wdata[365] = \<const0> ;
-  assign wdata[364] = \<const0> ;
-  assign wdata[363] = \<const0> ;
-  assign wdata[362] = \<const0> ;
-  assign wdata[361] = \<const0> ;
-  assign wdata[360] = \<const0> ;
-  assign wdata[359] = \<const0> ;
-  assign wdata[358] = \<const0> ;
-  assign wdata[357] = \<const0> ;
-  assign wdata[356] = \<const0> ;
-  assign wdata[355] = \<const0> ;
-  assign wdata[354] = \<const0> ;
-  assign wdata[353] = \<const0> ;
-  assign wdata[352] = \<const0> ;
-  assign wdata[351] = \<const0> ;
-  assign wdata[350] = \<const0> ;
-  assign wdata[349] = \<const0> ;
-  assign wdata[348] = \<const0> ;
-  assign wdata[347] = \<const0> ;
-  assign wdata[346] = \<const0> ;
-  assign wdata[345] = \<const0> ;
-  assign wdata[344] = \<const0> ;
-  assign wdata[343] = \<const0> ;
-  assign wdata[342] = \<const0> ;
-  assign wdata[341] = \<const0> ;
-  assign wdata[340] = \<const0> ;
-  assign wdata[339] = \<const0> ;
-  assign wdata[338] = \<const0> ;
-  assign wdata[337] = \<const0> ;
-  assign wdata[336] = \<const0> ;
-  assign wdata[335] = \<const0> ;
-  assign wdata[334] = \<const0> ;
-  assign wdata[333] = \<const0> ;
-  assign wdata[332] = \<const0> ;
-  assign wdata[331] = \<const0> ;
-  assign wdata[330] = \<const0> ;
-  assign wdata[329] = \<const0> ;
-  assign wdata[328] = \<const0> ;
-  assign wdata[327] = \<const0> ;
-  assign wdata[326] = \<const0> ;
-  assign wdata[325] = \<const0> ;
-  assign wdata[324] = \<const0> ;
-  assign wdata[323] = \<const0> ;
-  assign wdata[322] = \<const0> ;
-  assign wdata[321] = \<const0> ;
-  assign wdata[320] = \<const0> ;
-  assign wdata[319] = \<const0> ;
-  assign wdata[318] = \<const0> ;
-  assign wdata[317] = \<const0> ;
-  assign wdata[316] = \<const0> ;
-  assign wdata[315] = \<const0> ;
-  assign wdata[314] = \<const0> ;
-  assign wdata[313] = \<const0> ;
-  assign wdata[312] = \<const0> ;
-  assign wdata[311] = \<const0> ;
-  assign wdata[310] = \<const0> ;
-  assign wdata[309] = \<const0> ;
-  assign wdata[308] = \<const0> ;
-  assign wdata[307] = \<const0> ;
-  assign wdata[306] = \<const0> ;
-  assign wdata[305] = \<const0> ;
-  assign wdata[304] = \<const0> ;
-  assign wdata[303] = \<const0> ;
-  assign wdata[302] = \<const0> ;
-  assign wdata[301] = \<const0> ;
-  assign wdata[300] = \<const0> ;
-  assign wdata[299] = \<const0> ;
-  assign wdata[298] = \<const0> ;
-  assign wdata[297] = \<const0> ;
-  assign wdata[296] = \<const0> ;
-  assign wdata[295] = \<const0> ;
-  assign wdata[294] = \<const0> ;
-  assign wdata[293] = \<const0> ;
-  assign wdata[292] = \<const0> ;
-  assign wdata[291] = \<const0> ;
-  assign wdata[290] = \<const0> ;
-  assign wdata[289] = \<const0> ;
-  assign wdata[288] = \<const0> ;
-  assign wdata[287] = \<const0> ;
-  assign wdata[286] = \<const0> ;
-  assign wdata[285] = \<const0> ;
-  assign wdata[284] = \<const0> ;
-  assign wdata[283] = \<const0> ;
-  assign wdata[282] = \<const0> ;
-  assign wdata[281] = \<const0> ;
-  assign wdata[280] = \<const0> ;
-  assign wdata[279] = \<const0> ;
-  assign wdata[278] = \<const0> ;
-  assign wdata[277] = \<const0> ;
-  assign wdata[276] = \<const0> ;
-  assign wdata[275] = \<const0> ;
-  assign wdata[274] = \<const0> ;
-  assign wdata[273] = \<const0> ;
-  assign wdata[272] = \<const0> ;
-  assign wdata[271] = \<const0> ;
-  assign wdata[270] = \<const0> ;
-  assign wdata[269] = \<const0> ;
-  assign wdata[268] = \<const0> ;
-  assign wdata[267] = \<const0> ;
-  assign wdata[266] = \<const0> ;
-  assign wdata[265] = \<const0> ;
-  assign wdata[264] = \<const0> ;
-  assign wdata[263] = \<const0> ;
-  assign wdata[262] = \<const0> ;
-  assign wdata[261] = \<const0> ;
-  assign wdata[260] = \<const0> ;
-  assign wdata[259] = \<const0> ;
-  assign wdata[258] = \<const0> ;
-  assign wdata[257] = \<const0> ;
-  assign wdata[256] = \<const0> ;
-  assign wdata[255] = \<const0> ;
-  assign wdata[254] = \<const0> ;
-  assign wdata[253] = \<const0> ;
-  assign wdata[252] = \<const0> ;
-  assign wdata[251] = \<const0> ;
-  assign wdata[250] = \<const0> ;
-  assign wdata[249] = \<const0> ;
-  assign wdata[248] = \<const0> ;
-  assign wdata[247] = \<const0> ;
-  assign wdata[246] = \<const0> ;
-  assign wdata[245] = \<const0> ;
-  assign wdata[244] = \<const0> ;
-  assign wdata[243] = \<const0> ;
-  assign wdata[242] = \<const0> ;
-  assign wdata[241] = \<const0> ;
-  assign wdata[240] = \<const0> ;
-  assign wdata[239] = \<const0> ;
-  assign wdata[238] = \<const0> ;
-  assign wdata[237] = \<const0> ;
-  assign wdata[236] = \<const0> ;
-  assign wdata[235] = \<const0> ;
-  assign wdata[234] = \<const0> ;
-  assign wdata[233] = \<const0> ;
-  assign wdata[232] = \<const0> ;
-  assign wdata[231] = \<const0> ;
-  assign wdata[230] = \<const0> ;
-  assign wdata[229] = \<const0> ;
-  assign wdata[228] = \<const0> ;
-  assign wdata[227] = \<const0> ;
-  assign wdata[226] = \<const0> ;
-  assign wdata[225] = \<const0> ;
-  assign wdata[224] = \<const0> ;
-  assign wdata[223] = \<const0> ;
-  assign wdata[222] = \<const0> ;
-  assign wdata[221] = \<const0> ;
-  assign wdata[220] = \<const0> ;
-  assign wdata[219] = \<const0> ;
-  assign wdata[218] = \<const0> ;
-  assign wdata[217] = \<const0> ;
-  assign wdata[216] = \<const0> ;
-  assign wdata[215] = \<const0> ;
-  assign wdata[214] = \<const0> ;
-  assign wdata[213] = \<const0> ;
-  assign wdata[212] = \<const0> ;
-  assign wdata[211] = \<const0> ;
-  assign wdata[210] = \<const0> ;
-  assign wdata[209] = \<const0> ;
-  assign wdata[208] = \<const0> ;
-  assign wdata[207] = \<const0> ;
-  assign wdata[206] = \<const0> ;
-  assign wdata[205] = \<const0> ;
-  assign wdata[204] = \<const0> ;
-  assign wdata[203] = \<const0> ;
-  assign wdata[202] = \<const0> ;
-  assign wdata[201] = \<const0> ;
-  assign wdata[200] = \<const0> ;
-  assign wdata[199] = \<const0> ;
-  assign wdata[198] = \<const0> ;
-  assign wdata[197] = \<const0> ;
-  assign wdata[196] = \<const0> ;
-  assign wdata[195] = \<const0> ;
-  assign wdata[194] = \<const0> ;
-  assign wdata[193] = \<const0> ;
-  assign wdata[192] = \<const0> ;
-  assign wdata[191] = \<const0> ;
-  assign wdata[190] = \<const0> ;
-  assign wdata[189] = \<const0> ;
-  assign wdata[188] = \<const0> ;
-  assign wdata[187] = \<const0> ;
-  assign wdata[186] = \<const0> ;
-  assign wdata[185] = \<const0> ;
-  assign wdata[184] = \<const0> ;
-  assign wdata[183] = \<const0> ;
-  assign wdata[182] = \<const0> ;
-  assign wdata[181] = \<const0> ;
-  assign wdata[180] = \<const0> ;
-  assign wdata[179] = \<const0> ;
-  assign wdata[178] = \<const0> ;
-  assign wdata[177] = \<const0> ;
-  assign wdata[176] = \<const0> ;
-  assign wdata[175] = \<const0> ;
-  assign wdata[174] = \<const0> ;
-  assign wdata[173] = \<const0> ;
-  assign wdata[172] = \<const0> ;
-  assign wdata[171] = \<const0> ;
-  assign wdata[170] = \<const0> ;
-  assign wdata[169] = \<const0> ;
-  assign wdata[168] = \<const0> ;
-  assign wdata[167] = \<const0> ;
-  assign wdata[166] = \<const0> ;
-  assign wdata[165] = \<const0> ;
-  assign wdata[164] = \<const0> ;
-  assign wdata[163] = \<const0> ;
-  assign wdata[162] = \<const0> ;
-  assign wdata[161] = \<const0> ;
-  assign wdata[160] = \<const0> ;
-  assign wdata[159] = \<const0> ;
-  assign wdata[158] = \<const0> ;
-  assign wdata[157] = \<const0> ;
-  assign wdata[156] = \<const0> ;
-  assign wdata[155] = \<const0> ;
-  assign wdata[154] = \<const0> ;
-  assign wdata[153] = \<const0> ;
-  assign wdata[152] = \<const0> ;
-  assign wdata[151] = \<const0> ;
-  assign wdata[150] = \<const0> ;
-  assign wdata[149] = \<const0> ;
-  assign wdata[148] = \<const0> ;
-  assign wdata[147] = \<const0> ;
-  assign wdata[146] = \<const0> ;
-  assign wdata[145] = \<const0> ;
-  assign wdata[144] = \<const0> ;
-  assign wdata[143] = \<const0> ;
-  assign wdata[142] = \<const0> ;
-  assign wdata[141] = \<const0> ;
-  assign wdata[140] = \<const0> ;
-  assign wdata[139] = \<const0> ;
-  assign wdata[138] = \<const0> ;
-  assign wdata[137] = \<const0> ;
-  assign wdata[136] = \<const0> ;
-  assign wdata[135] = \<const0> ;
-  assign wdata[134] = \<const0> ;
-  assign wdata[133] = \<const0> ;
-  assign wdata[132] = \<const0> ;
-  assign wdata[131] = \<const0> ;
-  assign wdata[130] = \<const0> ;
-  assign wdata[129] = \<const0> ;
-  assign wdata[128] = \<const0> ;
-  assign wdata[127] = \<const0> ;
-  assign wdata[126] = \<const0> ;
-  assign wdata[125] = \<const0> ;
-  assign wdata[124] = \<const0> ;
-  assign wdata[123] = \<const0> ;
-  assign wdata[122] = \<const0> ;
-  assign wdata[121] = \<const0> ;
-  assign wdata[120] = \<const0> ;
-  assign wdata[119] = \<const0> ;
-  assign wdata[118] = \<const0> ;
-  assign wdata[117] = \<const0> ;
-  assign wdata[116] = \<const0> ;
-  assign wdata[115] = \<const0> ;
-  assign wdata[114] = \<const0> ;
-  assign wdata[113] = \<const0> ;
-  assign wdata[112] = \<const0> ;
-  assign wdata[111] = \<const0> ;
-  assign wdata[110] = \<const0> ;
-  assign wdata[109] = \<const0> ;
-  assign wdata[108] = \<const0> ;
-  assign wdata[107] = \<const0> ;
-  assign wdata[106] = \<const0> ;
-  assign wdata[105] = \<const0> ;
-  assign wdata[104] = \<const0> ;
-  assign wdata[103] = \<const0> ;
-  assign wdata[102] = \<const0> ;
-  assign wdata[101] = \<const0> ;
-  assign wdata[100] = \<const0> ;
-  assign wdata[99] = \<const0> ;
-  assign wdata[98] = \<const0> ;
-  assign wdata[97] = \<const0> ;
-  assign wdata[96] = \<const0> ;
-  assign wdata[95] = \<const0> ;
-  assign wdata[94] = \<const0> ;
-  assign wdata[93] = \<const0> ;
-  assign wdata[92] = \<const0> ;
-  assign wdata[91] = \<const0> ;
-  assign wdata[90] = \<const0> ;
-  assign wdata[89] = \<const0> ;
-  assign wdata[88] = \<const0> ;
-  assign wdata[87] = \<const0> ;
-  assign wdata[86] = \<const0> ;
-  assign wdata[85] = \<const0> ;
-  assign wdata[84] = \<const0> ;
-  assign wdata[83] = \<const0> ;
-  assign wdata[82] = \<const0> ;
-  assign wdata[81] = \<const0> ;
-  assign wdata[80] = \<const0> ;
-  assign wdata[79] = \<const0> ;
-  assign wdata[78] = \<const0> ;
-  assign wdata[77] = \<const0> ;
-  assign wdata[76] = \<const0> ;
-  assign wdata[75] = \<const0> ;
-  assign wdata[74] = \<const0> ;
-  assign wdata[73] = \<const0> ;
-  assign wdata[72] = \<const0> ;
-  assign wdata[71] = \<const0> ;
-  assign wdata[70] = \<const0> ;
-  assign wdata[69] = \<const0> ;
-  assign wdata[68] = \<const0> ;
-  assign wdata[67] = \<const0> ;
-  assign wdata[66] = \<const0> ;
-  assign wdata[65] = \<const0> ;
-  assign wdata[64] = \<const0> ;
-  assign wdata[63] = \<const0> ;
-  assign wdata[62] = \<const0> ;
-  assign wdata[61] = \<const0> ;
-  assign wdata[60] = \<const0> ;
-  assign wdata[59] = \<const0> ;
-  assign wdata[58] = \<const0> ;
-  assign wdata[57] = \<const0> ;
-  assign wdata[56] = \<const0> ;
-  assign wdata[55] = \<const0> ;
-  assign wdata[54] = \<const0> ;
-  assign wdata[53] = \<const0> ;
-  assign wdata[52] = \<const0> ;
-  assign wdata[51] = \<const0> ;
-  assign wdata[50] = \<const0> ;
-  assign wdata[49] = \<const0> ;
-  assign wdata[48] = \<const0> ;
-  assign wdata[47] = \<const0> ;
-  assign wdata[46] = \<const0> ;
-  assign wdata[45] = \<const0> ;
-  assign wdata[44] = \<const0> ;
-  assign wdata[43] = \<const0> ;
-  assign wdata[42] = \<const0> ;
-  assign wdata[41] = \<const0> ;
-  assign wdata[40] = \<const0> ;
-  assign wdata[39] = \<const0> ;
-  assign wdata[38] = \<const0> ;
-  assign wdata[37] = \<const0> ;
-  assign wdata[36] = \<const0> ;
-  assign wdata[35] = \<const0> ;
-  assign wdata[34] = \<const0> ;
-  assign wdata[33] = \<const0> ;
-  assign wdata[32] = \<const0> ;
-  assign wdata[31:0] = \^wdata [31:0];
-  assign wlast = wvalid;
+  assign wlast = \<const1> ;
   assign wselector[3:1] = \^wselector [3:1];
   assign wselector[0] = \<const0> ;
   assign wstrb[63] = \<const0> ;
@@ -863,7 +356,7 @@ module design_1_exec_0_0
   design_1_exec_0_0_exec inst
        (.CO(inst_n_10),
         .O(data1),
-        .addr(addr[30:0]),
+        .addr(addr[23:0]),
         .alu_command(alu_command),
         .araddr(araddr),
         .arready(arready),
@@ -886,7 +379,7 @@ module design_1_exec_0_0
         .pc_out(pc_out),
         .rd_in(rd_in),
         .rd_out(rd_out),
-        .rdata(rdata[31:0]),
+        .rdata(rdata),
         .rready_reg_0(rready),
         .rs(rs),
         .\rs[23] (inst_n_11),
@@ -894,7 +387,7 @@ module design_1_exec_0_0
         .rt(rt),
         .rvalid(rvalid),
         .sh(sh),
-        .wdata(\^wdata ),
+        .wdata(wdata),
         .wready(wready),
         .wselector(\^wselector ),
         .wvalid(wvalid));
@@ -1015,9 +508,9 @@ module design_1_exec_0_0_exec
   output [31:0]pc_out;
   output [31:0]data;
   output [4:0]rd_out;
-  output [30:0]araddr;
+  output [14:0]araddr;
   output [0:0]arsize;
-  output [30:0]awaddr;
+  output [14:0]awaddr;
   output [0:0]awsize;
   output [31:0]wdata;
   input clk;
@@ -1038,15 +531,15 @@ module design_1_exec_0_0_exec
   input [4:0]rd_in;
   input [4:0]sh;
   input [7:0]\data_reg[31]_i_30_0 ;
-  input [30:0]addr;
+  input [23:0]addr;
 
   wire [0:0]CO;
   wire [7:0]O;
-  wire [30:0]addr;
+  wire [23:0]addr;
   wire [5:0]alu_command;
-  wire [30:0]araddr;
-  wire \araddr[30]_i_1_n_0 ;
-  wire \araddr[30]_i_2_n_0 ;
+  wire [14:0]araddr;
+  wire \araddr[14]_i_1_n_0 ;
+  wire \araddr[14]_i_2_n_0 ;
   wire arready;
   wire [0:0]arsize;
   wire \arsize[1]_i_1_n_0 ;
@@ -1054,9 +547,9 @@ module design_1_exec_0_0_exec
   wire \arsize[1]_i_3_n_0 ;
   wire arvalid;
   wire arvalid_i_1_n_0;
-  wire [30:0]awaddr;
-  wire \awaddr[30]_i_1_n_0 ;
-  wire \awaddr[30]_i_2_n_0 ;
+  wire [14:0]awaddr;
+  wire \awaddr[14]_i_1_n_0 ;
+  wire \awaddr[14]_i_2_n_0 ;
   wire awready;
   wire [0:0]awsize;
   wire \awsize[1]_i_1_n_0 ;
@@ -9299,206 +8792,110 @@ module design_1_exec_0_0_exec
   assign exec_command_5_sp_1 = exec_command_5_sn_1;
   LUT5 #(
     .INIT(32'h88880080)) 
-    \araddr[30]_i_1 
+    \araddr[14]_i_1 
        (.I0(enable),
-        .I1(\araddr[30]_i_2_n_0 ),
+        .I1(\araddr[14]_i_2_n_0 ),
         .I2(exec_command[0]),
         .I3(exec_command[1]),
         .I4(\rd_out[4]_i_2_n_0 ),
-        .O(\araddr[30]_i_1_n_0 ));
+        .O(\araddr[14]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0000020000000100)) 
-    \araddr[30]_i_2 
+    \araddr[14]_i_2 
        (.I0(exec_command[0]),
         .I1(exec_command[2]),
         .I2(exec_command[3]),
         .I3(exec_command[5]),
         .I4(exec_command[4]),
         .I5(exec_command[1]),
-        .O(\araddr[30]_i_2_n_0 ));
+        .O(\araddr[14]_i_2_n_0 ));
   FDRE \araddr_reg[0] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[0]),
         .Q(araddr[0]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[10] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[10]),
         .Q(araddr[10]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[11] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[11]),
         .Q(araddr[11]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[12] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[12]),
         .Q(araddr[12]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[13] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[13]),
         .Q(araddr[13]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[14] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[14]),
         .Q(araddr[14]),
         .R(done_i_1_n_0));
-  FDRE \araddr_reg[15] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[15]),
-        .Q(araddr[15]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[16] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[16]),
-        .Q(araddr[16]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[17] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[17]),
-        .Q(araddr[17]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[18] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[18]),
-        .Q(araddr[18]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[19] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[19]),
-        .Q(araddr[19]),
-        .R(done_i_1_n_0));
   FDRE \araddr_reg[1] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[1]),
         .Q(araddr[1]),
         .R(done_i_1_n_0));
-  FDRE \araddr_reg[20] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[20]),
-        .Q(araddr[20]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[21] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[21]),
-        .Q(araddr[21]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[22] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[22]),
-        .Q(araddr[22]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[23] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[23]),
-        .Q(araddr[23]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[24] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[24]),
-        .Q(araddr[24]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[25] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[25]),
-        .Q(araddr[25]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[26] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[26]),
-        .Q(araddr[26]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[27] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[27]),
-        .Q(araddr[27]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[28] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[28]),
-        .Q(araddr[28]),
-        .R(done_i_1_n_0));
-  FDRE \araddr_reg[29] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[29]),
-        .Q(araddr[29]),
-        .R(done_i_1_n_0));
   FDRE \araddr_reg[2] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[2]),
         .Q(araddr[2]),
         .R(done_i_1_n_0));
-  FDRE \araddr_reg[30] 
-       (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
-        .D(addr[30]),
-        .Q(araddr[30]),
-        .R(done_i_1_n_0));
   FDRE \araddr_reg[3] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[3]),
         .Q(araddr[3]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[4] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[4]),
         .Q(araddr[4]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[5] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[5]),
         .Q(araddr[5]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[6] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[6]),
         .Q(araddr[6]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[7] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[7]),
         .Q(araddr[7]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[8] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[8]),
         .Q(araddr[8]),
         .R(done_i_1_n_0));
   FDRE \araddr_reg[9] 
        (.C(clk),
-        .CE(\araddr[30]_i_1_n_0 ),
+        .CE(\araddr[14]_i_1_n_0 ),
         .D(addr[9]),
         .Q(araddr[9]),
         .R(done_i_1_n_0));
@@ -9539,7 +8936,7 @@ module design_1_exec_0_0_exec
   LUT4 #(
     .INIT(16'h0C88)) 
     arvalid_i_1
-       (.I0(\araddr[30]_i_1_n_0 ),
+       (.I0(\araddr[14]_i_1_n_0 ),
         .I1(rstn),
         .I2(arready),
         .I3(arvalid),
@@ -9552,206 +8949,110 @@ module design_1_exec_0_0_exec
         .R(1'b0));
   LUT5 #(
     .INIT(32'h88880080)) 
-    \awaddr[30]_i_1 
+    \awaddr[14]_i_1 
        (.I0(enable),
-        .I1(\awaddr[30]_i_2_n_0 ),
+        .I1(\awaddr[14]_i_2_n_0 ),
         .I2(exec_command[0]),
         .I3(exec_command[1]),
         .I4(\rd_out[4]_i_2_n_0 ),
-        .O(\awaddr[30]_i_1_n_0 ));
+        .O(\awaddr[14]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'h0000200000001000)) 
-    \awaddr[30]_i_2 
+    \awaddr[14]_i_2 
        (.I0(exec_command[0]),
         .I1(exec_command[2]),
         .I2(exec_command[3]),
         .I3(exec_command[5]),
         .I4(exec_command[4]),
         .I5(exec_command[1]),
-        .O(\awaddr[30]_i_2_n_0 ));
+        .O(\awaddr[14]_i_2_n_0 ));
   FDRE \awaddr_reg[0] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[0]),
         .Q(awaddr[0]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[10] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[10]),
         .Q(awaddr[10]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[11] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[11]),
         .Q(awaddr[11]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[12] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[12]),
         .Q(awaddr[12]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[13] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[13]),
         .Q(awaddr[13]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[14] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[14]),
         .Q(awaddr[14]),
         .R(done_i_1_n_0));
-  FDRE \awaddr_reg[15] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[15]),
-        .Q(awaddr[15]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[16] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[16]),
-        .Q(awaddr[16]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[17] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[17]),
-        .Q(awaddr[17]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[18] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[18]),
-        .Q(awaddr[18]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[19] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[19]),
-        .Q(awaddr[19]),
-        .R(done_i_1_n_0));
   FDRE \awaddr_reg[1] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[1]),
         .Q(awaddr[1]),
         .R(done_i_1_n_0));
-  FDRE \awaddr_reg[20] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[20]),
-        .Q(awaddr[20]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[21] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[21]),
-        .Q(awaddr[21]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[22] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[22]),
-        .Q(awaddr[22]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[23] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[23]),
-        .Q(awaddr[23]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[24] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[24]),
-        .Q(awaddr[24]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[25] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[25]),
-        .Q(awaddr[25]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[26] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[26]),
-        .Q(awaddr[26]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[27] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[27]),
-        .Q(awaddr[27]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[28] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[28]),
-        .Q(awaddr[28]),
-        .R(done_i_1_n_0));
-  FDRE \awaddr_reg[29] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[29]),
-        .Q(awaddr[29]),
-        .R(done_i_1_n_0));
   FDRE \awaddr_reg[2] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[2]),
         .Q(awaddr[2]),
         .R(done_i_1_n_0));
-  FDRE \awaddr_reg[30] 
-       (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
-        .D(addr[30]),
-        .Q(awaddr[30]),
-        .R(done_i_1_n_0));
   FDRE \awaddr_reg[3] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[3]),
         .Q(awaddr[3]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[4] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[4]),
         .Q(awaddr[4]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[5] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[5]),
         .Q(awaddr[5]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[6] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[6]),
         .Q(awaddr[6]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[7] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[7]),
         .Q(awaddr[7]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[8] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[8]),
         .Q(awaddr[8]),
         .R(done_i_1_n_0));
   FDRE \awaddr_reg[9] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(addr[9]),
         .Q(awaddr[9]),
         .R(done_i_1_n_0));
@@ -9792,7 +9093,7 @@ module design_1_exec_0_0_exec
   LUT4 #(
     .INIT(16'h0C88)) 
     awvalid_i_1
-       (.I0(\awaddr[30]_i_1_n_0 ),
+       (.I0(\awaddr[14]_i_1_n_0 ),
         .I1(rstn),
         .I2(awready),
         .I3(awvalid),
@@ -9806,7 +9107,7 @@ module design_1_exec_0_0_exec
   LUT4 #(
     .INIT(16'h08C8)) 
     bready_i_1
-       (.I0(\awaddr[30]_i_1_n_0 ),
+       (.I0(\awaddr[14]_i_1_n_0 ),
         .I1(rstn),
         .I2(bready),
         .I3(bvalid),
@@ -38675,7 +37976,7 @@ module design_1_exec_0_0_exec
   LUT4 #(
     .INIT(16'h08C8)) 
     rready_i_1
-       (.I0(\araddr[30]_i_1_n_0 ),
+       (.I0(\araddr[14]_i_1_n_0 ),
         .I1(rstn),
         .I2(rready_reg_0),
         .I3(rvalid),
@@ -38688,193 +37989,193 @@ module design_1_exec_0_0_exec
         .R(1'b0));
   FDRE \wdata_reg[0] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[0]),
         .Q(wdata[0]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[10] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[10]),
         .Q(wdata[10]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[11] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[11]),
         .Q(wdata[11]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[12] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[12]),
         .Q(wdata[12]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[13] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[13]),
         .Q(wdata[13]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[14] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[14]),
         .Q(wdata[14]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[15] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[15]),
         .Q(wdata[15]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[16] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[16]),
         .Q(wdata[16]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[17] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[17]),
         .Q(wdata[17]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[18] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[18]),
         .Q(wdata[18]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[19] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[19]),
         .Q(wdata[19]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[1] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[1]),
         .Q(wdata[1]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[20] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[20]),
         .Q(wdata[20]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[21] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[21]),
         .Q(wdata[21]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[22] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[22]),
         .Q(wdata[22]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[23] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[23]),
         .Q(wdata[23]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[24] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[24]),
         .Q(wdata[24]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[25] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[25]),
         .Q(wdata[25]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[26] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[26]),
         .Q(wdata[26]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[27] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[27]),
         .Q(wdata[27]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[28] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[28]),
         .Q(wdata[28]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[29] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[29]),
         .Q(wdata[29]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[2] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[2]),
         .Q(wdata[2]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[30] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[30]),
         .Q(wdata[30]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[31] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[31]),
         .Q(wdata[31]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[3] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[3]),
         .Q(wdata[3]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[4] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[4]),
         .Q(wdata[4]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[5] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[5]),
         .Q(wdata[5]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[6] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[6]),
         .Q(wdata[6]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[7] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[7]),
         .Q(wdata[7]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[8] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[8]),
         .Q(wdata[8]),
         .R(done_i_1_n_0));
   FDRE \wdata_reg[9] 
        (.C(clk),
-        .CE(\awaddr[30]_i_1_n_0 ),
+        .CE(\awaddr[14]_i_1_n_0 ),
         .D(rt[9]),
         .Q(wdata[9]),
         .R(done_i_1_n_0));
@@ -39164,7 +38465,7 @@ module design_1_exec_0_0_exec
   LUT4 #(
     .INIT(16'h0C88)) 
     wvalid_i_1
-       (.I0(\awaddr[30]_i_1_n_0 ),
+       (.I0(\awaddr[14]_i_1_n_0 ),
         .I1(rstn),
         .I2(wready),
         .I3(wvalid),

@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Fri Oct 11 16:50:45 2019
+-- Date        : Sun Oct 13 15:26:48 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_exec_0_0/design_1_exec_0_0_sim_netlist.vhdl
@@ -29,9 +29,9 @@ entity design_1_exec_0_0_exec is
     pc_out : out STD_LOGIC_VECTOR ( 31 downto 0 );
     data : out STD_LOGIC_VECTOR ( 31 downto 0 );
     rd_out : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    araddr : out STD_LOGIC_VECTOR ( 30 downto 0 );
+    araddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     arsize : out STD_LOGIC_VECTOR ( 0 to 0 );
-    awaddr : out STD_LOGIC_VECTOR ( 30 downto 0 );
+    awaddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     awsize : out STD_LOGIC_VECTOR ( 0 to 0 );
     wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     clk : in STD_LOGIC;
@@ -52,23 +52,23 @@ entity design_1_exec_0_0_exec is
     rd_in : in STD_LOGIC_VECTOR ( 4 downto 0 );
     sh : in STD_LOGIC_VECTOR ( 4 downto 0 );
     \data_reg[31]_i_30_0\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
-    addr : in STD_LOGIC_VECTOR ( 30 downto 0 )
+    addr : in STD_LOGIC_VECTOR ( 23 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of design_1_exec_0_0_exec : entity is "exec";
 end design_1_exec_0_0_exec;
 
 architecture STRUCTURE of design_1_exec_0_0_exec is
-  signal \araddr[30]_i_1_n_0\ : STD_LOGIC;
-  signal \araddr[30]_i_2_n_0\ : STD_LOGIC;
+  signal \araddr[14]_i_1_n_0\ : STD_LOGIC;
+  signal \araddr[14]_i_2_n_0\ : STD_LOGIC;
   signal \^arsize\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \arsize[1]_i_1_n_0\ : STD_LOGIC;
   signal \arsize[1]_i_2_n_0\ : STD_LOGIC;
   signal \arsize[1]_i_3_n_0\ : STD_LOGIC;
   signal \^arvalid\ : STD_LOGIC;
   signal arvalid_i_1_n_0 : STD_LOGIC;
-  signal \awaddr[30]_i_1_n_0\ : STD_LOGIC;
-  signal \awaddr[30]_i_2_n_0\ : STD_LOGIC;
+  signal \awaddr[14]_i_1_n_0\ : STD_LOGIC;
+  signal \awaddr[14]_i_2_n_0\ : STD_LOGIC;
   signal \^awsize\ : STD_LOGIC_VECTOR ( 0 to 0 );
   signal \awsize[1]_i_1_n_0\ : STD_LOGIC;
   signal \awsize[1]_i_2_n_0\ : STD_LOGIC;
@@ -8565,19 +8565,19 @@ begin
   rready_reg_0 <= \^rready_reg_0\;
   wselector(2 downto 0) <= \^wselector\(2 downto 0);
   wvalid <= \^wvalid\;
-\araddr[30]_i_1\: unisim.vcomponents.LUT5
+\araddr[14]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"88880080"
     )
         port map (
       I0 => enable,
-      I1 => \araddr[30]_i_2_n_0\,
+      I1 => \araddr[14]_i_2_n_0\,
       I2 => exec_command(0),
       I3 => exec_command(1),
       I4 => \rd_out[4]_i_2_n_0\,
-      O => \araddr[30]_i_1_n_0\
+      O => \araddr[14]_i_1_n_0\
     );
-\araddr[30]_i_2\: unisim.vcomponents.LUT6
+\araddr[14]_i_2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0000020000000100"
     )
@@ -8588,12 +8588,12 @@ begin
       I3 => exec_command(5),
       I4 => exec_command(4),
       I5 => exec_command(1),
-      O => \araddr[30]_i_2_n_0\
+      O => \araddr[14]_i_2_n_0\
     );
 \araddr_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(0),
       Q => araddr(0),
       R => done_i_1_n_0
@@ -8601,7 +8601,7 @@ begin
 \araddr_reg[10]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(10),
       Q => araddr(10),
       R => done_i_1_n_0
@@ -8609,7 +8609,7 @@ begin
 \araddr_reg[11]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(11),
       Q => araddr(11),
       R => done_i_1_n_0
@@ -8617,7 +8617,7 @@ begin
 \araddr_reg[12]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(12),
       Q => araddr(12),
       R => done_i_1_n_0
@@ -8625,7 +8625,7 @@ begin
 \araddr_reg[13]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(13),
       Q => araddr(13),
       R => done_i_1_n_0
@@ -8633,159 +8633,31 @@ begin
 \araddr_reg[14]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(14),
       Q => araddr(14),
-      R => done_i_1_n_0
-    );
-\araddr_reg[15]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(15),
-      Q => araddr(15),
-      R => done_i_1_n_0
-    );
-\araddr_reg[16]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(16),
-      Q => araddr(16),
-      R => done_i_1_n_0
-    );
-\araddr_reg[17]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(17),
-      Q => araddr(17),
-      R => done_i_1_n_0
-    );
-\araddr_reg[18]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(18),
-      Q => araddr(18),
-      R => done_i_1_n_0
-    );
-\araddr_reg[19]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(19),
-      Q => araddr(19),
       R => done_i_1_n_0
     );
 \araddr_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(1),
       Q => araddr(1),
-      R => done_i_1_n_0
-    );
-\araddr_reg[20]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(20),
-      Q => araddr(20),
-      R => done_i_1_n_0
-    );
-\araddr_reg[21]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(21),
-      Q => araddr(21),
-      R => done_i_1_n_0
-    );
-\araddr_reg[22]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(22),
-      Q => araddr(22),
-      R => done_i_1_n_0
-    );
-\araddr_reg[23]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(23),
-      Q => araddr(23),
-      R => done_i_1_n_0
-    );
-\araddr_reg[24]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(24),
-      Q => araddr(24),
-      R => done_i_1_n_0
-    );
-\araddr_reg[25]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(25),
-      Q => araddr(25),
-      R => done_i_1_n_0
-    );
-\araddr_reg[26]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(26),
-      Q => araddr(26),
-      R => done_i_1_n_0
-    );
-\araddr_reg[27]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(27),
-      Q => araddr(27),
-      R => done_i_1_n_0
-    );
-\araddr_reg[28]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(28),
-      Q => araddr(28),
-      R => done_i_1_n_0
-    );
-\araddr_reg[29]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(29),
-      Q => araddr(29),
       R => done_i_1_n_0
     );
 \araddr_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(2),
       Q => araddr(2),
-      R => done_i_1_n_0
-    );
-\araddr_reg[30]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \araddr[30]_i_1_n_0\,
-      D => addr(30),
-      Q => araddr(30),
       R => done_i_1_n_0
     );
 \araddr_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(3),
       Q => araddr(3),
       R => done_i_1_n_0
@@ -8793,7 +8665,7 @@ begin
 \araddr_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(4),
       Q => araddr(4),
       R => done_i_1_n_0
@@ -8801,7 +8673,7 @@ begin
 \araddr_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(5),
       Q => araddr(5),
       R => done_i_1_n_0
@@ -8809,7 +8681,7 @@ begin
 \araddr_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(6),
       Q => araddr(6),
       R => done_i_1_n_0
@@ -8817,7 +8689,7 @@ begin
 \araddr_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(7),
       Q => araddr(7),
       R => done_i_1_n_0
@@ -8825,7 +8697,7 @@ begin
 \araddr_reg[8]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(8),
       Q => araddr(8),
       R => done_i_1_n_0
@@ -8833,7 +8705,7 @@ begin
 \araddr_reg[9]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \araddr[30]_i_1_n_0\,
+      CE => \araddr[14]_i_1_n_0\,
       D => addr(9),
       Q => araddr(9),
       R => done_i_1_n_0
@@ -8888,7 +8760,7 @@ arvalid_i_1: unisim.vcomponents.LUT4
       INIT => X"0C88"
     )
         port map (
-      I0 => \araddr[30]_i_1_n_0\,
+      I0 => \araddr[14]_i_1_n_0\,
       I1 => rstn,
       I2 => arready,
       I3 => \^arvalid\,
@@ -8902,19 +8774,19 @@ arvalid_reg: unisim.vcomponents.FDRE
       Q => \^arvalid\,
       R => '0'
     );
-\awaddr[30]_i_1\: unisim.vcomponents.LUT5
+\awaddr[14]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"88880080"
     )
         port map (
       I0 => enable,
-      I1 => \awaddr[30]_i_2_n_0\,
+      I1 => \awaddr[14]_i_2_n_0\,
       I2 => exec_command(0),
       I3 => exec_command(1),
       I4 => \rd_out[4]_i_2_n_0\,
-      O => \awaddr[30]_i_1_n_0\
+      O => \awaddr[14]_i_1_n_0\
     );
-\awaddr[30]_i_2\: unisim.vcomponents.LUT6
+\awaddr[14]_i_2\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"0000200000001000"
     )
@@ -8925,12 +8797,12 @@ arvalid_reg: unisim.vcomponents.FDRE
       I3 => exec_command(5),
       I4 => exec_command(4),
       I5 => exec_command(1),
-      O => \awaddr[30]_i_2_n_0\
+      O => \awaddr[14]_i_2_n_0\
     );
 \awaddr_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(0),
       Q => awaddr(0),
       R => done_i_1_n_0
@@ -8938,7 +8810,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[10]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(10),
       Q => awaddr(10),
       R => done_i_1_n_0
@@ -8946,7 +8818,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[11]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(11),
       Q => awaddr(11),
       R => done_i_1_n_0
@@ -8954,7 +8826,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[12]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(12),
       Q => awaddr(12),
       R => done_i_1_n_0
@@ -8962,7 +8834,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[13]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(13),
       Q => awaddr(13),
       R => done_i_1_n_0
@@ -8970,159 +8842,31 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[14]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(14),
       Q => awaddr(14),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[15]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(15),
-      Q => awaddr(15),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[16]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(16),
-      Q => awaddr(16),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[17]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(17),
-      Q => awaddr(17),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[18]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(18),
-      Q => awaddr(18),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[19]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(19),
-      Q => awaddr(19),
       R => done_i_1_n_0
     );
 \awaddr_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(1),
       Q => awaddr(1),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[20]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(20),
-      Q => awaddr(20),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[21]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(21),
-      Q => awaddr(21),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[22]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(22),
-      Q => awaddr(22),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[23]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(23),
-      Q => awaddr(23),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[24]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(24),
-      Q => awaddr(24),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[25]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(25),
-      Q => awaddr(25),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[26]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(26),
-      Q => awaddr(26),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[27]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(27),
-      Q => awaddr(27),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[28]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(28),
-      Q => awaddr(28),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[29]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(29),
-      Q => awaddr(29),
       R => done_i_1_n_0
     );
 \awaddr_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(2),
       Q => awaddr(2),
-      R => done_i_1_n_0
-    );
-\awaddr_reg[30]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
-      D => addr(30),
-      Q => awaddr(30),
       R => done_i_1_n_0
     );
 \awaddr_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(3),
       Q => awaddr(3),
       R => done_i_1_n_0
@@ -9130,7 +8874,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(4),
       Q => awaddr(4),
       R => done_i_1_n_0
@@ -9138,7 +8882,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(5),
       Q => awaddr(5),
       R => done_i_1_n_0
@@ -9146,7 +8890,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(6),
       Q => awaddr(6),
       R => done_i_1_n_0
@@ -9154,7 +8898,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(7),
       Q => awaddr(7),
       R => done_i_1_n_0
@@ -9162,7 +8906,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[8]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(8),
       Q => awaddr(8),
       R => done_i_1_n_0
@@ -9170,7 +8914,7 @@ arvalid_reg: unisim.vcomponents.FDRE
 \awaddr_reg[9]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => addr(9),
       Q => awaddr(9),
       R => done_i_1_n_0
@@ -9225,7 +8969,7 @@ awvalid_i_1: unisim.vcomponents.LUT4
       INIT => X"0C88"
     )
         port map (
-      I0 => \awaddr[30]_i_1_n_0\,
+      I0 => \awaddr[14]_i_1_n_0\,
       I1 => rstn,
       I2 => awready,
       I3 => \^awvalid\,
@@ -9244,7 +8988,7 @@ bready_i_1: unisim.vcomponents.LUT4
       INIT => X"08C8"
     )
         port map (
-      I0 => \awaddr[30]_i_1_n_0\,
+      I0 => \awaddr[14]_i_1_n_0\,
       I1 => rstn,
       I2 => \^bready\,
       I3 => bvalid,
@@ -57021,7 +56765,7 @@ rready_i_1: unisim.vcomponents.LUT4
       INIT => X"08C8"
     )
         port map (
-      I0 => \araddr[30]_i_1_n_0\,
+      I0 => \araddr[14]_i_1_n_0\,
       I1 => rstn,
       I2 => \^rready_reg_0\,
       I3 => rvalid,
@@ -57038,7 +56782,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[0]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(0),
       Q => wdata(0),
       R => done_i_1_n_0
@@ -57046,7 +56790,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[10]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(10),
       Q => wdata(10),
       R => done_i_1_n_0
@@ -57054,7 +56798,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[11]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(11),
       Q => wdata(11),
       R => done_i_1_n_0
@@ -57062,7 +56806,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[12]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(12),
       Q => wdata(12),
       R => done_i_1_n_0
@@ -57070,7 +56814,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[13]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(13),
       Q => wdata(13),
       R => done_i_1_n_0
@@ -57078,7 +56822,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[14]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(14),
       Q => wdata(14),
       R => done_i_1_n_0
@@ -57086,7 +56830,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[15]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(15),
       Q => wdata(15),
       R => done_i_1_n_0
@@ -57094,7 +56838,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[16]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(16),
       Q => wdata(16),
       R => done_i_1_n_0
@@ -57102,7 +56846,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[17]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(17),
       Q => wdata(17),
       R => done_i_1_n_0
@@ -57110,7 +56854,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[18]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(18),
       Q => wdata(18),
       R => done_i_1_n_0
@@ -57118,7 +56862,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[19]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(19),
       Q => wdata(19),
       R => done_i_1_n_0
@@ -57126,7 +56870,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(1),
       Q => wdata(1),
       R => done_i_1_n_0
@@ -57134,7 +56878,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[20]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(20),
       Q => wdata(20),
       R => done_i_1_n_0
@@ -57142,7 +56886,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[21]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(21),
       Q => wdata(21),
       R => done_i_1_n_0
@@ -57150,7 +56894,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[22]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(22),
       Q => wdata(22),
       R => done_i_1_n_0
@@ -57158,7 +56902,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[23]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(23),
       Q => wdata(23),
       R => done_i_1_n_0
@@ -57166,7 +56910,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[24]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(24),
       Q => wdata(24),
       R => done_i_1_n_0
@@ -57174,7 +56918,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[25]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(25),
       Q => wdata(25),
       R => done_i_1_n_0
@@ -57182,7 +56926,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[26]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(26),
       Q => wdata(26),
       R => done_i_1_n_0
@@ -57190,7 +56934,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[27]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(27),
       Q => wdata(27),
       R => done_i_1_n_0
@@ -57198,7 +56942,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[28]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(28),
       Q => wdata(28),
       R => done_i_1_n_0
@@ -57206,7 +56950,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[29]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(29),
       Q => wdata(29),
       R => done_i_1_n_0
@@ -57214,7 +56958,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(2),
       Q => wdata(2),
       R => done_i_1_n_0
@@ -57222,7 +56966,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[30]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(30),
       Q => wdata(30),
       R => done_i_1_n_0
@@ -57230,7 +56974,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[31]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(31),
       Q => wdata(31),
       R => done_i_1_n_0
@@ -57238,7 +56982,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[3]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(3),
       Q => wdata(3),
       R => done_i_1_n_0
@@ -57246,7 +56990,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[4]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(4),
       Q => wdata(4),
       R => done_i_1_n_0
@@ -57254,7 +56998,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[5]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(5),
       Q => wdata(5),
       R => done_i_1_n_0
@@ -57262,7 +57006,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[6]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(6),
       Q => wdata(6),
       R => done_i_1_n_0
@@ -57270,7 +57014,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[7]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(7),
       Q => wdata(7),
       R => done_i_1_n_0
@@ -57278,7 +57022,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[8]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(8),
       Q => wdata(8),
       R => done_i_1_n_0
@@ -57286,7 +57030,7 @@ rready_reg: unisim.vcomponents.FDRE
 \wdata_reg[9]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \awaddr[30]_i_1_n_0\,
+      CE => \awaddr[14]_i_1_n_0\,
       D => rt(9),
       Q => wdata(9),
       R => done_i_1_n_0
@@ -57686,7 +57430,7 @@ wvalid_i_1: unisim.vcomponents.LUT4
       INIT => X"0C88"
     )
         port map (
-      I0 => \awaddr[30]_i_1_n_0\,
+      I0 => \awaddr[14]_i_1_n_0\,
       I1 => rstn,
       I2 => wready,
       I3 => \^wvalid\,
@@ -57721,31 +57465,26 @@ entity design_1_exec_0_0 is
     data : out STD_LOGIC_VECTOR ( 31 downto 0 );
     rd_in : in STD_LOGIC_VECTOR ( 4 downto 0 );
     rd_out : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    araddr : out STD_LOGIC_VECTOR ( 30 downto 0 );
+    araddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     arburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
     arcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    arid : out STD_LOGIC_VECTOR ( 3 downto 0 );
     arlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     arlock : out STD_LOGIC;
     arprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    arqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
     arready : in STD_LOGIC;
     arsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
     arvalid : out STD_LOGIC;
-    rdata : in STD_LOGIC_VECTOR ( 511 downto 0 );
-    rid : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    rdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     rlast : in STD_LOGIC;
     rready : out STD_LOGIC;
     rresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     rvalid : in STD_LOGIC;
-    awaddr : out STD_LOGIC_VECTOR ( 30 downto 0 );
+    awaddr : out STD_LOGIC_VECTOR ( 14 downto 0 );
     awburst : out STD_LOGIC_VECTOR ( 1 downto 0 );
     awcache : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    awid : out STD_LOGIC_VECTOR ( 3 downto 0 );
     awlen : out STD_LOGIC_VECTOR ( 7 downto 0 );
     awlock : out STD_LOGIC;
     awprot : out STD_LOGIC_VECTOR ( 2 downto 0 );
-    awqos : out STD_LOGIC_VECTOR ( 3 downto 0 );
     awready : in STD_LOGIC;
     awsize : out STD_LOGIC_VECTOR ( 2 downto 0 );
     awvalid : out STD_LOGIC;
@@ -57753,7 +57492,7 @@ entity design_1_exec_0_0 is
     bready : out STD_LOGIC;
     bresp : in STD_LOGIC_VECTOR ( 1 downto 0 );
     bvalid : in STD_LOGIC;
-    wdata : out STD_LOGIC_VECTOR ( 511 downto 0 );
+    wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     wlast : out STD_LOGIC;
     wready : in STD_LOGIC;
     wstrb : out STD_LOGIC_VECTOR ( 63 downto 0 );
@@ -57813,9 +57552,7 @@ architecture STRUCTURE of design_1_exec_0_0 is
   signal \pc_out_reg[31]_i_4_n_5\ : STD_LOGIC;
   signal \pc_out_reg[31]_i_4_n_6\ : STD_LOGIC;
   signal \pc_out_reg[31]_i_4_n_7\ : STD_LOGIC;
-  signal \^wdata\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \^wselector\ : STD_LOGIC_VECTOR ( 3 downto 1 );
-  signal \^wvalid\ : STD_LOGIC;
   signal \NLW_data_reg[31]_i_11_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 to 7 );
   signal \NLW_pc_out_reg[31]_i_4_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 to 7 );
   attribute X_INTERFACE_INFO : string;
@@ -57829,7 +57566,7 @@ architecture STRUCTURE of design_1_exec_0_0 is
   attribute X_INTERFACE_INFO of bvalid : signal is "xilinx.com:interface:aximm:1.0 interface_aximm BVALID";
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET rstn, FREQ_HZ 300000000, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET rstn, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of rlast : signal is "xilinx.com:interface:aximm:1.0 interface_aximm RLAST";
   attribute X_INTERFACE_INFO of rready : signal is "xilinx.com:interface:aximm:1.0 interface_aximm RREADY";
   attribute X_INTERFACE_INFO of rstn : signal is "xilinx.com:signal:reset:1.0 rstn RST";
@@ -57838,41 +57575,32 @@ architecture STRUCTURE of design_1_exec_0_0 is
   attribute X_INTERFACE_INFO of wlast : signal is "xilinx.com:interface:aximm:1.0 interface_aximm WLAST";
   attribute X_INTERFACE_INFO of wready : signal is "xilinx.com:interface:aximm:1.0 interface_aximm WREADY";
   attribute X_INTERFACE_INFO of wvalid : signal is "xilinx.com:interface:aximm:1.0 interface_aximm WVALID";
-  attribute X_INTERFACE_PARAMETER of wvalid : signal is "XIL_INTERFACENAME interface_aximm, DATA_WIDTH 512, PROTOCOL AXI4, FREQ_HZ 300000000, ID_WIDTH 4, ADDR_WIDTH 31, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 1, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of wvalid : signal is "XIL_INTERFACENAME interface_aximm, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 100000000, ID_WIDTH 4, ADDR_WIDTH 15, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of araddr : signal is "xilinx.com:interface:aximm:1.0 interface_aximm ARADDR";
   attribute X_INTERFACE_INFO of arburst : signal is "xilinx.com:interface:aximm:1.0 interface_aximm ARBURST";
   attribute X_INTERFACE_INFO of arcache : signal is "xilinx.com:interface:aximm:1.0 interface_aximm ARCACHE";
-  attribute X_INTERFACE_INFO of arid : signal is "xilinx.com:interface:aximm:1.0 interface_aximm ARID";
   attribute X_INTERFACE_INFO of arlen : signal is "xilinx.com:interface:aximm:1.0 interface_aximm ARLEN";
   attribute X_INTERFACE_INFO of arprot : signal is "xilinx.com:interface:aximm:1.0 interface_aximm ARPROT";
-  attribute X_INTERFACE_INFO of arqos : signal is "xilinx.com:interface:aximm:1.0 interface_aximm ARQOS";
   attribute X_INTERFACE_INFO of arsize : signal is "xilinx.com:interface:aximm:1.0 interface_aximm ARSIZE";
   attribute X_INTERFACE_INFO of awaddr : signal is "xilinx.com:interface:aximm:1.0 interface_aximm AWADDR";
   attribute X_INTERFACE_INFO of awburst : signal is "xilinx.com:interface:aximm:1.0 interface_aximm AWBURST";
   attribute X_INTERFACE_INFO of awcache : signal is "xilinx.com:interface:aximm:1.0 interface_aximm AWCACHE";
-  attribute X_INTERFACE_INFO of awid : signal is "xilinx.com:interface:aximm:1.0 interface_aximm AWID";
   attribute X_INTERFACE_INFO of awlen : signal is "xilinx.com:interface:aximm:1.0 interface_aximm AWLEN";
   attribute X_INTERFACE_INFO of awprot : signal is "xilinx.com:interface:aximm:1.0 interface_aximm AWPROT";
-  attribute X_INTERFACE_INFO of awqos : signal is "xilinx.com:interface:aximm:1.0 interface_aximm AWQOS";
   attribute X_INTERFACE_INFO of awsize : signal is "xilinx.com:interface:aximm:1.0 interface_aximm AWSIZE";
   attribute X_INTERFACE_INFO of bid : signal is "xilinx.com:interface:aximm:1.0 interface_aximm BID";
   attribute X_INTERFACE_INFO of bresp : signal is "xilinx.com:interface:aximm:1.0 interface_aximm BRESP";
   attribute X_INTERFACE_INFO of rdata : signal is "xilinx.com:interface:aximm:1.0 interface_aximm RDATA";
-  attribute X_INTERFACE_INFO of rid : signal is "xilinx.com:interface:aximm:1.0 interface_aximm RID";
   attribute X_INTERFACE_INFO of rresp : signal is "xilinx.com:interface:aximm:1.0 interface_aximm RRESP";
   attribute X_INTERFACE_INFO of wdata : signal is "xilinx.com:interface:aximm:1.0 interface_aximm WDATA";
   attribute X_INTERFACE_INFO of wstrb : signal is "xilinx.com:interface:aximm:1.0 interface_aximm WSTRB";
 begin
   arburst(1) <= \<const0>\;
-  arburst(0) <= \<const0>\;
+  arburst(0) <= \<const1>\;
   arcache(3) <= \<const0>\;
   arcache(2) <= \<const0>\;
   arcache(1) <= \<const1>\;
   arcache(0) <= \<const1>\;
-  arid(3) <= \<const0>\;
-  arid(2) <= \<const0>\;
-  arid(1) <= \<const0>\;
-  arid(0) <= \<const0>\;
   arlen(7) <= \<const0>\;
   arlen(6) <= \<const0>\;
   arlen(5) <= \<const0>\;
@@ -57885,23 +57613,15 @@ begin
   arprot(2) <= \<const0>\;
   arprot(1) <= \<const0>\;
   arprot(0) <= \<const0>\;
-  arqos(3) <= \<const0>\;
-  arqos(2) <= \<const0>\;
-  arqos(1) <= \<const0>\;
-  arqos(0) <= \<const0>\;
   arsize(2) <= \<const0>\;
   arsize(1) <= \^arsize\(1);
   arsize(0) <= \<const0>\;
   awburst(1) <= \<const0>\;
-  awburst(0) <= \<const0>\;
+  awburst(0) <= \<const1>\;
   awcache(3) <= \<const0>\;
   awcache(2) <= \<const0>\;
   awcache(1) <= \<const1>\;
   awcache(0) <= \<const1>\;
-  awid(3) <= \<const0>\;
-  awid(2) <= \<const0>\;
-  awid(1) <= \<const0>\;
-  awid(0) <= \<const0>\;
   awlen(7) <= \<const0>\;
   awlen(6) <= \<const0>\;
   awlen(5) <= \<const0>\;
@@ -57914,495 +57634,10 @@ begin
   awprot(2) <= \<const0>\;
   awprot(1) <= \<const0>\;
   awprot(0) <= \<const0>\;
-  awqos(3) <= \<const0>\;
-  awqos(2) <= \<const0>\;
-  awqos(1) <= \<const0>\;
-  awqos(0) <= \<const0>\;
   awsize(2) <= \<const0>\;
   awsize(1) <= \^awsize\(1);
   awsize(0) <= \<const0>\;
-  wdata(511) <= \<const0>\;
-  wdata(510) <= \<const0>\;
-  wdata(509) <= \<const0>\;
-  wdata(508) <= \<const0>\;
-  wdata(507) <= \<const0>\;
-  wdata(506) <= \<const0>\;
-  wdata(505) <= \<const0>\;
-  wdata(504) <= \<const0>\;
-  wdata(503) <= \<const0>\;
-  wdata(502) <= \<const0>\;
-  wdata(501) <= \<const0>\;
-  wdata(500) <= \<const0>\;
-  wdata(499) <= \<const0>\;
-  wdata(498) <= \<const0>\;
-  wdata(497) <= \<const0>\;
-  wdata(496) <= \<const0>\;
-  wdata(495) <= \<const0>\;
-  wdata(494) <= \<const0>\;
-  wdata(493) <= \<const0>\;
-  wdata(492) <= \<const0>\;
-  wdata(491) <= \<const0>\;
-  wdata(490) <= \<const0>\;
-  wdata(489) <= \<const0>\;
-  wdata(488) <= \<const0>\;
-  wdata(487) <= \<const0>\;
-  wdata(486) <= \<const0>\;
-  wdata(485) <= \<const0>\;
-  wdata(484) <= \<const0>\;
-  wdata(483) <= \<const0>\;
-  wdata(482) <= \<const0>\;
-  wdata(481) <= \<const0>\;
-  wdata(480) <= \<const0>\;
-  wdata(479) <= \<const0>\;
-  wdata(478) <= \<const0>\;
-  wdata(477) <= \<const0>\;
-  wdata(476) <= \<const0>\;
-  wdata(475) <= \<const0>\;
-  wdata(474) <= \<const0>\;
-  wdata(473) <= \<const0>\;
-  wdata(472) <= \<const0>\;
-  wdata(471) <= \<const0>\;
-  wdata(470) <= \<const0>\;
-  wdata(469) <= \<const0>\;
-  wdata(468) <= \<const0>\;
-  wdata(467) <= \<const0>\;
-  wdata(466) <= \<const0>\;
-  wdata(465) <= \<const0>\;
-  wdata(464) <= \<const0>\;
-  wdata(463) <= \<const0>\;
-  wdata(462) <= \<const0>\;
-  wdata(461) <= \<const0>\;
-  wdata(460) <= \<const0>\;
-  wdata(459) <= \<const0>\;
-  wdata(458) <= \<const0>\;
-  wdata(457) <= \<const0>\;
-  wdata(456) <= \<const0>\;
-  wdata(455) <= \<const0>\;
-  wdata(454) <= \<const0>\;
-  wdata(453) <= \<const0>\;
-  wdata(452) <= \<const0>\;
-  wdata(451) <= \<const0>\;
-  wdata(450) <= \<const0>\;
-  wdata(449) <= \<const0>\;
-  wdata(448) <= \<const0>\;
-  wdata(447) <= \<const0>\;
-  wdata(446) <= \<const0>\;
-  wdata(445) <= \<const0>\;
-  wdata(444) <= \<const0>\;
-  wdata(443) <= \<const0>\;
-  wdata(442) <= \<const0>\;
-  wdata(441) <= \<const0>\;
-  wdata(440) <= \<const0>\;
-  wdata(439) <= \<const0>\;
-  wdata(438) <= \<const0>\;
-  wdata(437) <= \<const0>\;
-  wdata(436) <= \<const0>\;
-  wdata(435) <= \<const0>\;
-  wdata(434) <= \<const0>\;
-  wdata(433) <= \<const0>\;
-  wdata(432) <= \<const0>\;
-  wdata(431) <= \<const0>\;
-  wdata(430) <= \<const0>\;
-  wdata(429) <= \<const0>\;
-  wdata(428) <= \<const0>\;
-  wdata(427) <= \<const0>\;
-  wdata(426) <= \<const0>\;
-  wdata(425) <= \<const0>\;
-  wdata(424) <= \<const0>\;
-  wdata(423) <= \<const0>\;
-  wdata(422) <= \<const0>\;
-  wdata(421) <= \<const0>\;
-  wdata(420) <= \<const0>\;
-  wdata(419) <= \<const0>\;
-  wdata(418) <= \<const0>\;
-  wdata(417) <= \<const0>\;
-  wdata(416) <= \<const0>\;
-  wdata(415) <= \<const0>\;
-  wdata(414) <= \<const0>\;
-  wdata(413) <= \<const0>\;
-  wdata(412) <= \<const0>\;
-  wdata(411) <= \<const0>\;
-  wdata(410) <= \<const0>\;
-  wdata(409) <= \<const0>\;
-  wdata(408) <= \<const0>\;
-  wdata(407) <= \<const0>\;
-  wdata(406) <= \<const0>\;
-  wdata(405) <= \<const0>\;
-  wdata(404) <= \<const0>\;
-  wdata(403) <= \<const0>\;
-  wdata(402) <= \<const0>\;
-  wdata(401) <= \<const0>\;
-  wdata(400) <= \<const0>\;
-  wdata(399) <= \<const0>\;
-  wdata(398) <= \<const0>\;
-  wdata(397) <= \<const0>\;
-  wdata(396) <= \<const0>\;
-  wdata(395) <= \<const0>\;
-  wdata(394) <= \<const0>\;
-  wdata(393) <= \<const0>\;
-  wdata(392) <= \<const0>\;
-  wdata(391) <= \<const0>\;
-  wdata(390) <= \<const0>\;
-  wdata(389) <= \<const0>\;
-  wdata(388) <= \<const0>\;
-  wdata(387) <= \<const0>\;
-  wdata(386) <= \<const0>\;
-  wdata(385) <= \<const0>\;
-  wdata(384) <= \<const0>\;
-  wdata(383) <= \<const0>\;
-  wdata(382) <= \<const0>\;
-  wdata(381) <= \<const0>\;
-  wdata(380) <= \<const0>\;
-  wdata(379) <= \<const0>\;
-  wdata(378) <= \<const0>\;
-  wdata(377) <= \<const0>\;
-  wdata(376) <= \<const0>\;
-  wdata(375) <= \<const0>\;
-  wdata(374) <= \<const0>\;
-  wdata(373) <= \<const0>\;
-  wdata(372) <= \<const0>\;
-  wdata(371) <= \<const0>\;
-  wdata(370) <= \<const0>\;
-  wdata(369) <= \<const0>\;
-  wdata(368) <= \<const0>\;
-  wdata(367) <= \<const0>\;
-  wdata(366) <= \<const0>\;
-  wdata(365) <= \<const0>\;
-  wdata(364) <= \<const0>\;
-  wdata(363) <= \<const0>\;
-  wdata(362) <= \<const0>\;
-  wdata(361) <= \<const0>\;
-  wdata(360) <= \<const0>\;
-  wdata(359) <= \<const0>\;
-  wdata(358) <= \<const0>\;
-  wdata(357) <= \<const0>\;
-  wdata(356) <= \<const0>\;
-  wdata(355) <= \<const0>\;
-  wdata(354) <= \<const0>\;
-  wdata(353) <= \<const0>\;
-  wdata(352) <= \<const0>\;
-  wdata(351) <= \<const0>\;
-  wdata(350) <= \<const0>\;
-  wdata(349) <= \<const0>\;
-  wdata(348) <= \<const0>\;
-  wdata(347) <= \<const0>\;
-  wdata(346) <= \<const0>\;
-  wdata(345) <= \<const0>\;
-  wdata(344) <= \<const0>\;
-  wdata(343) <= \<const0>\;
-  wdata(342) <= \<const0>\;
-  wdata(341) <= \<const0>\;
-  wdata(340) <= \<const0>\;
-  wdata(339) <= \<const0>\;
-  wdata(338) <= \<const0>\;
-  wdata(337) <= \<const0>\;
-  wdata(336) <= \<const0>\;
-  wdata(335) <= \<const0>\;
-  wdata(334) <= \<const0>\;
-  wdata(333) <= \<const0>\;
-  wdata(332) <= \<const0>\;
-  wdata(331) <= \<const0>\;
-  wdata(330) <= \<const0>\;
-  wdata(329) <= \<const0>\;
-  wdata(328) <= \<const0>\;
-  wdata(327) <= \<const0>\;
-  wdata(326) <= \<const0>\;
-  wdata(325) <= \<const0>\;
-  wdata(324) <= \<const0>\;
-  wdata(323) <= \<const0>\;
-  wdata(322) <= \<const0>\;
-  wdata(321) <= \<const0>\;
-  wdata(320) <= \<const0>\;
-  wdata(319) <= \<const0>\;
-  wdata(318) <= \<const0>\;
-  wdata(317) <= \<const0>\;
-  wdata(316) <= \<const0>\;
-  wdata(315) <= \<const0>\;
-  wdata(314) <= \<const0>\;
-  wdata(313) <= \<const0>\;
-  wdata(312) <= \<const0>\;
-  wdata(311) <= \<const0>\;
-  wdata(310) <= \<const0>\;
-  wdata(309) <= \<const0>\;
-  wdata(308) <= \<const0>\;
-  wdata(307) <= \<const0>\;
-  wdata(306) <= \<const0>\;
-  wdata(305) <= \<const0>\;
-  wdata(304) <= \<const0>\;
-  wdata(303) <= \<const0>\;
-  wdata(302) <= \<const0>\;
-  wdata(301) <= \<const0>\;
-  wdata(300) <= \<const0>\;
-  wdata(299) <= \<const0>\;
-  wdata(298) <= \<const0>\;
-  wdata(297) <= \<const0>\;
-  wdata(296) <= \<const0>\;
-  wdata(295) <= \<const0>\;
-  wdata(294) <= \<const0>\;
-  wdata(293) <= \<const0>\;
-  wdata(292) <= \<const0>\;
-  wdata(291) <= \<const0>\;
-  wdata(290) <= \<const0>\;
-  wdata(289) <= \<const0>\;
-  wdata(288) <= \<const0>\;
-  wdata(287) <= \<const0>\;
-  wdata(286) <= \<const0>\;
-  wdata(285) <= \<const0>\;
-  wdata(284) <= \<const0>\;
-  wdata(283) <= \<const0>\;
-  wdata(282) <= \<const0>\;
-  wdata(281) <= \<const0>\;
-  wdata(280) <= \<const0>\;
-  wdata(279) <= \<const0>\;
-  wdata(278) <= \<const0>\;
-  wdata(277) <= \<const0>\;
-  wdata(276) <= \<const0>\;
-  wdata(275) <= \<const0>\;
-  wdata(274) <= \<const0>\;
-  wdata(273) <= \<const0>\;
-  wdata(272) <= \<const0>\;
-  wdata(271) <= \<const0>\;
-  wdata(270) <= \<const0>\;
-  wdata(269) <= \<const0>\;
-  wdata(268) <= \<const0>\;
-  wdata(267) <= \<const0>\;
-  wdata(266) <= \<const0>\;
-  wdata(265) <= \<const0>\;
-  wdata(264) <= \<const0>\;
-  wdata(263) <= \<const0>\;
-  wdata(262) <= \<const0>\;
-  wdata(261) <= \<const0>\;
-  wdata(260) <= \<const0>\;
-  wdata(259) <= \<const0>\;
-  wdata(258) <= \<const0>\;
-  wdata(257) <= \<const0>\;
-  wdata(256) <= \<const0>\;
-  wdata(255) <= \<const0>\;
-  wdata(254) <= \<const0>\;
-  wdata(253) <= \<const0>\;
-  wdata(252) <= \<const0>\;
-  wdata(251) <= \<const0>\;
-  wdata(250) <= \<const0>\;
-  wdata(249) <= \<const0>\;
-  wdata(248) <= \<const0>\;
-  wdata(247) <= \<const0>\;
-  wdata(246) <= \<const0>\;
-  wdata(245) <= \<const0>\;
-  wdata(244) <= \<const0>\;
-  wdata(243) <= \<const0>\;
-  wdata(242) <= \<const0>\;
-  wdata(241) <= \<const0>\;
-  wdata(240) <= \<const0>\;
-  wdata(239) <= \<const0>\;
-  wdata(238) <= \<const0>\;
-  wdata(237) <= \<const0>\;
-  wdata(236) <= \<const0>\;
-  wdata(235) <= \<const0>\;
-  wdata(234) <= \<const0>\;
-  wdata(233) <= \<const0>\;
-  wdata(232) <= \<const0>\;
-  wdata(231) <= \<const0>\;
-  wdata(230) <= \<const0>\;
-  wdata(229) <= \<const0>\;
-  wdata(228) <= \<const0>\;
-  wdata(227) <= \<const0>\;
-  wdata(226) <= \<const0>\;
-  wdata(225) <= \<const0>\;
-  wdata(224) <= \<const0>\;
-  wdata(223) <= \<const0>\;
-  wdata(222) <= \<const0>\;
-  wdata(221) <= \<const0>\;
-  wdata(220) <= \<const0>\;
-  wdata(219) <= \<const0>\;
-  wdata(218) <= \<const0>\;
-  wdata(217) <= \<const0>\;
-  wdata(216) <= \<const0>\;
-  wdata(215) <= \<const0>\;
-  wdata(214) <= \<const0>\;
-  wdata(213) <= \<const0>\;
-  wdata(212) <= \<const0>\;
-  wdata(211) <= \<const0>\;
-  wdata(210) <= \<const0>\;
-  wdata(209) <= \<const0>\;
-  wdata(208) <= \<const0>\;
-  wdata(207) <= \<const0>\;
-  wdata(206) <= \<const0>\;
-  wdata(205) <= \<const0>\;
-  wdata(204) <= \<const0>\;
-  wdata(203) <= \<const0>\;
-  wdata(202) <= \<const0>\;
-  wdata(201) <= \<const0>\;
-  wdata(200) <= \<const0>\;
-  wdata(199) <= \<const0>\;
-  wdata(198) <= \<const0>\;
-  wdata(197) <= \<const0>\;
-  wdata(196) <= \<const0>\;
-  wdata(195) <= \<const0>\;
-  wdata(194) <= \<const0>\;
-  wdata(193) <= \<const0>\;
-  wdata(192) <= \<const0>\;
-  wdata(191) <= \<const0>\;
-  wdata(190) <= \<const0>\;
-  wdata(189) <= \<const0>\;
-  wdata(188) <= \<const0>\;
-  wdata(187) <= \<const0>\;
-  wdata(186) <= \<const0>\;
-  wdata(185) <= \<const0>\;
-  wdata(184) <= \<const0>\;
-  wdata(183) <= \<const0>\;
-  wdata(182) <= \<const0>\;
-  wdata(181) <= \<const0>\;
-  wdata(180) <= \<const0>\;
-  wdata(179) <= \<const0>\;
-  wdata(178) <= \<const0>\;
-  wdata(177) <= \<const0>\;
-  wdata(176) <= \<const0>\;
-  wdata(175) <= \<const0>\;
-  wdata(174) <= \<const0>\;
-  wdata(173) <= \<const0>\;
-  wdata(172) <= \<const0>\;
-  wdata(171) <= \<const0>\;
-  wdata(170) <= \<const0>\;
-  wdata(169) <= \<const0>\;
-  wdata(168) <= \<const0>\;
-  wdata(167) <= \<const0>\;
-  wdata(166) <= \<const0>\;
-  wdata(165) <= \<const0>\;
-  wdata(164) <= \<const0>\;
-  wdata(163) <= \<const0>\;
-  wdata(162) <= \<const0>\;
-  wdata(161) <= \<const0>\;
-  wdata(160) <= \<const0>\;
-  wdata(159) <= \<const0>\;
-  wdata(158) <= \<const0>\;
-  wdata(157) <= \<const0>\;
-  wdata(156) <= \<const0>\;
-  wdata(155) <= \<const0>\;
-  wdata(154) <= \<const0>\;
-  wdata(153) <= \<const0>\;
-  wdata(152) <= \<const0>\;
-  wdata(151) <= \<const0>\;
-  wdata(150) <= \<const0>\;
-  wdata(149) <= \<const0>\;
-  wdata(148) <= \<const0>\;
-  wdata(147) <= \<const0>\;
-  wdata(146) <= \<const0>\;
-  wdata(145) <= \<const0>\;
-  wdata(144) <= \<const0>\;
-  wdata(143) <= \<const0>\;
-  wdata(142) <= \<const0>\;
-  wdata(141) <= \<const0>\;
-  wdata(140) <= \<const0>\;
-  wdata(139) <= \<const0>\;
-  wdata(138) <= \<const0>\;
-  wdata(137) <= \<const0>\;
-  wdata(136) <= \<const0>\;
-  wdata(135) <= \<const0>\;
-  wdata(134) <= \<const0>\;
-  wdata(133) <= \<const0>\;
-  wdata(132) <= \<const0>\;
-  wdata(131) <= \<const0>\;
-  wdata(130) <= \<const0>\;
-  wdata(129) <= \<const0>\;
-  wdata(128) <= \<const0>\;
-  wdata(127) <= \<const0>\;
-  wdata(126) <= \<const0>\;
-  wdata(125) <= \<const0>\;
-  wdata(124) <= \<const0>\;
-  wdata(123) <= \<const0>\;
-  wdata(122) <= \<const0>\;
-  wdata(121) <= \<const0>\;
-  wdata(120) <= \<const0>\;
-  wdata(119) <= \<const0>\;
-  wdata(118) <= \<const0>\;
-  wdata(117) <= \<const0>\;
-  wdata(116) <= \<const0>\;
-  wdata(115) <= \<const0>\;
-  wdata(114) <= \<const0>\;
-  wdata(113) <= \<const0>\;
-  wdata(112) <= \<const0>\;
-  wdata(111) <= \<const0>\;
-  wdata(110) <= \<const0>\;
-  wdata(109) <= \<const0>\;
-  wdata(108) <= \<const0>\;
-  wdata(107) <= \<const0>\;
-  wdata(106) <= \<const0>\;
-  wdata(105) <= \<const0>\;
-  wdata(104) <= \<const0>\;
-  wdata(103) <= \<const0>\;
-  wdata(102) <= \<const0>\;
-  wdata(101) <= \<const0>\;
-  wdata(100) <= \<const0>\;
-  wdata(99) <= \<const0>\;
-  wdata(98) <= \<const0>\;
-  wdata(97) <= \<const0>\;
-  wdata(96) <= \<const0>\;
-  wdata(95) <= \<const0>\;
-  wdata(94) <= \<const0>\;
-  wdata(93) <= \<const0>\;
-  wdata(92) <= \<const0>\;
-  wdata(91) <= \<const0>\;
-  wdata(90) <= \<const0>\;
-  wdata(89) <= \<const0>\;
-  wdata(88) <= \<const0>\;
-  wdata(87) <= \<const0>\;
-  wdata(86) <= \<const0>\;
-  wdata(85) <= \<const0>\;
-  wdata(84) <= \<const0>\;
-  wdata(83) <= \<const0>\;
-  wdata(82) <= \<const0>\;
-  wdata(81) <= \<const0>\;
-  wdata(80) <= \<const0>\;
-  wdata(79) <= \<const0>\;
-  wdata(78) <= \<const0>\;
-  wdata(77) <= \<const0>\;
-  wdata(76) <= \<const0>\;
-  wdata(75) <= \<const0>\;
-  wdata(74) <= \<const0>\;
-  wdata(73) <= \<const0>\;
-  wdata(72) <= \<const0>\;
-  wdata(71) <= \<const0>\;
-  wdata(70) <= \<const0>\;
-  wdata(69) <= \<const0>\;
-  wdata(68) <= \<const0>\;
-  wdata(67) <= \<const0>\;
-  wdata(66) <= \<const0>\;
-  wdata(65) <= \<const0>\;
-  wdata(64) <= \<const0>\;
-  wdata(63) <= \<const0>\;
-  wdata(62) <= \<const0>\;
-  wdata(61) <= \<const0>\;
-  wdata(60) <= \<const0>\;
-  wdata(59) <= \<const0>\;
-  wdata(58) <= \<const0>\;
-  wdata(57) <= \<const0>\;
-  wdata(56) <= \<const0>\;
-  wdata(55) <= \<const0>\;
-  wdata(54) <= \<const0>\;
-  wdata(53) <= \<const0>\;
-  wdata(52) <= \<const0>\;
-  wdata(51) <= \<const0>\;
-  wdata(50) <= \<const0>\;
-  wdata(49) <= \<const0>\;
-  wdata(48) <= \<const0>\;
-  wdata(47) <= \<const0>\;
-  wdata(46) <= \<const0>\;
-  wdata(45) <= \<const0>\;
-  wdata(44) <= \<const0>\;
-  wdata(43) <= \<const0>\;
-  wdata(42) <= \<const0>\;
-  wdata(41) <= \<const0>\;
-  wdata(40) <= \<const0>\;
-  wdata(39) <= \<const0>\;
-  wdata(38) <= \<const0>\;
-  wdata(37) <= \<const0>\;
-  wdata(36) <= \<const0>\;
-  wdata(35) <= \<const0>\;
-  wdata(34) <= \<const0>\;
-  wdata(33) <= \<const0>\;
-  wdata(32) <= \<const0>\;
-  wdata(31 downto 0) <= \^wdata\(31 downto 0);
-  wlast <= \^wvalid\;
+  wlast <= \<const1>\;
   wselector(3 downto 1) <= \^wselector\(3 downto 1);
   wselector(0) <= \<const0>\;
   wstrb(63) <= \<const0>\;
@@ -58469,7 +57704,6 @@ begin
   wstrb(2) <= \<const1>\;
   wstrb(1) <= \<const1>\;
   wstrb(0) <= \<const1>\;
-  wvalid <= \^wvalid\;
 GND: unisim.vcomponents.GND
      port map (
       G => \<const0>\
@@ -58578,13 +57812,13 @@ inst: entity work.design_1_exec_0_0_exec
      port map (
       CO(0) => inst_n_10,
       O(7 downto 0) => data1(31 downto 24),
-      addr(30 downto 0) => addr(30 downto 0),
+      addr(23 downto 0) => addr(23 downto 0),
       alu_command(5 downto 0) => alu_command(5 downto 0),
-      araddr(30 downto 0) => araddr(30 downto 0),
+      araddr(14 downto 0) => araddr(14 downto 0),
       arready => arready,
       arsize(0) => \^arsize\(1),
       arvalid => arvalid,
-      awaddr(30 downto 0) => awaddr(30 downto 0),
+      awaddr(14 downto 0) => awaddr(14 downto 0),
       awready => awready,
       awsize(0) => \^awsize\(1),
       awvalid => awvalid,
@@ -58609,10 +57843,10 @@ inst: entity work.design_1_exec_0_0_exec
       rt(31 downto 0) => rt(31 downto 0),
       rvalid => rvalid,
       sh(4 downto 0) => sh(4 downto 0),
-      wdata(31 downto 0) => \^wdata\(31 downto 0),
+      wdata(31 downto 0) => wdata(31 downto 0),
       wready => wready,
       wselector(2 downto 0) => \^wselector\(3 downto 1),
-      wvalid => \^wvalid\
+      wvalid => wvalid
     );
 \pc_out[31]_i_10\: unisim.vcomponents.LUT3
     generic map(
