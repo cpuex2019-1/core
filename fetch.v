@@ -5,8 +5,9 @@ module fetch(
 	output reg done,
 	output reg pcread,
 	input wire[31:0] pc,
+	output reg[31:0] pc_out,
 	output reg[31:0] command,
-	output reg[28:0] araddr,
+	output reg[14:0] araddr,
 	output reg[1:0] arburst,
 	output reg[3:0] arcache,
 	output reg[3:0] arid,
@@ -30,8 +31,8 @@ module fetch(
 		if(~rstn) begin
 			done <= 1'b0;
 			pcread <= 1'b0;
-			araddr <= 29'h0;
-			arburst <= 2'b00;
+			araddr <= 15'h0;
+			arburst <= 2'b01;
 			arcache <= 4'b0011;
 			arid <= 4'b0;
 			arlen <= 8'h0;
@@ -46,9 +47,10 @@ module fetch(
 			pcread <= 1'b0;
 			if(enable) begin
 				pcread <= 1'b1;
+				pc_out <= pc;
 				arvalid <= 1'b1;
 				rready <= 1'b1;
-				araddr <= pc[28:0];
+				araddr <= pc[14:0];
 			end
 			if(arready && arvalid) begin
 				arvalid <= 1'b0;
