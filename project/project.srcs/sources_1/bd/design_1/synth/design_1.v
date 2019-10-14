@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sun Oct 13 19:10:48 2019
+//Date        : Mon Oct 14 16:59:01 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -89,7 +89,10 @@ module design_1
   wire exec_0_interface_aximm_WVALID;
   wire [31:0]exec_0_pc_out;
   wire [4:0]exec_0_rd_out;
-  wire [3:0]exec_0_wselector_out;
+  wire exec_0_uart_renable;
+  wire [31:0]exec_0_uart_wd;
+  wire [1:0]exec_0_uart_wsz;
+  wire [2:0]exec_0_wselector_out;
   wire [31:0]fetch_0_command;
   wire fetch_0_done;
   wire [14:0]fetch_0_interface_aximm_ARADDR;
@@ -114,6 +117,7 @@ module design_1
   wire [0:0]rst_data_memory_300M_peripheral_aresetn;
   wire sysclk_125_1_CLK_N;
   wire sysclk_125_1_CLK_P;
+  wire [31:0]uart_buffer_0_rdata;
   wire uart_buffer_0_rdone;
   wire [31:0]uart_buffer_0_uart_ARADDR;
   wire uart_buffer_0_uart_ARREADY;
@@ -137,7 +141,6 @@ module design_1
   wire write_0_fmode;
   wire [31:0]write_0_next_pc;
   wire write_0_pcenable;
-  wire [31:0]write_0_uart_wdata;
   wire write_0_uart_wenable;
   wire [31:0]write_0_wdata;
   wire write_0_wenable;
@@ -351,6 +354,13 @@ module design_1
         .rt(decode_0_rt),
         .rvalid(exec_0_interface_aximm_RVALID),
         .sh(decode_0_sh),
+        .uart_rd(uart_buffer_0_rdata),
+        .uart_rdone(uart_buffer_0_rdone),
+        .uart_renable(exec_0_uart_renable),
+        .uart_wd(exec_0_uart_wd),
+        .uart_wdone(uart_buffer_0_wdone),
+        .uart_wenable(write_0_uart_wenable),
+        .uart_wsz(exec_0_uart_wsz),
         .wdata(exec_0_interface_aximm_WDATA),
         .wlast(exec_0_interface_aximm_WLAST),
         .wready(exec_0_interface_aximm_WREADY),
@@ -391,8 +401,9 @@ module design_1
         .slowest_sync_clk(data_memory_c0_ddr4_ui_clk));
   design_1_uart_buffer_0_0 uart_buffer_0
        (.clk(data_memory_c0_ddr4_ui_clk),
+        .rdata(uart_buffer_0_rdata),
         .rdone(uart_buffer_0_rdone),
-        .renable(uart_buffer_0_rdone),
+        .renable(exec_0_uart_renable),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .uart_araddr(uart_buffer_0_uart_ARADDR),
         .uart_arready(uart_buffer_0_uart_ARREADY),
@@ -411,9 +422,10 @@ module design_1
         .uart_wready(uart_buffer_0_uart_WREADY),
         .uart_wstrb(uart_buffer_0_uart_WSTRB),
         .uart_wvalid(uart_buffer_0_uart_WVALID),
-        .wdata(write_0_uart_wdata),
+        .wdata(exec_0_uart_wd),
         .wdone(uart_buffer_0_wdone),
-        .wenable(write_0_uart_wenable));
+        .wenable(write_0_uart_wenable),
+        .wsize(exec_0_uart_wsz));
   design_1_write_0_0 write_0
        (.clk(data_memory_c0_ddr4_ui_clk),
         .data(exec_0_data_out),
@@ -425,9 +437,6 @@ module design_1
         .pcenable(write_0_pcenable),
         .rd(exec_0_rd_out),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
-        .uart_wdata(write_0_uart_wdata),
-        .uart_wdone(uart_buffer_0_wdone),
-        .uart_wenable(write_0_uart_wenable),
         .wdata(write_0_wdata),
         .wenable(write_0_wenable),
         .wreg(write_0_wreg),

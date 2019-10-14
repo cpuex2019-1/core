@@ -1,17 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 13 19:10:49 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Oct 14 16:59:01 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
   <EXTERNALPORTS>
-    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
+    <PORT DIR="I" NAME="reset" SIGIS="rst" SIGNAME="External_Ports_reset">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
+        <CONNECTION INSTANCE="clk_wiz" PORT="reset"/>
+        <CONNECTION INSTANCE="rst_data_memory_300M" PORT="ext_reset_in"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_n" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_n">
@@ -24,10 +20,14 @@
         <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_p"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="reset" SIGIS="rst" SIGNAME="External_Ports_reset">
+    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="clk_wiz" PORT="reset"/>
-        <CONNECTION INSTANCE="rst_data_memory_300M" PORT="ext_reset_in"/>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -2644,14 +2644,14 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aclk"/>
-            <CONNECTION INSTANCE="decode_0" PORT="clk"/>
-            <CONNECTION INSTANCE="write_0" PORT="clk"/>
             <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
             <CONNECTION INSTANCE="axi_bram_ctrl_1" PORT="s_axi_aclk"/>
-            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
             <CONNECTION INSTANCE="rst_data_memory_300M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
+            <CONNECTION INSTANCE="decode_0" PORT="clk"/>
+            <CONNECTION INSTANCE="write_0" PORT="clk"/>
+            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -2913,7 +2913,7 @@
             <CONNECTION INSTANCE="decode_0" PORT="sh"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="3" NAME="wselector" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_wselector">
+        <PORT DIR="O" LEFT="2" NAME="wselector" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_wselector">
           <CONNECTIONS>
             <CONNECTION INSTANCE="write_0" PORT="wselector"/>
           </CONNECTIONS>
@@ -2936,6 +2936,41 @@
         <PORT DIR="O" LEFT="4" NAME="rd_out" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_rd_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="write_0" PORT="rd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="uart_wenable" SIGIS="undef" SIGNAME="exec_0_uart_wenable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="wenable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="uart_wdone" SIGIS="undef" SIGNAME="uart_buffer_0_wdone">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="wdone"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="uart_wsz" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_uart_wsz">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="wsize"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="uart_wd" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_uart_wd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="wdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="uart_renable" SIGIS="undef" SIGNAME="exec_0_uart_renable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="renable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="uart_rdone" SIGIS="undef" SIGNAME="uart_buffer_0_rdone">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="rdone"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="uart_rd" RIGHT="0" SIGIS="undef" SIGNAME="uart_buffer_0_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="rdata"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="14" NAME="araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_bram_ctrl_1_s_axi_araddr">
@@ -3420,13 +3455,13 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_bram_ctrl_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
+            <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="axi_bram_ctrl_1" PORT="s_axi_aresetn"/>
+            <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
             <CONNECTION INSTANCE="write_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
             <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="axi_bram_ctrl_1" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3439,30 +3474,39 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT DIR="I" NAME="renable" SIGIS="undef" SIGNAME="uart_buffer_0_rdone">
+        <PORT DIR="I" NAME="renable" SIGIS="undef" SIGNAME="exec_0_uart_renable">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="rdone"/>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_renable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="rdone" SIGIS="undef" SIGNAME="uart_buffer_0_rdone">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="renable"/>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_rdone"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="rdata" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" NAME="wenable" SIGIS="undef" SIGNAME="write_0_uart_wenable">
+        <PORT DIR="O" LEFT="31" NAME="rdata" RIGHT="0" SIGIS="undef" SIGNAME="uart_buffer_0_rdata">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="write_0" PORT="uart_wenable"/>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_rd"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="wenable" SIGIS="undef" SIGNAME="exec_0_uart_wenable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_wenable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="wdone" SIGIS="undef" SIGNAME="uart_buffer_0_wdone">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="write_0" PORT="uart_wdone"/>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_wdone"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="wdata" RIGHT="0" SIGIS="undef" SIGNAME="write_0_uart_wdata">
+        <PORT DIR="I" LEFT="1" NAME="wsize" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_uart_wsz">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="write_0" PORT="uart_wdata"/>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_wsz"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="wdata" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_uart_wd">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_wd"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="uart_araddr" RIGHT="0" SIGIS="undef" SIGNAME="axi_uartlite_0_s_axi_araddr">
@@ -3639,22 +3683,7 @@
             <CONNECTION INSTANCE="fetch_0" PORT="enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" NAME="uart_wenable" SIGIS="undef" SIGNAME="write_0_uart_wenable">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="wenable"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" NAME="uart_wdone" SIGIS="undef" SIGNAME="uart_buffer_0_wdone">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="wdone"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="31" NAME="uart_wdata" RIGHT="0" SIGIS="undef" SIGNAME="write_0_uart_wdata">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="wdata"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="I" LEFT="3" NAME="wselector" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_wselector">
+        <PORT DIR="I" LEFT="2" NAME="wselector" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_wselector">
           <CONNECTIONS>
             <CONNECTION INSTANCE="exec_0" PORT="wselector"/>
           </CONNECTIONS>
