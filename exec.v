@@ -59,6 +59,14 @@ module exec(
 );
 
 	reg[63:0] tmp;
+	reg[31:0] fs, ft;
+	wire[31:0] fadd_d, fmul_d, fdiv_d;
+	wire fadd_of, fmul_of, fdiv_of, fmul_uf, fdiv_uf;
+	reg fpu_set;
+
+	fadd u_fadd(fs, ft, fadd_d, fadd_of);
+	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
+	fdiv u_fdiv(fs, ft, fdiv_d, fdiv_of, fdiv_uf);
 
 	always @(posedge clk) begin
 		rd_out <= rd_in;
@@ -68,6 +76,9 @@ module exec(
 			uart_wd <= 32'h0;
 			uart_wenable <= 1'b0;
 			uart_renable <= 1'b0;
+			fs <= 32'h0;
+			ft <= 32'h0;
+			fpu_set <= 1'b0;
 			araddr <= 15'h0;
 			arburst <= 2'b01;
 			arcache <= 4'b0011;
@@ -165,13 +176,13 @@ module exec(
 				end else if(exec_command == 6'b001110) begin	//XORI
 					data <= rs ^ rt;
 					wselector <= 3'b010;
-				end else if(exec_command == 6'b010001) begin	//float //TODO
+				end else if(exec_command == 6'b010001) begin	//float
 					wselector <= 3'b011;
-					if(alu_command == 6'b000000) begin			//FADD
-					end else if(alu_command == 6'b000001) begin	//FSUB
-					end else if(alu_command == 6'b000010) begin	//FMUL
-					end else if(alu_command == 6'b000011) begin	//FDIV
-					end else if(alu_command == 6'b000100) begin	//SQRT
+					if(alu_command[5:2] == 4'b0000) begin
+						fs <= rs;
+						ft <= alu_command[1:0] == 2'b01 ? {~rt[31], rt[30:0]} : rt;
+						fpu_set <= 1'b1;
+						done <= 1'b0;
 					end else if(alu_command == 6'b001000) begin	//SLTF
 						data <= {31'h0, (rs[31] == rt[31] && ((rs[30:0] < rt[30:0])^rs[31])) || (rs[31] != rt[31] && rs[31])};
 						wselector <= 3'b010;
@@ -217,6 +228,18 @@ module exec(
 					end
 					done <= 1'b0;
 				end
+			end
+			if(fpu_set) begin
+				if(alu_command[5:1] == 5'b00000) begin		//FADD, FSUB
+					data <= fadd_d;
+				end else if(alu_command == 6'b000010) begin	//FMUL
+					data <= fmul_d;
+				end else if(alu_command == 6'b000011) begin	//FDIV
+					data <= fdiv_d;
+				end
+				wselector <= 3'b011;
+				fpu_set <= 1'b0;
+				done <= 1'b1;
 			end
 			if(arready && arvalid) begin
 				arvalid <= 1'b0;
