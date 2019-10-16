@@ -22,7 +22,7 @@ module exec(
 	output reg uart_renable,
 	input wire uart_rdone, 
 	input wire[31:0] uart_rd,
-	output reg[14:0] araddr,
+	output reg[21:0] araddr,
 	output reg[1:0] arburst,
 	output reg[3:0] arcache,
 	output reg[7:0] arlen,
@@ -36,7 +36,7 @@ module exec(
 	output reg rready,
 	input wire[1:0] rresp,
 	input wire rvalid,
-	output reg[14:0] awaddr,
+	output reg[21:0] awaddr,
 	output reg[1:0] awburst,
 	output reg[3:0] awcache,
 	output reg[7:0] awlen,
@@ -186,6 +186,9 @@ module exec(
 					end else if(alu_command == 6'b001000) begin	//SLTF
 						data <= {31'h0, (rs[31] == rt[31] && ((rs[30:0] < rt[30:0])^rs[31])) || (rs[31] != rt[31] && rs[31])};
 						wselector <= 3'b010;
+					end else if(alu_command == 6'b001001) begin //FNEG
+						data <= {~rs[31], rs[30:0]};
+						wselector <= 3'b010;
 					end
 				end else if(exec_command == 6'b100000) begin	//LB
 					arvalid <= 1'b1;
@@ -197,7 +200,7 @@ module exec(
 					arvalid <= 1'b1;
 					rready <= 1'b1;
 					arsize <= 3'b010;
-					araddr <= addr[14:0];
+					araddr <= addr[21:0];
 					done <= 1'b0;
 				end else if(exec_command == 6'b101000) begin	//SB
 					awvalid <= 1'b1;
@@ -210,7 +213,7 @@ module exec(
 				end else if(exec_command == 6'b101011 || exec_command == 6'b111001) begin	//SW, SF
 					awvalid <= 1'b1;
 					awsize <= 3'b010;
-					awaddr <= addr[14:0];
+					awaddr <= addr[21:0];
 					wvalid <= 1'b1;
 					wdata <= rt;
 					bready <= 1'b1;
