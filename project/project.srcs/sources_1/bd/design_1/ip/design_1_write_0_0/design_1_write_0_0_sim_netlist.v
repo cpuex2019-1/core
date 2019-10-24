@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Oct 16 11:01:01 2019
+// Date        : Thu Oct 24 19:18:39 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_write_0_0/design_1_write_0_0_sim_netlist.v
@@ -42,7 +42,7 @@ module design_1_write_0_0
   output fmode;
   output [4:0]wreg;
   output [31:0]wdata;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 10000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 15000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rstn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rstn;
 
   wire clk;
@@ -79,39 +79,39 @@ endmodule
 
 (* ORIG_REF_NAME = "write" *) 
 module design_1_write_0_0_write
-   (pcenable,
+   (done,
+    pcenable,
     next_pc,
     wenable,
     wreg,
     wdata,
     fmode,
-    done,
     clk,
     pc,
     rd,
     data,
-    enable,
     wselector,
+    enable,
     rstn);
+  output done;
   output pcenable;
   output [31:0]next_pc;
   output wenable;
   output [4:0]wreg;
   output [31:0]wdata;
   output fmode;
-  output done;
   input clk;
   input [31:0]pc;
   input [4:0]rd;
   input [31:0]data;
-  input enable;
   input [2:0]wselector;
+  input enable;
   input rstn;
 
   wire clk;
   wire [31:0]data;
   wire done;
-  wire \done_inferred__0/i__n_0 ;
+  wire done_i_2_n_0;
   wire enable;
   wire fmode;
   wire fmode_i_1_n_0;
@@ -120,7 +120,7 @@ module design_1_write_0_0_write
   wire p_0_in;
   wire [31:0]pc;
   wire pcenable;
-  wire pcenable_i_2_n_0;
+  wire pcenable_i_1_n_0;
   wire [4:0]rd;
   wire rstn;
   wire set4_out;
@@ -131,21 +131,26 @@ module design_1_write_0_0_write
   wire [4:0]wreg;
   wire [2:0]wselector;
 
-  LUT5 #(
-    .INIT(32'hFF02FFFF)) 
-    \done_inferred__0/i_ 
-       (.I0(enable),
-        .I1(wselector[2]),
-        .I2(wselector[1]),
-        .I3(set_reg_n_0),
-        .I4(rstn),
-        .O(\done_inferred__0/i__n_0 ));
+  LUT1 #(
+    .INIT(2'h1)) 
+    done_i_1
+       (.I0(rstn),
+        .O(p_0_in));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'hABAA)) 
+    done_i_2
+       (.I0(set_reg_n_0),
+        .I1(wselector[1]),
+        .I2(wselector[2]),
+        .I3(enable),
+        .O(done_i_2_n_0));
   FDRE done_reg
        (.C(clk),
         .CE(1'b1),
-        .D(\done_inferred__0/i__n_0 ),
+        .D(done_i_2_n_0),
         .Q(done),
-        .R(1'b0));
+        .R(p_0_in));
   LUT3 #(
     .INIT(8'h80)) 
     fmode_i_1
@@ -358,22 +363,17 @@ module design_1_write_0_0_write
         .D(pc[9]),
         .Q(next_pc[9]),
         .R(1'b0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    pcenable_i_1
-       (.I0(rstn),
-        .O(p_0_in));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h8)) 
-    pcenable_i_2
+    pcenable_i_1
        (.I0(enable),
         .I1(wselector[2]),
-        .O(pcenable_i_2_n_0));
+        .O(pcenable_i_1_n_0));
   FDRE pcenable_reg
        (.C(clk),
         .CE(1'b1),
-        .D(pcenable_i_2_n_0),
+        .D(pcenable_i_1_n_0),
         .Q(pcenable),
         .R(p_0_in));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
@@ -583,6 +583,7 @@ module design_1_write_0_0_write
         .D(data[9]),
         .Q(wdata[9]),
         .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h8)) 
     wenable_i_1

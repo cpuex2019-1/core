@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Wed Oct 16 13:03:24 2019
+-- Date        : Thu Oct 24 19:21:06 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_exec_0_0/design_1_exec_0_0_stub.vhdl
@@ -28,6 +28,9 @@ entity design_1_exec_0_0 is
     data : out STD_LOGIC_VECTOR ( 31 downto 0 );
     rd_in : in STD_LOGIC_VECTOR ( 4 downto 0 );
     rd_out : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    rs_no : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    rt_no : in STD_LOGIC_VECTOR ( 4 downto 0 );
+    fmode : in STD_LOGIC;
     uart_wenable : out STD_LOGIC;
     uart_wdone : in STD_LOGIC;
     uart_wsz : out STD_LOGIC_VECTOR ( 1 downto 0 );
@@ -77,7 +80,7 @@ architecture stub of design_1_exec_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "enable,done,exec_command[5:0],alu_command[5:0],pc[31:0],addr[31:0],rs[31:0],rt[31:0],sh[4:0],wselector[2:0],pc_out[31:0],data[31:0],rd_in[4:0],rd_out[4:0],uart_wenable,uart_wdone,uart_wsz[1:0],uart_wd[31:0],uart_renable,uart_rdone,uart_rd[31:0],araddr[21:0],arburst[1:0],arcache[3:0],arlen[7:0],arlock,arprot[2:0],arready,arsize[2:0],arvalid,rdata[31:0],rlast,rready,rresp[1:0],rvalid,awaddr[21:0],awburst[1:0],awcache[3:0],awlen[7:0],awlock,awprot[2:0],awready,awsize[2:0],awvalid,bid[3:0],bready,bresp[1:0],bvalid,wdata[31:0],wlast,wready,wstrb[63:0],wvalid,clk,rstn";
+attribute black_box_pad_pin of stub : architecture is "enable,done,exec_command[5:0],alu_command[5:0],pc[31:0],addr[31:0],rs[31:0],rt[31:0],sh[4:0],wselector[2:0],pc_out[31:0],data[31:0],rd_in[4:0],rd_out[4:0],rs_no[4:0],rt_no[4:0],fmode,uart_wenable,uart_wdone,uart_wsz[1:0],uart_wd[31:0],uart_renable,uart_rdone,uart_rd[31:0],araddr[21:0],arburst[1:0],arcache[3:0],arlen[7:0],arlock,arprot[2:0],arready,arsize[2:0],arvalid,rdata[31:0],rlast,rready,rresp[1:0],rvalid,awaddr[21:0],awburst[1:0],awcache[3:0],awlen[7:0],awlock,awprot[2:0],awready,awsize[2:0],awvalid,bid[3:0],bready,bresp[1:0],bvalid,wdata[31:0],wlast,wready,wstrb[63:0],wvalid,clk,rstn";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "exec,Vivado 2018.3";
 begin

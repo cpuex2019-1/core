@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Wed Oct 16 13:29:02 2019
+//Date        : Thu Oct 24 19:20:04 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=13,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=14,da_bram_cntlr_cnt=1,da_clkrst_cnt=14,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=15,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=14,da_bram_cntlr_cnt=1,da_clkrst_cnt=15,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (reset,
     rs232_uart_rxd,
@@ -51,7 +51,9 @@ module design_1
   wire [4:0]decode_0_reg1;
   wire [4:0]decode_0_reg2;
   wire [31:0]decode_0_rs;
+  wire [4:0]decode_0_rs_no;
   wire [31:0]decode_0_rt;
+  wire [4:0]decode_0_rt_no;
   wire [4:0]decode_0_sh;
   wire [31:0]exec_0_data_out;
   wire exec_0_done;
@@ -115,6 +117,10 @@ module design_1
   wire fetch_0_pcread;
   wire reset_1;
   wire [0:0]rst_data_memory_300M_peripheral_aresetn;
+  wire stall_0_decode_enable;
+  wire stall_0_exec_enable;
+  wire stall_0_fetch_enable;
+  wire stall_0_wire_enable;
   wire sysclk_125_1_CLK_N;
   wire sysclk_125_1_CLK_P;
   wire [31:0]uart_buffer_0_rdata;
@@ -145,6 +151,7 @@ module design_1
   wire [31:0]write_0_wdata;
   wire write_0_wenable;
   wire [4:0]write_0_wreg;
+  wire [0:0]xlslice_0_Dout;
 
   assign axi_uartlite_0_UART_RxD = rs232_uart_rxd;
   assign reset_1 = reset;
@@ -297,7 +304,7 @@ module design_1
         .clk(data_memory_c0_ddr4_ui_clk),
         .command(fetch_0_command),
         .done(decode_0_done),
-        .enable(fetch_0_done),
+        .enable(stall_0_decode_enable),
         .exec_command(decode_0_exec_command),
         .fmode(decode_0_fmode),
         .pc(fetch_0_pc_out),
@@ -308,8 +315,10 @@ module design_1
         .reg_out1(core_wrapper_0_reg_out1),
         .reg_out2(core_wrapper_0_reg_out2),
         .rs(decode_0_rs),
+        .rs_no(decode_0_rs_no),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .rt(decode_0_rt),
+        .rt_no(decode_0_rt_no),
         .sh(decode_0_sh));
   design_1_exec_0_0 exec_0
        (.addr(decode_0_addr),
@@ -339,8 +348,9 @@ module design_1
         .clk(data_memory_c0_ddr4_ui_clk),
         .data(exec_0_data_out),
         .done(exec_0_done),
-        .enable(decode_0_done),
+        .enable(stall_0_exec_enable),
         .exec_command(decode_0_exec_command),
+        .fmode(decode_0_fmode),
         .pc(decode_0_pc_out),
         .pc_out(exec_0_pc_out),
         .rd_in(decode_0_rd),
@@ -350,8 +360,10 @@ module design_1
         .rready(exec_0_interface_aximm_RREADY),
         .rresp(exec_0_interface_aximm_RRESP),
         .rs(decode_0_rs),
+        .rs_no(decode_0_rs_no),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .rt(decode_0_rt),
+        .rt_no(decode_0_rt_no),
         .rvalid(exec_0_interface_aximm_RVALID),
         .sh(decode_0_sh),
         .uart_rd(uart_buffer_0_rdata),
@@ -381,7 +393,7 @@ module design_1
         .clk(data_memory_c0_ddr4_ui_clk),
         .command(fetch_0_command),
         .done(fetch_0_done),
-        .enable(write_0_done),
+        .enable(stall_0_fetch_enable),
         .pc(core_wrapper_0_pc),
         .pc_out(fetch_0_pc_out),
         .pcread(fetch_0_pcread),
@@ -399,6 +411,18 @@ module design_1
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_data_memory_300M_peripheral_aresetn),
         .slowest_sync_clk(data_memory_c0_ddr4_ui_clk));
+  design_1_stall_0_0 stall_0
+       (.clk(data_memory_c0_ddr4_ui_clk),
+        .decode_done(decode_0_done),
+        .decode_enable(stall_0_decode_enable),
+        .exec_done(exec_0_done),
+        .exec_enable(stall_0_exec_enable),
+        .fetch_done(fetch_0_done),
+        .fetch_enable(stall_0_fetch_enable),
+        .rstn(rst_data_memory_300M_peripheral_aresetn),
+        .stall_enable(xlslice_0_Dout),
+        .write_done(write_0_done),
+        .write_enable(stall_0_wire_enable));
   design_1_uart_buffer_0_0 uart_buffer_0
        (.clk(data_memory_c0_ddr4_ui_clk),
         .rdata(uart_buffer_0_rdata),
@@ -430,7 +454,7 @@ module design_1
        (.clk(data_memory_c0_ddr4_ui_clk),
         .data(exec_0_data_out),
         .done(write_0_done),
-        .enable(exec_0_done),
+        .enable(stall_0_wire_enable),
         .fmode(write_0_fmode),
         .next_pc(write_0_next_pc),
         .pc(exec_0_pc_out),
@@ -441,4 +465,7 @@ module design_1
         .wenable(write_0_wenable),
         .wreg(write_0_wreg),
         .wselector(exec_0_wselector_out));
+  design_1_xlslice_0_0 xlslice_0
+       (.Din(exec_0_wselector_out),
+        .Dout(xlslice_0_Dout));
 endmodule

@@ -15,6 +15,9 @@ module exec(
 	output reg[31:0] data,
 	input wire[4:0] rd_in,
 	output reg[4:0] rd_out,
+	input wire[4:0] rs_no,
+	input wire[4:0] rt_no,
+	input wire fmode,
 	output reg uart_wenable,
 	input wire uart_wdone,
 	output reg[1:0] uart_wsz,
@@ -63,10 +66,15 @@ module exec(
 	wire[31:0] fadd_d, fmul_d, fdiv_d;
 	wire fadd_of, fmul_of, fdiv_of, fmul_uf, fdiv_uf;
 	reg fpu_set;
+	wire[31:0] rs_,rt_,addr_;
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
 	fdiv u_fdiv(fs, ft, fdiv_d, fdiv_of, fdiv_uf);
+
+	assign rs_ = wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data : rs;
+	assign rt_ = wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rt_no != 5'h0 && rd_out == rt_no ? data : rt;
+	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data+{rt_no[4] ? 16'hffff : 16'h0000, rt_no, sh, alu_command} : addr;
 
 	always @(posedge clk) begin
 		rd_out <= rd_in;
@@ -104,128 +112,128 @@ module exec(
 		end else begin
 			uart_renable <= 1'b0;
 			uart_wenable <= 1'b0;
-			wselector <= 3'b000;
 			done <= 1'b0;
 			if(enable) begin
+				wselector <= 3'b000;
 				done <= 1'b1;
 				if(exec_command == 6'b000000) begin
 					wselector <= 3'b010;
 					if(alu_command == 6'b000000) begin	//SLLI
-						data <= rs << sh;
+						data <= rs_ << sh;
 					end else if(alu_command == 6'b000010) begin	//SRLI
-						data <= rs >> sh;
+						data <= rs_ >> sh;
 					end else if(alu_command == 6'b000011) begin	//SRAI
-						tmp = {rs[31] ? 32'hffffffff : 32'h0, rs} >> sh;
+						tmp = {rs_[31] ? 32'hffffffff : 32'h0, rs_} >> sh;
 						data <= tmp[31:0];
 					end if(alu_command == 6'b000100) begin	//SLL
-						data <= rs << rt[4:0];
+						data <= rs_ << rt_[4:0];
 					end else if(alu_command == 6'b000110) begin	//SRL
-						data <= rs >> rt[4:0];
+						data <= rs_ >> rt_[4:0];
 					end else if(alu_command == 6'b000111) begin	//SRA
-						tmp = {rs[31] ? 32'hffffffff : 32'h0, rs} >> rt[4:0];
+						tmp = {rs_[31] ? 32'hffffffff : 32'h0, rs_} >> rt_[4:0];
 						data <= tmp[31:0];
 					end else if(alu_command == 6'b001001) begin	//JALR
 						data <= pc + 32'h4;
-						pc_out <= {rs[31:2], 2'b00};
+						pc_out <= {rs_[31:2], 2'b00};
 						wselector <= 3'b110;
 					end else if(alu_command == 6'b011000) begin	//MUL
-						data <= rs * rt;
+						data <= rs_ * rt_;
 					end else if(alu_command == 6'b011010) begin	//DIV, MOD
 						if(sh === 5'b00010) begin
-							data <= rs / rt;
+							data <= rs_ / rt_;
 						end else begin
-							data <= rs % rt;
+							data <= rs_ % rt_;
 						end
 					end else if(alu_command == 6'b100000) begin	//ADD
-						data <= rs + rt;
+						data <= rs_ + rt_;
 					end else if(alu_command == 6'b100010) begin	//SUB
-						data <= rs - rt;
+						data <= rs_ - rt_;
 					end else if(alu_command == 6'b100100) begin	//AND
-						data <= rs & rt;
+						data <= rs_ & rt_;
 					end else if(alu_command == 6'b100101) begin	//OR
-						data <= rs | rt;
+						data <= rs_ | rt_;
 					end else if(alu_command == 6'b100110) begin	//XOR
-						data <= rs ^ rt;
+						data <= rs_ ^ rt_;
 					end else if(alu_command == 6'b100111) begin	//NOR
-						data <= ~(rs | rt);
+						data <= ~(rs_ | rt_);
 					end else if(alu_command == 6'b101010) begin	//SLT
-						data <= {31'h0, rs < rt};
+						data <= {31'h0, rs_ < rt_};
 					end
 				end else if(exec_command == 6'b000010) begin	//J
-					pc_out <= addr;
+					pc_out <= addr_;
 					wselector <= 3'b100;
 				end else if(exec_command == 6'b000011) begin	//JAL
 					data <= pc + 32'h4;
 					rd_out <= 5'h1f;
-					pc_out <= addr;
+					pc_out <= addr_;
 					wselector <= 3'b110;
 				end else if(exec_command == 6'b000100 || exec_command == 6'b000101) begin	//BEQ, BNE
-					if(exec_command[0] ^ (rs == rt)) begin
-						pc_out <= pc + addr;
+					if(exec_command[0] ^ (rs_ == rt_)) begin
+						pc_out <= pc + addr_;
 						wselector <= 3'b100;
 					end
 				end else if(exec_command == 6'b001000) begin	//ADDI
-					data <= rs + rt;
+					data <= rs_ + rt_;
 					wselector <= 3'b010;
 				end else if(exec_command == 6'b001100) begin	//ANDI
-					data <= rs & rt;
+					data <= rs_ & rt_;
 					wselector <= 3'b010;
 				end else if(exec_command == 6'b001101) begin	//ORI
-					data <= rs | rt;
+					data <= rs_ | rt_;
 					wselector <= 3'b010;
 				end else if(exec_command == 6'b001110) begin	//XORI
-					data <= rs ^ rt;
+					data <= rs_ ^ rt_;
 					wselector <= 3'b010;
 				end else if(exec_command == 6'b010001) begin	//float
 					wselector <= 3'b011;
 					if(alu_command[5:2] == 4'b0000) begin
-						fs <= rs;
-						ft <= alu_command[1:0] == 2'b01 ? {~rt[31], rt[30:0]} : rt;
+						fs <= rs_;
+						ft <= alu_command[1:0] == 2'b01 ? {~rt_[31], rt_[30:0]} : rt_;
 						fpu_set <= 1'b1;
 						done <= 1'b0;
 					end else if(alu_command == 6'b001000) begin	//SLTF
-						data <= {31'h0, (rs[31] == rt[31] && ((rs[30:0] < rt[30:0])^rs[31])) || (rs[31] != rt[31] && rs[31])};
+						data <= {31'h0, (rs_[31] == rt_[31] && ((rs_[30:0] < rt_[30:0])^rs_[31])) || (rs_[31] != rt_[31] && rs_[31])};
 						wselector <= 3'b010;
 					end else if(alu_command == 6'b001001) begin //FNEG
-						data <= {~rs[31], rs[30:0]};
+						data <= {~rs_[31], rs_[30:0]};
 						wselector <= 3'b010;
 					end
 				end else if(exec_command == 6'b100000) begin	//LB
 					arvalid <= 1'b1;
 					rready <= 1'b1;
 					arsize <= 3'b000;
-					araddr <= addr[14:0];
+					araddr <= addr_[14:0];
 					done <= 1'b0;
 				end else if(exec_command == 6'b100011 || exec_command == 6'b110001) begin	//LW, LF
 					arvalid <= 1'b1;
 					rready <= 1'b1;
 					arsize <= 3'b010;
-					araddr <= addr[21:0];
+					araddr <= addr_[21:0];
 					done <= 1'b0;
 				end else if(exec_command == 6'b101000) begin	//SB
 					awvalid <= 1'b1;
 					awsize <= 3'b000;
-					awaddr <= addr[14:0];
+					awaddr <= addr_[14:0];
 					wvalid <= 1'b1;
-					wdata <= rt;
+					wdata <= rt_;
 					bready <= 1'b1;
 					done <= 1'b0;
 				end else if(exec_command == 6'b101011 || exec_command == 6'b111001) begin	//SW, SF
 					awvalid <= 1'b1;
 					awsize <= 3'b010;
-					awaddr <= addr[21:0];
+					awaddr <= addr_[21:0];
 					wvalid <= 1'b1;
-					wdata <= rt;
+					wdata <= rt_;
 					bready <= 1'b1;
 					done <= 1'b0;
 				end else if(exec_command == 6'b110010) begin	//BC
-					pc_out <= pc + addr;
+					pc_out <= pc + addr_;
 					wselector <= 3'b100;
 				end else if(exec_command == 6'b111111) begin	//in, out
 					if(alu_command[0]) begin	//OUT
 						uart_wenable <= 1'b1;
 						uart_wsz <= sh[1:0];
-						uart_wd <= rs;
+						uart_wd <= rs_;
 					end else begin				//IN
 						uart_renable <= 1'b1;
 					end
