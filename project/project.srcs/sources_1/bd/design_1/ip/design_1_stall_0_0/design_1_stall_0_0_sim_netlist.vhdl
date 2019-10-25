@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Thu Oct 24 19:18:39 2019
+-- Date        : Fri Oct 25 14:08:44 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
---               d:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_stall_0_0/design_1_stall_0_0_sim_netlist.vhdl
+--               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_stall_0_0/design_1_stall_0_0_sim_netlist.vhdl
 -- Design      : design_1_stall_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,119 +20,106 @@ entity design_1_stall_0_0_stall is
     decode_enable : out STD_LOGIC;
     exec_enable : out STD_LOGIC;
     write_enable : out STD_LOGIC;
-    stall_enable : in STD_LOGIC;
-    rstn : in STD_LOGIC;
     clk : in STD_LOGIC;
-    decode_done : in STD_LOGIC;
+    rstn : in STD_LOGIC;
+    stall_enable : in STD_LOGIC;
     fetch_done : in STD_LOGIC;
-    write_done : in STD_LOGIC;
-    exec_done : in STD_LOGIC
+    decode_done : in STD_LOGIC;
+    exec_done : in STD_LOGIC;
+    write_done : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of design_1_stall_0_0_stall : entity is "stall";
 end design_1_stall_0_0_stall;
 
 architecture STRUCTURE of design_1_stall_0_0_stall is
+  signal decode_enable_i_1_n_0 : STD_LOGIC;
+  signal decode_enable_i_2_n_0 : STD_LOGIC;
+  signal done : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \done[0]_i_1_n_0\ : STD_LOGIC;
   signal \done[1]_i_1_n_0\ : STD_LOGIC;
-  signal \done[1]_i_2_n_0\ : STD_LOGIC;
   signal \done[2]_i_1_n_0\ : STD_LOGIC;
   signal \done[3]_i_1_n_0\ : STD_LOGIC;
-  signal \done_reg_n_0_[0]\ : STD_LOGIC;
-  signal \done_reg_n_0_[1]\ : STD_LOGIC;
-  signal \done_reg_n_0_[2]\ : STD_LOGIC;
-  signal \done_reg_n_0_[3]\ : STD_LOGIC;
-  signal \done_tmp__3\ : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal \^fetch_enable\ : STD_LOGIC;
-  signal fetch_enable_INST_0_i_1_n_0 : STD_LOGIC;
-  signal p_0_in : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal fetch_enable_i_1_n_0 : STD_LOGIC;
+  signal fetch_enable_i_2_n_0 : STD_LOGIC;
+  signal fetch_enable_i_3_n_0 : STD_LOGIC;
+  signal p_0_in : STD_LOGIC;
   signal \step[2]_i_1_n_0\ : STD_LOGIC;
   signal \step[3]_i_1_n_0\ : STD_LOGIC;
+  signal \step_reg_n_0_[1]\ : STD_LOGIC;
+  signal \step_reg_n_0_[2]\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \done[0]_i_2\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \done[1]_i_2\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \done[3]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of fetch_enable_INST_0_i_1 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of fetch_enable_i_3 : label is "soft_lutpair0";
 begin
-  fetch_enable <= \^fetch_enable\;
-decode_enable_INST_0: unisim.vcomponents.LUT6
+decode_enable_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"5454540000000000"
+      INIT => X"FFFFFFFF575757FF"
     )
         port map (
-      I0 => fetch_enable_INST_0_i_1_n_0,
+      I0 => rstn,
       I1 => decode_done,
-      I2 => \done_reg_n_0_[2]\,
+      I2 => done(2),
       I3 => fetch_done,
-      I4 => \done_reg_n_0_[3]\,
-      I5 => p_0_in(2),
-      O => decode_enable
+      I4 => done(3),
+      I5 => decode_enable_i_2_n_0,
+      O => decode_enable_i_1_n_0
+    );
+decode_enable_i_2: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"111F"
+    )
+        port map (
+      I0 => exec_done,
+      I1 => done(1),
+      I2 => write_done,
+      I3 => done(0),
+      O => decode_enable_i_2_n_0
+    );
+decode_enable_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => p_0_in,
+      Q => decode_enable,
+      R => decode_enable_i_1_n_0
     );
 \done[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"55001500FFFFFFFF"
+      INIT => X"FFFFFF001F1F1F00"
     )
         port map (
-      I0 => stall_enable,
-      I1 => \done_tmp__3\(1),
-      I2 => p_0_in(0),
-      I3 => \done_tmp__3\(0),
-      I4 => \done[1]_i_2_n_0\,
-      I5 => rstn,
+      I0 => exec_done,
+      I1 => done(1),
+      I2 => \step_reg_n_0_[1]\,
+      I3 => done(0),
+      I4 => write_done,
+      I5 => fetch_enable_i_3_n_0,
       O => \done[0]_i_1_n_0\
-    );
-\done[0]_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => \done_reg_n_0_[1]\,
-      I1 => exec_done,
-      O => \done_tmp__3\(1)
-    );
-\done[0]_i_3\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"E"
-    )
-        port map (
-      I0 => \done_reg_n_0_[0]\,
-      I1 => write_done,
-      O => \done_tmp__3\(0)
     );
 \done[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"FFFFFF0057575700"
     )
         port map (
-      I0 => p_0_in(1),
+      I0 => \step_reg_n_0_[2]\,
       I1 => write_done,
-      I2 => \done_reg_n_0_[0]\,
-      I3 => \done_reg_n_0_[1]\,
+      I2 => done(0),
+      I3 => done(1),
       I4 => exec_done,
-      I5 => \done[1]_i_2_n_0\,
+      I5 => fetch_enable_i_3_n_0,
       O => \done[1]_i_1_n_0\
-    );
-\done[1]_i_2\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"111F"
-    )
-        port map (
-      I0 => decode_done,
-      I1 => \done_reg_n_0_[2]\,
-      I2 => fetch_done,
-      I3 => \done_reg_n_0_[3]\,
-      O => \done[1]_i_2_n_0\
     );
 \done[2]_i_1\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"ABFFABFFABFF0000"
     )
         port map (
-      I0 => fetch_enable_INST_0_i_1_n_0,
+      I0 => decode_enable_i_2_n_0,
       I1 => fetch_done,
-      I2 => \done_reg_n_0_[3]\,
-      I3 => p_0_in(2),
-      I4 => \done_reg_n_0_[2]\,
+      I2 => done(3),
+      I3 => p_0_in,
+      I4 => done(2),
       I5 => decode_done,
       O => \done[2]_i_1_n_0\
     );
@@ -141,80 +128,91 @@ decode_enable_INST_0: unisim.vcomponents.LUT6
       INIT => X"FFF01110"
     )
         port map (
-      I0 => \done_reg_n_0_[2]\,
+      I0 => done(2),
       I1 => decode_done,
-      I2 => \done_reg_n_0_[3]\,
+      I2 => done(3),
       I3 => fetch_done,
-      I4 => fetch_enable_INST_0_i_1_n_0,
+      I4 => decode_enable_i_2_n_0,
       O => \done[3]_i_1_n_0\
     );
-\done_reg[0]\: unisim.vcomponents.FDRE
+\done_reg[0]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => '1',
       D => \done[0]_i_1_n_0\,
-      Q => \done_reg_n_0_[0]\,
-      R => '0'
+      Q => done(0),
+      S => fetch_enable_i_1_n_0
     );
 \done_reg[1]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => '1',
       D => \done[1]_i_1_n_0\,
-      Q => \done_reg_n_0_[1]\,
-      S => \step[2]_i_1_n_0\
+      Q => done(1),
+      S => fetch_enable_i_1_n_0
     );
 \done_reg[2]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => '1',
       D => \done[2]_i_1_n_0\,
-      Q => \done_reg_n_0_[2]\,
-      S => \step[2]_i_1_n_0\
+      Q => done(2),
+      S => fetch_enable_i_1_n_0
     );
 \done_reg[3]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => '1',
       D => \done[3]_i_1_n_0\,
-      Q => \done_reg_n_0_[3]\,
-      S => \step[2]_i_1_n_0\
+      Q => done(3),
+      S => fetch_enable_i_1_n_0
     );
-exec_enable_INST_0: unisim.vcomponents.LUT6
+exec_enable_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => \step_reg_n_0_[2]\,
+      Q => exec_enable,
+      R => decode_enable_i_1_n_0
+    );
+fetch_enable_i_1: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"5454540000000000"
+      INIT => X"1"
     )
         port map (
-      I0 => fetch_enable_INST_0_i_1_n_0,
-      I1 => decode_done,
-      I2 => \done_reg_n_0_[2]\,
-      I3 => fetch_done,
-      I4 => \done_reg_n_0_[3]\,
-      I5 => p_0_in(1),
-      O => exec_enable
+      I0 => rstn,
+      O => fetch_enable_i_1_n_0
     );
-fetch_enable_INST_0: unisim.vcomponents.LUT5
+fetch_enable_i_2: unisim.vcomponents.LUT5
     generic map(
       INIT => X"0000EEE0"
     )
         port map (
-      I0 => \done_reg_n_0_[3]\,
-      I1 => fetch_done,
-      I2 => \done_reg_n_0_[2]\,
-      I3 => decode_done,
-      I4 => fetch_enable_INST_0_i_1_n_0,
-      O => \^fetch_enable\
+      I0 => done(0),
+      I1 => write_done,
+      I2 => done(1),
+      I3 => exec_done,
+      I4 => fetch_enable_i_3_n_0,
+      O => fetch_enable_i_2_n_0
     );
-fetch_enable_INST_0_i_1: unisim.vcomponents.LUT4
+fetch_enable_i_3: unisim.vcomponents.LUT4
     generic map(
       INIT => X"111F"
     )
         port map (
-      I0 => exec_done,
-      I1 => \done_reg_n_0_[1]\,
-      I2 => write_done,
-      I3 => \done_reg_n_0_[0]\,
-      O => fetch_enable_INST_0_i_1_n_0
+      I0 => decode_done,
+      I1 => done(2),
+      I2 => fetch_done,
+      I3 => done(3),
+      O => fetch_enable_i_3_n_0
+    );
+fetch_enable_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => fetch_enable_i_2_n_0,
+      Q => fetch_enable,
+      R => fetch_enable_i_1_n_0
     );
 \step[2]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -225,33 +223,32 @@ fetch_enable_INST_0_i_1: unisim.vcomponents.LUT4
       I1 => rstn,
       O => \step[2]_i_1_n_0\
     );
-\step[3]_i_1\: unisim.vcomponents.LUT6
+\step[3]_i_1\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFF54545400"
+      INIT => X"0000AB00"
     )
         port map (
-      I0 => fetch_enable_INST_0_i_1_n_0,
-      I1 => decode_done,
-      I2 => \done_reg_n_0_[2]\,
-      I3 => fetch_done,
-      I4 => \done_reg_n_0_[3]\,
-      I5 => p_0_in(2),
+      I0 => p_0_in,
+      I1 => decode_enable_i_2_n_0,
+      I2 => fetch_enable_i_3_n_0,
+      I3 => rstn,
+      I4 => stall_enable,
       O => \step[3]_i_1_n_0\
     );
 \step_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \^fetch_enable\,
-      D => p_0_in(1),
-      Q => p_0_in(0),
+      CE => fetch_enable_i_2_n_0,
+      D => \step_reg_n_0_[2]\,
+      Q => \step_reg_n_0_[1]\,
       R => \step[2]_i_1_n_0\
     );
 \step_reg[2]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
-      CE => \^fetch_enable\,
-      D => p_0_in(2),
-      Q => p_0_in(1),
+      CE => fetch_enable_i_2_n_0,
+      D => p_0_in,
+      Q => \step_reg_n_0_[2]\,
       R => \step[2]_i_1_n_0\
     );
 \step_reg[3]\: unisim.vcomponents.FDRE
@@ -259,21 +256,16 @@ fetch_enable_INST_0_i_1: unisim.vcomponents.LUT4
       C => clk,
       CE => '1',
       D => \step[3]_i_1_n_0\,
-      Q => p_0_in(2),
-      R => \step[2]_i_1_n_0\
+      Q => p_0_in,
+      R => '0'
     );
-write_enable_INST_0: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"5454540000000000"
-    )
-        port map (
-      I0 => fetch_enable_INST_0_i_1_n_0,
-      I1 => decode_done,
-      I2 => \done_reg_n_0_[2]\,
-      I3 => fetch_done,
-      I4 => \done_reg_n_0_[3]\,
-      I5 => p_0_in(0),
-      O => write_enable
+write_enable_reg: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => '1',
+      D => \step_reg_n_0_[1]\,
+      Q => write_enable,
+      R => decode_enable_i_1_n_0
     );
 end STRUCTURE;
 library IEEE;

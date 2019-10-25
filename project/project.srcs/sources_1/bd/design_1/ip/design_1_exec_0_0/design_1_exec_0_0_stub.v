@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Thu Oct 24 19:21:06 2019
+// Date        : Fri Oct 25 14:09:34 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_exec_0_0/design_1_exec_0_0_stub.v
@@ -15,12 +15,12 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "exec,Vivado 2018.3" *)
 module design_1_exec_0_0(enable, done, exec_command, alu_command, pc, addr, 
-  rs, rt, sh, wselector, pc_out, data, rd_in, rd_out, rs_no, rt_no, fmode, uart_wenable, uart_wdone, 
-  uart_wsz, uart_wd, uart_renable, uart_rdone, uart_rd, araddr, arburst, arcache, arlen, arlock, 
-  arprot, arready, arsize, arvalid, rdata, rlast, rready, rresp, rvalid, awaddr, awburst, awcache, awlen, 
-  awlock, awprot, awready, awsize, awvalid, bid, bready, bresp, bvalid, wdata, wlast, wready, wstrb, wvalid, 
-  clk, rstn)
-/* synthesis syn_black_box black_box_pad_pin="enable,done,exec_command[5:0],alu_command[5:0],pc[31:0],addr[31:0],rs[31:0],rt[31:0],sh[4:0],wselector[2:0],pc_out[31:0],data[31:0],rd_in[4:0],rd_out[4:0],rs_no[4:0],rt_no[4:0],fmode,uart_wenable,uart_wdone,uart_wsz[1:0],uart_wd[31:0],uart_renable,uart_rdone,uart_rd[31:0],araddr[21:0],arburst[1:0],arcache[3:0],arlen[7:0],arlock,arprot[2:0],arready,arsize[2:0],arvalid,rdata[31:0],rlast,rready,rresp[1:0],rvalid,awaddr[21:0],awburst[1:0],awcache[3:0],awlen[7:0],awlock,awprot[2:0],awready,awsize[2:0],awvalid,bid[3:0],bready,bresp[1:0],bvalid,wdata[31:0],wlast,wready,wstrb[63:0],wvalid,clk,rstn" */;
+  rs, rt, sh, wselector, pc_out, data, rd_in, rd_out, rs_no, rt_no, fmode, stall_enable, uart_wenable, 
+  uart_wdone, uart_wsz, uart_wd, uart_renable, uart_rdone, uart_rd, araddr, arburst, arcache, arlen, 
+  arlock, arprot, arready, arsize, arvalid, rdata, rlast, rready, rresp, rvalid, awaddr, awburst, awcache, 
+  awlen, awlock, awprot, awready, awsize, awvalid, bid, bready, bresp, bvalid, wdata, wlast, wready, wstrb, 
+  wvalid, clk, rstn)
+/* synthesis syn_black_box black_box_pad_pin="enable,done,exec_command[5:0],alu_command[5:0],pc[31:0],addr[31:0],rs[31:0],rt[31:0],sh[4:0],wselector[2:0],pc_out[31:0],data[31:0],rd_in[4:0],rd_out[4:0],rs_no[4:0],rt_no[4:0],fmode,stall_enable,uart_wenable,uart_wdone,uart_wsz[1:0],uart_wd[31:0],uart_renable,uart_rdone,uart_rd[31:0],araddr[21:0],arburst[1:0],arcache[3:0],arlen[7:0],arlock,arprot[2:0],arready,arsize[2:0],arvalid,rdata[31:0],rlast,rready,rresp[1:0],rvalid,awaddr[21:0],awburst[1:0],awcache[3:0],awlen[7:0],awlock,awprot[2:0],awready,awsize[2:0],awvalid,bid[3:0],bready,bresp[1:0],bvalid,wdata[31:0],wlast,wready,wstrb[63:0],wvalid,clk,rstn" */;
   input enable;
   output done;
   input [5:0]exec_command;
@@ -38,6 +38,7 @@ module design_1_exec_0_0(enable, done, exec_command, alu_command, pc, addr,
   input [4:0]rs_no;
   input [4:0]rt_no;
   input fmode;
+  output stall_enable;
   output uart_wenable;
   input uart_wdone;
   output [1:0]uart_wsz;

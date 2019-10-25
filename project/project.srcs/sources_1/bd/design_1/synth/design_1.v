@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Thu Oct 24 19:20:04 2019
+//Date        : Fri Oct 25 14:07:37 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=15,numReposBlks=15,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=14,da_bram_cntlr_cnt=1,da_clkrst_cnt=15,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=14,numReposBlks=14,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=14,da_bram_cntlr_cnt=1,da_clkrst_cnt=15,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (reset,
     rs232_uart_rxd,
@@ -147,11 +147,11 @@ module design_1
   wire write_0_fmode;
   wire [31:0]write_0_next_pc;
   wire write_0_pcenable;
+  wire write_0_stall_enable;
   wire write_0_uart_wenable;
   wire [31:0]write_0_wdata;
   wire write_0_wenable;
   wire [4:0]write_0_wreg;
-  wire [0:0]xlslice_0_Dout;
 
   assign axi_uartlite_0_UART_RxD = rs232_uart_rxd;
   assign reset_1 = reset;
@@ -366,6 +366,7 @@ module design_1
         .rt_no(decode_0_rt_no),
         .rvalid(exec_0_interface_aximm_RVALID),
         .sh(decode_0_sh),
+        .stall_enable(write_0_stall_enable),
         .uart_rd(uart_buffer_0_rdata),
         .uart_rdone(uart_buffer_0_rdone),
         .uart_renable(exec_0_uart_renable),
@@ -420,7 +421,7 @@ module design_1
         .fetch_done(fetch_0_done),
         .fetch_enable(stall_0_fetch_enable),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
-        .stall_enable(xlslice_0_Dout),
+        .stall_enable(write_0_stall_enable),
         .write_done(write_0_done),
         .write_enable(stall_0_wire_enable));
   design_1_uart_buffer_0_0 uart_buffer_0
@@ -465,7 +466,4 @@ module design_1
         .wenable(write_0_wenable),
         .wreg(write_0_wreg),
         .wselector(exec_0_wselector_out));
-  design_1_xlslice_0_0 xlslice_0
-       (.Din(exec_0_wselector_out),
-        .Dout(xlslice_0_Dout));
 endmodule

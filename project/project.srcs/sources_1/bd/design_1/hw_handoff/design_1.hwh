@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Oct 24 19:20:04 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Oct 25 14:07:40 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -10,16 +10,6 @@
         <CONNECTION INSTANCE="rst_data_memory_300M" PORT="ext_reset_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_n" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_n"/>
@@ -28,6 +18,16 @@
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_p" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_p">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_p"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -2649,10 +2649,10 @@
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
             <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
-            <CONNECTION INSTANCE="write_0" PORT="clk"/>
             <CONNECTION INSTANCE="decode_0" PORT="clk"/>
-            <CONNECTION INSTANCE="stall_0" PORT="clk"/>
+            <CONNECTION INSTANCE="write_0" PORT="clk"/>
             <CONNECTION INSTANCE="exec_0" PORT="clk"/>
+            <CONNECTION INSTANCE="stall_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -2928,7 +2928,6 @@
         <PORT DIR="O" LEFT="2" NAME="wselector" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_wselector">
           <CONNECTIONS>
             <CONNECTION INSTANCE="write_0" PORT="wselector"/>
-            <CONNECTION INSTANCE="xlslice_0" PORT="Din"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="pc_out" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_pc_out">
@@ -2964,6 +2963,11 @@
         <PORT DIR="I" NAME="fmode" SIGIS="undef" SIGNAME="decode_0_fmode">
           <CONNECTIONS>
             <CONNECTION INSTANCE="decode_0" PORT="fmode"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="stall_enable" SIGIS="undef" SIGNAME="exec_0_stall_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stall_0" PORT="stall_enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="uart_wenable" SIGIS="undef" SIGNAME="exec_0_uart_wenable">
@@ -3487,10 +3491,10 @@
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
             <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="write_0" PORT="rstn"/>
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="write_0" PORT="rstn"/>
             <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -3543,9 +3547,9 @@
             <CONNECTION INSTANCE="write_0" PORT="enable"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="stall_enable" SIGIS="undef" SIGNAME="xlslice_0_Dout">
+        <PORT DIR="I" NAME="stall_enable" SIGIS="undef" SIGNAME="exec_0_stall_enable">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
+            <CONNECTION INSTANCE="exec_0" PORT="stall_enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT CLKFREQUENCY="15000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
@@ -3835,30 +3839,6 @@
         <PORT DIR="I" NAME="rstn" SIGIS="rst" SIGNAME="rst_data_memory_300M_peripheral_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rst_data_memory_300M" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
-      </PORTS>
-      <BUSINTERFACES/>
-    </MODULE>
-    <MODULE COREREVISION="1" FULLNAME="/xlslice_0" HWVERSION="1.0" INSTANCE="xlslice_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
-      <DOCUMENTS/>
-      <PARAMETERS>
-        <PARAMETER NAME="DIN_WIDTH" VALUE="3"/>
-        <PARAMETER NAME="DIN_FROM" VALUE="2"/>
-        <PARAMETER NAME="DIN_TO" VALUE="2"/>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_xlslice_0_0"/>
-        <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
-        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
-      </PARAMETERS>
-      <PORTS>
-        <PORT DIR="I" LEFT="2" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_wselector">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="exec_0" PORT="wselector"/>
-          </CONNECTIONS>
-        </PORT>
-        <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="xlslice_0_Dout">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="stall_0" PORT="stall_enable"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

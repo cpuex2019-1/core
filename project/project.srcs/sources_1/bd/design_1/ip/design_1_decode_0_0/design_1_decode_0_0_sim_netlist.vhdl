@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Thu Oct 24 19:18:39 2019
+-- Date        : Fri Oct 25 14:09:16 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_decode_0_0/design_1_decode_0_0_sim_netlist.vhdl
@@ -17,8 +17,6 @@ use UNISIM.VCOMPONENTS.ALL;
 entity design_1_decode_0_0_decode is
   port (
     done : out STD_LOGIC;
-    fmode : out STD_LOGIC;
-    command_27_sp_1 : out STD_LOGIC;
     exec_command : out STD_LOGIC_VECTOR ( 5 downto 0 );
     alu_command : out STD_LOGIC_VECTOR ( 5 downto 0 );
     pc_out : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -29,13 +27,15 @@ entity design_1_decode_0_0_decode is
     rd : out STD_LOGIC_VECTOR ( 4 downto 0 );
     rs_no : out STD_LOGIC_VECTOR ( 4 downto 0 );
     rt_no : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    clk : in STD_LOGIC;
-    reg_out1 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    reg2 : out STD_LOGIC_VECTOR ( 4 downto 0 );
+    fmode : out STD_LOGIC;
     command : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    enable : in STD_LOGIC;
+    reg_out1 : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    clk : in STD_LOGIC;
+    pc : in STD_LOGIC_VECTOR ( 31 downto 0 );
     rstn : in STD_LOGIC;
-    reg_out2 : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    pc : in STD_LOGIC_VECTOR ( 31 downto 0 )
+    enable : in STD_LOGIC;
+    reg_out2 : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of design_1_decode_0_0_decode : entity is "decode";
@@ -144,13 +144,14 @@ architecture STRUCTURE of design_1_decode_0_0_decode is
   signal \addr[7]_i_1_n_0\ : STD_LOGIC;
   signal \addr[8]_i_1_n_0\ : STD_LOGIC;
   signal \addr[9]_i_1_n_0\ : STD_LOGIC;
-  signal command_27_sn_1 : STD_LOGIC;
   signal done_i_1_n_0 : STD_LOGIC;
   signal \exec_command[5]_i_1_n_0\ : STD_LOGIC;
   signal \^fmode\ : STD_LOGIC;
   signal fmode0 : STD_LOGIC;
   signal fmode_i_1_n_0 : STD_LOGIC;
   signal fmode_i_3_n_0 : STD_LOGIC;
+  signal \^reg2\ : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal \reg2[4]_INST_0_i_1_n_0\ : STD_LOGIC;
   signal \rs[31]_i_1_n_0\ : STD_LOGIC;
   signal \rt[0]_i_1_n_0\ : STD_LOGIC;
   signal \rt[10]_i_1_n_0\ : STD_LOGIC;
@@ -193,39 +194,39 @@ architecture STRUCTURE of design_1_decode_0_0_decode is
   signal set_reg_n_0 : STD_LOGIC;
   signal \NLW_addr0_carry__2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 to 7 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \addr[10]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \addr[11]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \addr[12]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \addr[13]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \addr[14]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \addr[15]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \addr[16]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \addr[10]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \addr[11]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \addr[12]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \addr[13]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \addr[14]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \addr[15]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \addr[16]_i_1\ : label is "soft_lutpair16";
   attribute SOFT_HLUTNM of \addr[17]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \addr[2]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \addr[2]_i_1\ : label is "soft_lutpair9";
   attribute SOFT_HLUTNM of \addr[31]_i_4\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \addr[31]_i_5\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \addr[3]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \addr[4]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \addr[5]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \addr[6]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \addr[7]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \addr[8]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \addr[9]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \addr[3]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \addr[4]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \addr[5]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \addr[6]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \addr[7]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \addr[8]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \addr[9]_i_1\ : label is "soft_lutpair12";
   attribute SOFT_HLUTNM of fmode_i_1 : label is "soft_lutpair18";
   attribute SOFT_HLUTNM of fmode_i_3 : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \reg2[4]_INST_0_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \rt[0]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \rt[10]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \rt[11]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \rt[10]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \rt[11]_i_1\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \rt[12]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \rt[13]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \rt[14]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \rt[15]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \rt[13]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \rt[14]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \rt[15]_i_1\ : label is "soft_lutpair17";
   attribute SOFT_HLUTNM of \rt[16]_i_1\ : label is "soft_lutpair19";
   attribute SOFT_HLUTNM of \rt[17]_i_1\ : label is "soft_lutpair20";
   attribute SOFT_HLUTNM of \rt[18]_i_1\ : label is "soft_lutpair21";
   attribute SOFT_HLUTNM of \rt[19]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \rt[1]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \rt[1]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \rt[20]_i_1\ : label is "soft_lutpair23";
   attribute SOFT_HLUTNM of \rt[21]_i_1\ : label is "soft_lutpair24";
   attribute SOFT_HLUTNM of \rt[22]_i_1\ : label is "soft_lutpair25";
@@ -236,20 +237,20 @@ architecture STRUCTURE of design_1_decode_0_0_decode is
   attribute SOFT_HLUTNM of \rt[27]_i_1\ : label is "soft_lutpair22";
   attribute SOFT_HLUTNM of \rt[28]_i_1\ : label is "soft_lutpair21";
   attribute SOFT_HLUTNM of \rt[29]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \rt[2]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \rt[2]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \rt[30]_i_1\ : label is "soft_lutpair19";
   attribute SOFT_HLUTNM of \rt[31]_i_2\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \rt[3]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \rt[4]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \rt[5]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \rt[6]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \rt[7]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \rt[8]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \rt[9]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \rt[3]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \rt[4]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \rt[5]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \rt[6]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \rt[7]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \rt[8]_i_1\ : label is "soft_lutpair5";
+  attribute SOFT_HLUTNM of \rt[9]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of set_i_1 : label is "soft_lutpair18";
 begin
-  command_27_sp_1 <= command_27_sn_1;
   fmode <= \^fmode\;
+  reg2(4 downto 0) <= \^reg2\(4 downto 0);
 addr0_carry: unisim.vcomponents.CARRY8
      port map (
       CI => '0',
@@ -742,7 +743,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(16),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(18),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[18]_i_1_n_0\
     );
@@ -754,7 +755,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(17),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(19),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[19]_i_1_n_0\
     );
@@ -779,7 +780,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(18),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(20),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[20]_i_1_n_0\
     );
@@ -791,7 +792,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(19),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(21),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[21]_i_1_n_0\
     );
@@ -803,7 +804,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(20),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(22),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[22]_i_1_n_0\
     );
@@ -815,7 +816,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(21),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(23),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[23]_i_1_n_0\
     );
@@ -827,7 +828,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(22),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(24),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[24]_i_1_n_0\
     );
@@ -839,7 +840,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(23),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(25),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[25]_i_1_n_0\
     );
@@ -851,7 +852,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(24),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(26),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[26]_i_1_n_0\
     );
@@ -863,7 +864,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I0 => command(25),
       I1 => \addr[31]_i_5_n_0\,
       I2 => addr0(27),
-      I3 => command_27_sn_1,
+      I3 => \reg2[4]_INST_0_i_1_n_0\,
       I4 => command(15),
       O => \addr[27]_i_1_n_0\
     );
@@ -925,7 +926,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       I1 => \addr[31]_i_5_n_0\,
       I2 => command(25),
       I3 => command(15),
-      I4 => command_27_sn_1,
+      I4 => \reg2[4]_INST_0_i_1_n_0\,
       I5 => \addr[31]_i_2_n_0\,
       O => \addr[31]_i_1_n_0\
     );
@@ -1772,6 +1773,71 @@ fmode_reg: unisim.vcomponents.FDRE
       Q => rd(4),
       R => '0'
     );
+\reg2[0]_INST_0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BBBBFBBB88880888"
+    )
+        port map (
+      I0 => command(11),
+      I1 => \reg2[4]_INST_0_i_1_n_0\,
+      I2 => command(31),
+      I3 => command(29),
+      I4 => command(30),
+      I5 => command(21),
+      O => \^reg2\(0)
+    );
+\reg2[1]_INST_0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BBBBFBBB88880888"
+    )
+        port map (
+      I0 => command(12),
+      I1 => \reg2[4]_INST_0_i_1_n_0\,
+      I2 => command(31),
+      I3 => command(29),
+      I4 => command(30),
+      I5 => command(22),
+      O => \^reg2\(1)
+    );
+\reg2[2]_INST_0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BBBBFBBB88880888"
+    )
+        port map (
+      I0 => command(13),
+      I1 => \reg2[4]_INST_0_i_1_n_0\,
+      I2 => command(31),
+      I3 => command(29),
+      I4 => command(30),
+      I5 => command(23),
+      O => \^reg2\(2)
+    );
+\reg2[3]_INST_0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BBBBFBBB88880888"
+    )
+        port map (
+      I0 => command(14),
+      I1 => \reg2[4]_INST_0_i_1_n_0\,
+      I2 => command(31),
+      I3 => command(29),
+      I4 => command(30),
+      I5 => command(24),
+      O => \^reg2\(3)
+    );
+\reg2[4]_INST_0\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"BBBBFBBB88880888"
+    )
+        port map (
+      I0 => command(15),
+      I1 => \reg2[4]_INST_0_i_1_n_0\,
+      I2 => command(31),
+      I3 => command(29),
+      I4 => command(30),
+      I5 => command(25),
+      O => \^reg2\(4)
+    );
 \reg2[4]_INST_0_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFFFFFFB"
@@ -1782,7 +1848,7 @@ fmode_reg: unisim.vcomponents.FDRE
       I2 => command(30),
       I3 => command(29),
       I4 => command(31),
-      O => command_27_sn_1
+      O => \reg2[4]_INST_0_i_1_n_0\
     );
 \rs[31]_i_1\: unisim.vcomponents.LUT2
     generic map(
@@ -2455,7 +2521,7 @@ fmode_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => \rt_no[4]_i_2_n_0\,
-      D => command(11),
+      D => \^reg2\(0),
       Q => rt_no(0),
       R => \rt_no[4]_i_1_n_0\
     );
@@ -2463,7 +2529,7 @@ fmode_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => \rt_no[4]_i_2_n_0\,
-      D => command(12),
+      D => \^reg2\(1),
       Q => rt_no(1),
       R => \rt_no[4]_i_1_n_0\
     );
@@ -2471,7 +2537,7 @@ fmode_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => \rt_no[4]_i_2_n_0\,
-      D => command(13),
+      D => \^reg2\(2),
       Q => rt_no(2),
       R => \rt_no[4]_i_1_n_0\
     );
@@ -2479,7 +2545,7 @@ fmode_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => \rt_no[4]_i_2_n_0\,
-      D => command(14),
+      D => \^reg2\(3),
       Q => rt_no(3),
       R => \rt_no[4]_i_1_n_0\
     );
@@ -2487,7 +2553,7 @@ fmode_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => \rt_no[4]_i_2_n_0\,
-      D => command(15),
+      D => \^reg2\(4),
       Q => rt_no(4),
       R => \rt_no[4]_i_1_n_0\
     );
@@ -2847,7 +2913,6 @@ end design_1_decode_0_0;
 
 architecture STRUCTURE of design_1_decode_0_0 is
   signal \^command\ : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal inst_n_2 : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -2863,7 +2928,6 @@ inst: entity work.design_1_decode_0_0_decode
       alu_command(5 downto 0) => alu_command(5 downto 0),
       clk => clk,
       command(31 downto 0) => \^command\(31 downto 0),
-      command_27_sp_1 => inst_n_2,
       done => done,
       enable => enable,
       exec_command(5 downto 0) => exec_command(5 downto 0),
@@ -2871,6 +2935,7 @@ inst: entity work.design_1_decode_0_0_decode
       pc(31 downto 0) => pc(31 downto 0),
       pc_out(31 downto 0) => pc_out(31 downto 0),
       rd(4 downto 0) => rd(4 downto 0),
+      reg2(4 downto 0) => reg2(4 downto 0),
       reg_out1(31 downto 0) => reg_out1(31 downto 0),
       reg_out2(31 downto 0) => reg_out2(31 downto 0),
       rs(31 downto 0) => rs(31 downto 0),
@@ -2879,70 +2944,5 @@ inst: entity work.design_1_decode_0_0_decode
       rt(31 downto 0) => rt(31 downto 0),
       rt_no(4 downto 0) => rt_no(4 downto 0),
       sh(4 downto 0) => sh(4 downto 0)
-    );
-\reg2[0]_INST_0\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"BBBBFBBB88880888"
-    )
-        port map (
-      I0 => \^command\(11),
-      I1 => inst_n_2,
-      I2 => \^command\(31),
-      I3 => \^command\(29),
-      I4 => \^command\(30),
-      I5 => \^command\(21),
-      O => reg2(0)
-    );
-\reg2[1]_INST_0\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"BBBBFBBB88880888"
-    )
-        port map (
-      I0 => \^command\(12),
-      I1 => inst_n_2,
-      I2 => \^command\(31),
-      I3 => \^command\(29),
-      I4 => \^command\(30),
-      I5 => \^command\(22),
-      O => reg2(1)
-    );
-\reg2[2]_INST_0\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"BBBBFBBB88880888"
-    )
-        port map (
-      I0 => \^command\(13),
-      I1 => inst_n_2,
-      I2 => \^command\(31),
-      I3 => \^command\(29),
-      I4 => \^command\(30),
-      I5 => \^command\(23),
-      O => reg2(2)
-    );
-\reg2[3]_INST_0\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"BBBBFBBB88880888"
-    )
-        port map (
-      I0 => \^command\(14),
-      I1 => inst_n_2,
-      I2 => \^command\(31),
-      I3 => \^command\(29),
-      I4 => \^command\(30),
-      I5 => \^command\(24),
-      O => reg2(3)
-    );
-\reg2[4]_INST_0\: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"BBBBFBBB88880888"
-    )
-        port map (
-      I0 => \^command\(15),
-      I1 => inst_n_2,
-      I2 => \^command\(31),
-      I3 => \^command\(29),
-      I4 => \^command\(30),
-      I5 => \^command\(25),
-      O => reg2(4)
     );
 end STRUCTURE;

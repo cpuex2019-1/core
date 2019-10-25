@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Thu Oct 24 19:18:39 2019
+// Date        : Fri Oct 25 14:08:44 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_write_0_0/design_1_write_0_0_sim_netlist.v
@@ -49,32 +49,26 @@ module design_1_write_0_0
   wire [31:0]data;
   wire done;
   wire enable;
-  wire fmode;
   wire [31:0]next_pc;
   wire [31:0]pc;
   wire pcenable;
   wire [4:0]rd;
   wire rstn;
-  wire [31:0]wdata;
-  wire wenable;
-  wire [4:0]wreg;
   wire [2:0]wselector;
 
+  assign fmode = wselector[0];
+  assign wdata[31:0] = data;
+  assign wenable = wselector[1];
+  assign wreg[4:0] = rd;
   design_1_write_0_0_write inst
        (.clk(clk),
-        .data(data),
         .done(done),
         .enable(enable),
-        .fmode(fmode),
         .next_pc(next_pc),
         .pc(pc),
         .pcenable(pcenable),
-        .rd(rd),
         .rstn(rstn),
-        .wdata(wdata),
-        .wenable(wenable),
-        .wreg(wreg),
-        .wselector(wselector));
+        .wselector(wselector[2:1]));
 endmodule
 
 (* ORIG_REF_NAME = "write" *) 
@@ -82,54 +76,34 @@ module design_1_write_0_0_write
    (done,
     pcenable,
     next_pc,
-    wenable,
-    wreg,
-    wdata,
-    fmode,
     clk,
     pc,
-    rd,
-    data,
     wselector,
     enable,
     rstn);
   output done;
   output pcenable;
   output [31:0]next_pc;
-  output wenable;
-  output [4:0]wreg;
-  output [31:0]wdata;
-  output fmode;
   input clk;
   input [31:0]pc;
-  input [4:0]rd;
-  input [31:0]data;
-  input [2:0]wselector;
+  input [1:0]wselector;
   input enable;
   input rstn;
 
   wire clk;
-  wire [31:0]data;
   wire done;
   wire done_i_2_n_0;
   wire enable;
-  wire fmode;
-  wire fmode_i_1_n_0;
   wire [31:0]next_pc;
   wire \next_pc[31]_i_1_n_0 ;
   wire p_0_in;
   wire [31:0]pc;
   wire pcenable;
   wire pcenable_i_1_n_0;
-  wire [4:0]rd;
   wire rstn;
-  wire set4_out;
+  wire set2_out;
   wire set_reg_n_0;
-  wire [31:0]wdata;
-  wire wenable;
-  wire wenable_i_1_n_0;
-  wire [4:0]wreg;
-  wire [2:0]wselector;
+  wire [1:0]wselector;
 
   LUT1 #(
     .INIT(2'h1)) 
@@ -141,8 +115,8 @@ module design_1_write_0_0_write
     .INIT(16'hABAA)) 
     done_i_2
        (.I0(set_reg_n_0),
-        .I1(wselector[1]),
-        .I2(wselector[2]),
+        .I1(wselector[0]),
+        .I2(wselector[1]),
         .I3(enable),
         .O(done_i_2_n_0));
   FDRE done_reg
@@ -153,22 +127,9 @@ module design_1_write_0_0_write
         .R(p_0_in));
   LUT3 #(
     .INIT(8'h80)) 
-    fmode_i_1
-       (.I0(rstn),
-        .I1(wselector[1]),
-        .I2(enable),
-        .O(fmode_i_1_n_0));
-  FDRE fmode_reg
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(wselector[0]),
-        .Q(fmode),
-        .R(1'b0));
-  LUT3 #(
-    .INIT(8'h80)) 
     \next_pc[31]_i_1 
        (.I0(rstn),
-        .I1(wselector[2]),
+        .I1(wselector[1]),
         .I2(enable),
         .O(\next_pc[31]_i_1_n_0 ));
   FDRE \next_pc_reg[0] 
@@ -363,12 +324,11 @@ module design_1_write_0_0_write
         .D(pc[9]),
         .Q(next_pc[9]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT2 #(
     .INIT(4'h8)) 
     pcenable_i_1
        (.I0(enable),
-        .I1(wselector[2]),
+        .I1(wselector[1]),
         .O(pcenable_i_1_n_0));
   FDRE pcenable_reg
        (.C(clk),
@@ -380,252 +340,17 @@ module design_1_write_0_0_write
   LUT4 #(
     .INIT(16'h00E0)) 
     set_i_1
-       (.I0(wselector[1]),
-        .I1(wselector[2]),
+       (.I0(wselector[0]),
+        .I1(wselector[1]),
         .I2(enable),
         .I3(set_reg_n_0),
-        .O(set4_out));
+        .O(set2_out));
   FDRE set_reg
        (.C(clk),
         .CE(1'b1),
-        .D(set4_out),
+        .D(set2_out),
         .Q(set_reg_n_0),
         .R(p_0_in));
-  FDRE \wdata_reg[0] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[0]),
-        .Q(wdata[0]),
-        .R(1'b0));
-  FDRE \wdata_reg[10] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[10]),
-        .Q(wdata[10]),
-        .R(1'b0));
-  FDRE \wdata_reg[11] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[11]),
-        .Q(wdata[11]),
-        .R(1'b0));
-  FDRE \wdata_reg[12] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[12]),
-        .Q(wdata[12]),
-        .R(1'b0));
-  FDRE \wdata_reg[13] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[13]),
-        .Q(wdata[13]),
-        .R(1'b0));
-  FDRE \wdata_reg[14] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[14]),
-        .Q(wdata[14]),
-        .R(1'b0));
-  FDRE \wdata_reg[15] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[15]),
-        .Q(wdata[15]),
-        .R(1'b0));
-  FDRE \wdata_reg[16] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[16]),
-        .Q(wdata[16]),
-        .R(1'b0));
-  FDRE \wdata_reg[17] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[17]),
-        .Q(wdata[17]),
-        .R(1'b0));
-  FDRE \wdata_reg[18] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[18]),
-        .Q(wdata[18]),
-        .R(1'b0));
-  FDRE \wdata_reg[19] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[19]),
-        .Q(wdata[19]),
-        .R(1'b0));
-  FDRE \wdata_reg[1] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[1]),
-        .Q(wdata[1]),
-        .R(1'b0));
-  FDRE \wdata_reg[20] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[20]),
-        .Q(wdata[20]),
-        .R(1'b0));
-  FDRE \wdata_reg[21] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[21]),
-        .Q(wdata[21]),
-        .R(1'b0));
-  FDRE \wdata_reg[22] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[22]),
-        .Q(wdata[22]),
-        .R(1'b0));
-  FDRE \wdata_reg[23] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[23]),
-        .Q(wdata[23]),
-        .R(1'b0));
-  FDRE \wdata_reg[24] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[24]),
-        .Q(wdata[24]),
-        .R(1'b0));
-  FDRE \wdata_reg[25] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[25]),
-        .Q(wdata[25]),
-        .R(1'b0));
-  FDRE \wdata_reg[26] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[26]),
-        .Q(wdata[26]),
-        .R(1'b0));
-  FDRE \wdata_reg[27] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[27]),
-        .Q(wdata[27]),
-        .R(1'b0));
-  FDRE \wdata_reg[28] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[28]),
-        .Q(wdata[28]),
-        .R(1'b0));
-  FDRE \wdata_reg[29] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[29]),
-        .Q(wdata[29]),
-        .R(1'b0));
-  FDRE \wdata_reg[2] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[2]),
-        .Q(wdata[2]),
-        .R(1'b0));
-  FDRE \wdata_reg[30] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[30]),
-        .Q(wdata[30]),
-        .R(1'b0));
-  FDRE \wdata_reg[31] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[31]),
-        .Q(wdata[31]),
-        .R(1'b0));
-  FDRE \wdata_reg[3] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[3]),
-        .Q(wdata[3]),
-        .R(1'b0));
-  FDRE \wdata_reg[4] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[4]),
-        .Q(wdata[4]),
-        .R(1'b0));
-  FDRE \wdata_reg[5] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[5]),
-        .Q(wdata[5]),
-        .R(1'b0));
-  FDRE \wdata_reg[6] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[6]),
-        .Q(wdata[6]),
-        .R(1'b0));
-  FDRE \wdata_reg[7] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[7]),
-        .Q(wdata[7]),
-        .R(1'b0));
-  FDRE \wdata_reg[8] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[8]),
-        .Q(wdata[8]),
-        .R(1'b0));
-  FDRE \wdata_reg[9] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(data[9]),
-        .Q(wdata[9]),
-        .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    wenable_i_1
-       (.I0(enable),
-        .I1(wselector[1]),
-        .O(wenable_i_1_n_0));
-  FDRE wenable_reg
-       (.C(clk),
-        .CE(1'b1),
-        .D(wenable_i_1_n_0),
-        .Q(wenable),
-        .R(p_0_in));
-  FDRE \wreg_reg[0] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(rd[0]),
-        .Q(wreg[0]),
-        .R(1'b0));
-  FDRE \wreg_reg[1] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(rd[1]),
-        .Q(wreg[1]),
-        .R(1'b0));
-  FDRE \wreg_reg[2] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(rd[2]),
-        .Q(wreg[2]),
-        .R(1'b0));
-  FDRE \wreg_reg[3] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(rd[3]),
-        .Q(wreg[3]),
-        .R(1'b0));
-  FDRE \wreg_reg[4] 
-       (.C(clk),
-        .CE(fmode_i_1_n_0),
-        .D(rd[4]),
-        .Q(wreg[4]),
-        .R(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

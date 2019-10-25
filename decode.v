@@ -40,8 +40,8 @@ module decode(
 				pc_out <= pc;
 				exec_command <= command[31:26];
 				rd <= command[25:21];
-				rs_no <= command[20:16];
-				rt_no <= command[15:11];
+				rs_no <= reg1;
+				rt_no <= reg2;
 				sh <= command[10:6];
 				alu_command <= command[5:0];
 				set <= 1'b1;

@@ -72,6 +72,7 @@ module design_1_exec_0_0 (
   rs_no,
   rt_no,
   fmode,
+  stall_enable,
   uart_wenable,
   uart_wdone,
   uart_wsz,
@@ -132,6 +133,7 @@ output wire [4 : 0] rd_out;
 input wire [4 : 0] rs_no;
 input wire [4 : 0] rt_no;
 input wire fmode;
+output wire stall_enable;
 output wire uart_wenable;
 input wire uart_wdone;
 output wire [1 : 0] uart_wsz;
@@ -230,6 +232,7 @@ input wire rstn;
     .rs_no(rs_no),
     .rt_no(rt_no),
     .fmode(fmode),
+    .stall_enable(stall_enable),
     .uart_wenable(uart_wenable),
     .uart_wdone(uart_wdone),
     .uart_wsz(uart_wsz),
