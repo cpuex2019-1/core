@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sun Oct 27 13:12:09 2019
+//Date        : Sun Oct 27 14:21:31 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -287,6 +287,7 @@ module design_1
         .next_pc(write_0_next_pc),
         .pc(core_wrapper_0_pc),
         .pcenable(write_0_pcenable),
+        .pcpred(fetch_0_pc_out),
         .pcread(fetch_0_pcread),
         .reg_out1(core_wrapper_0_reg_out1),
         .reg_out2(core_wrapper_0_reg_out2),

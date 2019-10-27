@@ -2,6 +2,7 @@
 
 module core(
 	input wire pcread,
+	input wire[31:0] pcpred,
 	input wire pcenable,
 	input wire[31:0] next_pc,
 	output reg[31:0] pc,
@@ -34,8 +35,8 @@ module core(
 				pc <= next_pc;
 				pc_history <= {32'hffffffff, 32'hffffffff};
 			end else if(pcread) begin
-				pc <= pc + 32'h4;
-				pc_history <= {pc_history[0], pc};
+				pc <= pcpred + 32'h4;
+				pc_history <= {pc_history[0], pcpred};
 			end
 			if(wenable) begin
 				if(wfmode) begin

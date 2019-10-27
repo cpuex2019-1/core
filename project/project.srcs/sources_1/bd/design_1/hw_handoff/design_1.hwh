@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 27 13:12:11 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 27 14:21:31 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -2647,12 +2647,12 @@
             <CONNECTION INSTANCE="axi_bram_ctrl_1" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="rst_data_memory_300M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
-            <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
             <CONNECTION INSTANCE="decode_0" PORT="clk"/>
             <CONNECTION INSTANCE="write_0" PORT="clk"/>
             <CONNECTION INSTANCE="stall_0" PORT="clk"/>
-            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
+            <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
+            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -2682,6 +2682,11 @@
         <PORT DIR="I" NAME="pcread" SIGIS="undef" SIGNAME="fetch_0_pcread">
           <CONNECTIONS>
             <CONNECTION INSTANCE="fetch_0" PORT="pcread"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="pcpred" RIGHT="0" SIGIS="undef" SIGNAME="fetch_0_pc_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fetch_0" PORT="pc_out"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" NAME="pcenable" SIGIS="undef" SIGNAME="write_0_pcenable">
@@ -2836,8 +2841,8 @@
         </PORT>
         <PORT DIR="O" NAME="fmode" SIGIS="undef" SIGNAME="decode_0_fmode">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="exec_0" PORT="fmode"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rfmode"/>
+            <CONNECTION INSTANCE="exec_0" PORT="fmode"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="4" NAME="reg1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_reg1">
@@ -3282,6 +3287,7 @@
         <PORT DIR="O" LEFT="31" NAME="pc_out" RIGHT="0" SIGIS="undef" SIGNAME="fetch_0_pc_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="decode_0" PORT="pc"/>
+            <CONNECTION INSTANCE="core_wrapper_0" PORT="pcpred"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="command" RIGHT="0" SIGIS="undef" SIGNAME="fetch_0_command">
@@ -3489,12 +3495,12 @@
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="axi_bram_ctrl_1" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
             <CONNECTION INSTANCE="write_0" PORT="rstn"/>
             <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

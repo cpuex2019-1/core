@@ -348,7 +348,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net exec_0_wselector_out [get_bd_pins exec_0/wselector] [get_bd_pins write_0/wselector]
   connect_bd_net -net fetch_0_command [get_bd_pins decode_0/command] [get_bd_pins fetch_0/command]
   connect_bd_net -net fetch_0_done [get_bd_pins fetch_0/done] [get_bd_pins stall_0/fetch_done]
-  connect_bd_net -net fetch_0_pc_out [get_bd_pins decode_0/pc] [get_bd_pins fetch_0/pc_out]
+  connect_bd_net -net fetch_0_pc_out [get_bd_pins core_wrapper_0/pcpred] [get_bd_pins decode_0/pc] [get_bd_pins fetch_0/pc_out]
   connect_bd_net -net fetch_0_pcread [get_bd_pins core_wrapper_0/pcread] [get_bd_pins fetch_0/pcread]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz/reset] [get_bd_pins rst_data_memory_300M/ext_reset_in]
   connect_bd_net -net rst_data_memory_300M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins core_wrapper_0/rstn] [get_bd_pins decode_0/rstn] [get_bd_pins exec_0/rstn] [get_bd_pins fetch_0/rstn] [get_bd_pins rst_data_memory_300M/peripheral_aresetn] [get_bd_pins stall_0/rstn] [get_bd_pins uart_buffer_0/rstn] [get_bd_pins write_0/rstn]

@@ -179,10 +179,8 @@ module exec(
 						pc_out <= addr_;
 						wselector <= 3'b110;
 					end else if(exec_command == 6'b000100 || exec_command == 6'b000101) begin	//BEQ, BNE
-						if(exec_command[0] ^ (rs_ == rt_)) begin
-							pc_out <= pc + addr_;
-							wselector <= 3'b100;
-						end
+						pc_out <= (exec_command[0] ^ (rs_ == rt_)) ? pc + addr_ : pc + 32'h4;
+						wselector <= 3'b100;
 					end else if(exec_command == 6'b001000) begin	//ADDI
 						data <= rs_ + rt_;
 						wselector <= 3'b010;
