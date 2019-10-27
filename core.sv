@@ -17,7 +17,8 @@ module core(
 	input wire clk,
 	input wire rstn);
 
-	reg[31:0]	greg[31:0], freg[31:0];
+	reg[31:0] greg[31:0], freg[31:0];
+	reg[31:0] pc_history[1:0];
 
 	// assign reg_out1 = rfmode ? freg[rreg1] : greg[rreg1];
 	// assign reg_out2 = rfmode ? freg[rreg2] : greg[rreg2];
@@ -27,11 +28,14 @@ module core(
 		reg_out2 <= rfmode ? freg[rreg2] : greg[rreg2];
 		if(~rstn) begin
 			pc <= 32'h0;
+			pc_history <= {32'hffffffff, 32'hffffffff};
 		end else begin
-			if(pcenable) begin
+			if(pcenable && pc_history[1] != next_pc) begin
 				pc <= next_pc;
+				pc_history <= {32'hffffffff, 32'hffffffff};
 			end else if(pcread) begin
 				pc <= pc + 32'h4;
+				pc_history <= {pc_history[0], pc};
 			end
 			if(wenable) begin
 				if(wfmode) begin

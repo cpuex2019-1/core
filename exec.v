@@ -68,6 +68,7 @@ module exec(
 	wire fadd_of, fmul_of, fdiv_of, fmul_uf, fdiv_uf;
 	reg fpu_set;
 	wire[31:0] rs_,rt_,addr_;
+	reg[5:0] alu_command_, exec_command_;
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
@@ -116,7 +117,7 @@ module exec(
 			done <= 1'b0;
 			stall_enable <= 1'b0;
 			if(enable) begin
-				if(wselector[2]) begin
+				if(wselector[2] && pc != pc_out) begin
 					stall_enable <= 1'b1;
 					wselector <= 3'b000;
 					done <= 1'b1;
@@ -124,6 +125,8 @@ module exec(
 					wselector <= 3'b000;
 					done <= 1'b1;
 					rd_out <= rd_in;
+					alu_command_ <= alu_command;
+					exec_command_ <= exec_command;
 					if(exec_command == 6'b000000) begin
 						wselector <= 3'b010;
 						if(alu_command == 6'b000000) begin	//SLLI
@@ -250,11 +253,11 @@ module exec(
 				end
 			end
 			if(fpu_set) begin
-				if(alu_command[5:1] == 5'b00000) begin		//FADD, FSUB
+				if(alu_command_[5:1] == 5'b00000) begin			//FADD, FSUB
 					data <= fadd_d;
-				end else if(alu_command == 6'b000010) begin	//FMUL
+				end else if(alu_command_ == 6'b000010) begin	//FMUL
 					data <= fmul_d;
-				end else if(alu_command == 6'b000011) begin	//FDIV
+				end else if(alu_command_ == 6'b000011) begin	//FDIV
 					data <= fdiv_d;
 				end
 				wselector <= 3'b011;
@@ -267,7 +270,7 @@ module exec(
 			if(rready && rvalid) begin
 				rready <= 1'b0;
 				data <= rdata;
-				wselector <= {2'b01, exec_command == 6'b110001};
+				wselector <= {2'b01, exec_command_ == 6'b110001};
 				done <= 1'b1;
 			end
 			if(awready && awvalid) begin
@@ -282,7 +285,7 @@ module exec(
 			end
 			if(uart_rdone) begin
 				data <= uart_rd;
-				wselector <= {1'b0, ~alu_command[0], alu_command[1]};
+				wselector <= {1'b0, ~alu_command_[0], alu_command_[1]};
 				done <= 1'b1;
 			end
 			if(uart_wdone) begin
