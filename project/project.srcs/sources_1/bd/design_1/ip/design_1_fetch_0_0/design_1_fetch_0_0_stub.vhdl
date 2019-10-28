@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Wed Oct 16 11:01:01 2019
+-- Date        : Mon Oct 28 13:39:55 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_fetch_0_0/design_1_fetch_0_0_stub.vhdl
@@ -16,6 +16,7 @@ entity design_1_fetch_0_0 is
   Port ( 
     enable : in STD_LOGIC;
     done : out STD_LOGIC;
+    stall : in STD_LOGIC;
     pcread : out STD_LOGIC;
     pc : in STD_LOGIC_VECTOR ( 31 downto 0 );
     pc_out : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -47,7 +48,7 @@ architecture stub of design_1_fetch_0_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "enable,done,pcread,pc[31:0],pc_out[31:0],command[31:0],araddr[14:0],arburst[1:0],arcache[3:0],arid[3:0],arlen[7:0],arlock,arprot[2:0],arqos[3:0],arready,arsize[2:0],arvalid,rdata[31:0],rid[3:0],rlast,rready,rresp[1:0],rvalid,clk,rstn";
+attribute black_box_pad_pin of stub : architecture is "enable,done,stall,pcread,pc[31:0],pc_out[31:0],command[31:0],araddr[14:0],arburst[1:0],arcache[3:0],arid[3:0],arlen[7:0],arlock,arprot[2:0],arqos[3:0],arready,arsize[2:0],arvalid,rdata[31:0],rid[3:0],rlast,rready,rresp[1:0],rvalid,clk,rstn";
 attribute X_CORE_INFO : string;
 attribute X_CORE_INFO of stub : architecture is "fetch,Vivado 2018.3";
 begin

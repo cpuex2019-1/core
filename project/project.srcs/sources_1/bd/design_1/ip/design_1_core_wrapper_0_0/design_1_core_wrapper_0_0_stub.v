@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Oct 16 11:01:07 2019
+// Date        : Mon Oct 28 13:02:19 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_core_wrapper_0_0/design_1_core_wrapper_0_0_stub.v
@@ -14,10 +14,11 @@
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "core_wrapper,Vivado 2018.3" *)
-module design_1_core_wrapper_0_0(pcread, pcenable, next_pc, pc, rfmode, rreg1, rreg2, 
-  reg_out1, reg_out2, wenable, wfmode, wreg, wdata, clk, rstn)
-/* synthesis syn_black_box black_box_pad_pin="pcread,pcenable,next_pc[31:0],pc[31:0],rfmode,rreg1[4:0],rreg2[4:0],reg_out1[31:0],reg_out2[31:0],wenable,wfmode,wreg[4:0],wdata[31:0],clk,rstn" */;
+module design_1_core_wrapper_0_0(pcread, pcpred, pcenable, next_pc, pc, rfmode, rreg1, 
+  rreg2, reg_out1, reg_out2, wenable, wfmode, wreg, wdata, clk, rstn)
+/* synthesis syn_black_box black_box_pad_pin="pcread,pcpred[31:0],pcenable,next_pc[31:0],pc[31:0],rfmode,rreg1[4:0],rreg2[4:0],reg_out1[31:0],reg_out2[31:0],wenable,wfmode,wreg[4:0],wdata[31:0],clk,rstn" */;
   input pcread;
+  input [31:0]pcpred;
   input pcenable;
   input [31:0]next_pc;
   output [31:0]pc;

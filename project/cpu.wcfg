@@ -15,15 +15,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="16031070690fs"></ZoomStartTime>
-      <ZoomEndTime time="21993785863fs"></ZoomEndTime>
-      <Cursor1Time time="17310827000fs"></Cursor1Time>
+      <ZoomStartTime time="38121332000fs"></ZoomStartTime>
+      <ZoomEndTime time="49551332001fs"></ZoomEndTime>
+      <Cursor1Time time="26621332000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="92"></ValueColumnWidth>
+      <NameColumnWidth column_width="167"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="122" />
+   <WVObjectSize size="133" />
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/pcread" type="logic">
       <obj_property name="ElementShortName">pcread</obj_property>
       <obj_property name="ObjectShortName">pcread</obj_property>
@@ -127,155 +127,230 @@
       <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/fetch_done" type="logic">
+      <obj_property name="ElementShortName">fetch_done</obj_property>
+      <obj_property name="ObjectShortName">fetch_done</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/decode_done" type="logic">
+      <obj_property name="ElementShortName">decode_done</obj_property>
+      <obj_property name="ObjectShortName">decode_done</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/exec_done" type="logic">
+      <obj_property name="ElementShortName">exec_done</obj_property>
+      <obj_property name="ObjectShortName">exec_done</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/write_done" type="logic">
+      <obj_property name="ElementShortName">write_done</obj_property>
+      <obj_property name="ObjectShortName">write_done</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/fetch_enable" type="logic">
+      <obj_property name="ElementShortName">fetch_enable</obj_property>
+      <obj_property name="ObjectShortName">fetch_enable</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/decode_enable" type="logic">
+      <obj_property name="ElementShortName">decode_enable</obj_property>
+      <obj_property name="ObjectShortName">decode_enable</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/exec_enable" type="logic">
+      <obj_property name="ElementShortName">exec_enable</obj_property>
+      <obj_property name="ObjectShortName">exec_enable</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/write_enable" type="logic">
+      <obj_property name="ElementShortName">write_enable</obj_property>
+      <obj_property name="ObjectShortName">write_enable</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/stall_enable" type="logic">
+      <obj_property name="ElementShortName">stall_enable</obj_property>
+      <obj_property name="ObjectShortName">stall_enable</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/step" type="array">
+      <obj_property name="ElementShortName">step[3:0]</obj_property>
+      <obj_property name="ObjectShortName">step[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/done" type="array">
+      <obj_property name="ElementShortName">done[3:0]</obj_property>
+      <obj_property name="ObjectShortName">done[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/done_tmp" type="array">
+      <obj_property name="ElementShortName">done_tmp[3:0]</obj_property>
+      <obj_property name="ObjectShortName">done_tmp[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/enable" type="logic">
       <obj_property name="ElementShortName">enable</obj_property>
       <obj_property name="ObjectShortName">enable</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/done" type="logic">
       <obj_property name="ElementShortName">done</obj_property>
       <obj_property name="ObjectShortName">done</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pcread" type="logic">
       <obj_property name="ElementShortName">pcread</obj_property>
       <obj_property name="ObjectShortName">pcread</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pc" type="array">
       <obj_property name="ElementShortName">pc[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pc_out" type="array">
       <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/command" type="array">
       <obj_property name="ElementShortName">command[31:0]</obj_property>
       <obj_property name="ObjectShortName">command[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/araddr" type="array">
       <obj_property name="ElementShortName">araddr[14:0]</obj_property>
       <obj_property name="ObjectShortName">araddr[14:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arburst" type="array">
       <obj_property name="ElementShortName">arburst[1:0]</obj_property>
       <obj_property name="ObjectShortName">arburst[1:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arcache" type="array">
       <obj_property name="ElementShortName">arcache[3:0]</obj_property>
       <obj_property name="ObjectShortName">arcache[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arid" type="array">
       <obj_property name="ElementShortName">arid[3:0]</obj_property>
       <obj_property name="ObjectShortName">arid[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arlen" type="array">
       <obj_property name="ElementShortName">arlen[7:0]</obj_property>
       <obj_property name="ObjectShortName">arlen[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arlock" type="logic">
       <obj_property name="ElementShortName">arlock</obj_property>
       <obj_property name="ObjectShortName">arlock</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arprot" type="array">
       <obj_property name="ElementShortName">arprot[2:0]</obj_property>
       <obj_property name="ObjectShortName">arprot[2:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arqos" type="array">
       <obj_property name="ElementShortName">arqos[3:0]</obj_property>
       <obj_property name="ObjectShortName">arqos[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arready" type="logic">
       <obj_property name="ElementShortName">arready</obj_property>
       <obj_property name="ObjectShortName">arready</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arsize" type="array">
       <obj_property name="ElementShortName">arsize[2:0]</obj_property>
       <obj_property name="ObjectShortName">arsize[2:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arvalid" type="logic">
       <obj_property name="ElementShortName">arvalid</obj_property>
       <obj_property name="ObjectShortName">arvalid</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rdata" type="array">
       <obj_property name="ElementShortName">rdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rid" type="array">
       <obj_property name="ElementShortName">rid[3:0]</obj_property>
       <obj_property name="ObjectShortName">rid[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rlast" type="logic">
       <obj_property name="ElementShortName">rlast</obj_property>
       <obj_property name="ObjectShortName">rlast</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rready" type="logic">
       <obj_property name="ElementShortName">rready</obj_property>
       <obj_property name="ObjectShortName">rready</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rresp" type="array">
       <obj_property name="ElementShortName">rresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">rresp[1:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rvalid" type="logic">
       <obj_property name="ElementShortName">rvalid</obj_property>
       <obj_property name="ObjectShortName">rvalid</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/decode_0/inst/enable" type="logic">
@@ -323,6 +398,18 @@
    <wvobject fp_name="/test/s1/design_1_i/decode_0/inst/addr" type="array">
       <obj_property name="ElementShortName">addr[31:0]</obj_property>
       <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/decode_0/inst/rs_no" type="array">
+      <obj_property name="ElementShortName">rs_no[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs_no[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FF7F</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/decode_0/inst/rt_no" type="array">
+      <obj_property name="ElementShortName">rt_no[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rt_no[4:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FF7F</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -452,9 +539,27 @@
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/rs_" type="array">
+      <obj_property name="ElementShortName">rs_[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs_[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/rt_" type="array">
+      <obj_property name="ElementShortName">rt_[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rt_[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/addr_" type="array">
+      <obj_property name="ElementShortName">addr_[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/wselector" type="array">
-      <obj_property name="ElementShortName">wselector[3:0]</obj_property>
-      <obj_property name="ObjectShortName">wselector[3:0]</obj_property>
+      <obj_property name="ElementShortName">wselector[2:0]</obj_property>
+      <obj_property name="ObjectShortName">wselector[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -494,27 +599,9 @@
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/write_0/inst/uart_wenable" type="logic">
-      <obj_property name="ElementShortName">uart_wenable</obj_property>
-      <obj_property name="ObjectShortName">uart_wenable</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/write_0/inst/uart_wdone" type="logic">
-      <obj_property name="ElementShortName">uart_wdone</obj_property>
-      <obj_property name="ObjectShortName">uart_wdone</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/write_0/inst/uart_wdata" type="array">
-      <obj_property name="ElementShortName">uart_wdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">uart_wdata[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/write_0/inst/wselector" type="array">
-      <obj_property name="ElementShortName">wselector[3:0]</obj_property>
-      <obj_property name="ObjectShortName">wselector[3:0]</obj_property>
+      <obj_property name="ElementShortName">wselector[2:0]</obj_property>
+      <obj_property name="ObjectShortName">wselector[2:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -681,18 +768,6 @@
    <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/buffer" type="array">
-      <obj_property name="ElementShortName">buffer[31:0]</obj_property>
-      <obj_property name="ObjectShortName">buffer[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/count" type="array">
-      <obj_property name="ElementShortName">count[1:0]</obj_property>
-      <obj_property name="ObjectShortName">count[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/uart_buffer_0/inst/go" type="logic">
-      <obj_property name="ElementShortName">go</obj_property>
-      <obj_property name="ObjectShortName">go</obj_property>
    </wvobject>
    <wvobject fp_name="/test/rxd" type="logic">
       <obj_property name="ElementShortName">rxd</obj_property>

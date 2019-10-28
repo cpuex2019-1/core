@@ -3,6 +3,7 @@
 module fetch(
 	input wire enable,
 	output reg done,
+	input wire stall,
 	output reg pcread,
 	input wire[31:0] pc,
 	output reg[31:0] pc_out,
@@ -28,10 +29,17 @@ module fetch(
 	input wire rstn
 );
 
+	wire[31:0] pc_;
+
+	assign pc_ = command[31:27] == 5'b00001 ? {4'b0000, command[25:0], 2'b00} :			//J, JAL
+				 command[31:26] == 6'b110010 ? pc + {4'b0000, command[25:0], 2'b00} - 32'h4 : 	//BC
+				 command[31:27] == 5'b00010 && command[15] ? pc + {14'h3fff, command[15:0], 2'b00} - 32'h4 : pc; //BEQ, BNE
+
 	always @(posedge clk) begin
 		if(~rstn) begin
 			done <= 1'b0;
 			pcread <= 1'b0;
+			command <= 32'h0;
 			araddr <= 15'h0;
 			arburst <= 2'b01;
 			arcache <= 4'b0011;
@@ -48,18 +56,21 @@ module fetch(
 			pcread <= 1'b0;
 			if(enable) begin
 				pcread <= 1'b1;
-				pc_out <= pc;
+				pc_out <= pc_;
 				arvalid <= 1'b1;
 				rready <= 1'b1;
-				araddr <= pc[14:0];
+				araddr <= pc_[14:0];
 			end
 			if(arready && arvalid) begin
 				arvalid <= 1'b0;
 			end
 			if(rready && rvalid) begin
 				rready <= 1'b0;
-				command <= rdata;
+				command <= command == 32'hffffffff ? 32'h0 : rdata;
 				done <= 1'b1;
+			end
+			if(stall) begin
+				command <= 32'hffffffff;
 			end
 		end
 	end

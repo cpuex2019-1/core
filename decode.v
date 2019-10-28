@@ -13,6 +13,8 @@ module decode(
 	output reg[31:0] rt,
 	output reg[4:0] sh,
 	output reg[4:0] rd,
+	output reg[4:0] rs_no,
+	output reg[4:0] rt_no,
 	output reg fmode,
 	output wire[4:0] reg1,
 	output wire[4:0] reg2,
@@ -38,6 +40,8 @@ module decode(
 				pc_out <= pc;
 				exec_command <= command[31:26];
 				rd <= command[25:21];
+				rs_no <= reg1;
+				rt_no <= reg2;
 				sh <= command[10:6];
 				alu_command <= command[5:0];
 				set <= 1'b1;
@@ -54,8 +58,10 @@ module decode(
 					addr <= {command[15] ? 14'h3fff : 14'h0000, command[15:0], 2'b00};
 				end else if(command[31:26] == 6'b001000) begin
 					rt <= {command[15] ? 16'hffff : 16'h0000, command[15:0]};
+					rt_no <= 5'h0;
 				end else if(command[31:28] == 4'b0011) begin
 					rt <= {16'h0000, command[15:0]};
+					rt_no <= 5'h0;
 				end else if(command[31:30] == 2'b10 || command[31:26] == 6'b110001 || command[31:26] == 6'b111001) begin
 					addr <= reg_out1 + {command[15] ? 16'hffff : 16'h0000, command[15:0]};
 				end else if(command[31:26] == 6'b110010) begin

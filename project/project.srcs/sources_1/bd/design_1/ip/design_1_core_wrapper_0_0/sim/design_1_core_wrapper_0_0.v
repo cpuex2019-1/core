@@ -56,6 +56,7 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_core_wrapper_0_0 (
   pcread,
+  pcpred,
   pcenable,
   next_pc,
   pc,
@@ -73,6 +74,7 @@ module design_1_core_wrapper_0_0 (
 );
 
 input wire pcread;
+input wire [31 : 0] pcpred;
 input wire pcenable;
 input wire [31 : 0] next_pc;
 output wire [31 : 0] pc;
@@ -85,7 +87,7 @@ input wire wenable;
 input wire wfmode;
 input wire [4 : 0] wreg;
 input wire [31 : 0] wdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 10000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 15000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -94,6 +96,7 @@ input wire rstn;
 
   core_wrapper inst (
     .pcread(pcread),
+    .pcpred(pcpred),
     .pcenable(pcenable),
     .next_pc(next_pc),
     .pc(pc),

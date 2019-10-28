@@ -9,23 +9,26 @@ module write(
 	input wire[4:0] rd,
 	output reg pcenable,
 	output reg[31:0] next_pc,
-	output reg wenable,
-	output reg fmode,
-	output reg[4:0] wreg,
-	output reg[31:0] wdata,
+	output wire wenable,
+	output wire fmode,
+	output wire[4:0] wreg,
+	output wire[31:0] wdata,
 	input wire clk,
 	input wire rstn
 );
 
 	reg set;
 
+	assign wenable = wselector[1];
+	assign fmode = wselector[0];
+	assign wreg = rd;
+	assign wdata = data;
+
 	always @(posedge clk) begin
 		set <= 1'b0;
 		done <= 1'b0;
 		pcenable <= 1'b0;
-		wenable <= 1'b0;
 		if(~rstn) begin
-			done <= 1'b1;
 		end else begin
 			if(enable) begin
 				if(wselector[2]) begin
@@ -34,10 +37,6 @@ module write(
 					set <= 1'b1;
 				end
 				if(wselector[1]) begin
-					wenable <= 1'b1;
-					fmode <= wselector[0];
-					wreg <= rd;
-					wdata <= data;
 					set <= 1'b1;
 				end
 				if(wselector[2:1] == 1'b000) begin

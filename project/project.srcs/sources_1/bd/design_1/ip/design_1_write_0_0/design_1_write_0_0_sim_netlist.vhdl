@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Wed Oct 16 11:01:01 2019
+-- Date        : Mon Oct 28 13:02:49 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_write_0_0/design_1_write_0_0_sim_netlist.vhdl
@@ -16,19 +16,13 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1_write_0_0_write is
   port (
+    done : out STD_LOGIC;
     pcenable : out STD_LOGIC;
     next_pc : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    wenable : out STD_LOGIC;
-    wreg : out STD_LOGIC_VECTOR ( 4 downto 0 );
-    wdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    fmode : out STD_LOGIC;
-    done : out STD_LOGIC;
     clk : in STD_LOGIC;
     pc : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    rd : in STD_LOGIC_VECTOR ( 4 downto 0 );
-    data : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    wselector : in STD_LOGIC_VECTOR ( 1 downto 0 );
     enable : in STD_LOGIC;
-    wselector : in STD_LOGIC_VECTOR ( 2 downto 0 );
     rstn : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -36,55 +30,42 @@ entity design_1_write_0_0_write is
 end design_1_write_0_0_write;
 
 architecture STRUCTURE of design_1_write_0_0_write is
-  signal \done_inferred__0/i__n_0\ : STD_LOGIC;
-  signal fmode_i_1_n_0 : STD_LOGIC;
+  signal done_i_2_n_0 : STD_LOGIC;
   signal \next_pc[31]_i_1_n_0\ : STD_LOGIC;
   signal p_0_in : STD_LOGIC;
-  signal pcenable_i_2_n_0 : STD_LOGIC;
-  signal set4_out : STD_LOGIC;
+  signal pcenable_i_1_n_0 : STD_LOGIC;
+  signal set2_out : STD_LOGIC;
   signal set_reg_n_0 : STD_LOGIC;
-  signal wenable_i_1_n_0 : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of pcenable_i_2 : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of done_i_2 : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of set_i_1 : label is "soft_lutpair0";
 begin
-\done_inferred__0/i_\: unisim.vcomponents.LUT5
+done_i_1: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"FF02FFFF"
+      INIT => X"1"
     )
         port map (
-      I0 => enable,
-      I1 => wselector(2),
+      I0 => rstn,
+      O => p_0_in
+    );
+done_i_2: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"ABAA"
+    )
+        port map (
+      I0 => set_reg_n_0,
+      I1 => wselector(0),
       I2 => wselector(1),
-      I3 => set_reg_n_0,
-      I4 => rstn,
-      O => \done_inferred__0/i__n_0\
+      I3 => enable,
+      O => done_i_2_n_0
     );
 done_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
-      D => \done_inferred__0/i__n_0\,
+      D => done_i_2_n_0,
       Q => done,
-      R => '0'
-    );
-fmode_i_1: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"80"
-    )
-        port map (
-      I0 => rstn,
-      I1 => wselector(1),
-      I2 => enable,
-      O => fmode_i_1_n_0
-    );
-fmode_reg: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => wselector(0),
-      Q => fmode,
-      R => '0'
+      R => p_0_in
     );
 \next_pc[31]_i_1\: unisim.vcomponents.LUT3
     generic map(
@@ -92,7 +73,7 @@ fmode_reg: unisim.vcomponents.FDRE
     )
         port map (
       I0 => rstn,
-      I1 => wselector(2),
+      I1 => wselector(1),
       I2 => enable,
       O => \next_pc[31]_i_1_n_0\
     );
@@ -352,28 +333,20 @@ fmode_reg: unisim.vcomponents.FDRE
       Q => next_pc(9),
       R => '0'
     );
-pcenable_i_1: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => rstn,
-      O => p_0_in
-    );
-pcenable_i_2: unisim.vcomponents.LUT2
+pcenable_i_1: unisim.vcomponents.LUT2
     generic map(
       INIT => X"8"
     )
         port map (
       I0 => enable,
-      I1 => wselector(2),
-      O => pcenable_i_2_n_0
+      I1 => wselector(1),
+      O => pcenable_i_1_n_0
     );
 pcenable_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
-      D => pcenable_i_2_n_0,
+      D => pcenable_i_1_n_0,
       Q => pcenable,
       R => p_0_in
     );
@@ -382,332 +355,19 @@ set_i_1: unisim.vcomponents.LUT4
       INIT => X"00E0"
     )
         port map (
-      I0 => wselector(1),
-      I1 => wselector(2),
+      I0 => wselector(0),
+      I1 => wselector(1),
       I2 => enable,
       I3 => set_reg_n_0,
-      O => set4_out
+      O => set2_out
     );
 set_reg: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
-      D => set4_out,
+      D => set2_out,
       Q => set_reg_n_0,
       R => p_0_in
-    );
-\wdata_reg[0]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(0),
-      Q => wdata(0),
-      R => '0'
-    );
-\wdata_reg[10]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(10),
-      Q => wdata(10),
-      R => '0'
-    );
-\wdata_reg[11]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(11),
-      Q => wdata(11),
-      R => '0'
-    );
-\wdata_reg[12]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(12),
-      Q => wdata(12),
-      R => '0'
-    );
-\wdata_reg[13]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(13),
-      Q => wdata(13),
-      R => '0'
-    );
-\wdata_reg[14]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(14),
-      Q => wdata(14),
-      R => '0'
-    );
-\wdata_reg[15]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(15),
-      Q => wdata(15),
-      R => '0'
-    );
-\wdata_reg[16]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(16),
-      Q => wdata(16),
-      R => '0'
-    );
-\wdata_reg[17]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(17),
-      Q => wdata(17),
-      R => '0'
-    );
-\wdata_reg[18]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(18),
-      Q => wdata(18),
-      R => '0'
-    );
-\wdata_reg[19]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(19),
-      Q => wdata(19),
-      R => '0'
-    );
-\wdata_reg[1]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(1),
-      Q => wdata(1),
-      R => '0'
-    );
-\wdata_reg[20]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(20),
-      Q => wdata(20),
-      R => '0'
-    );
-\wdata_reg[21]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(21),
-      Q => wdata(21),
-      R => '0'
-    );
-\wdata_reg[22]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(22),
-      Q => wdata(22),
-      R => '0'
-    );
-\wdata_reg[23]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(23),
-      Q => wdata(23),
-      R => '0'
-    );
-\wdata_reg[24]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(24),
-      Q => wdata(24),
-      R => '0'
-    );
-\wdata_reg[25]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(25),
-      Q => wdata(25),
-      R => '0'
-    );
-\wdata_reg[26]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(26),
-      Q => wdata(26),
-      R => '0'
-    );
-\wdata_reg[27]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(27),
-      Q => wdata(27),
-      R => '0'
-    );
-\wdata_reg[28]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(28),
-      Q => wdata(28),
-      R => '0'
-    );
-\wdata_reg[29]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(29),
-      Q => wdata(29),
-      R => '0'
-    );
-\wdata_reg[2]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(2),
-      Q => wdata(2),
-      R => '0'
-    );
-\wdata_reg[30]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(30),
-      Q => wdata(30),
-      R => '0'
-    );
-\wdata_reg[31]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(31),
-      Q => wdata(31),
-      R => '0'
-    );
-\wdata_reg[3]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(3),
-      Q => wdata(3),
-      R => '0'
-    );
-\wdata_reg[4]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(4),
-      Q => wdata(4),
-      R => '0'
-    );
-\wdata_reg[5]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(5),
-      Q => wdata(5),
-      R => '0'
-    );
-\wdata_reg[6]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(6),
-      Q => wdata(6),
-      R => '0'
-    );
-\wdata_reg[7]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(7),
-      Q => wdata(7),
-      R => '0'
-    );
-\wdata_reg[8]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(8),
-      Q => wdata(8),
-      R => '0'
-    );
-\wdata_reg[9]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => data(9),
-      Q => wdata(9),
-      R => '0'
-    );
-wenable_i_1: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => enable,
-      I1 => wselector(1),
-      O => wenable_i_1_n_0
-    );
-wenable_reg: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => '1',
-      D => wenable_i_1_n_0,
-      Q => wenable,
-      R => p_0_in
-    );
-\wreg_reg[0]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => rd(0),
-      Q => wreg(0),
-      R => '0'
-    );
-\wreg_reg[1]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => rd(1),
-      Q => wreg(1),
-      R => '0'
-    );
-\wreg_reg[2]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => rd(2),
-      Q => wreg(2),
-      R => '0'
-    );
-\wreg_reg[3]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => rd(3),
-      Q => wreg(3),
-      R => '0'
-    );
-\wreg_reg[4]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => fmode_i_1_n_0,
-      D => rd(4),
-      Q => wreg(4),
-      R => '0'
     );
 end STRUCTURE;
 library IEEE;
@@ -744,28 +404,32 @@ entity design_1_write_0_0 is
 end design_1_write_0_0;
 
 architecture STRUCTURE of design_1_write_0_0 is
+  signal \^data\ : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \^rd\ : STD_LOGIC_VECTOR ( 4 downto 0 );
+  signal \^wselector\ : STD_LOGIC_VECTOR ( 2 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 10000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 15000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of rstn : signal is "xilinx.com:signal:reset:1.0 rstn RST";
   attribute X_INTERFACE_PARAMETER of rstn : signal is "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
 begin
+  \^data\(31 downto 0) <= data(31 downto 0);
+  \^rd\(4 downto 0) <= rd(4 downto 0);
+  \^wselector\(2 downto 0) <= wselector(2 downto 0);
+  fmode <= \^wselector\(0);
+  wdata(31 downto 0) <= \^data\(31 downto 0);
+  wenable <= \^wselector\(1);
+  wreg(4 downto 0) <= \^rd\(4 downto 0);
 inst: entity work.design_1_write_0_0_write
      port map (
       clk => clk,
-      data(31 downto 0) => data(31 downto 0),
       done => done,
       enable => enable,
-      fmode => fmode,
       next_pc(31 downto 0) => next_pc(31 downto 0),
       pc(31 downto 0) => pc(31 downto 0),
       pcenable => pcenable,
-      rd(4 downto 0) => rd(4 downto 0),
       rstn => rstn,
-      wdata(31 downto 0) => wdata(31 downto 0),
-      wenable => wenable,
-      wreg(4 downto 0) => wreg(4 downto 0),
-      wselector(2 downto 0) => wselector(2 downto 0)
+      wselector(1 downto 0) => \^wselector\(2 downto 1)
     );
 end STRUCTURE;
