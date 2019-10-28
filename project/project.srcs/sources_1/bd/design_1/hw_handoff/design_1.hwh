@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Oct 27 14:21:31 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Oct 28 13:36:31 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -2651,8 +2651,8 @@
             <CONNECTION INSTANCE="write_0" PORT="clk"/>
             <CONNECTION INSTANCE="stall_0" PORT="clk"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
-            <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
             <CONNECTION INSTANCE="exec_0" PORT="clk"/>
+            <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -2973,6 +2973,7 @@
         <PORT DIR="O" NAME="stall_enable" SIGIS="undef" SIGNAME="exec_0_stall_enable">
           <CONNECTIONS>
             <CONNECTION INSTANCE="stall_0" PORT="stall_enable"/>
+            <CONNECTION INSTANCE="fetch_0" PORT="stall"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="uart_wenable" SIGIS="undef" SIGNAME="exec_0_uart_wenable">
@@ -3274,6 +3275,11 @@
             <CONNECTION INSTANCE="stall_0" PORT="fetch_done"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" NAME="stall" SIGIS="undef" SIGNAME="exec_0_stall_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="exec_0" PORT="stall_enable"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="pcread" SIGIS="undef" SIGNAME="fetch_0_pcread">
           <CONNECTIONS>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="pcread"/>
@@ -3499,8 +3505,8 @@
             <CONNECTION INSTANCE="write_0" PORT="rstn"/>
             <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
             <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

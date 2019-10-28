@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sun Oct 27 14:21:31 2019
+//Date        : Mon Oct 28 13:36:30 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -405,7 +405,8 @@ module design_1
         .rready(fetch_0_interface_aximm_RREADY),
         .rresp(fetch_0_interface_aximm_RRESP),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
-        .rvalid(fetch_0_interface_aximm_RVALID));
+        .rvalid(fetch_0_interface_aximm_RVALID),
+        .stall(write_0_stall_enable));
   design_1_rst_data_memory_300M_0 rst_data_memory_300M
        (.aux_reset_in(1'b1),
         .dcm_locked(clk_wiz_locked),

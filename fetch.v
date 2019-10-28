@@ -3,6 +3,7 @@
 module fetch(
 	input wire enable,
 	output reg done,
+	input wire stall,
 	output reg pcread,
 	input wire[31:0] pc,
 	output reg[31:0] pc_out,
@@ -65,8 +66,11 @@ module fetch(
 			end
 			if(rready && rvalid) begin
 				rready <= 1'b0;
-				command <= rdata;
+				command <= command == 32'hffffffff ? 32'h0 : rdata;
 				done <= 1'b1;
+			end
+			if(stall) begin
+				command <= 32'hffffffff;
 			end
 		end
 	end
