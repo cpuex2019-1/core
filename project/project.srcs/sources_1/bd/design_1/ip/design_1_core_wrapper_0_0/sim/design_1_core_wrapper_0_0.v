@@ -55,11 +55,6 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_core_wrapper_0_0 (
-  pcread,
-  pcpred,
-  pcenable,
-  next_pc,
-  pc,
   rfmode,
   rreg1,
   rreg2,
@@ -73,11 +68,6 @@ module design_1_core_wrapper_0_0 (
   rstn
 );
 
-input wire pcread;
-input wire [31 : 0] pcpred;
-input wire pcenable;
-input wire [31 : 0] next_pc;
-output wire [31 : 0] pc;
 input wire rfmode;
 input wire [4 : 0] rreg1;
 input wire [4 : 0] rreg2;
@@ -95,11 +85,6 @@ input wire clk;
 input wire rstn;
 
   core_wrapper inst (
-    .pcread(pcread),
-    .pcpred(pcpred),
-    .pcenable(pcenable),
-    .next_pc(next_pc),
-    .pc(pc),
     .rfmode(rfmode),
     .rreg1(rreg1),
     .rreg2(rreg2),
