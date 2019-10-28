@@ -10,12 +10,19 @@ module exec(
 	input wire[31:0] rs,
 	input wire[31:0] rt,
 	input wire[4:0] sh,
-	output reg[3:0] wselector,
+	output reg[2:0] wselector,
 	output reg[31:0] pc_out,
 	output reg[31:0] data,
 	input wire[4:0] rd_in,
 	output reg[4:0] rd_out,
-	output reg[14:0] araddr,
+	output reg uart_wenable,
+	input wire uart_wdone,
+	output reg[1:0] uart_wsz,
+	output reg[31:0] uart_wd,
+	output reg uart_renable,
+	input wire uart_rdone, 
+	input wire[31:0] uart_rd,
+	output reg[21:0] araddr,
 	output reg[1:0] arburst,
 	output reg[3:0] arcache,
 	output reg[7:0] arlen,
@@ -29,7 +36,7 @@ module exec(
 	output reg rready,
 	input wire[1:0] rresp,
 	input wire rvalid,
-	output reg[14:0] awaddr,
+	output reg[21:0] awaddr,
 	output reg[1:0] awburst,
 	output reg[3:0] awcache,
 	output reg[7:0] awlen,
@@ -52,11 +59,26 @@ module exec(
 );
 
 	reg[63:0] tmp;
+	reg[31:0] fs, ft;
+	wire[31:0] fadd_d, fmul_d, fdiv_d;
+	wire fadd_of, fmul_of, fdiv_of, fmul_uf, fdiv_uf;
+	reg fpu_set;
+
+	fadd u_fadd(fs, ft, fadd_d, fadd_of);
+	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
+	fdiv u_fdiv(fs, ft, fdiv_d, fdiv_of, fdiv_uf);
 
 	always @(posedge clk) begin
 		rd_out <= rd_in;
 		if(~rstn) begin
 			done <= 1'b0;
+			uart_wsz <= 2'b00;
+			uart_wd <= 32'h0;
+			uart_wenable <= 1'b0;
+			uart_renable <= 1'b0;
+			fs <= 32'h0;
+			ft <= 32'h0;
+			fpu_set <= 1'b0;
 			araddr <= 15'h0;
 			arburst <= 2'b01;
 			arcache <= 4'b0011;
@@ -80,12 +102,14 @@ module exec(
 			wstrb <= 64'hf;
 			wvalid <= 1'b0;
 		end else begin
-			wselector <= 4'b0000;
+			uart_renable <= 1'b0;
+			uart_wenable <= 1'b0;
+			wselector <= 3'b000;
 			done <= 1'b0;
 			if(enable) begin
 				done <= 1'b1;
 				if(exec_command == 6'b000000) begin
-					wselector <= 4'b0010;
+					wselector <= 3'b010;
 					if(alu_command == 6'b000000) begin	//SLLI
 						data <= rs << sh;
 					end else if(alu_command == 6'b000010) begin	//SRLI
@@ -103,7 +127,7 @@ module exec(
 					end else if(alu_command == 6'b001001) begin	//JALR
 						data <= pc + 32'h4;
 						pc_out <= {rs[31:2], 2'b00};
-						wselector <= 4'b0110;
+						wselector <= 3'b110;
 					end else if(alu_command == 6'b011000) begin	//MUL
 						data <= rs * rt;
 					end else if(alu_command == 6'b011010) begin	//DIV, MOD
@@ -129,40 +153,54 @@ module exec(
 					end
 				end else if(exec_command == 6'b000010) begin	//J
 					pc_out <= addr;
-					wselector <= 4'b0100;
+					wselector <= 3'b100;
 				end else if(exec_command == 6'b000011) begin	//JAL
 					data <= pc + 32'h4;
 					rd_out <= 5'h1f;
 					pc_out <= addr;
-					wselector <= 4'b0110;
+					wselector <= 3'b110;
 				end else if(exec_command == 6'b000100 || exec_command == 6'b000101) begin	//BEQ, BNE
 					if(exec_command[0] ^ (rs == rt)) begin
 						pc_out <= pc + addr;
-						wselector <= 4'b0100;
+						wselector <= 3'b100;
 					end
 				end else if(exec_command == 6'b001000) begin	//ADDI
 					data <= rs + rt;
-					wselector <= 4'b0010;
+					wselector <= 3'b010;
 				end else if(exec_command == 6'b001100) begin	//ANDI
 					data <= rs & rt;
-					wselector <= 4'b0010;
+					wselector <= 3'b010;
 				end else if(exec_command == 6'b001101) begin	//ORI
 					data <= rs | rt;
-					wselector <= 4'b0010;
+					wselector <= 3'b010;
 				end else if(exec_command == 6'b001110) begin	//XORI
 					data <= rs ^ rt;
-					wselector <= 4'b0010;
+					wselector <= 3'b010;
+				end else if(exec_command == 6'b010001) begin	//float
+					wselector <= 3'b011;
+					if(alu_command[5:2] == 4'b0000) begin
+						fs <= rs;
+						ft <= alu_command[1:0] == 2'b01 ? {~rt[31], rt[30:0]} : rt;
+						fpu_set <= 1'b1;
+						done <= 1'b0;
+					end else if(alu_command == 6'b001000) begin	//SLTF
+						data <= {31'h0, (rs[31] == rt[31] && ((rs[30:0] < rt[30:0])^rs[31])) || (rs[31] != rt[31] && rs[31])};
+						wselector <= 3'b010;
+					end else if(alu_command == 6'b001001) begin //FNEG
+						data <= {~rs[31], rs[30:0]};
+						wselector <= 3'b010;
+					end
 				end else if(exec_command == 6'b100000) begin	//LB
 					arvalid <= 1'b1;
 					rready <= 1'b1;
 					arsize <= 3'b000;
 					araddr <= addr[14:0];
 					done <= 1'b0;
-				end else if(exec_command == 6'b100011) begin	//LW
+				end else if(exec_command == 6'b100011 || exec_command == 6'b110001) begin	//LW, LF
 					arvalid <= 1'b1;
 					rready <= 1'b1;
 					arsize <= 3'b010;
-					araddr <= addr[14:0];
+					araddr <= addr[21:0];
 					done <= 1'b0;
 				end else if(exec_command == 6'b101000) begin	//SB
 					awvalid <= 1'b1;
@@ -172,21 +210,39 @@ module exec(
 					wdata <= rt;
 					bready <= 1'b1;
 					done <= 1'b0;
-				end else if(exec_command == 6'b101011) begin	//SW
+				end else if(exec_command == 6'b101011 || exec_command == 6'b111001) begin	//SW, SF
 					awvalid <= 1'b1;
 					awsize <= 3'b010;
-					awaddr <= addr[14:0];
+					awaddr <= addr[21:0];
 					wvalid <= 1'b1;
 					wdata <= rt;
 					bready <= 1'b1;
 					done <= 1'b0;
 				end else if(exec_command == 6'b110010) begin	//BC
 					pc_out <= pc + addr;
-					wselector <= 4'b0100;
-				end else if(exec_command == 6'b111111) begin	//OUT
-					data <= rs;
-					wselector <= 4'b1000;
+					wselector <= 3'b100;
+				end else if(exec_command == 6'b111111) begin	//in, out
+					if(alu_command[0]) begin	//OUT
+						uart_wenable <= 1'b1;
+						uart_wsz <= sh[1:0];
+						uart_wd <= rs;
+					end else begin				//IN
+						uart_renable <= 1'b1;
+					end
+					done <= 1'b0;
 				end
+			end
+			if(fpu_set) begin
+				if(alu_command[5:1] == 5'b00000) begin		//FADD, FSUB
+					data <= fadd_d;
+				end else if(alu_command == 6'b000010) begin	//FMUL
+					data <= fmul_d;
+				end else if(alu_command == 6'b000011) begin	//FDIV
+					data <= fdiv_d;
+				end
+				wselector <= 3'b011;
+				fpu_set <= 1'b0;
+				done <= 1'b1;
 			end
 			if(arready && arvalid) begin
 				arvalid <= 1'b0;
@@ -194,7 +250,7 @@ module exec(
 			if(rready && rvalid) begin
 				rready <= 1'b0;
 				data <= rdata;
-				wselector <= 4'b0010;
+				wselector <= {2'b01, exec_command == 6'b110001};
 				done <= 1'b1;
 			end
 			if(awready && awvalid) begin
@@ -205,6 +261,14 @@ module exec(
 			end
 			if(bready && bvalid) begin
 				bready <= 1'b0;
+				done <= 1'b1;
+			end
+			if(uart_rdone) begin
+				data <= uart_rd;
+				wselector <= {1'b0, ~alu_command[0], alu_command[1]};
+				done <= 1'b1;
+			end
+			if(uart_wdone) begin
 				done <= 1'b1;
 			end
 		end

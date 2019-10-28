@@ -3,10 +3,7 @@
 module write(
 	input wire enable,
 	output reg done,
-	output reg uart_wenable,
-	input wire uart_wdone,
-	output reg[31:0] uart_wdata,
-	input wire[3:0] wselector,
+	input wire[2:0] wselector,
 	input wire[31:0] pc,
 	input wire[31:0] data,
 	input wire[4:0] rd,
@@ -27,15 +24,10 @@ module write(
 		done <= 1'b0;
 		pcenable <= 1'b0;
 		wenable <= 1'b0;
-		uart_wenable <= 1'b0;
 		if(~rstn) begin
 			done <= 1'b1;
 		end else begin
 			if(enable) begin
-				if(wselector[3]) begin
-					uart_wenable <= 1'b1;
-					uart_wdata <= data;
-				end
 				if(wselector[2]) begin
 					pcenable <= 1'b1;
 					next_pc <= pc;
@@ -48,12 +40,9 @@ module write(
 					wdata <= data;
 					set <= 1'b1;
 				end
-				if(wselector[3:1] == 1'b000) begin
+				if(wselector[2:1] == 1'b000) begin
 					done <= 1'b1;
 				end
-			end
-			if(uart_wdone) begin
-				done <= 1'b1;
 			end
 			if(set) begin
 				set <= 1'b0;

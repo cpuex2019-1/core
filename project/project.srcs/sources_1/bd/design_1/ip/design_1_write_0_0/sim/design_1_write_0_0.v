@@ -57,9 +57,6 @@
 module design_1_write_0_0 (
   enable,
   done,
-  uart_wenable,
-  uart_wdone,
-  uart_wdata,
   wselector,
   pc,
   data,
@@ -76,10 +73,7 @@ module design_1_write_0_0 (
 
 input wire enable;
 output wire done;
-output wire uart_wenable;
-input wire uart_wdone;
-output wire [31 : 0] uart_wdata;
-input wire [3 : 0] wselector;
+input wire [2 : 0] wselector;
 input wire [31 : 0] pc;
 input wire [31 : 0] data;
 input wire [4 : 0] rd;
@@ -89,7 +83,7 @@ output wire wenable;
 output wire fmode;
 output wire [4 : 0] wreg;
 output wire [31 : 0] wdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 300000000, PHASE 0.00, CLK_DOMAIN design_1_ddr4_0_0_c0_ddr4_ui_clk, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 10000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -99,9 +93,6 @@ input wire rstn;
   write inst (
     .enable(enable),
     .done(done),
-    .uart_wenable(uart_wenable),
-    .uart_wdone(uart_wdone),
-    .uart_wdata(uart_wdata),
     .wselector(wselector),
     .pc(pc),
     .data(data),

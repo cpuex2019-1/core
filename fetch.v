@@ -25,7 +25,8 @@ module fetch(
 	input wire[1:0] rresp,
 	input wire rvalid,
 	input wire clk,
-	input wire rstn);
+	input wire rstn
+);
 
 	always @(posedge clk) begin
 		if(~rstn) begin
