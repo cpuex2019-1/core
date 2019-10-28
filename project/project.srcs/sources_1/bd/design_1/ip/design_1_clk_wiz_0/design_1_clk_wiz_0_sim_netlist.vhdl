@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Sun Oct 13 17:48:18 2019
+-- Date        : Wed Oct 16 13:29:45 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0/design_1_clk_wiz_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top design_1_clk_wiz_0 -prefix
+--               design_1_clk_wiz_0_ design_1_clk_wiz_0_sim_netlist.vhdl
 -- Design      : design_1_clk_wiz_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -22,8 +22,6 @@ entity design_1_clk_wiz_0_design_1_clk_wiz_0_clk_wiz is
     clk_in1_p : in STD_LOGIC;
     clk_in1_n : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_clk_wiz_0_design_1_clk_wiz_0_clk_wiz : entity is "design_1_clk_wiz_0_clk_wiz";
 end design_1_clk_wiz_0_design_1_clk_wiz_0_clk_wiz;
 
 architecture STRUCTURE of design_1_clk_wiz_0_design_1_clk_wiz_0_clk_wiz is
@@ -85,12 +83,12 @@ clkout1_buf: unisim.vcomponents.BUFGCE
 mmcme3_adv_inst: unisim.vcomponents.MMCME3_ADV
     generic map(
       BANDWIDTH => "OPTIMIZED",
-      CLKFBOUT_MULT_F => 39.000000,
+      CLKFBOUT_MULT_F => 40.125000,
       CLKFBOUT_PHASE => 0.000000,
       CLKFBOUT_USE_FINE_PS => "FALSE",
       CLKIN1_PERIOD => 8.000000,
       CLKIN2_PERIOD => 0.000000,
-      CLKOUT0_DIVIDE_F => 37.500000,
+      CLKOUT0_DIVIDE_F => 66.875000,
       CLKOUT0_DUTY_CYCLE => 0.500000,
       CLKOUT0_PHASE => 0.000000,
       CLKOUT0_USE_FINE_PS => "FALSE",

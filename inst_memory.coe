@@ -1,9 +1,10 @@
+;	fib_my
 memory_initialization_radix=16;
 memory_initialization_vector=
 20600000,
 2040001e,
 0c000005,
-fc020000,
+fc0200c1,
 08000021,
 23c00000,
 03de0400,

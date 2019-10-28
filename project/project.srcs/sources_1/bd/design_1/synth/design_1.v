@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Sun Oct 13 19:10:48 2019
+//Date        : Mon Oct 28 13:36:30 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=13,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=6,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=14,da_bram_cntlr_cnt=1,da_clkrst_cnt=14,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=14,numReposBlks=14,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=7,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=14,da_bram_cntlr_cnt=1,da_clkrst_cnt=15,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
    (reset,
     rs232_uart_rxd,
@@ -22,12 +22,12 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysclk_125 CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sysclk_125, CAN_DEBUG false, FREQ_HZ 125000000" *) input sysclk_125_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysclk_125 CLK_P" *) input sysclk_125_clk_p;
 
-  wire [11:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
+  wire [14:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
   wire axi_bram_ctrl_0_BRAM_PORTA_EN;
   wire axi_bram_ctrl_0_BRAM_PORTA_RST;
-  wire [11:0]axi_bram_ctrl_1_BRAM_PORTA_ADDR;
+  wire [20:0]axi_bram_ctrl_1_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_1_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_1_BRAM_PORTA_DIN;
   wire [31:0]axi_bram_ctrl_1_BRAM_PORTA_DOUT;
@@ -51,11 +51,13 @@ module design_1
   wire [4:0]decode_0_reg1;
   wire [4:0]decode_0_reg2;
   wire [31:0]decode_0_rs;
+  wire [4:0]decode_0_rs_no;
   wire [31:0]decode_0_rt;
+  wire [4:0]decode_0_rt_no;
   wire [4:0]decode_0_sh;
   wire [31:0]exec_0_data_out;
   wire exec_0_done;
-  wire [14:0]exec_0_interface_aximm_ARADDR;
+  wire [21:0]exec_0_interface_aximm_ARADDR;
   wire [1:0]exec_0_interface_aximm_ARBURST;
   wire [3:0]exec_0_interface_aximm_ARCACHE;
   wire [7:0]exec_0_interface_aximm_ARLEN;
@@ -64,7 +66,7 @@ module design_1
   wire exec_0_interface_aximm_ARREADY;
   wire [2:0]exec_0_interface_aximm_ARSIZE;
   wire exec_0_interface_aximm_ARVALID;
-  wire [14:0]exec_0_interface_aximm_AWADDR;
+  wire [21:0]exec_0_interface_aximm_AWADDR;
   wire [1:0]exec_0_interface_aximm_AWBURST;
   wire [3:0]exec_0_interface_aximm_AWCACHE;
   wire [7:0]exec_0_interface_aximm_AWLEN;
@@ -89,7 +91,10 @@ module design_1
   wire exec_0_interface_aximm_WVALID;
   wire [31:0]exec_0_pc_out;
   wire [4:0]exec_0_rd_out;
-  wire [3:0]exec_0_wselector_out;
+  wire exec_0_uart_renable;
+  wire [31:0]exec_0_uart_wd;
+  wire [1:0]exec_0_uart_wsz;
+  wire [2:0]exec_0_wselector_out;
   wire [31:0]fetch_0_command;
   wire fetch_0_done;
   wire [14:0]fetch_0_interface_aximm_ARADDR;
@@ -112,8 +117,13 @@ module design_1
   wire fetch_0_pcread;
   wire reset_1;
   wire [0:0]rst_data_memory_300M_peripheral_aresetn;
+  wire stall_0_decode_enable;
+  wire stall_0_exec_enable;
+  wire stall_0_fetch_enable;
+  wire stall_0_wire_enable;
   wire sysclk_125_1_CLK_N;
   wire sysclk_125_1_CLK_P;
+  wire [31:0]uart_buffer_0_rdata;
   wire uart_buffer_0_rdone;
   wire [31:0]uart_buffer_0_uart_ARADDR;
   wire uart_buffer_0_uart_ARREADY;
@@ -137,7 +147,7 @@ module design_1
   wire write_0_fmode;
   wire [31:0]write_0_next_pc;
   wire write_0_pcenable;
-  wire [31:0]write_0_uart_wdata;
+  wire write_0_stall_enable;
   wire write_0_uart_wenable;
   wire [31:0]write_0_wdata;
   wire write_0_wenable;
@@ -155,7 +165,7 @@ module design_1
         .bram_rddata_a(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
         .bram_rst_a(axi_bram_ctrl_0_BRAM_PORTA_RST),
         .s_axi_aclk(data_memory_c0_ddr4_ui_clk),
-        .s_axi_araddr(fetch_0_interface_aximm_ARADDR[11:0]),
+        .s_axi_araddr(fetch_0_interface_aximm_ARADDR),
         .s_axi_arburst(fetch_0_interface_aximm_ARBURST),
         .s_axi_arcache(fetch_0_interface_aximm_ARCACHE),
         .s_axi_aresetn(rst_data_memory_300M_peripheral_aresetn),
@@ -166,7 +176,7 @@ module design_1
         .s_axi_arready(fetch_0_interface_aximm_ARREADY),
         .s_axi_arsize(fetch_0_interface_aximm_ARSIZE),
         .s_axi_arvalid(fetch_0_interface_aximm_ARVALID),
-        .s_axi_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .s_axi_awburst({1'b0,1'b1}),
         .s_axi_awcache({1'b0,1'b0,1'b1,1'b1}),
         .s_axi_awid({1'b0,1'b0,1'b0,1'b0}),
@@ -187,7 +197,7 @@ module design_1
         .s_axi_wstrb({1'b1,1'b1,1'b1,1'b1}),
         .s_axi_wvalid(1'b0));
   design_1_axi_bram_ctrl_0_bram_0 axi_bram_ctrl_0_bram
-       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
+       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
         .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
         .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
         .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
@@ -201,7 +211,7 @@ module design_1
         .bram_we_a(axi_bram_ctrl_1_BRAM_PORTA_WE),
         .bram_wrdata_a(axi_bram_ctrl_1_BRAM_PORTA_DIN),
         .s_axi_aclk(data_memory_c0_ddr4_ui_clk),
-        .s_axi_araddr(exec_0_interface_aximm_ARADDR[11:0]),
+        .s_axi_araddr(exec_0_interface_aximm_ARADDR[20:0]),
         .s_axi_arburst(exec_0_interface_aximm_ARBURST),
         .s_axi_arcache(exec_0_interface_aximm_ARCACHE),
         .s_axi_aresetn(rst_data_memory_300M_peripheral_aresetn),
@@ -212,7 +222,7 @@ module design_1
         .s_axi_arready(exec_0_interface_aximm_ARREADY),
         .s_axi_arsize(exec_0_interface_aximm_ARSIZE),
         .s_axi_arvalid(exec_0_interface_aximm_ARVALID),
-        .s_axi_awaddr(exec_0_interface_aximm_AWADDR[11:0]),
+        .s_axi_awaddr(exec_0_interface_aximm_AWADDR[20:0]),
         .s_axi_awburst(exec_0_interface_aximm_AWBURST),
         .s_axi_awcache(exec_0_interface_aximm_AWCACHE),
         .s_axi_awid({1'b0,1'b0,1'b0,1'b0}),
@@ -259,7 +269,7 @@ module design_1
         .s_axi_wvalid(uart_buffer_0_uart_WVALID),
         .tx(axi_uartlite_0_UART_TxD));
   design_1_blk_mem_gen_0_0 blk_mem_gen_0
-       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_1_BRAM_PORTA_ADDR}),
+       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_1_BRAM_PORTA_ADDR}),
         .clka(axi_bram_ctrl_1_BRAM_PORTA_CLK),
         .dina(axi_bram_ctrl_1_BRAM_PORTA_DIN),
         .douta(axi_bram_ctrl_1_BRAM_PORTA_DOUT),
@@ -277,6 +287,7 @@ module design_1
         .next_pc(write_0_next_pc),
         .pc(core_wrapper_0_pc),
         .pcenable(write_0_pcenable),
+        .pcpred(fetch_0_pc_out),
         .pcread(fetch_0_pcread),
         .reg_out1(core_wrapper_0_reg_out1),
         .reg_out2(core_wrapper_0_reg_out2),
@@ -294,7 +305,7 @@ module design_1
         .clk(data_memory_c0_ddr4_ui_clk),
         .command(fetch_0_command),
         .done(decode_0_done),
-        .enable(fetch_0_done),
+        .enable(stall_0_decode_enable),
         .exec_command(decode_0_exec_command),
         .fmode(decode_0_fmode),
         .pc(fetch_0_pc_out),
@@ -305,8 +316,10 @@ module design_1
         .reg_out1(core_wrapper_0_reg_out1),
         .reg_out2(core_wrapper_0_reg_out2),
         .rs(decode_0_rs),
+        .rs_no(decode_0_rs_no),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .rt(decode_0_rt),
+        .rt_no(decode_0_rt_no),
         .sh(decode_0_sh));
   design_1_exec_0_0 exec_0
        (.addr(decode_0_addr),
@@ -336,8 +349,9 @@ module design_1
         .clk(data_memory_c0_ddr4_ui_clk),
         .data(exec_0_data_out),
         .done(exec_0_done),
-        .enable(decode_0_done),
+        .enable(stall_0_exec_enable),
         .exec_command(decode_0_exec_command),
+        .fmode(decode_0_fmode),
         .pc(decode_0_pc_out),
         .pc_out(exec_0_pc_out),
         .rd_in(decode_0_rd),
@@ -347,10 +361,20 @@ module design_1
         .rready(exec_0_interface_aximm_RREADY),
         .rresp(exec_0_interface_aximm_RRESP),
         .rs(decode_0_rs),
+        .rs_no(decode_0_rs_no),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .rt(decode_0_rt),
+        .rt_no(decode_0_rt_no),
         .rvalid(exec_0_interface_aximm_RVALID),
         .sh(decode_0_sh),
+        .stall_enable(write_0_stall_enable),
+        .uart_rd(uart_buffer_0_rdata),
+        .uart_rdone(uart_buffer_0_rdone),
+        .uart_renable(exec_0_uart_renable),
+        .uart_wd(exec_0_uart_wd),
+        .uart_wdone(uart_buffer_0_wdone),
+        .uart_wenable(write_0_uart_wenable),
+        .uart_wsz(exec_0_uart_wsz),
         .wdata(exec_0_interface_aximm_WDATA),
         .wlast(exec_0_interface_aximm_WLAST),
         .wready(exec_0_interface_aximm_WREADY),
@@ -371,7 +395,7 @@ module design_1
         .clk(data_memory_c0_ddr4_ui_clk),
         .command(fetch_0_command),
         .done(fetch_0_done),
-        .enable(write_0_done),
+        .enable(stall_0_fetch_enable),
         .pc(core_wrapper_0_pc),
         .pc_out(fetch_0_pc_out),
         .pcread(fetch_0_pcread),
@@ -381,7 +405,8 @@ module design_1
         .rready(fetch_0_interface_aximm_RREADY),
         .rresp(fetch_0_interface_aximm_RRESP),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
-        .rvalid(fetch_0_interface_aximm_RVALID));
+        .rvalid(fetch_0_interface_aximm_RVALID),
+        .stall(write_0_stall_enable));
   design_1_rst_data_memory_300M_0 rst_data_memory_300M
        (.aux_reset_in(1'b1),
         .dcm_locked(clk_wiz_locked),
@@ -389,10 +414,23 @@ module design_1
         .mb_debug_sys_rst(1'b0),
         .peripheral_aresetn(rst_data_memory_300M_peripheral_aresetn),
         .slowest_sync_clk(data_memory_c0_ddr4_ui_clk));
+  design_1_stall_0_0 stall_0
+       (.clk(data_memory_c0_ddr4_ui_clk),
+        .decode_done(decode_0_done),
+        .decode_enable(stall_0_decode_enable),
+        .exec_done(exec_0_done),
+        .exec_enable(stall_0_exec_enable),
+        .fetch_done(fetch_0_done),
+        .fetch_enable(stall_0_fetch_enable),
+        .rstn(rst_data_memory_300M_peripheral_aresetn),
+        .stall_enable(write_0_stall_enable),
+        .write_done(write_0_done),
+        .write_enable(stall_0_wire_enable));
   design_1_uart_buffer_0_0 uart_buffer_0
        (.clk(data_memory_c0_ddr4_ui_clk),
+        .rdata(uart_buffer_0_rdata),
         .rdone(uart_buffer_0_rdone),
-        .renable(uart_buffer_0_rdone),
+        .renable(exec_0_uart_renable),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .uart_araddr(uart_buffer_0_uart_ARADDR),
         .uart_arready(uart_buffer_0_uart_ARREADY),
@@ -411,23 +449,21 @@ module design_1
         .uart_wready(uart_buffer_0_uart_WREADY),
         .uart_wstrb(uart_buffer_0_uart_WSTRB),
         .uart_wvalid(uart_buffer_0_uart_WVALID),
-        .wdata(write_0_uart_wdata),
+        .wdata(exec_0_uart_wd),
         .wdone(uart_buffer_0_wdone),
-        .wenable(write_0_uart_wenable));
+        .wenable(write_0_uart_wenable),
+        .wsize(exec_0_uart_wsz));
   design_1_write_0_0 write_0
        (.clk(data_memory_c0_ddr4_ui_clk),
         .data(exec_0_data_out),
         .done(write_0_done),
-        .enable(exec_0_done),
+        .enable(stall_0_wire_enable),
         .fmode(write_0_fmode),
         .next_pc(write_0_next_pc),
         .pc(exec_0_pc_out),
         .pcenable(write_0_pcenable),
         .rd(exec_0_rd_out),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
-        .uart_wdata(write_0_uart_wdata),
-        .uart_wdone(uart_buffer_0_wdone),
-        .uart_wenable(write_0_uart_wenable),
         .wdata(write_0_wdata),
         .wenable(write_0_wenable),
         .wreg(write_0_wreg),

@@ -6,6 +6,7 @@ module uart_buffer(
 	output reg[31:0] rdata,
 	input wire wenable,
 	output reg wdone,
+	input wire[1:0] wsize,
 	input wire[31:0] wdata,
 	output reg[31:0] uart_araddr,
 	input wire uart_arready,
@@ -28,17 +29,19 @@ module uart_buffer(
 	input wire rstn
 );
 
-	reg[31:0] buffer;
-	reg[1:0] count;
-	reg go;
+	reg[31:0] wbuffer;
+	reg[1:0] wcount, rcount;
+	reg wgo, rgo;
 
 	always @(posedge clk) begin
 		rdone <= 1'b0;
 		wdone <= 1'b0;
 		if(~rstn) begin
-			buffer <= 32'h0;
-			count <= 2'b00;
-			go <= 1'b0;
+			rcount <= 2'b00;
+			rgo <= 1'b0;
+			wbuffer <= 32'h0;
+			wcount <= 2'b00;
+			wgo <= 1'b0;
 			uart_araddr <= 32'h0;
 			uart_awaddr <= 32'h4;
 			uart_arvalid <= 1'b0;
@@ -49,21 +52,50 @@ module uart_buffer(
 			uart_wstrb <= 4'b0001;
 			uart_wdata <= 32'h0;
 		end else begin
-			if(wenable) begin
-				buffer <= wdata;
-				count <= 2'b11;
-				go <= 1'b1;
+			if(renable) begin
+				rcount <= 2'b11;
+				rgo <= 1'b1;
 			end
-			if(go && ~uart_bready) begin
+			if(rgo && ~uart_rready) begin
+				uart_arvalid <= 1'b1;
+				uart_rready <= 1'b1;
+				if(rcount == 2'b00) begin
+					rgo <= 1'b0;
+				end else begin
+					rcount <= rcount - 2'b01;
+				end
+			end
+			if(uart_arready && uart_arvalid) begin
+				uart_arvalid <= 1'b0;
+			end
+			if(uart_rready && uart_rvalid) begin
+				if(uart_rresp[1]) begin
+					uart_arvalid <= 1'b1;
+					uart_rready <= 1'b1;
+				end else begin
+					uart_rready <= 1'b0;
+					if(~rgo) begin
+						rdata <= uart_rdata;
+						rdone <= 1'b1;
+					end
+				end
+			end
+
+			if(wenable) begin
+				wbuffer <= wdata;
+				wcount <= wsize;
+				wgo <= 1'b1;
+			end
+			if(wgo && ~uart_bready) begin
 				uart_awvalid <= 1'b1;
 				uart_bready <= 1'b1;
 				uart_wvalid <= 1'b1;
-				uart_wdata[7:0] <= buffer[31:24];
-				buffer <= {buffer[23:0], 8'h0};
-				if(count == 2'b00) begin
-					go <= 1'b0;
+				uart_wdata[7:0] <= wbuffer[31:24];
+				wbuffer <= {wbuffer[23:0], 8'h0};
+				if(wcount == 2'b00) begin
+					wgo <= 1'b0;
 				end else begin
-					count <= count - 2'b01;
+					wcount <= wcount - 2'b01;
 				end
 			end
 			if(uart_awready && uart_awvalid) begin
@@ -79,7 +111,7 @@ module uart_buffer(
 					uart_wvalid <= 1'b1;
 				end else begin
 					uart_bready <= 1'b0;
-					if(~go) begin
+					if(~wgo) begin
 						wdone <= 1'b1;
 					end
 				end
