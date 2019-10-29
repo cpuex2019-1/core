@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Mon Oct 28 18:28:50 2019
+//Date        : Tue Oct 29 20:02:05 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -22,7 +22,7 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysclk_125 CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sysclk_125, CAN_DEBUG false, FREQ_HZ 125000000" *) input sysclk_125_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysclk_125 CLK_P" *) input sysclk_125_clk_p;
 
-  wire [19:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
+  wire [17:0]axi_bram_ctrl_0_BRAM_PORTA_ADDR;
   wire axi_bram_ctrl_0_BRAM_PORTA_CLK;
   wire [31:0]axi_bram_ctrl_0_BRAM_PORTA_DOUT;
   wire axi_bram_ctrl_0_BRAM_PORTA_EN;
@@ -44,7 +44,8 @@ module design_1
   wire [5:0]decode_0_alu_command;
   wire decode_0_done;
   wire [5:0]decode_0_exec_command;
-  wire decode_0_fmode;
+  wire decode_0_fmode1;
+  wire decode_0_fmode2;
   wire [31:0]decode_0_pc_out;
   wire [4:0]decode_0_rd;
   wire [4:0]decode_0_reg1;
@@ -96,7 +97,7 @@ module design_1
   wire [2:0]exec_0_wselector_out;
   wire [31:0]fetch_0_command;
   wire fetch_0_done;
-  wire [19:0]fetch_0_interface_aximm_ARADDR;
+  wire [17:0]fetch_0_interface_aximm_ARADDR;
   wire [1:0]fetch_0_interface_aximm_ARBURST;
   wire [3:0]fetch_0_interface_aximm_ARCACHE;
   wire [3:0]fetch_0_interface_aximm_ARID;
@@ -174,7 +175,7 @@ module design_1
         .s_axi_arready(fetch_0_interface_aximm_ARREADY),
         .s_axi_arsize(fetch_0_interface_aximm_ARSIZE),
         .s_axi_arvalid(fetch_0_interface_aximm_ARVALID),
-        .s_axi_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .s_axi_awaddr({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .s_axi_awburst({1'b0,1'b1}),
         .s_axi_awcache({1'b0,1'b0,1'b1,1'b1}),
         .s_axi_awid({1'b0,1'b0,1'b0,1'b0}),
@@ -195,7 +196,7 @@ module design_1
         .s_axi_wstrb({1'b1,1'b1,1'b1,1'b1}),
         .s_axi_wvalid(1'b0));
   design_1_axi_bram_ctrl_0_bram_0 axi_bram_ctrl_0_bram
-       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
+       (.addra({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axi_bram_ctrl_0_BRAM_PORTA_ADDR}),
         .clka(axi_bram_ctrl_0_BRAM_PORTA_CLK),
         .douta(axi_bram_ctrl_0_BRAM_PORTA_DOUT),
         .ena(axi_bram_ctrl_0_BRAM_PORTA_EN),
@@ -284,7 +285,8 @@ module design_1
        (.clk(data_memory_c0_ddr4_ui_clk),
         .reg_out1(core_wrapper_0_reg_out1),
         .reg_out2(core_wrapper_0_reg_out2),
-        .rfmode(decode_0_fmode),
+        .rfmode1(decode_0_fmode1),
+        .rfmode2(decode_0_fmode2),
         .rreg1(decode_0_reg1),
         .rreg2(decode_0_reg2),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
@@ -300,7 +302,8 @@ module design_1
         .done(decode_0_done),
         .enable(stall_0_decode_enable),
         .exec_command(decode_0_exec_command),
-        .fmode(decode_0_fmode),
+        .fmode1(decode_0_fmode1),
+        .fmode2(decode_0_fmode2),
         .pc(fetch_0_pc),
         .pc_out(decode_0_pc_out),
         .rd(decode_0_rd),
@@ -344,7 +347,8 @@ module design_1
         .done(exec_0_done),
         .enable(stall_0_exec_enable),
         .exec_command(decode_0_exec_command),
-        .fmode(decode_0_fmode),
+        .fmode1(decode_0_fmode1),
+        .fmode2(decode_0_fmode2),
         .pc(decode_0_pc_out),
         .pc_out(exec_0_pc_out),
         .rd_in(decode_0_rd),

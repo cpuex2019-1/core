@@ -201,8 +201,8 @@ proc create_root_design { parentCell } {
   set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
   set_property -dict [ list \
    CONFIG.C_BAUDRATE {115200} \
-   CONFIG.C_S_AXI_ACLK_FREQ_HZ {15000000} \
-   CONFIG.C_S_AXI_ACLK_FREQ_HZ_d {15} \
+   CONFIG.C_S_AXI_ACLK_FREQ_HZ {20000000} \
+   CONFIG.C_S_AXI_ACLK_FREQ_HZ_d {20} \
    CONFIG.UARTLITE_BOARD_INTERFACE {rs232_uart} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_uartlite_0
@@ -213,14 +213,14 @@ proc create_root_design { parentCell } {
   # Create instance: clk_wiz, and set properties
   set clk_wiz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz ]
   set_property -dict [ list \
-   CONFIG.CLKOUT1_JITTER {310.773} \
-   CONFIG.CLKOUT1_PHASE_ERROR {236.795} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {15} \
+   CONFIG.CLKOUT1_JITTER {172.798} \
+   CONFIG.CLKOUT1_PHASE_ERROR {96.948} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {20} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sysclk_125} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {40.125} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {8.000} \
    CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {66.875} \
-   CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {50.000} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {1} \
    CONFIG.RESET_BOARD_INTERFACE {reset} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $clk_wiz
@@ -327,7 +327,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net decode_0_alu_command [get_bd_pins decode_0/alu_command] [get_bd_pins exec_0/alu_command]
   connect_bd_net -net decode_0_done [get_bd_pins decode_0/done] [get_bd_pins stall_0/decode_done]
   connect_bd_net -net decode_0_exec_command [get_bd_pins decode_0/exec_command] [get_bd_pins exec_0/exec_command]
-  connect_bd_net -net decode_0_fmode [get_bd_pins core_wrapper_0/rfmode] [get_bd_pins decode_0/fmode] [get_bd_pins exec_0/fmode]
+  connect_bd_net -net decode_0_fmode1 [get_bd_pins core_wrapper_0/rfmode1] [get_bd_pins decode_0/fmode1] [get_bd_pins exec_0/fmode1]
+  connect_bd_net -net decode_0_fmode2 [get_bd_pins core_wrapper_0/rfmode2] [get_bd_pins decode_0/fmode2] [get_bd_pins exec_0/fmode2]
   connect_bd_net -net decode_0_pc_out [get_bd_pins decode_0/pc_out] [get_bd_pins exec_0/pc]
   connect_bd_net -net decode_0_rd [get_bd_pins decode_0/rd] [get_bd_pins exec_0/rd_in]
   connect_bd_net -net decode_0_reg1 [get_bd_pins core_wrapper_0/rreg1] [get_bd_pins decode_0/reg1]
@@ -369,7 +370,7 @@ proc create_root_design { parentCell } {
 
   # Create address segments
   create_bd_addr_seg -range 0x00200000 -offset 0x00000000 [get_bd_addr_spaces exec_0/interface_aximm] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
-  create_bd_addr_seg -range 0x00100000 -offset 0x00000000 [get_bd_addr_spaces fetch_0/interface_aximm] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+  create_bd_addr_seg -range 0x00040000 -offset 0x00000000 [get_bd_addr_spaces fetch_0/interface_aximm] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0x40600000 [get_bd_addr_spaces uart_buffer_0/uart] [get_bd_addr_segs axi_uartlite_0/S_AXI/Reg] SEG_axi_uartlite_0_Reg
 
 

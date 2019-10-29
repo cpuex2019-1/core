@@ -70,7 +70,7 @@ input wire rsta;
 input wire ena;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *)
 input wire [31 : 0] addra;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 1048576, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_ONLY, READ_LATENCY 1" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 262144, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE BRAM_CTRL, READ_WRITE_MODE READ_ONLY, READ_LATENCY 1" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *)
 output wire [31 : 0] douta;
 output wire rsta_busy;
@@ -107,8 +107,8 @@ output wire rsta_busy;
     .C_WRITE_MODE_A("WRITE_FIRST"),
     .C_WRITE_WIDTH_A(32),
     .C_READ_WIDTH_A(32),
-    .C_WRITE_DEPTH_A(262144),
-    .C_READ_DEPTH_A(262144),
+    .C_WRITE_DEPTH_A(65536),
+    .C_READ_DEPTH_A(65536),
     .C_ADDRA_WIDTH(32),
     .C_HAS_RSTB(0),
     .C_RST_PRIORITY_B("CE"),
@@ -121,8 +121,8 @@ output wire rsta_busy;
     .C_WRITE_MODE_B("WRITE_FIRST"),
     .C_WRITE_WIDTH_B(32),
     .C_READ_WIDTH_B(32),
-    .C_WRITE_DEPTH_B(262144),
-    .C_READ_DEPTH_B(262144),
+    .C_WRITE_DEPTH_B(65536),
+    .C_READ_DEPTH_B(65536),
     .C_ADDRB_WIDTH(32),
     .C_HAS_MEM_OUTPUT_REGS_A(0),
     .C_HAS_MEM_OUTPUT_REGS_B(0),
@@ -148,9 +148,9 @@ output wire rsta_busy;
     .C_EN_SHUTDOWN_PIN(0),
     .C_EN_SAFETY_CKT(1),
     .C_DISABLE_WARN_BHV_RANGE(0),
-    .C_COUNT_36K_BRAM("232"),
+    .C_COUNT_36K_BRAM("58"),
     .C_COUNT_18K_BRAM("0"),
-    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     54.125668 mW")
+    .C_EST_POWER_SUMMARY("Estimated Power for IP     :     34.539724 mW")
   ) inst (
     .clka(clka),
     .rsta(rsta),

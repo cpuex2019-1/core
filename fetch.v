@@ -8,7 +8,7 @@ module fetch(
 	input wire[31:0] next_pc,
 	output reg[31:0] pc,
 	output reg[31:0] command,
-	output reg[19:0] araddr,
+	output reg[17:0] araddr,
 	output reg[1:0] arburst,
 	output reg[3:0] arcache,
 	output reg[3:0] arid,
@@ -66,7 +66,7 @@ module fetch(
 				pc_history2 <= pc_history1;
 				arvalid <= 1'b1;
 				rready <= 1'b1;
-				araddr <= pc_[19:0];
+				araddr <= pc_[17:0];
 			end
 			if(pcenable && pc_history2 != next_pc) begin
 				pcenable_ <= enable ? 1'b0 : 1'b1;

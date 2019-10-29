@@ -17,7 +17,8 @@ module exec(
 	output reg[4:0] rd_out,
 	input wire[4:0] rs_no,
 	input wire[4:0] rt_no,
-	input wire fmode,
+	input wire fmode1,
+	input wire fmode2,
 	output reg stall_enable,
 	output reg uart_wenable,
 	input wire uart_wdone,
@@ -64,19 +65,19 @@ module exec(
 
 	reg[63:0] tmp;
 	reg[31:0] fs, ft;
-	wire[31:0] fadd_d, fmul_d, fdiv_d;
-	wire fadd_of, fmul_of, fdiv_of, fmul_uf, fdiv_uf;
+	wire[31:0] fadd_d, fmul_d, finv_d;
+	wire fadd_of, fmul_of, finv_of, fmul_uf, finv_uf;
 	reg fpu_set;
 	wire[31:0] rs_,rt_,addr_;
 	reg[5:0] alu_command_, exec_command_;
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
-	fdiv u_fdiv(fs, ft, fdiv_d, fdiv_of, fdiv_uf);
+	finv u_finv(ft, finv_d, finv_of, finv_uf);
 
-	assign rs_ = wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data : rs;
-	assign rt_ = wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rt_no != 5'h0 && rd_out == rt_no ? data : rt;
-	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data+{rt_no[4] ? 16'hffff : 16'h0000, rt_no, sh, alu_command} : addr;
+	assign rs_ = wselector[1] && wselector[0] == fmode1 && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data : rs;
+	assign rt_ = wselector[1] && wselector[0] == fmode2 && rd_out != 5'h0 && rt_no != 5'h0 && rd_out == rt_no ? data : rt;
+	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode1 && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data+{rt_no[4] ? 16'hffff : 16'h0000, rt_no, sh, alu_command} : addr;
 
 	always @(posedge clk) begin
 		if(~rstn) begin
@@ -252,16 +253,19 @@ module exec(
 				end
 			end
 			if(fpu_set) begin
+				wselector <= 3'b011;
+				fpu_set <= 1'b0;
+				done <= 1'b1;
 				if(alu_command_[5:1] == 5'b00000) begin			//FADD, FSUB
 					data <= fadd_d;
 				end else if(alu_command_ == 6'b000010) begin	//FMUL
 					data <= fmul_d;
 				end else if(alu_command_ == 6'b000011) begin	//FDIV
-					data <= fdiv_d;
+					ft <= finv_d;
+					alu_command_ <= 6'b000010;
+					fpu_set <= 1'b1;
+					done <= 1'b0;
 				end
-				wselector <= 3'b011;
-				fpu_set <= 1'b0;
-				done <= 1'b1;
 			end
 			if(arready && arvalid) begin
 				arvalid <= 1'b0;
