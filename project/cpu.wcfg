@@ -15,40 +15,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="38121332000fs"></ZoomStartTime>
-      <ZoomEndTime time="49551332001fs"></ZoomEndTime>
-      <Cursor1Time time="26621332000fs"></Cursor1Time>
+      <ZoomStartTime time="86200000000fs"></ZoomStartTime>
+      <ZoomEndTime time="103960000001fs"></ZoomEndTime>
+      <Cursor1Time time="100170000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="167"></NameColumnWidth>
+      <NameColumnWidth column_width="157"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="133" />
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/pcread" type="logic">
-      <obj_property name="ElementShortName">pcread</obj_property>
-      <obj_property name="ObjectShortName">pcread</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/pcenable" type="logic">
-      <obj_property name="ElementShortName">pcenable</obj_property>
-      <obj_property name="ObjectShortName">pcenable</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/next_pc" type="array">
-      <obj_property name="ElementShortName">next_pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">next_pc[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/pc" type="array">
-      <obj_property name="ElementShortName">pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
+   <WVObjectSize size="127" />
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/rfmode" type="logic">
       <obj_property name="ElementShortName">rfmode</obj_property>
       <obj_property name="ObjectShortName">rfmode</obj_property>
@@ -120,6 +95,7 @@
       <obj_property name="ObjectShortName">greg[31:0][31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg" type="array">
       <obj_property name="ElementShortName">freg[31:0][31:0]</obj_property>
@@ -214,24 +190,12 @@
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pcread" type="logic">
-      <obj_property name="ElementShortName">pcread</obj_property>
-      <obj_property name="ObjectShortName">pcread</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pc" type="array">
       <obj_property name="ElementShortName">pc[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pc_out" type="array">
-      <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/command" type="array">
       <obj_property name="ElementShortName">command[31:0]</obj_property>
@@ -240,8 +204,8 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/araddr" type="array">
-      <obj_property name="ElementShortName">araddr[14:0]</obj_property>
-      <obj_property name="ObjectShortName">araddr[14:0]</obj_property>
+      <obj_property name="ElementShortName">araddr[19:0]</obj_property>
+      <obj_property name="ObjectShortName">araddr[19:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>

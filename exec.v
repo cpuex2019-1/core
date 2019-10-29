@@ -205,7 +205,8 @@ module exec(
 							wselector <= 3'b010;
 						end else if(alu_command == 6'b001001) begin //FNEG
 							data <= {~rs_[31], rs_[30:0]};
-							wselector <= 3'b010;
+						end else if(alu_command == 6'b111111) begin //MOVF
+							data <= rs;
 						end
 					end else if(exec_command == 6'b100000) begin	//LB
 						arvalid <= 1'b1;
