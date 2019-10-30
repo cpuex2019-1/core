@@ -62,23 +62,9 @@ module design_1_fetch_0_0 (
   next_pc,
   pc,
   command,
-  araddr,
-  arburst,
-  arcache,
-  arid,
-  arlen,
-  arlock,
-  arprot,
-  arqos,
-  arready,
-  arsize,
-  arvalid,
-  rdata,
-  rid,
-  rlast,
-  rready,
-  rresp,
-  rvalid,
+  inst_enable,
+  inst_addr,
+  inst_data,
   clk,
   rstn
 );
@@ -90,43 +76,10 @@ input wire pcenable;
 input wire [31 : 0] next_pc;
 output wire [31 : 0] pc;
 output wire [31 : 0] command;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARADDR" *)
-output wire [17 : 0] araddr;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARBURST" *)
-output wire [1 : 0] arburst;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARCACHE" *)
-output wire [3 : 0] arcache;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARID" *)
-output wire [3 : 0] arid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARLEN" *)
-output wire [7 : 0] arlen;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARLOCK" *)
-output wire arlock;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARPROT" *)
-output wire [2 : 0] arprot;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARQOS" *)
-output wire [3 : 0] arqos;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARREADY" *)
-input wire arready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARSIZE" *)
-output wire [2 : 0] arsize;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARVALID" *)
-output wire arvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RDATA" *)
-input wire [31 : 0] rdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RID" *)
-input wire [3 : 0] rid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RLAST" *)
-input wire rlast;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RREADY" *)
-output wire rready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RRESP" *)
-input wire [1 : 0] rresp;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME interface_aximm, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 20000000, ID_WIDTH 4, ADDR_WIDTH 18, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_ONLY, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 0, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 0, HAS_BRESP 0, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_W\
-RITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RVALID" *)
-input wire rvalid;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET rstn, FREQ_HZ 20000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+output wire inst_enable;
+output wire [15 : 0] inst_addr;
+input wire [31 : 0] inst_data;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 20000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -141,23 +94,9 @@ input wire rstn;
     .next_pc(next_pc),
     .pc(pc),
     .command(command),
-    .araddr(araddr),
-    .arburst(arburst),
-    .arcache(arcache),
-    .arid(arid),
-    .arlen(arlen),
-    .arlock(arlock),
-    .arprot(arprot),
-    .arqos(arqos),
-    .arready(arready),
-    .arsize(arsize),
-    .arvalid(arvalid),
-    .rdata(rdata),
-    .rid(rid),
-    .rlast(rlast),
-    .rready(rready),
-    .rresp(rresp),
-    .rvalid(rvalid),
+    .inst_enable(inst_enable),
+    .inst_addr(inst_addr),
+    .inst_data(inst_data),
     .clk(clk),
     .rstn(rstn)
   );
