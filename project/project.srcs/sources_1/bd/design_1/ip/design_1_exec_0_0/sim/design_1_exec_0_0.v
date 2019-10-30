@@ -71,7 +71,8 @@ module design_1_exec_0_0 (
   rd_out,
   rs_no,
   rt_no,
-  fmode,
+  fmode1,
+  fmode2,
   stall_enable,
   uart_wenable,
   uart_wdone,
@@ -80,38 +81,11 @@ module design_1_exec_0_0 (
   uart_renable,
   uart_rdone,
   uart_rd,
-  araddr,
-  arburst,
-  arcache,
-  arlen,
-  arlock,
-  arprot,
-  arready,
-  arsize,
-  arvalid,
-  rdata,
-  rlast,
-  rready,
-  rresp,
-  rvalid,
-  awaddr,
-  awburst,
-  awcache,
-  awlen,
-  awlock,
-  awprot,
-  awready,
-  awsize,
-  awvalid,
-  bid,
-  bready,
-  bresp,
-  bvalid,
-  wdata,
-  wlast,
-  wready,
-  wstrb,
-  wvalid,
+  mem_addr,
+  mem_wdata,
+  mem_rdata,
+  mem_enable,
+  mem_wea,
   clk,
   rstn
 );
@@ -132,7 +106,8 @@ input wire [4 : 0] rd_in;
 output wire [4 : 0] rd_out;
 input wire [4 : 0] rs_no;
 input wire [4 : 0] rt_no;
-input wire fmode;
+input wire fmode1;
+input wire fmode2;
 output wire stall_enable;
 output wire uart_wenable;
 input wire uart_wdone;
@@ -141,73 +116,12 @@ output wire [31 : 0] uart_wd;
 output wire uart_renable;
 input wire uart_rdone;
 input wire [31 : 0] uart_rd;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARADDR" *)
-output wire [21 : 0] araddr;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARBURST" *)
-output wire [1 : 0] arburst;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARCACHE" *)
-output wire [3 : 0] arcache;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARLEN" *)
-output wire [7 : 0] arlen;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARLOCK" *)
-output wire arlock;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARPROT" *)
-output wire [2 : 0] arprot;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARREADY" *)
-input wire arready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARSIZE" *)
-output wire [2 : 0] arsize;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm ARVALID" *)
-output wire arvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RDATA" *)
-input wire [31 : 0] rdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RLAST" *)
-input wire rlast;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RREADY" *)
-output wire rready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RRESP" *)
-input wire [1 : 0] rresp;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm RVALID" *)
-input wire rvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWADDR" *)
-output wire [21 : 0] awaddr;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWBURST" *)
-output wire [1 : 0] awburst;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWCACHE" *)
-output wire [3 : 0] awcache;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWLEN" *)
-output wire [7 : 0] awlen;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWLOCK" *)
-output wire awlock;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWPROT" *)
-output wire [2 : 0] awprot;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWREADY" *)
-input wire awready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWSIZE" *)
-output wire [2 : 0] awsize;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm AWVALID" *)
-output wire awvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BID" *)
-input wire [3 : 0] bid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BREADY" *)
-output wire bready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BRESP" *)
-input wire [1 : 0] bresp;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm BVALID" *)
-input wire bvalid;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WDATA" *)
-output wire [31 : 0] wdata;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WLAST" *)
-output wire wlast;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WREADY" *)
-input wire wready;
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WSTRB" *)
-output wire [63 : 0] wstrb;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME interface_aximm, DATA_WIDTH 32, PROTOCOL AXI4, FREQ_HZ 15000000, ID_WIDTH 4, ADDR_WIDTH 22, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 1, HAS_LOCK 1, HAS_PROT 1, HAS_CACHE 1, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, SUPPORTS_NARROW_BURST 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 256, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, NUM_READ_THREADS 1, NUM_\
-WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:interface:aximm:1.0 interface_aximm WVALID" *)
-output wire wvalid;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF interface_aximm, ASSOCIATED_RESET rstn, FREQ_HZ 15000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+output wire [18 : 0] mem_addr;
+output wire [31 : 0] mem_wdata;
+input wire [31 : 0] mem_rdata;
+output wire mem_enable;
+output wire [3 : 0] mem_wea;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 20000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -231,7 +145,8 @@ input wire rstn;
     .rd_out(rd_out),
     .rs_no(rs_no),
     .rt_no(rt_no),
-    .fmode(fmode),
+    .fmode1(fmode1),
+    .fmode2(fmode2),
     .stall_enable(stall_enable),
     .uart_wenable(uart_wenable),
     .uart_wdone(uart_wdone),
@@ -240,38 +155,11 @@ input wire rstn;
     .uart_renable(uart_renable),
     .uart_rdone(uart_rdone),
     .uart_rd(uart_rd),
-    .araddr(araddr),
-    .arburst(arburst),
-    .arcache(arcache),
-    .arlen(arlen),
-    .arlock(arlock),
-    .arprot(arprot),
-    .arready(arready),
-    .arsize(arsize),
-    .arvalid(arvalid),
-    .rdata(rdata),
-    .rlast(rlast),
-    .rready(rready),
-    .rresp(rresp),
-    .rvalid(rvalid),
-    .awaddr(awaddr),
-    .awburst(awburst),
-    .awcache(awcache),
-    .awlen(awlen),
-    .awlock(awlock),
-    .awprot(awprot),
-    .awready(awready),
-    .awsize(awsize),
-    .awvalid(awvalid),
-    .bid(bid),
-    .bready(bready),
-    .bresp(bresp),
-    .bvalid(bvalid),
-    .wdata(wdata),
-    .wlast(wlast),
-    .wready(wready),
-    .wstrb(wstrb),
-    .wvalid(wvalid),
+    .mem_addr(mem_addr),
+    .mem_wdata(mem_wdata),
+    .mem_rdata(mem_rdata),
+    .mem_enable(mem_enable),
+    .mem_wea(mem_wea),
     .clk(clk),
     .rstn(rstn)
   );

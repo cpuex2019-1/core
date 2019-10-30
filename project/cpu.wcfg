@@ -5,56 +5,23 @@
    <db_ref_list>
       <db_ref path="test_behav.wdb" id="1">
          <top_modules>
-            <top_module name="axi_bram_ctrl_funcs" />
             <top_module name="glbl" />
             <top_module name="ipif_pkg" />
             <top_module name="lib_pkg" />
             <top_module name="test" />
-            <top_module name="vcomponents" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="38121332000fs"></ZoomStartTime>
-      <ZoomEndTime time="49551332001fs"></ZoomEndTime>
-      <Cursor1Time time="26621332000fs"></Cursor1Time>
+      <ZoomStartTime time="2036120088fs"></ZoomStartTime>
+      <ZoomEndTime time="9190195356fs"></ZoomEndTime>
+      <Cursor1Time time="4780000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="167"></NameColumnWidth>
-      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+      <NameColumnWidth column_width="149"></NameColumnWidth>
+      <ValueColumnWidth column_width="91"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="133" />
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/pcread" type="logic">
-      <obj_property name="ElementShortName">pcread</obj_property>
-      <obj_property name="ObjectShortName">pcread</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/pcenable" type="logic">
-      <obj_property name="ElementShortName">pcenable</obj_property>
-      <obj_property name="ObjectShortName">pcenable</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/next_pc" type="array">
-      <obj_property name="ElementShortName">next_pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">next_pc[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/pc" type="array">
-      <obj_property name="ElementShortName">pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/rfmode" type="logic">
-      <obj_property name="ElementShortName">rfmode</obj_property>
-      <obj_property name="ObjectShortName">rfmode</obj_property>
-      <obj_property name="CustomSignalColor">#FF0000</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
+   <WVObjectSize size="123" />
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/rreg1" type="array">
       <obj_property name="ElementShortName">rreg1[4:0]</obj_property>
       <obj_property name="ObjectShortName">rreg1[4:0]</obj_property>
@@ -64,6 +31,18 @@
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/rreg2" type="array">
       <obj_property name="ElementShortName">rreg2[4:0]</obj_property>
       <obj_property name="ObjectShortName">rreg2[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/rfmode1" type="logic">
+      <obj_property name="ElementShortName">rfmode1</obj_property>
+      <obj_property name="ObjectShortName">rfmode1</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/rfmode2" type="logic">
+      <obj_property name="ElementShortName">rfmode2</obj_property>
+      <obj_property name="ObjectShortName">rfmode2</obj_property>
       <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -120,12 +99,303 @@
       <obj_property name="ObjectShortName">greg[31:0][31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[31]" type="array">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[30]" type="array">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[29]" type="array">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[28]" type="array">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[27]" type="array">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[26]" type="array">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[25]" type="array">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[24]" type="array">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[23]" type="array">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[22]" type="array">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[21]" type="array">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[20]" type="array">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[19]" type="array">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[18]" type="array">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[17]" type="array">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[16]" type="array">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[15]" type="array">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[14]" type="array">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[13]" type="array">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[12]" type="array">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[11]" type="array">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[10]" type="array">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[9]" type="array">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[8]" type="array">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[7]" type="array">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[6]" type="array">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[5]" type="array">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[4]" type="array">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[3]" type="array">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[2]" type="array">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[1]" type="array">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/greg[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+         <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg" type="array">
       <obj_property name="ElementShortName">freg[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">freg[31:0][31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">24</obj_property>
+      <obj_property name="radix_otherWidth">8</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[31]" type="array">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[30]" type="array">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[29]" type="array">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[28]" type="array">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[27]" type="array">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[26]" type="array">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[25]" type="array">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[24]" type="array">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[23]" type="array">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[22]" type="array">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[21]" type="array">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[20]" type="array">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[19]" type="array">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[18]" type="array">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[17]" type="array">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[16]" type="array">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[15]" type="array">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[14]" type="array">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[13]" type="array">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[12]" type="array">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[11]" type="array">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[10]" type="array">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[9]" type="array">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[8]" type="array">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[7]" type="array">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[6]" type="array">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[5]" type="array">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[4]" type="array">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+         <obj_property name="Radix">REALRADIX</obj_property>
+         <obj_property name="radix_realType">FLOATINGPOINTRADIX</obj_property>
+         <obj_property name="radix_fractionWidth">24</obj_property>
+         <obj_property name="radix_otherWidth">8</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[3]" type="array">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[2]" type="array">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[1]" type="array">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/test/s1/design_1_i/core_wrapper_0/inst/ucore/freg[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+      </wvobject>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/stall_0/inst/fetch_done" type="logic">
       <obj_property name="ElementShortName">fetch_done</obj_property>
@@ -214,11 +484,18 @@
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pcread" type="logic">
-      <obj_property name="ElementShortName">pcread</obj_property>
-      <obj_property name="ObjectShortName">pcread</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pcenable" type="logic">
+      <obj_property name="ElementShortName">pcenable</obj_property>
+      <obj_property name="ObjectShortName">pcenable</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/next_pc" type="array">
+      <obj_property name="ElementShortName">next_pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">next_pc[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pc" type="array">
       <obj_property name="ElementShortName">pc[31:0]</obj_property>
@@ -227,117 +504,27 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/pc_out" type="array">
-      <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/command" type="array">
       <obj_property name="ElementShortName">command[31:0]</obj_property>
       <obj_property name="ObjectShortName">command[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/araddr" type="array">
-      <obj_property name="ElementShortName">araddr[14:0]</obj_property>
-      <obj_property name="ObjectShortName">araddr[14:0]</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst_enable" type="logic">
+      <obj_property name="ElementShortName">inst_enable</obj_property>
+      <obj_property name="ObjectShortName">inst_enable</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arburst" type="array">
-      <obj_property name="ElementShortName">arburst[1:0]</obj_property>
-      <obj_property name="ObjectShortName">arburst[1:0]</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst_addr" type="array">
+      <obj_property name="ElementShortName">inst_addr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_addr[15:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arcache" type="array">
-      <obj_property name="ElementShortName">arcache[3:0]</obj_property>
-      <obj_property name="ObjectShortName">arcache[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arid" type="array">
-      <obj_property name="ElementShortName">arid[3:0]</obj_property>
-      <obj_property name="ObjectShortName">arid[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arlen" type="array">
-      <obj_property name="ElementShortName">arlen[7:0]</obj_property>
-      <obj_property name="ObjectShortName">arlen[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arlock" type="logic">
-      <obj_property name="ElementShortName">arlock</obj_property>
-      <obj_property name="ObjectShortName">arlock</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arprot" type="array">
-      <obj_property name="ElementShortName">arprot[2:0]</obj_property>
-      <obj_property name="ObjectShortName">arprot[2:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arqos" type="array">
-      <obj_property name="ElementShortName">arqos[3:0]</obj_property>
-      <obj_property name="ObjectShortName">arqos[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arready" type="logic">
-      <obj_property name="ElementShortName">arready</obj_property>
-      <obj_property name="ObjectShortName">arready</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arsize" type="array">
-      <obj_property name="ElementShortName">arsize[2:0]</obj_property>
-      <obj_property name="ObjectShortName">arsize[2:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/arvalid" type="logic">
-      <obj_property name="ElementShortName">arvalid</obj_property>
-      <obj_property name="ObjectShortName">arvalid</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rdata" type="array">
-      <obj_property name="ElementShortName">rdata[31:0]</obj_property>
-      <obj_property name="ObjectShortName">rdata[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rid" type="array">
-      <obj_property name="ElementShortName">rid[3:0]</obj_property>
-      <obj_property name="ObjectShortName">rid[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rlast" type="logic">
-      <obj_property name="ElementShortName">rlast</obj_property>
-      <obj_property name="ObjectShortName">rlast</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rready" type="logic">
-      <obj_property name="ElementShortName">rready</obj_property>
-      <obj_property name="ObjectShortName">rready</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rresp" type="array">
-      <obj_property name="ElementShortName">rresp[1:0]</obj_property>
-      <obj_property name="ObjectShortName">rresp[1:0]</obj_property>
-      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst/rvalid" type="logic">
-      <obj_property name="ElementShortName">rvalid</obj_property>
-      <obj_property name="ObjectShortName">rvalid</obj_property>
+   <wvobject fp_name="/test/s1/design_1_i/fetch_0/inst_data" type="array">
+      <obj_property name="ElementShortName">inst_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_data[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -370,6 +557,7 @@
       <obj_property name="ObjectShortName">pc[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#00FF7F</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/decode_0/inst/command" type="array">
       <obj_property name="ElementShortName">command[31:0]</obj_property>
@@ -437,12 +625,6 @@
       <obj_property name="CustomSignalColor">#00FF7F</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/decode_0/inst/fmode" type="logic">
-      <obj_property name="ElementShortName">fmode</obj_property>
-      <obj_property name="ObjectShortName">fmode</obj_property>
-      <obj_property name="CustomSignalColor">#00FF7F</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/decode_0/inst/reg1" type="array">
       <obj_property name="ElementShortName">reg1[4:0]</obj_property>
       <obj_property name="ObjectShortName">reg1[4:0]</obj_property>
@@ -479,12 +661,6 @@
       <obj_property name="CustomSignalColor">#00FF7F</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/decode_0/inst/set" type="logic">
-      <obj_property name="ElementShortName">set</obj_property>
-      <obj_property name="ObjectShortName">set</obj_property>
-      <obj_property name="CustomSignalColor">#00FF7F</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/enable" type="logic">
       <obj_property name="ElementShortName">enable</obj_property>
       <obj_property name="ObjectShortName">enable</obj_property>
@@ -502,6 +678,7 @@
       <obj_property name="ObjectShortName">exec_command[5:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/alu_command" type="array">
       <obj_property name="ElementShortName">alu_command[5:0]</obj_property>
@@ -563,6 +740,12 @@
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/stall_set" type="logic">
+      <obj_property name="ElementShortName">stall_set</obj_property>
+      <obj_property name="ObjectShortName">stall_set</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/pc_out" type="array">
       <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
@@ -584,6 +767,36 @@
    <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/rd_out" type="array">
       <obj_property name="ElementShortName">rd_out[4:0]</obj_property>
       <obj_property name="ObjectShortName">rd_out[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_addr" type="array">
+      <obj_property name="ElementShortName">mem_addr[18:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr[18:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_wdata" type="array">
+      <obj_property name="ElementShortName">mem_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_rdata" type="array">
+      <obj_property name="ElementShortName">mem_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_enable" type="logic">
+      <obj_property name="ElementShortName">mem_enable</obj_property>
+      <obj_property name="ObjectShortName">mem_enable</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_wea" type="array">
+      <obj_property name="ElementShortName">mem_wea[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wea[3:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
@@ -659,6 +872,30 @@
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_addr" type="array">
+      <obj_property name="ElementShortName">mem_addr[18:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr[18:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_wdata" type="array">
+      <obj_property name="ElementShortName">mem_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_rdata" type="array">
+      <obj_property name="ElementShortName">mem_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_rdata[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test/s1/design_1_i/exec_0/inst/mem_wea" type="array">
+      <obj_property name="ElementShortName">mem_wea[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wea[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/test/s1/design_1_i/write_0/inst/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -668,12 +905,6 @@
    <wvobject fp_name="/test/s1/design_1_i/write_0/inst/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
-      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test/s1/design_1_i/write_0/inst/set" type="logic">
-      <obj_property name="ElementShortName">set</obj_property>
-      <obj_property name="ObjectShortName">set</obj_property>
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>

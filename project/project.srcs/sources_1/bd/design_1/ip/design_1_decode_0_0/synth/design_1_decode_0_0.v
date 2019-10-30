@@ -70,7 +70,8 @@ module design_1_decode_0_0 (
   rd,
   rs_no,
   rt_no,
-  fmode,
+  fmode1,
+  fmode2,
   reg1,
   reg2,
   reg_out1,
@@ -93,12 +94,13 @@ output wire [4 : 0] sh;
 output wire [4 : 0] rd;
 output wire [4 : 0] rs_no;
 output wire [4 : 0] rt_no;
-output wire fmode;
+output wire fmode1;
+output wire fmode2;
 output wire [4 : 0] reg1;
 output wire [4 : 0] reg2;
 input wire [31 : 0] reg_out1;
 input wire [31 : 0] reg_out2;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 15000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 20000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -120,7 +122,8 @@ input wire rstn;
     .rd(rd),
     .rs_no(rs_no),
     .rt_no(rt_no),
-    .fmode(fmode),
+    .fmode1(fmode1),
+    .fmode2(fmode2),
     .reg1(reg1),
     .reg2(reg2),
     .reg_out1(reg_out1),

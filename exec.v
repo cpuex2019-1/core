@@ -17,7 +17,8 @@ module exec(
 	output reg[4:0] rd_out,
 	input wire[4:0] rs_no,
 	input wire[4:0] rt_no,
-	input wire fmode,
+	input wire fmode1,
+	input wire fmode2,
 	output reg stall_enable,
 	output reg uart_wenable,
 	input wire uart_wdone,
@@ -26,103 +27,65 @@ module exec(
 	output reg uart_renable,
 	input wire uart_rdone, 
 	input wire[31:0] uart_rd,
-	output reg[21:0] araddr,
-	output reg[1:0] arburst,
-	output reg[3:0] arcache,
-	output reg[7:0] arlen,
-	output reg arlock,
-	output reg[2:0] arprot,
-	input wire arready,
-	output reg[2:0] arsize,
-	output reg arvalid,
-	input wire[31:0] rdata,
-	input wire rlast,
-	output reg rready,
-	input wire[1:0] rresp,
-	input wire rvalid,
-	output reg[21:0] awaddr,
-	output reg[1:0] awburst,
-	output reg[3:0] awcache,
-	output reg[7:0] awlen,
-	output reg awlock,
-	output reg[2:0] awprot,
-	input wire awready,
-	output reg[2:0] awsize,
-	output reg awvalid,
-	input wire[3:0] bid,
-	output reg bready,
-	input wire[1:0] bresp,
-	input wire bvalid,
-	output reg[31:0] wdata,
-	output reg wlast,
-	input wire wready,
-	output reg[63:0] wstrb,
-	output reg wvalid,
+	output wire[18:0] mem_addr,
+	output reg[31:0] mem_wdata,
+	input wire[31:0] mem_rdata,
+	output wire mem_enable,
+	output reg[3:0] mem_wea,
 	input wire clk,
 	input wire rstn
 );
 
 	reg[63:0] tmp;
 	reg[31:0] fs, ft;
-	wire[31:0] fadd_d, fmul_d, fdiv_d;
-	wire fadd_of, fmul_of, fdiv_of, fmul_uf, fdiv_uf;
+	wire[31:0] fadd_d, fmul_d, finv_d;
+	wire fadd_of, fmul_of, finv_of, fmul_uf, finv_uf;
 	reg fpu_set;
+	reg[1:0] mem_set;
 	wire[31:0] rs_,rt_,addr_;
 	reg[5:0] alu_command_, exec_command_;
+	reg stall_set;
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
-	fdiv u_fdiv(fs, ft, fdiv_d, fdiv_of, fdiv_uf);
+	finv u_finv(ft, finv_d, finv_of, finv_uf);
 
-	assign rs_ = wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data : rs;
-	assign rt_ = wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rt_no != 5'h0 && rd_out == rt_no ? data : rt;
-	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data+{rt_no[4] ? 16'hffff : 16'h0000, rt_no, sh, alu_command} : addr;
+	assign rs_ = wselector[1] && wselector[0] == fmode1 && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data : rs;
+	assign rt_ = wselector[1] && wselector[0] == fmode2 && rd_out != 5'h0 && rt_no != 5'h0 && rd_out == rt_no ? data : rt;
+	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode1 && rd_out != 5'h0 && rs_no != 5'h0 && rd_out == rs_no ? data+{rt_no[4] ? 16'hffff : 16'h0000, rt_no, sh, alu_command} : addr;
+	assign mem_enable = 1'b1;
+	assign mem_addr = addr_[20:2];
 
 	always @(posedge clk) begin
 		if(~rstn) begin
 			stall_enable <= 1'b0;
+			stall_set <= 1'b0;
 			done <= 1'b0;
+			wselector <= 3'b000;
+			pc_out <= 32'h0;
 			uart_wsz <= 2'b00;
 			uart_wd <= 32'h0;
 			uart_wenable <= 1'b0;
 			uart_renable <= 1'b0;
+			mem_wdata <= 32'h0;
+			mem_wea <= 4'b0000;
 			fs <= 32'h0;
 			ft <= 32'h0;
 			fpu_set <= 1'b0;
-			araddr <= 15'h0;
-			arburst <= 2'b01;
-			arcache <= 4'b0011;
-			arlen <= 8'h0;
-			arlock <= 1'b0;
-			arprot <= 3'b000;
-			arsize <= 3'b010;
-			arvalid <= 1'b0;
-			rready <= 1'b0;
-			awaddr <= 15'h0;
-			awburst <= 2'b01;
-			awcache <= 4'b0011;
-			awlen <= 8'h0;
-			awlock <= 1'b0;
-			awprot <= 3'b000;
-			awsize <= 3'b010;
-			awvalid <= 1'b0;
-			bready <= 1'b0;
-			wdata <= 32'h0;
-			wlast <= 1'b1;
-			wstrb <= 64'hf;
-			wvalid <= 1'b0;
 		end else begin
 			uart_renable <= 1'b0;
 			uart_wenable <= 1'b0;
 			done <= 1'b0;
 			stall_enable <= 1'b0;
+			wselector <= 3'b000;
+			mem_set <= {1'b0, mem_set[1]};
+			mem_wea <= 4'b0000;
 			if(enable) begin
-				if(wselector[2] && pc != pc_out) begin
+				stall_set <= 1'b0;
+				if((wselector[2] || stall_set) && pc != pc_out) begin
 					stall_enable <= 1'b1;
-					wselector <= 3'b000;
 					done <= 1'b1;
 				end else begin
-					wselector <= 3'b000;
 					done <= 1'b1;
 					rd_out <= rd_in;
 					alu_command_ <= alu_command;
@@ -198,6 +161,7 @@ module exec(
 						if(alu_command[5:2] == 4'b0000) begin
 							fs <= rs_;
 							ft <= alu_command[1:0] == 2'b01 ? {~rt_[31], rt_[30:0]} : rt_;
+							wselector <= 3'b000;
 							fpu_set <= 1'b1;
 							done <= 1'b0;
 						end else if(alu_command == 6'b001000) begin	//SLTF
@@ -205,36 +169,21 @@ module exec(
 							wselector <= 3'b010;
 						end else if(alu_command == 6'b001001) begin //FNEG
 							data <= {~rs_[31], rs_[30:0]};
-							wselector <= 3'b010;
+						end else if(alu_command == 6'b111111) begin //MOVF
+							data <= rs;
 						end
 					end else if(exec_command == 6'b100000) begin	//LB
-						arvalid <= 1'b1;
-						rready <= 1'b1;
-						arsize <= 3'b000;
-						araddr <= addr_[14:0];
+						mem_set <= 2'b10;
 						done <= 1'b0;
 					end else if(exec_command == 6'b100011 || exec_command == 6'b110001) begin	//LW, LF
-						arvalid <= 1'b1;
-						rready <= 1'b1;
-						arsize <= 3'b010;
-						araddr <= addr_[21:0];
+						mem_set <= 2'b10;
 						done <= 1'b0;
 					end else if(exec_command == 6'b101000) begin	//SB
-						awvalid <= 1'b1;
-						awsize <= 3'b000;
-						awaddr <= addr_[14:0];
-						wvalid <= 1'b1;
-						wdata <= rt_;
-						bready <= 1'b1;
-						done <= 1'b0;
+						mem_wdata <= {rt_[7:0], rt_[7:0], rt_[7:0], rt_[7:0]};
+						mem_wea[3:0] <= {addr_[1:0] == 2'b11, addr_[1:0] == 2'b10, addr_[1:0] == 2'b01, addr_[1:0] == 2'b00};
 					end else if(exec_command == 6'b101011 || exec_command == 6'b111001) begin	//SW, SF
-						awvalid <= 1'b1;
-						awsize <= 3'b010;
-						awaddr <= addr_[21:0];
-						wvalid <= 1'b1;
-						wdata <= rt_;
-						bready <= 1'b1;
-						done <= 1'b0;
+						mem_wdata <= rt_;
+						mem_wea[3:0] <= 4'b1111;
 					end else if(exec_command == 6'b110010) begin	//BC
 						pc_out <= pc + addr_;
 						wselector <= 3'b100;
@@ -251,34 +200,24 @@ module exec(
 				end
 			end
 			if(fpu_set) begin
+				wselector <= 3'b011;
+				fpu_set <= 1'b0;
+				done <= 1'b1;
 				if(alu_command_[5:1] == 5'b00000) begin			//FADD, FSUB
 					data <= fadd_d;
 				end else if(alu_command_ == 6'b000010) begin	//FMUL
 					data <= fmul_d;
 				end else if(alu_command_ == 6'b000011) begin	//FDIV
-					data <= fdiv_d;
+					ft <= finv_d;
+					alu_command_ <= 6'b000010;
+					wselector <= 3'b000;
+					fpu_set <= 1'b1;
+					done <= 1'b0;
 				end
-				wselector <= 3'b011;
-				fpu_set <= 1'b0;
-				done <= 1'b1;
 			end
-			if(arready && arvalid) begin
-				arvalid <= 1'b0;
-			end
-			if(rready && rvalid) begin
-				rready <= 1'b0;
-				data <= rdata;
+			if(mem_set[0]) begin
+				data <= exec_command_ == 6'b100000 ? {24'h0, mem_rdata[7:0]} : mem_rdata;
 				wselector <= {2'b01, exec_command_ == 6'b110001};
-				done <= 1'b1;
-			end
-			if(awready && awvalid) begin
-				awvalid <= 1'b0;
-			end
-			if(wready && wvalid) begin
-				wvalid <= 1'b0;
-			end
-			if(bready && bvalid) begin
-				bready <= 1'b0;
 				done <= 1'b1;
 			end
 			if(uart_rdone) begin
@@ -288,6 +227,9 @@ module exec(
 			end
 			if(uart_wdone) begin
 				done <= 1'b1;
+			end
+			if(wselector[2]) begin
+				stall_set <= 1'b1;
 			end
 		end
 	end

@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Mon Oct 28 13:02:16 2019
+// Date        : Wed Oct 30 21:10:58 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_decode_0_0/design_1_decode_0_0_stub.v
@@ -15,8 +15,9 @@
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "decode,Vivado 2018.3" *)
 module design_1_decode_0_0(enable, done, pc, command, exec_command, 
-  alu_command, pc_out, addr, rs, rt, sh, rd, rs_no, rt_no, fmode, reg1, reg2, reg_out1, reg_out2, clk, rstn)
-/* synthesis syn_black_box black_box_pad_pin="enable,done,pc[31:0],command[31:0],exec_command[5:0],alu_command[5:0],pc_out[31:0],addr[31:0],rs[31:0],rt[31:0],sh[4:0],rd[4:0],rs_no[4:0],rt_no[4:0],fmode,reg1[4:0],reg2[4:0],reg_out1[31:0],reg_out2[31:0],clk,rstn" */;
+  alu_command, pc_out, addr, rs, rt, sh, rd, rs_no, rt_no, fmode1, fmode2, reg1, reg2, reg_out1, reg_out2, clk, 
+  rstn)
+/* synthesis syn_black_box black_box_pad_pin="enable,done,pc[31:0],command[31:0],exec_command[5:0],alu_command[5:0],pc_out[31:0],addr[31:0],rs[31:0],rt[31:0],sh[4:0],rd[4:0],rs_no[4:0],rt_no[4:0],fmode1,fmode2,reg1[4:0],reg2[4:0],reg_out1[31:0],reg_out2[31:0],clk,rstn" */;
   input enable;
   output done;
   input [31:0]pc;
@@ -31,7 +32,8 @@ module design_1_decode_0_0(enable, done, pc, command, exec_command,
   output [4:0]rd;
   output [4:0]rs_no;
   output [4:0]rt_no;
-  output fmode;
+  output fmode1;
+  output fmode2;
   output [4:0]reg1;
   output [4:0]reg2;
   input [31:0]reg_out1;
