@@ -32,7 +32,7 @@ module stall(
 				done <= ~{1'b1, step[3:1]};
 			end
 			if(stall_enable) begin
-				step <= 4'b0000;
+				step <= 4'b1000;
 			end
 		end
 	end

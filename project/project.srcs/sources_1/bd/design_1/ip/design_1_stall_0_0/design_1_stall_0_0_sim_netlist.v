@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Oct 30 11:39:55 2019
+// Date        : Wed Oct 30 21:11:29 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_stall_0_0/design_1_stall_0_0_sim_netlist.v
@@ -71,23 +71,23 @@ module design_1_stall_0_0_stall
     decode_enable,
     exec_enable,
     write_enable,
-    stall_enable,
-    rstn,
     clk,
+    stall_enable,
+    fetch_done,
+    rstn,
     exec_done,
     write_done,
-    fetch_done,
     decode_done);
   output fetch_enable;
   output decode_enable;
   output exec_enable;
   output write_enable;
-  input stall_enable;
-  input rstn;
   input clk;
+  input stall_enable;
+  input fetch_done;
+  input rstn;
   input exec_done;
   input write_done;
-  input fetch_done;
   input decode_done;
 
   wire clk;
@@ -96,8 +96,10 @@ module design_1_stall_0_0_stall
   wire [3:0]done;
   wire \done[0]_i_1_n_0 ;
   wire \done[1]_i_1_n_0 ;
+  wire \done[1]_i_2_n_0 ;
   wire \done[2]_i_1_n_0 ;
-  wire \done[3]_i_2_n_0 ;
+  wire \done[3]_i_1_n_0 ;
+  wire [2:2]done_tmp__3;
   wire exec_done;
   wire exec_enable;
   wire fetch_done;
@@ -108,7 +110,6 @@ module design_1_stall_0_0_stall
   wire rstn;
   wire stall_enable;
   wire \step[2]_i_1_n_0 ;
-  wire \step[3]_i_1_n_0 ;
   wire \step[3]_i_2_n_0 ;
   wire write_done;
   wire write_enable;
@@ -131,7 +132,7 @@ module design_1_stall_0_0_stall
         .I2(p_0_in_0[0]),
         .I3(done[0]),
         .I4(write_done),
-        .I5(\step[3]_i_2_n_0 ),
+        .I5(\done[1]_i_2_n_0 ),
         .O(\done[0]_i_1_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFF0057575700)) 
@@ -141,8 +142,17 @@ module design_1_stall_0_0_stall
         .I2(done[0]),
         .I3(done[1]),
         .I4(exec_done),
-        .I5(\step[3]_i_2_n_0 ),
+        .I5(\done[1]_i_2_n_0 ),
         .O(\done[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT4 #(
+    .INIT(16'h111F)) 
+    \done[1]_i_2 
+       (.I0(decode_done),
+        .I1(done[2]),
+        .I2(fetch_done),
+        .I3(done[3]),
+        .O(\done[1]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hABFFABFFABFF0000)) 
     \done[2]_i_1 
@@ -153,21 +163,16 @@ module design_1_stall_0_0_stall
         .I4(done[2]),
         .I5(decode_done),
         .O(\done[2]_i_1_n_0 ));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \done[3]_i_1 
-       (.I0(rstn),
-        .O(p_0_in));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'hFFF01110)) 
-    \done[3]_i_2 
+    \done[3]_i_1 
        (.I0(done[2]),
         .I1(decode_done),
         .I2(done[3]),
         .I3(fetch_done),
         .I4(fetch_enable_INST_0_i_1_n_0),
-        .O(\done[3]_i_2_n_0 ));
+        .O(\done[3]_i_1_n_0 ));
   FDSE \done_reg[0] 
        (.C(clk),
         .CE(1'b1),
@@ -189,7 +194,7 @@ module design_1_stall_0_0_stall
   FDSE \done_reg[3] 
        (.C(clk),
         .CE(1'b1),
-        .D(\done[3]_i_2_n_0 ),
+        .D(\done[3]_i_1_n_0 ),
         .Q(done[3]),
         .S(p_0_in));
   LUT6 #(
@@ -225,24 +230,27 @@ module design_1_stall_0_0_stall
        (.I0(stall_enable),
         .I1(rstn),
         .O(\step[2]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h0000AB00)) 
+  LUT1 #(
+    .INIT(2'h1)) 
     \step[3]_i_1 
-       (.I0(p_0_in_0[2]),
-        .I1(\step[3]_i_2_n_0 ),
-        .I2(fetch_enable_INST_0_i_1_n_0),
-        .I3(rstn),
-        .I4(stall_enable),
-        .O(\step[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'h111F)) 
+       (.I0(rstn),
+        .O(p_0_in));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFAAAAFEAA)) 
     \step[3]_i_2 
-       (.I0(decode_done),
-        .I1(done[2]),
+       (.I0(stall_enable),
+        .I1(done[3]),
         .I2(fetch_done),
-        .I3(done[3]),
+        .I3(done_tmp__3),
+        .I4(fetch_enable_INST_0_i_1_n_0),
+        .I5(p_0_in_0[2]),
         .O(\step[3]_i_2_n_0 ));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \step[3]_i_3 
+       (.I0(done[2]),
+        .I1(decode_done),
+        .O(done_tmp__3));
   FDRE \step_reg[1] 
        (.C(clk),
         .CE(fetch_enable),
@@ -258,9 +266,9 @@ module design_1_stall_0_0_stall
   FDRE \step_reg[3] 
        (.C(clk),
         .CE(1'b1),
-        .D(\step[3]_i_1_n_0 ),
+        .D(\step[3]_i_2_n_0 ),
         .Q(p_0_in_0[2]),
-        .R(1'b0));
+        .R(p_0_in));
   LUT6 #(
     .INIT(64'h5454540000000000)) 
     write_enable_INST_0

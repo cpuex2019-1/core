@@ -191,12 +191,6 @@ proc create_root_design { parentCell } {
    CONFIG.use_bram_block {Stand_Alone} \
  ] $axi_bram_ctrl_0_bram
 
-  # Create instance: axi_bram_ctrl_1, and set properties
-  set axi_bram_ctrl_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_bram_ctrl:4.1 axi_bram_ctrl_1 ]
-  set_property -dict [ list \
-   CONFIG.SINGLE_PORT_BRAM {1} \
- ] $axi_bram_ctrl_1
-
   # Create instance: axi_uartlite_0, and set properties
   set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
   set_property -dict [ list \
@@ -209,6 +203,21 @@ proc create_root_design { parentCell } {
 
   # Create instance: blk_mem_gen_0, and set properties
   set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0 ]
+  set_property -dict [ list \
+   CONFIG.Byte_Size {8} \
+   CONFIG.EN_SAFETY_CKT {false} \
+   CONFIG.Enable_32bit_Address {false} \
+   CONFIG.Enable_A {Use_ENA_Pin} \
+   CONFIG.Load_Init_File {false} \
+   CONFIG.Read_Width_A {32} \
+   CONFIG.Read_Width_B {32} \
+   CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
+   CONFIG.Use_Byte_Write_Enable {true} \
+   CONFIG.Use_RSTA_Pin {false} \
+   CONFIG.Write_Width_A {32} \
+   CONFIG.Write_Width_B {32} \
+   CONFIG.use_bram_block {Stand_Alone} \
+ ] $blk_mem_gen_0
 
   # Create instance: clk_wiz, and set properties
   set clk_wiz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz ]
@@ -310,18 +319,17 @@ proc create_root_design { parentCell } {
    }
   
   # Create interface connections
-  connect_bd_intf_net -intf_net axi_bram_ctrl_1_BRAM_PORTA [get_bd_intf_pins axi_bram_ctrl_1/BRAM_PORTA] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
   connect_bd_intf_net -intf_net axi_uartlite_0_UART [get_bd_intf_ports rs232_uart] [get_bd_intf_pins axi_uartlite_0/UART]
-  connect_bd_intf_net -intf_net exec_0_interface_aximm [get_bd_intf_pins axi_bram_ctrl_1/S_AXI] [get_bd_intf_pins exec_0/interface_aximm]
   connect_bd_intf_net -intf_net sysclk_125_1 [get_bd_intf_ports sysclk_125] [get_bd_intf_pins clk_wiz/CLK_IN1_D]
   connect_bd_intf_net -intf_net uart_buffer_0_uart [get_bd_intf_pins axi_uartlite_0/S_AXI] [get_bd_intf_pins uart_buffer_0/uart]
 
   # Create port connections
   connect_bd_net -net axi_bram_ctrl_0_bram_douta [get_bd_pins axi_bram_ctrl_0_bram/douta] [get_bd_pins fetch_0/inst_data]
+  connect_bd_net -net blk_mem_gen_0_douta [get_bd_pins blk_mem_gen_0/douta] [get_bd_pins exec_0/mem_rdata]
   connect_bd_net -net clk_wiz_locked [get_bd_pins clk_wiz/locked] [get_bd_pins rst_data_memory_300M/dcm_locked]
   connect_bd_net -net core_wrapper_0_reg_out1 [get_bd_pins core_wrapper_0/reg_out1] [get_bd_pins decode_0/reg_out1]
   connect_bd_net -net core_wrapper_0_reg_out2 [get_bd_pins core_wrapper_0/reg_out2] [get_bd_pins decode_0/reg_out2]
-  connect_bd_net -net data_memory_c0_ddr4_ui_clk [get_bd_pins axi_bram_ctrl_0_bram/clka] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins clk_wiz/clk_out1] [get_bd_pins core_wrapper_0/clk] [get_bd_pins decode_0/clk] [get_bd_pins exec_0/clk] [get_bd_pins fetch_0/clk] [get_bd_pins rst_data_memory_300M/slowest_sync_clk] [get_bd_pins stall_0/clk] [get_bd_pins uart_buffer_0/clk] [get_bd_pins write_0/clk]
+  connect_bd_net -net data_memory_c0_ddr4_ui_clk [get_bd_pins axi_bram_ctrl_0_bram/clka] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins clk_wiz/clk_out1] [get_bd_pins core_wrapper_0/clk] [get_bd_pins decode_0/clk] [get_bd_pins exec_0/clk] [get_bd_pins fetch_0/clk] [get_bd_pins rst_data_memory_300M/slowest_sync_clk] [get_bd_pins stall_0/clk] [get_bd_pins uart_buffer_0/clk] [get_bd_pins write_0/clk]
   connect_bd_net -net decode_0_addr [get_bd_pins decode_0/addr] [get_bd_pins exec_0/addr]
   connect_bd_net -net decode_0_alu_command [get_bd_pins decode_0/alu_command] [get_bd_pins exec_0/alu_command]
   connect_bd_net -net decode_0_done [get_bd_pins decode_0/done] [get_bd_pins stall_0/decode_done]
@@ -339,6 +347,10 @@ proc create_root_design { parentCell } {
   connect_bd_net -net decode_0_sh [get_bd_pins decode_0/sh] [get_bd_pins exec_0/sh]
   connect_bd_net -net exec_0_data_out [get_bd_pins exec_0/data] [get_bd_pins write_0/data]
   connect_bd_net -net exec_0_done [get_bd_pins exec_0/done] [get_bd_pins stall_0/exec_done]
+  connect_bd_net -net exec_0_mem_addr [get_bd_pins blk_mem_gen_0/addra] [get_bd_pins exec_0/mem_addr]
+  connect_bd_net -net exec_0_mem_enable [get_bd_pins blk_mem_gen_0/ena] [get_bd_pins exec_0/mem_enable]
+  connect_bd_net -net exec_0_mem_wdata [get_bd_pins blk_mem_gen_0/dina] [get_bd_pins exec_0/mem_wdata]
+  connect_bd_net -net exec_0_mem_wea [get_bd_pins blk_mem_gen_0/wea] [get_bd_pins exec_0/mem_wea]
   connect_bd_net -net exec_0_pc_out [get_bd_pins exec_0/pc_out] [get_bd_pins write_0/pc]
   connect_bd_net -net exec_0_rd_out [get_bd_pins exec_0/rd_out] [get_bd_pins write_0/rd]
   connect_bd_net -net exec_0_uart_renable [get_bd_pins exec_0/uart_renable] [get_bd_pins uart_buffer_0/renable]
@@ -351,7 +363,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net fetch_0_inst_enable [get_bd_pins axi_bram_ctrl_0_bram/ena] [get_bd_pins fetch_0/inst_enable]
   connect_bd_net -net fetch_0_pc [get_bd_pins decode_0/pc] [get_bd_pins fetch_0/pc]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz/reset] [get_bd_pins rst_data_memory_300M/ext_reset_in]
-  connect_bd_net -net rst_data_memory_300M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins core_wrapper_0/rstn] [get_bd_pins decode_0/rstn] [get_bd_pins exec_0/rstn] [get_bd_pins fetch_0/rstn] [get_bd_pins rst_data_memory_300M/peripheral_aresetn] [get_bd_pins stall_0/rstn] [get_bd_pins uart_buffer_0/rstn] [get_bd_pins write_0/rstn]
+  connect_bd_net -net rst_data_memory_300M_peripheral_aresetn [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins core_wrapper_0/rstn] [get_bd_pins decode_0/rstn] [get_bd_pins exec_0/rstn] [get_bd_pins fetch_0/rstn] [get_bd_pins rst_data_memory_300M/peripheral_aresetn] [get_bd_pins stall_0/rstn] [get_bd_pins uart_buffer_0/rstn] [get_bd_pins write_0/rstn]
   connect_bd_net -net stall_0_decode_enable [get_bd_pins decode_0/enable] [get_bd_pins stall_0/decode_enable]
   connect_bd_net -net stall_0_exec_enable [get_bd_pins exec_0/enable] [get_bd_pins stall_0/exec_enable]
   connect_bd_net -net stall_0_fetch_enable [get_bd_pins fetch_0/enable] [get_bd_pins stall_0/fetch_enable]
@@ -370,7 +382,6 @@ proc create_root_design { parentCell } {
   connect_bd_net -net write_0_wreg [get_bd_pins core_wrapper_0/wreg] [get_bd_pins write_0/wreg]
 
   # Create address segments
-  create_bd_addr_seg -range 0x00200000 -offset 0x00000000 [get_bd_addr_spaces exec_0/interface_aximm] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0x40600000 [get_bd_addr_spaces uart_buffer_0/uart] [get_bd_addr_segs axi_uartlite_0/S_AXI/Reg] SEG_axi_uartlite_0_Reg
 
 

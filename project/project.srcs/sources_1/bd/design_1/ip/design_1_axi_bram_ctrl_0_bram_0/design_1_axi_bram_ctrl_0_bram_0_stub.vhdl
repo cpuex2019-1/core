@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Tue Oct 29 18:08:28 2019
+-- Date        : Wed Oct 30 18:38:39 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_axi_bram_ctrl_0_bram_0 -prefix
 --               design_1_axi_bram_ctrl_0_bram_0_ design_1_axi_bram_ctrl_0_bram_0_stub.vhdl
@@ -15,11 +15,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity design_1_axi_bram_ctrl_0_bram_0 is
   Port ( 
     clka : in STD_LOGIC;
-    rsta : in STD_LOGIC;
     ena : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 31 downto 0 );
-    douta : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    rsta_busy : out STD_LOGIC
+    addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    douta : out STD_LOGIC_VECTOR ( 31 downto 0 )
   );
 
 end design_1_axi_bram_ctrl_0_bram_0;
@@ -28,7 +26,7 @@ architecture stub of design_1_axi_bram_ctrl_0_bram_0 is
 attribute syn_black_box : boolean;
 attribute black_box_pad_pin : string;
 attribute syn_black_box of stub : architecture is true;
-attribute black_box_pad_pin of stub : architecture is "clka,rsta,ena,addra[31:0],douta[31:0],rsta_busy";
+attribute black_box_pad_pin of stub : architecture is "clka,ena,addra[15:0],douta[31:0]";
 attribute x_core_info : string;
 attribute x_core_info of stub : architecture is "blk_mem_gen_v8_4_2,Vivado 2018.3";
 begin

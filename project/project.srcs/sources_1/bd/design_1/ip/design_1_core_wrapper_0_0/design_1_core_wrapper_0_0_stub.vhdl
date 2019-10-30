@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Wed Oct 30 11:40:02 2019
+-- Date        : Wed Oct 30 21:11:02 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_core_wrapper_0_0/design_1_core_wrapper_0_0_stub.vhdl

@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Wed Oct 30 11:39:55 2019
+-- Date        : Wed Oct 30 21:11:29 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_stall_0_0/design_1_stall_0_0_sim_netlist.vhdl
@@ -20,12 +20,12 @@ entity design_1_stall_0_0_stall is
     decode_enable : out STD_LOGIC;
     exec_enable : out STD_LOGIC;
     write_enable : out STD_LOGIC;
-    stall_enable : in STD_LOGIC;
-    rstn : in STD_LOGIC;
     clk : in STD_LOGIC;
+    stall_enable : in STD_LOGIC;
+    fetch_done : in STD_LOGIC;
+    rstn : in STD_LOGIC;
     exec_done : in STD_LOGIC;
     write_done : in STD_LOGIC;
-    fetch_done : in STD_LOGIC;
     decode_done : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
@@ -36,18 +36,19 @@ architecture STRUCTURE of design_1_stall_0_0_stall is
   signal done : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \done[0]_i_1_n_0\ : STD_LOGIC;
   signal \done[1]_i_1_n_0\ : STD_LOGIC;
+  signal \done[1]_i_2_n_0\ : STD_LOGIC;
   signal \done[2]_i_1_n_0\ : STD_LOGIC;
-  signal \done[3]_i_2_n_0\ : STD_LOGIC;
+  signal \done[3]_i_1_n_0\ : STD_LOGIC;
+  signal \done_tmp__3\ : STD_LOGIC_VECTOR ( 2 to 2 );
   signal \^fetch_enable\ : STD_LOGIC;
   signal fetch_enable_INST_0_i_1_n_0 : STD_LOGIC;
   signal p_0_in : STD_LOGIC;
   signal p_0_in_0 : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal \step[2]_i_1_n_0\ : STD_LOGIC;
-  signal \step[3]_i_1_n_0\ : STD_LOGIC;
   signal \step[3]_i_2_n_0\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \done[3]_i_2\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \step[3]_i_2\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \done[1]_i_2\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \done[3]_i_1\ : label is "soft_lutpair0";
 begin
   fetch_enable <= \^fetch_enable\;
 decode_enable_INST_0: unisim.vcomponents.LUT6
@@ -73,7 +74,7 @@ decode_enable_INST_0: unisim.vcomponents.LUT6
       I2 => p_0_in_0(0),
       I3 => done(0),
       I4 => write_done,
-      I5 => \step[3]_i_2_n_0\,
+      I5 => \done[1]_i_2_n_0\,
       O => \done[0]_i_1_n_0\
     );
 \done[1]_i_1\: unisim.vcomponents.LUT6
@@ -86,8 +87,19 @@ decode_enable_INST_0: unisim.vcomponents.LUT6
       I2 => done(0),
       I3 => done(1),
       I4 => exec_done,
-      I5 => \step[3]_i_2_n_0\,
+      I5 => \done[1]_i_2_n_0\,
       O => \done[1]_i_1_n_0\
+    );
+\done[1]_i_2\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"111F"
+    )
+        port map (
+      I0 => decode_done,
+      I1 => done(2),
+      I2 => fetch_done,
+      I3 => done(3),
+      O => \done[1]_i_2_n_0\
     );
 \done[2]_i_1\: unisim.vcomponents.LUT6
     generic map(
@@ -102,15 +114,7 @@ decode_enable_INST_0: unisim.vcomponents.LUT6
       I5 => decode_done,
       O => \done[2]_i_1_n_0\
     );
-\done[3]_i_1\: unisim.vcomponents.LUT1
-    generic map(
-      INIT => X"1"
-    )
-        port map (
-      I0 => rstn,
-      O => p_0_in
-    );
-\done[3]_i_2\: unisim.vcomponents.LUT5
+\done[3]_i_1\: unisim.vcomponents.LUT5
     generic map(
       INIT => X"FFF01110"
     )
@@ -120,7 +124,7 @@ decode_enable_INST_0: unisim.vcomponents.LUT6
       I2 => done(3),
       I3 => fetch_done,
       I4 => fetch_enable_INST_0_i_1_n_0,
-      O => \done[3]_i_2_n_0\
+      O => \done[3]_i_1_n_0\
     );
 \done_reg[0]\: unisim.vcomponents.FDSE
      port map (
@@ -150,7 +154,7 @@ decode_enable_INST_0: unisim.vcomponents.LUT6
      port map (
       C => clk,
       CE => '1',
-      D => \done[3]_i_2_n_0\,
+      D => \done[3]_i_1_n_0\,
       Q => done(3),
       S => p_0_in
     );
@@ -199,28 +203,35 @@ fetch_enable_INST_0_i_1: unisim.vcomponents.LUT4
       I1 => rstn,
       O => \step[2]_i_1_n_0\
     );
-\step[3]_i_1\: unisim.vcomponents.LUT5
+\step[3]_i_1\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"0000AB00"
+      INIT => X"1"
     )
         port map (
-      I0 => p_0_in_0(2),
-      I1 => \step[3]_i_2_n_0\,
-      I2 => fetch_enable_INST_0_i_1_n_0,
-      I3 => rstn,
-      I4 => stall_enable,
-      O => \step[3]_i_1_n_0\
+      I0 => rstn,
+      O => p_0_in
     );
-\step[3]_i_2\: unisim.vcomponents.LUT4
+\step[3]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"111F"
+      INIT => X"FFFFFFFFAAAAFEAA"
     )
         port map (
-      I0 => decode_done,
-      I1 => done(2),
+      I0 => stall_enable,
+      I1 => done(3),
       I2 => fetch_done,
-      I3 => done(3),
+      I3 => \done_tmp__3\(2),
+      I4 => fetch_enable_INST_0_i_1_n_0,
+      I5 => p_0_in_0(2),
       O => \step[3]_i_2_n_0\
+    );
+\step[3]_i_3\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => done(2),
+      I1 => decode_done,
+      O => \done_tmp__3\(2)
     );
 \step_reg[1]\: unisim.vcomponents.FDRE
      port map (
@@ -242,9 +253,9 @@ fetch_enable_INST_0_i_1: unisim.vcomponents.LUT4
      port map (
       C => clk,
       CE => '1',
-      D => \step[3]_i_1_n_0\,
+      D => \step[3]_i_2_n_0\,
       Q => p_0_in_0(2),
-      R => '0'
+      R => p_0_in
     );
 write_enable_INST_0: unisim.vcomponents.LUT6
     generic map(
