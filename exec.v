@@ -70,6 +70,7 @@ module exec(
 	reg fpu_set;
 	wire[31:0] rs_,rt_,addr_;
 	reg[5:0] alu_command_, exec_command_;
+	reg stall_set;
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
@@ -82,7 +83,10 @@ module exec(
 	always @(posedge clk) begin
 		if(~rstn) begin
 			stall_enable <= 1'b0;
+			stall_set <= 1'b0;
 			done <= 1'b0;
+			wselector <= 3'b000;
+			pc_out <= 32'h0;
 			uart_wsz <= 2'b00;
 			uart_wd <= 32'h0;
 			uart_wenable <= 1'b0;
@@ -117,13 +121,13 @@ module exec(
 			uart_wenable <= 1'b0;
 			done <= 1'b0;
 			stall_enable <= 1'b0;
+			wselector <= 3'b000;
 			if(enable) begin
-				if(wselector[2] && pc != pc_out) begin
+				stall_set <= 1'b0;
+				if((wselector[2] || stall_set) && pc != pc_out) begin
 					stall_enable <= 1'b1;
-					wselector <= 3'b000;
 					done <= 1'b1;
 				end else begin
-					wselector <= 3'b000;
 					done <= 1'b1;
 					rd_out <= rd_in;
 					alu_command_ <= alu_command;
@@ -199,6 +203,7 @@ module exec(
 						if(alu_command[5:2] == 4'b0000) begin
 							fs <= rs_;
 							ft <= alu_command[1:0] == 2'b01 ? {~rt_[31], rt_[30:0]} : rt_;
+							wselector <= 3'b000;
 							fpu_set <= 1'b1;
 							done <= 1'b0;
 						end else if(alu_command == 6'b001000) begin	//SLTF
@@ -263,6 +268,7 @@ module exec(
 				end else if(alu_command_ == 6'b000011) begin	//FDIV
 					ft <= finv_d;
 					alu_command_ <= 6'b000010;
+					wselector <= 3'b000;
 					fpu_set <= 1'b1;
 					done <= 1'b0;
 				end
@@ -293,6 +299,9 @@ module exec(
 			end
 			if(uart_wdone) begin
 				done <= 1'b1;
+			end
+			if(wselector[2]) begin
+				stall_set <= 1'b1;
 			end
 		end
 	end

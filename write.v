@@ -7,8 +7,8 @@ module write(
 	input wire[31:0] pc,
 	input wire[31:0] data,
 	input wire[4:0] rd,
-	output reg pcenable,
-	output reg[31:0] next_pc,
+	output wire pcenable,
+	output wire[31:0] next_pc,
 	output wire wenable,
 	output wire fmode,
 	output wire[4:0] wreg,
@@ -17,33 +17,19 @@ module write(
 	input wire rstn
 );
 
-	reg set;
-
 	assign wenable = wselector[1];
 	assign fmode = wselector[0];
 	assign wreg = rd;
 	assign wdata = data;
 
+	assign pcenable = wselector[2];
+	assign next_pc = pc;
+
 	always @(posedge clk) begin
-		set <= 1'b0;
 		done <= 1'b0;
-		pcenable <= 1'b0;
 		if(~rstn) begin
-			next_pc <= 32'h0;
 		end else begin
 			if(enable) begin
-				if(wselector[2]) begin
-					pcenable <= 1'b1;
-					next_pc <= pc;
-				end
-				if(wselector[1]) begin
-					set <= 1'b1;
-				end else begin
-					done <= 1'b1;
-				end
-			end
-			if(set) begin
-				set <= 1'b0;
 				done <= 1'b1;
 			end
 		end

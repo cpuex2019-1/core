@@ -33,7 +33,7 @@ module fetch(
 	reg pcenable_;
 	wire[31:0] pc_;
 
-	assign pc_ = (pcenable && pc_history2 != next_pc) || pcenable_ ? next_pc :
+	assign pc_ = (pcenable && pc_history1 != next_pc) || pcenable_ ? next_pc :
 				 command[31:27] == 5'b00001 ? {4'b0000, command[25:0], 2'b00} :			//J, JAL
 				 command[31:26] == 6'b110010 ? pc + {4'b0000, command[25:0], 2'b00} : 	//BC
 				 command[31:27] == 5'b00010 && command[15] ? pc + {14'h3fff, command[15:0], 2'b00} : pc + 32'h4; //BEQ, BNE
@@ -68,7 +68,7 @@ module fetch(
 				rready <= 1'b1;
 				araddr <= pc_[17:0];
 			end
-			if(pcenable && pc_history2 != next_pc) begin
+			if(pcenable && pc_history1 != next_pc) begin
 				pcenable_ <= enable ? 1'b0 : 1'b1;
 				pc_history1 <= 32'hffffffff;
 				pc_history2 <= 32'hffffffff;

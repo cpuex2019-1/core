@@ -16,8 +16,8 @@ module core(
 
 	reg[31:0] greg[31:0], freg[31:0];
 
-	assign reg_out1 = rfmode1 ? freg[rreg1] : greg[rreg1];
-	assign reg_out2 = rfmode2 ? freg[rreg2] : greg[rreg2];
+	assign reg_out1 = wenable && rfmode1 == wfmode && rreg1 == wreg && (~rfmode1 || rreg1 != 5'h0) ? wdata : rfmode1 ? freg[rreg1] : greg[rreg1];
+	assign reg_out2 = wenable && rfmode2 == wfmode && rreg2 == wreg && (~rfmode2 || rreg2 != 5'h0) ? wdata : rfmode2 ? freg[rreg2] : greg[rreg2];
 
 	always @(posedge clk) begin
 		if(~rstn) begin
