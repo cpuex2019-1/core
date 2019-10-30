@@ -29,17 +29,16 @@ module write(
 		done <= 1'b0;
 		pcenable <= 1'b0;
 		if(~rstn) begin
+			next_pc <= 32'h0;
 		end else begin
 			if(enable) begin
 				if(wselector[2]) begin
 					pcenable <= 1'b1;
 					next_pc <= pc;
-					set <= 1'b1;
 				end
 				if(wselector[1]) begin
 					set <= 1'b1;
-				end
-				if(wselector[2:1] == 1'b000) begin
+				end else begin
 					done <= 1'b1;
 				end
 			end

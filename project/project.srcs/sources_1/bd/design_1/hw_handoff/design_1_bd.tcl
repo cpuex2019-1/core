@@ -201,8 +201,8 @@ proc create_root_design { parentCell } {
   set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
   set_property -dict [ list \
    CONFIG.C_BAUDRATE {115200} \
-   CONFIG.C_S_AXI_ACLK_FREQ_HZ {15000000} \
-   CONFIG.C_S_AXI_ACLK_FREQ_HZ_d {15} \
+   CONFIG.C_S_AXI_ACLK_FREQ_HZ {20000000} \
+   CONFIG.C_S_AXI_ACLK_FREQ_HZ_d {20} \
    CONFIG.UARTLITE_BOARD_INTERFACE {rs232_uart} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_uartlite_0
@@ -213,14 +213,14 @@ proc create_root_design { parentCell } {
   # Create instance: clk_wiz, and set properties
   set clk_wiz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz ]
   set_property -dict [ list \
-   CONFIG.CLKOUT1_JITTER {310.773} \
-   CONFIG.CLKOUT1_PHASE_ERROR {236.795} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {15} \
+   CONFIG.CLKOUT1_JITTER {172.798} \
+   CONFIG.CLKOUT1_PHASE_ERROR {96.948} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {20} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sysclk_125} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {40.125} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {8.000} \
    CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {66.875} \
-   CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {50.000} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {1} \
    CONFIG.RESET_BOARD_INTERFACE {reset} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $clk_wiz
@@ -320,7 +320,6 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net clk_wiz_locked [get_bd_pins clk_wiz/locked] [get_bd_pins rst_data_memory_300M/dcm_locked]
-  connect_bd_net -net core_wrapper_0_pc [get_bd_pins core_wrapper_0/pc] [get_bd_pins fetch_0/pc]
   connect_bd_net -net core_wrapper_0_reg_out1 [get_bd_pins core_wrapper_0/reg_out1] [get_bd_pins decode_0/reg_out1]
   connect_bd_net -net core_wrapper_0_reg_out2 [get_bd_pins core_wrapper_0/reg_out2] [get_bd_pins decode_0/reg_out2]
   connect_bd_net -net data_memory_c0_ddr4_ui_clk [get_bd_pins axi_bram_ctrl_0/s_axi_aclk] [get_bd_pins axi_bram_ctrl_1/s_axi_aclk] [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins clk_wiz/clk_out1] [get_bd_pins core_wrapper_0/clk] [get_bd_pins decode_0/clk] [get_bd_pins exec_0/clk] [get_bd_pins fetch_0/clk] [get_bd_pins rst_data_memory_300M/slowest_sync_clk] [get_bd_pins stall_0/clk] [get_bd_pins uart_buffer_0/clk] [get_bd_pins write_0/clk]
@@ -328,7 +327,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net decode_0_alu_command [get_bd_pins decode_0/alu_command] [get_bd_pins exec_0/alu_command]
   connect_bd_net -net decode_0_done [get_bd_pins decode_0/done] [get_bd_pins stall_0/decode_done]
   connect_bd_net -net decode_0_exec_command [get_bd_pins decode_0/exec_command] [get_bd_pins exec_0/exec_command]
-  connect_bd_net -net decode_0_fmode [get_bd_pins core_wrapper_0/rfmode] [get_bd_pins decode_0/fmode] [get_bd_pins exec_0/fmode]
+  connect_bd_net -net decode_0_fmode1 [get_bd_pins core_wrapper_0/rfmode1] [get_bd_pins decode_0/fmode1] [get_bd_pins exec_0/fmode1]
+  connect_bd_net -net decode_0_fmode2 [get_bd_pins core_wrapper_0/rfmode2] [get_bd_pins decode_0/fmode2] [get_bd_pins exec_0/fmode2]
   connect_bd_net -net decode_0_pc_out [get_bd_pins decode_0/pc_out] [get_bd_pins exec_0/pc]
   connect_bd_net -net decode_0_rd [get_bd_pins decode_0/rd] [get_bd_pins exec_0/rd_in]
   connect_bd_net -net decode_0_reg1 [get_bd_pins core_wrapper_0/rreg1] [get_bd_pins decode_0/reg1]
@@ -348,8 +348,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net exec_0_wselector_out [get_bd_pins exec_0/wselector] [get_bd_pins write_0/wselector]
   connect_bd_net -net fetch_0_command [get_bd_pins decode_0/command] [get_bd_pins fetch_0/command]
   connect_bd_net -net fetch_0_done [get_bd_pins fetch_0/done] [get_bd_pins stall_0/fetch_done]
-  connect_bd_net -net fetch_0_pc_out [get_bd_pins core_wrapper_0/pcpred] [get_bd_pins decode_0/pc] [get_bd_pins fetch_0/pc_out]
-  connect_bd_net -net fetch_0_pcread [get_bd_pins core_wrapper_0/pcread] [get_bd_pins fetch_0/pcread]
+  connect_bd_net -net fetch_0_pc [get_bd_pins decode_0/pc] [get_bd_pins fetch_0/pc]
   connect_bd_net -net reset_1 [get_bd_ports reset] [get_bd_pins clk_wiz/reset] [get_bd_pins rst_data_memory_300M/ext_reset_in]
   connect_bd_net -net rst_data_memory_300M_peripheral_aresetn [get_bd_pins axi_bram_ctrl_0/s_axi_aresetn] [get_bd_pins axi_bram_ctrl_1/s_axi_aresetn] [get_bd_pins axi_uartlite_0/s_axi_aresetn] [get_bd_pins core_wrapper_0/rstn] [get_bd_pins decode_0/rstn] [get_bd_pins exec_0/rstn] [get_bd_pins fetch_0/rstn] [get_bd_pins rst_data_memory_300M/peripheral_aresetn] [get_bd_pins stall_0/rstn] [get_bd_pins uart_buffer_0/rstn] [get_bd_pins write_0/rstn]
   connect_bd_net -net stall_0_decode_enable [get_bd_pins decode_0/enable] [get_bd_pins stall_0/decode_enable]
@@ -361,8 +360,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net uart_buffer_0_wdone [get_bd_pins exec_0/uart_wdone] [get_bd_pins uart_buffer_0/wdone]
   connect_bd_net -net write_0_done [get_bd_pins stall_0/write_done] [get_bd_pins write_0/done]
   connect_bd_net -net write_0_fmode [get_bd_pins core_wrapper_0/wfmode] [get_bd_pins write_0/fmode]
-  connect_bd_net -net write_0_next_pc [get_bd_pins core_wrapper_0/next_pc] [get_bd_pins write_0/next_pc]
-  connect_bd_net -net write_0_pcenable [get_bd_pins core_wrapper_0/pcenable] [get_bd_pins write_0/pcenable]
+  connect_bd_net -net write_0_next_pc [get_bd_pins fetch_0/next_pc] [get_bd_pins write_0/next_pc]
+  connect_bd_net -net write_0_pcenable [get_bd_pins fetch_0/pcenable] [get_bd_pins write_0/pcenable]
   connect_bd_net -net write_0_stall_enable [get_bd_pins exec_0/stall_enable] [get_bd_pins fetch_0/stall] [get_bd_pins stall_0/stall_enable]
   connect_bd_net -net write_0_uart_wenable [get_bd_pins exec_0/uart_wenable] [get_bd_pins uart_buffer_0/wenable]
   connect_bd_net -net write_0_wdata [get_bd_pins core_wrapper_0/wdata] [get_bd_pins write_0/wdata]
@@ -371,7 +370,7 @@ proc create_root_design { parentCell } {
 
   # Create address segments
   create_bd_addr_seg -range 0x00200000 -offset 0x00000000 [get_bd_addr_spaces exec_0/interface_aximm] [get_bd_addr_segs axi_bram_ctrl_1/S_AXI/Mem0] SEG_axi_bram_ctrl_1_Mem0
-  create_bd_addr_seg -range 0x00008000 -offset 0x00000000 [get_bd_addr_spaces fetch_0/interface_aximm] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
+  create_bd_addr_seg -range 0x00040000 -offset 0x00000000 [get_bd_addr_spaces fetch_0/interface_aximm] [get_bd_addr_segs axi_bram_ctrl_0/S_AXI/Mem0] SEG_axi_bram_ctrl_0_Mem0
   create_bd_addr_seg -range 0x00010000 -offset 0x40600000 [get_bd_addr_spaces uart_buffer_0/uart] [get_bd_addr_segs axi_uartlite_0/S_AXI/Reg] SEG_axi_uartlite_0_Reg
 
 

@@ -55,12 +55,8 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_core_wrapper_0_0 (
-  pcread,
-  pcpred,
-  pcenable,
-  next_pc,
-  pc,
-  rfmode,
+  rfmode1,
+  rfmode2,
   rreg1,
   rreg2,
   reg_out1,
@@ -73,12 +69,8 @@ module design_1_core_wrapper_0_0 (
   rstn
 );
 
-input wire pcread;
-input wire [31 : 0] pcpred;
-input wire pcenable;
-input wire [31 : 0] next_pc;
-output wire [31 : 0] pc;
-input wire rfmode;
+input wire rfmode1;
+input wire rfmode2;
 input wire [4 : 0] rreg1;
 input wire [4 : 0] rreg2;
 output wire [31 : 0] reg_out1;
@@ -87,7 +79,7 @@ input wire wenable;
 input wire wfmode;
 input wire [4 : 0] wreg;
 input wire [31 : 0] wdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 15000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 20000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -95,12 +87,8 @@ input wire clk;
 input wire rstn;
 
   core_wrapper inst (
-    .pcread(pcread),
-    .pcpred(pcpred),
-    .pcenable(pcenable),
-    .next_pc(next_pc),
-    .pc(pc),
-    .rfmode(rfmode),
+    .rfmode1(rfmode1),
+    .rfmode2(rfmode2),
     .rreg1(rreg1),
     .rreg2(rreg2),
     .reg_out1(reg_out1),
