@@ -3,6 +3,7 @@
 module test();
 	localparam STEP = 8;
 
+	wire[7:0] LED;
 	reg rst;
 	reg rxd;
 	wire txd;
@@ -10,6 +11,7 @@ module test();
 	reg clk_p;
 
 	design_1_wrapper s1(
+		LED,
 		reset,
 		rxd,
 		txd,
