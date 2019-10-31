@@ -80,6 +80,7 @@ module design_1_exec_0_0 (
   uart_wd,
   uart_renable,
   uart_rdone,
+  uart_rsz,
   uart_rd,
   mem_addr,
   mem_wdata,
@@ -115,6 +116,7 @@ output wire [1 : 0] uart_wsz;
 output wire [31 : 0] uart_wd;
 output wire uart_renable;
 input wire uart_rdone;
+output wire [1 : 0] uart_rsz;
 input wire [31 : 0] uart_rd;
 output wire [18 : 0] mem_addr;
 output wire [31 : 0] mem_wdata;
@@ -154,6 +156,7 @@ input wire rstn;
     .uart_wd(uart_wd),
     .uart_renable(uart_renable),
     .uart_rdone(uart_rdone),
+    .uart_rsz(uart_rsz),
     .uart_rd(uart_rd),
     .mem_addr(mem_addr),
     .mem_wdata(mem_wdata),

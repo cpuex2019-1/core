@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Oct 30 18:38:39 2019
+// Date        : Thu Oct 31 08:40:42 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top design_1_axi_bram_ctrl_0_bram_0 -prefix
-//               design_1_axi_bram_ctrl_0_bram_0_ design_1_axi_bram_ctrl_0_bram_0_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_bram_0/design_1_axi_bram_ctrl_0_bram_0_stub.v
 // Design      : design_1_axi_bram_ctrl_0_bram_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xcku040-ffva1156-2-e

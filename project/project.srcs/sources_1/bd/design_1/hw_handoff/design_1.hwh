@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Oct 30 21:09:58 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Oct 31 09:17:57 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -1404,7 +1404,6 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="rst_data_memory_300M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
             <CONNECTION INSTANCE="write_0" PORT="clk"/>
             <CONNECTION INSTANCE="decode_0" PORT="clk"/>
@@ -1413,6 +1412,7 @@
             <CONNECTION INSTANCE="stall_0" PORT="clk"/>
             <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
             <CONNECTION INSTANCE="exec_0" PORT="clk"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -1757,6 +1757,11 @@
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rdone"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="1" NAME="uart_rsz" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_uart_rsz">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="rsize"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="31" NAME="uart_rd" RIGHT="0" SIGIS="undef" SIGNAME="uart_buffer_0_rdata">
           <CONNECTIONS>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rdata"/>
@@ -1914,13 +1919,13 @@
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_data_memory_300M_peripheral_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
             <CONNECTION INSTANCE="write_0" PORT="rstn"/>
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
             <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
             <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
             <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2006,6 +2011,11 @@
         <PORT DIR="O" NAME="rdone" SIGIS="undef" SIGNAME="uart_buffer_0_rdone">
           <CONNECTIONS>
             <CONNECTION INSTANCE="exec_0" PORT="uart_rdone"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="rsize" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_uart_rsz">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_rsz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="rdata" RIGHT="0" SIGIS="undef" SIGNAME="uart_buffer_0_rdata">

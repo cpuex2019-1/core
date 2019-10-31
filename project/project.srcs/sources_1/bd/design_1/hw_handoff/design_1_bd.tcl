@@ -354,6 +354,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net exec_0_pc_out [get_bd_pins exec_0/pc_out] [get_bd_pins write_0/pc]
   connect_bd_net -net exec_0_rd_out [get_bd_pins exec_0/rd_out] [get_bd_pins write_0/rd]
   connect_bd_net -net exec_0_uart_renable [get_bd_pins exec_0/uart_renable] [get_bd_pins uart_buffer_0/renable]
+  connect_bd_net -net exec_0_uart_rsz [get_bd_pins exec_0/uart_rsz] [get_bd_pins uart_buffer_0/rsize]
   connect_bd_net -net exec_0_uart_wd [get_bd_pins exec_0/uart_wd] [get_bd_pins uart_buffer_0/wdata]
   connect_bd_net -net exec_0_uart_wsz [get_bd_pins exec_0/uart_wsz] [get_bd_pins uart_buffer_0/wsize]
   connect_bd_net -net exec_0_wselector_out [get_bd_pins exec_0/wselector] [get_bd_pins write_0/wselector]

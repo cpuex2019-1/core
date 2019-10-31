@@ -25,7 +25,8 @@ module exec(
 	output reg[1:0] uart_wsz,
 	output reg[31:0] uart_wd,
 	output reg uart_renable,
-	input wire uart_rdone, 
+	input wire uart_rdone,
+	output reg[1:0] uart_rsz,
 	input wire[31:0] uart_rd,
 	output wire[18:0] mem_addr,
 	output reg[31:0] mem_wdata,
@@ -194,6 +195,7 @@ module exec(
 							uart_wd <= rs_;
 						end else begin				//IN
 							uart_renable <= 1'b1;
+							uart_rsz <= sh[1:0];
 						end
 						done <= 1'b0;
 					end

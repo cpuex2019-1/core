@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Wed Oct 30 21:09:55 2019
+//Date        : Thu Oct 31 09:17:57 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -54,6 +54,7 @@ module design_1
   wire [31:0]exec_0_pc_out;
   wire [4:0]exec_0_rd_out;
   wire exec_0_uart_renable;
+  wire [1:0]exec_0_uart_rsz;
   wire [31:0]exec_0_uart_wd;
   wire [1:0]exec_0_uart_wsz;
   wire [2:0]exec_0_wselector_out;
@@ -210,6 +211,7 @@ module design_1
         .uart_rd(uart_buffer_0_rdata),
         .uart_rdone(uart_buffer_0_rdone),
         .uart_renable(exec_0_uart_renable),
+        .uart_rsz(exec_0_uart_rsz),
         .uart_wd(exec_0_uart_wd),
         .uart_wdone(uart_buffer_0_wdone),
         .uart_wenable(write_0_uart_wenable),
@@ -252,6 +254,7 @@ module design_1
         .rdata(uart_buffer_0_rdata),
         .rdone(uart_buffer_0_rdone),
         .renable(exec_0_uart_renable),
+        .rsize(exec_0_uart_rsz),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .uart_araddr(uart_buffer_0_uart_ARADDR),
         .uart_arready(uart_buffer_0_uart_ARREADY),

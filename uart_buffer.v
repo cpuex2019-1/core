@@ -3,6 +3,7 @@
 module uart_buffer(
 	input wire renable,
 	output reg rdone,
+	input wire[1:0] rsize,
 	output reg[31:0] rdata,
 	input wire wenable,
 	output reg wdone,
@@ -39,6 +40,7 @@ module uart_buffer(
 		if(~rstn) begin
 			rcount <= 2'b00;
 			rgo <= 1'b0;
+			rdata <= 32'h0;
 			wbuffer <= 32'h0;
 			wcount <= 2'b00;
 			wgo <= 1'b0;
@@ -53,8 +55,9 @@ module uart_buffer(
 			uart_wdata <= 32'h0;
 		end else begin
 			if(renable) begin
-				rcount <= 2'b11;
+				rcount <= rsize;
 				rgo <= 1'b1;
+				rdata <= 32'h0;
 			end
 			if(rgo && ~uart_rready) begin
 				uart_arvalid <= 1'b1;
@@ -74,15 +77,15 @@ module uart_buffer(
 					uart_rready <= 1'b1;
 				end else begin
 					uart_rready <= 1'b0;
+					rdata <= {rdata[23:0], uart_rdata[7:0]};
 					if(~rgo) begin
-						rdata <= uart_rdata;
 						rdone <= 1'b1;
 					end
 				end
 			end
 
 			if(wenable) begin
-				wbuffer <= wdata;
+				wbuffer <= wsize == 2'b00 ? {wdata[7:0], 24'h0} : wdata;
 				wcount <= wsize;
 				wgo <= 1'b1;
 			end

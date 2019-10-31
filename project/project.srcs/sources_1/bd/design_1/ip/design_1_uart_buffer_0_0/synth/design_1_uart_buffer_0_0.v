@@ -58,6 +58,7 @@
 module design_1_uart_buffer_0_0 (
   renable,
   rdone,
+  rsize,
   rdata,
   wenable,
   wdone,
@@ -86,6 +87,7 @@ module design_1_uart_buffer_0_0 (
 
 input wire renable;
 output wire rdone;
+input wire [1 : 0] rsize;
 output wire [31 : 0] rdata;
 input wire wenable;
 output wire wdone;
@@ -137,6 +139,7 @@ input wire rstn;
   uart_buffer inst (
     .renable(renable),
     .rdone(rdone),
+    .rsize(rsize),
     .rdata(rdata),
     .wenable(wenable),
     .wdone(wdone),
