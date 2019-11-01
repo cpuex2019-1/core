@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Oct 31 09:17:57 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov  1 16:28:17 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -205,7 +205,7 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="clka" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+        <PORT DIR="I" NAME="clka" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
           </CONNECTIONS>
@@ -765,7 +765,7 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
-        <PORT CLKFREQUENCY="20000000" DIR="I" NAME="clka" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+        <PORT DIR="I" NAME="clka" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
           <CONNECTIONS>
             <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
           </CONNECTIONS>
@@ -1409,10 +1409,10 @@
             <CONNECTION INSTANCE="decode_0" PORT="clk"/>
             <CONNECTION INSTANCE="axi_bram_ctrl_0_bram" PORT="clka"/>
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clka"/>
-            <CONNECTION INSTANCE="stall_0" PORT="clk"/>
             <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
-            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
+            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
+            <CONNECTION INSTANCE="stall_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -1723,8 +1723,8 @@
         </PORT>
         <PORT DIR="O" NAME="stall_enable" SIGIS="undef" SIGNAME="exec_0_stall_enable">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="stall_0" PORT="stall_enable"/>
             <CONNECTION INSTANCE="fetch_0" PORT="stall"/>
+            <CONNECTION INSTANCE="stall_0" PORT="stall_enable"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="uart_wenable" SIGIS="undef" SIGNAME="exec_0_uart_wenable">
@@ -1922,10 +1922,10 @@
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
             <CONNECTION INSTANCE="write_0" PORT="rstn"/>
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
             <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
