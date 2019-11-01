@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Oct 31 22:05:59 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov  1 11:35:46 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -8,6 +8,11 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz" PORT="reset"/>
         <CONNECTION INSTANCE="rst_data_memory_300M" PORT="ext_reset_in"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="7" NAME="LED" RIGHT="0" SIGIS="data" SIGNAME="xlslice_0_Dout">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
       </CONNECTIONS>
     </PORT>
     <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
@@ -28,11 +33,6 @@
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_p" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_p">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_p"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="7" NAME="LED" RIGHT="0" SIGIS="data" SIGNAME="xlslice_0_Dout">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="xlslice_0" PORT="Dout"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1017,10 +1017,10 @@
             <CONNECTION INSTANCE="data_memory" PORT="clka"/>
             <CONNECTION INSTANCE="stall_0" PORT="clk"/>
             <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
-            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
             <CONNECTION INSTANCE="inst_counter_0" PORT="clk"/>
+            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -1394,14 +1394,14 @@
         </PORT>
         <PORT DIR="O" NAME="fmode1" SIGIS="undef" SIGNAME="decode_0_fmode1">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="exec_0" PORT="fmode1"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rfmode1"/>
+            <CONNECTION INSTANCE="exec_0" PORT="fmode1"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="fmode2" SIGIS="undef" SIGNAME="decode_0_fmode2">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="exec_0" PORT="fmode2"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rfmode2"/>
+            <CONNECTION INSTANCE="exec_0" PORT="fmode2"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="4" NAME="reg1" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_reg1">
@@ -1966,10 +1966,10 @@
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
             <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
             <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
             <CONNECTION INSTANCE="inst_counter_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

@@ -132,7 +132,7 @@ module exec(
 						end else if(alu_command == 6'b100111) begin	//NOR
 							data <= ~(rs_ | rt_);
 						end else if(alu_command == 6'b101010) begin	//SLT
-							data <= {31'h0, rs_ < rt_};
+							data <= {31'h0, rs_[31] == rt_[31] ? rs_ < rt_ : rs_[31]};
 						end
 					end else if(exec_command == 6'b000010) begin	//J
 						pc_out <= addr_;
