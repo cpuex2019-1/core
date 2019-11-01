@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Fri Nov  1 16:28:13 2019
+//Date        : Fri Nov  1 22:26:37 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -36,6 +36,7 @@ module design_1
   wire [5:0]decode_0_exec_command;
   wire decode_0_fmode1;
   wire decode_0_fmode2;
+  wire [15:0]decode_0_offset;
   wire [31:0]decode_0_pc_out;
   wire [4:0]decode_0_rd;
   wire [4:0]decode_0_reg1;
@@ -169,6 +170,7 @@ module design_1
         .exec_command(decode_0_exec_command),
         .fmode1(decode_0_fmode1),
         .fmode2(decode_0_fmode2),
+        .offset(decode_0_offset),
         .pc(fetch_0_pc),
         .pc_out(decode_0_pc_out),
         .rd(decode_0_rd),
@@ -197,6 +199,7 @@ module design_1
         .mem_rdata(blk_mem_gen_0_douta),
         .mem_wdata(exec_0_mem_wdata),
         .mem_wea(exec_0_mem_wea),
+        .offset(decode_0_offset),
         .pc(decode_0_pc_out),
         .pc_out(exec_0_pc_out),
         .rd_in(decode_0_rd),

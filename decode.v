@@ -7,6 +7,7 @@ module decode(
 	input wire[31:0] command,
 	output reg[5:0] exec_command,
 	output reg[5:0] alu_command,
+	output reg[15:0] offset,
 	output reg[31:0] pc_out,
 	output reg[31:0] addr,
 	output reg[31:0] rs,
@@ -46,6 +47,7 @@ module decode(
 				rt_no <= reg2;
 				sh <= command[10:6];
 				alu_command <= command[5:0];
+				offset <= command[15:0];
 				set <= 1'b1;
 				fmode1 <= command[31:26] == 6'b010001 || (command[31:26] == 6'b111111 && command[1]);
 				fmode2 <= command[31:26] == 6'b010001 || command[31:26] === 6'b111001 || (command[31:26] == 6'b111111 && command[1]);
