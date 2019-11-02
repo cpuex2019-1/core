@@ -48,13 +48,16 @@ module exec(
 	reg[31:0] addr__;
 	reg[5:0] alu_command_, exec_command_;
 	reg stall_set;
+	reg[2:0] wselector_;
+	wire[2:0] wselector__;
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
 	finv u_finv(ft, finv_d, finv_of, finv_uf);
 
-	assign rs_ = wselector[1] && wselector[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data : rs;
-	assign rt_ = wselector[1] && wselector[0] == fmode2 && (fmode2 || rd_out != 5'h0) && rd_out == rt_no ? data : rt;
+	assign wselector__ = wselector | wselector_;
+	assign rs_ = wselector__[1] && wselector__[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data : rs;
+	assign rt_ = wselector__[1] && wselector__[0] == fmode2 && (fmode2 || rd_out != 5'h0) && rd_out == rt_no ? data : rt;
 	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data+{offset[15] ? 16'hffff : 16'h0, offset} : addr;
 	assign mem_enable = 1'b1;
 	assign mem_addr = enable ? addr_[20:2] : addr__[20:2];
@@ -65,6 +68,7 @@ module exec(
 			stall_set <= 1'b0;
 			done <= 1'b0;
 			wselector <= 3'b000;
+			wselector_ <= 3'b000;
 			pc_out <= 32'h0;
 			addr__ <= 32'h0;
 			uart_wsz <= 2'b00;
@@ -84,7 +88,11 @@ module exec(
 			wselector <= 3'b000;
 			mem_set <= {1'b0, mem_set[1]};
 			mem_wea <= 4'b0000;
+			if(wselector != 3'b000) begin
+				wselector_ <= wselector;
+			end
 			if(enable) begin
+				wselector_ <= 3'b000;
 				stall_set <= 1'b0;
 				addr__ <= addr_;
 				if((wselector[2] || stall_set) && pc != pc_out) begin
