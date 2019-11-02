@@ -59,6 +59,7 @@ module design_1_exec_0_0 (
   done,
   exec_command,
   alu_command,
+  offset,
   pc,
   addr,
   rs,
@@ -95,6 +96,7 @@ input wire enable;
 output wire done;
 input wire [5 : 0] exec_command;
 input wire [5 : 0] alu_command;
+input wire [15 : 0] offset;
 input wire [31 : 0] pc;
 input wire [31 : 0] addr;
 input wire [31 : 0] rs;
@@ -135,6 +137,7 @@ input wire rstn;
     .done(done),
     .exec_command(exec_command),
     .alu_command(alu_command),
+    .offset(offset),
     .pc(pc),
     .addr(addr),
     .rs(rs),
