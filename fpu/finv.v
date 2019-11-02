@@ -1,34 +1,3 @@
-// module shift_with_round(
-//     input wire [63:0] s,
-//     input wire [7:0] shift,
-//     output wire [63:0] d
-// );
-
-// // NOTE: できるだけ誤差が少なくなるようにshiftする
-// wire [63:0] t;
-// assign t = s >> shift;
-
-// wire ulp, guard, round, sticky, flag;
-// wire [63:0] for_ulp, for_guard, for_round;
-// assign for_ulp = s >> shift;
-// assign for_guard = s >> (shift - 8'b1);
-// assign for_round = s >> (shift - 8'b10);
-// // FIXME: とりあえず面倒なのでstickyは0としておく
-// assign ulp = for_ulp[0:0];
-// assign guard = for_guard[0:0];
-// assign round = for_round[0:0];
-// assign sticky = 1'b0;
-// assign flag = 
-//     (ulp && guard && (~round) && (~sticky)) ||
-//     (guard && (~round) && sticky) ||
-//     (guard && round);
-
-// assign d = {t[63:1], flag};
-
-// endmodule
-
-
-// NOTE: FInv
 module finv(
     input wire [31:0] s,
     output wire [31:0] d,
@@ -56,7 +25,6 @@ assign sign_d = sign_s;
 assign exponent_d = 8'd253 - exponent_s;
 
 // 仮数を決める
-// NOTE: 64bitで計算していく！
 wire [7:0] upper8;
 wire [14:0] lower15;
 wire [63:0] x0, x1, x2;
@@ -66,32 +34,23 @@ wire [63:0] c1, c2, c3;
 wire [63:0] d1, d2, d3;
 wire [63:0] e1, e2, e3;
 
-// FIXME: Newton法を回す
+// NOTE: Newton法を回す
 wire [63:0] om;
 assign om = {32'b0, one_mantissa_s, 8'b0};
 
 assign x0 = {32'b1, upper8, lower15, 8'b0};
 assign a1 = x0 << 1;
 assign b1 = (om * x0);
-// shift_with_round u11(b1,8'd31,c1);
 assign c1 = b1 >> 8'd31;
-
 assign d1 = (c1 * x0);
-// shift_with_round u12(d1,8'd32,e1);
 assign e1 = d1 >> 8'd32;
-
 assign x1 = a1 - e1;
 
-// FIXME:
 assign a2 = x1 << 1;
 assign b2 = (om * x1);
-// shift_with_round u21(b2,8'd31,c2);
 assign c2 = b2 >> 8'd31;
-
 assign d2 = (c2 * x1);
-// shift_with_round u22(d2,8'd32,e2);
 assign e2 = d2 >> 8'd32;
-
 assign x2 = a2 - e2;
 
 // 仮数を決める
