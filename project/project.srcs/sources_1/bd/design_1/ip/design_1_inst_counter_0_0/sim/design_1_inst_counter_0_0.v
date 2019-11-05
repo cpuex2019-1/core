@@ -57,14 +57,18 @@
 module design_1_inst_counter_0_0 (
   exec_done,
   stall,
-  counter,
+  selector,
+  pc,
+  sgnl,
   clk,
   rstn
 );
 
 input wire exec_done;
 input wire stall;
-output wire [31 : 0] counter;
+input wire [3 : 0] selector;
+input wire [31 : 0] pc;
+output wire [7 : 0] sgnl;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 20000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
@@ -75,7 +79,9 @@ input wire rstn;
   inst_counter inst (
     .exec_done(exec_done),
     .stall(stall),
-    .counter(counter),
+    .selector(selector),
+    .pc(pc),
+    .sgnl(sgnl),
     .clk(clk),
     .rstn(rstn)
   );

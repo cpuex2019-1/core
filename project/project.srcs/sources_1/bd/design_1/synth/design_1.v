@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Tue Nov  5 11:21:49 2019
+//Date        : Tue Nov  5 14:01:54 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -9,14 +9,16 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=14,numReposBlks=14,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=14,da_bram_cntlr_cnt=1,da_clkrst_cnt=18,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
+(* CORE_GENERATION_INFO = "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=13,numReposBlks=13,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=8,numPkgbdBlks=0,bdsource=USER,da_axi4_cnt=1,da_board_cnt=14,da_bram_cntlr_cnt=1,da_clkrst_cnt=18,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "design_1.hwdef" *) 
 module design_1
-   (LED,
+   (DIP,
+    LED,
     reset,
     rs232_uart_rxd,
     rs232_uart_txd,
     sysclk_125_clk_n,
     sysclk_125_clk_p);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.DIP DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.DIP, LAYERED_METADATA undef" *) input [3:0]DIP;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.LED DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.LED, LAYERED_METADATA undef" *) output [7:0]LED;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESET RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESET, INSERT_VIP 0, POLARITY ACTIVE_HIGH" *) input reset;
   (* X_INTERFACE_INFO = "xilinx.com:interface:uart:1.0 rs232_uart RxD" *) input rs232_uart_rxd;
@@ -24,6 +26,7 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysclk_125 CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sysclk_125, CAN_DEBUG false, FREQ_HZ 125000000" *) input sysclk_125_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysclk_125 CLK_P" *) input sysclk_125_clk_p;
 
+  wire [3:0]DIP_1;
   wire [31:0]axi_bram_ctrl_0_bram_douta;
   wire axi_uartlite_0_UART_RxD;
   wire axi_uartlite_0_UART_TxD;
@@ -66,7 +69,7 @@ module design_1
   wire [15:0]fetch_0_inst_addr;
   wire fetch_0_inst_enable;
   wire [31:0]fetch_0_pc;
-  wire [31:0]inst_counter_0_counter;
+  wire [7:0]inst_counter_0_signal;
   wire reset_1;
   wire [0:0]rst_data_memory_300M_peripheral_aresetn;
   wire stall_0_decode_enable;
@@ -104,9 +107,9 @@ module design_1
   wire [31:0]write_0_wdata;
   wire write_0_wenable;
   wire [4:0]write_0_wreg;
-  wire [7:0]xlslice_0_Dout;
 
-  assign LED[7:0] = xlslice_0_Dout;
+  assign DIP_1 = DIP[3:0];
+  assign LED[7:0] = inst_counter_0_signal;
   assign axi_uartlite_0_UART_RxD = rs232_uart_rxd;
   assign reset_1 = reset;
   assign rs232_uart_txd = axi_uartlite_0_UART_TxD;
@@ -235,9 +238,11 @@ module design_1
         .stall(write_0_stall_enable));
   design_1_inst_counter_0_0 inst_counter_0
        (.clk(data_memory_c0_ddr4_ui_clk),
-        .counter(inst_counter_0_counter),
         .exec_done(exec_0_done),
+        .pc(fetch_0_pc),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
+        .selector(DIP_1),
+        .sgnl(inst_counter_0_signal),
         .stall(write_0_stall_enable));
   design_1_axi_bram_ctrl_0_bram_0 inst_memory
        (.addra(fetch_0_inst_addr),
@@ -306,7 +311,4 @@ module design_1
         .wenable(write_0_wenable),
         .wreg(write_0_wreg),
         .wselector(exec_0_wselector_out));
-  design_1_xlslice_0_0 xlslice_0
-       (.Din(inst_counter_0_counter),
-        .Dout(xlslice_0_Dout));
 endmodule

@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Mon Nov  4 17:47:59 2019
+-- Date        : Mon Nov  4 15:39:31 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_axi_bram_ctrl_0_bram_0 -prefix
 --               design_1_axi_bram_ctrl_0_bram_0_ design_1_axi_bram_ctrl_0_bram_0_stub.vhdl
