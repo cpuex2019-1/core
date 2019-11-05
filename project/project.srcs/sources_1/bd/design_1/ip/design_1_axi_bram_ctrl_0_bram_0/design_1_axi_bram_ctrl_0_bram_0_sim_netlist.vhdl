@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Thu Oct 31 15:00:52 2019
+-- Date        : Mon Nov  4 17:48:00 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top design_1_axi_bram_ctrl_0_bram_0 -prefix
---               design_1_axi_bram_ctrl_0_bram_0_ design_1_axi_bram_ctrl_0_bram_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_bram_0/design_1_axi_bram_ctrl_0_bram_0_sim_netlist.vhdl
 -- Design      : design_1_axi_bram_ctrl_0_bram_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,6 +20,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_bindec is
     addra : in STD_LOGIC_VECTOR ( 3 downto 0 );
     ena : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_bindec : entity is "bindec";
 end design_1_axi_bram_ctrl_0_bram_0_bindec;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_bindec is
@@ -300,6 +302,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux is
     \douta[26]_INST_0_i_2_6\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \douta[26]_INST_0_i_2_7\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux : entity is "blk_mem_gen_mux";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux is
@@ -2541,6 +2545,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init is
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init is
@@ -18643,6 +18649,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width is
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width is
@@ -20293,6 +20301,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr is
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr is
@@ -22042,6 +22052,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top is
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top is
@@ -22067,6 +22079,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth is
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth : entity is "blk_mem_gen_v8_4_2_synth";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth is
@@ -22300,6 +22314,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 is
   attribute C_WRITE_WIDTH_B of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is 32;
   attribute C_XDEVICEFAMILY : string;
   attribute C_XDEVICEFAMILY of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is "kintexu";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is "blk_mem_gen_v8_4_2";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is "yes";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2;
