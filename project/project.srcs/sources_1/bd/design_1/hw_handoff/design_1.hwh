@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Oct 30 21:09:58 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov  5 15:23:47 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -10,16 +10,6 @@
         <CONNECTION INSTANCE="rst_data_memory_300M" PORT="ext_reset_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_n" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_n">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_n"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_p" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_p">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_p"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
@@ -28,6 +18,16 @@
     <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
       <CONNECTIONS>
         <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_n" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_p" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_p">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_p"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1404,15 +1404,15 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aclk"/>
             <CONNECTION INSTANCE="rst_data_memory_300M" PORT="slowest_sync_clk"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
+            <CONNECTION INSTANCE="axi_bram_ctrl_0_bram" PORT="clka"/>
+            <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clka"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
             <CONNECTION INSTANCE="write_0" PORT="clk"/>
             <CONNECTION INSTANCE="decode_0" PORT="clk"/>
-            <CONNECTION INSTANCE="axi_bram_ctrl_0_bram" PORT="clka"/>
-            <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clka"/>
             <CONNECTION INSTANCE="stall_0" PORT="clk"/>
             <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
             <CONNECTION INSTANCE="exec_0" PORT="clk"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -1539,6 +1539,11 @@
             <CONNECTION INSTANCE="exec_0" PORT="alu_command"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="O" LEFT="15" NAME="offset" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_offset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="exec_0" PORT="offset"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" LEFT="31" NAME="pc_out" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_pc_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="exec_0" PORT="pc"/>
@@ -1651,6 +1656,11 @@
             <CONNECTION INSTANCE="decode_0" PORT="alu_command"/>
           </CONNECTIONS>
         </PORT>
+        <PORT DIR="I" LEFT="15" NAME="offset" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_offset">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="offset"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" LEFT="31" NAME="pc" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_pc_out">
           <CONNECTIONS>
             <CONNECTION INSTANCE="decode_0" PORT="pc_out"/>
@@ -1755,6 +1765,11 @@
         <PORT DIR="I" NAME="uart_rdone" SIGIS="undef" SIGNAME="uart_buffer_0_rdone">
           <CONNECTIONS>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rdone"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="1" NAME="uart_rsz" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_uart_rsz">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="rsize"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="31" NAME="uart_rd" RIGHT="0" SIGIS="undef" SIGNAME="uart_buffer_0_rdata">
@@ -1914,13 +1929,13 @@
         <PORT DIR="O" LEFT="0" NAME="peripheral_aresetn" RIGHT="0" SIGIS="rst" SIGNAME="rst_data_memory_300M_peripheral_aresetn">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
             <CONNECTION INSTANCE="write_0" PORT="rstn"/>
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
             <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
             <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
             <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -2006,6 +2021,11 @@
         <PORT DIR="O" NAME="rdone" SIGIS="undef" SIGNAME="uart_buffer_0_rdone">
           <CONNECTIONS>
             <CONNECTION INSTANCE="exec_0" PORT="uart_rdone"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="1" NAME="rsize" RIGHT="0" SIGIS="undef" SIGNAME="exec_0_uart_rsz">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="exec_0" PORT="uart_rsz"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="rdata" RIGHT="0" SIGIS="undef" SIGNAME="uart_buffer_0_rdata">

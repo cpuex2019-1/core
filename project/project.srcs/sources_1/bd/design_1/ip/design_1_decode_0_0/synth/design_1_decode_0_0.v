@@ -62,6 +62,7 @@ module design_1_decode_0_0 (
   command,
   exec_command,
   alu_command,
+  offset,
   pc_out,
   addr,
   rs,
@@ -86,6 +87,7 @@ input wire [31 : 0] pc;
 input wire [31 : 0] command;
 output wire [5 : 0] exec_command;
 output wire [5 : 0] alu_command;
+output wire [15 : 0] offset;
 output wire [31 : 0] pc_out;
 output wire [31 : 0] addr;
 output wire [31 : 0] rs;
@@ -114,6 +116,7 @@ input wire rstn;
     .command(command),
     .exec_command(exec_command),
     .alu_command(alu_command),
+    .offset(offset),
     .pc_out(pc_out),
     .addr(addr),
     .rs(rs),

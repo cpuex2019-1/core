@@ -45,12 +45,6 @@ wire carry, ulp, guard, round, sticky, flag;
 // 符号を決める
 assign sign_d = sign_g;
 
-// 指数を決める
-// FIXME: 繰り上がりの関係で変更になるはず
-// assign exponent_d = exponent_g;
-
-// 仮数を決める
-
 // NOTE: 非正規化処理を加える
 wire s_is_denormalized, t_is_denormalized;
 wire g_is_denormalized, l_is_denormalized;
@@ -83,7 +77,6 @@ assign one_mantissa_l =
 
 // 仮数の桁を揃えるために指数の差を計算し、その分だけone_mantissa_lを右シフトする
 // 計算自体は27bit(先の25bitにulpとguard bitがつく)だが、round bitのためにそれ以下の桁も必要になる
-// FIXME: 差が大きかったときに例外処理を行う
 // carry + 1. + mantissa + 31bit
 // 31bitの先頭がguard bit、その次がround bit、それ以降がsticky bitになる
 wire [7:0] relative_scale;
@@ -155,10 +148,6 @@ is_add ?
 
 assign one_mantissa_d_scaled = one_mantissa_d_56bit[26:2];
 
-// DEBUG:
-assign man_d_56bit = one_mantissa_d_56bit;
-assign man_l_56bit = one_mantissa_l_56bit;
-
 // 丸めを行う
 // NOTE:
 // G and (ulp or R or (sticky and is_add)) 
@@ -174,9 +163,6 @@ assign flag =
     (ulp && guard && (~round) && (~sticky)) ||
     (guard && (~round) && sticky && (sign_s == sign_t)) ||
     (guard && round);
-//assign flag = guard & (ulp | round | (sticky & is_add));
-// assign mantissa_d_rounded[24:1] = one_mantissa_d_scaled[24:1];
-// assign mantissa_d_rounded[0:0] = flag;
 assign mantissa_d_rounded = one_mantissa_d_scaled + {24'b0, flag};
 
 assign carry_round = mantissa_d_rounded[24:24];
@@ -246,7 +232,7 @@ assign d_is_s =
 assign d_is_t =
     s_is_zero || (s_less_than_t && relative_scale > 8'b00011000);
 
-// DEBUG: 原因究明中
+// FIXME: これは何？
 wire [45:0] tmp1, tmp2, tmp3;
 wire [22:0] tmp4;
 assign tmp1 = {23'b0, mantissa_d} << (exponent_d - 8'b1);
@@ -276,10 +262,9 @@ assign d =
         {sign_s, exponent_s, mantissa_s}
     : (d_is_t ?
         {sign_t, exponent_t, mantissa_t}
-    // DEBUG:
     : (s_is_denormalized || t_is_denormalized ? 
         {sign_d, exponent_d, tmp4}
-    :
+    : shift_left == 5'd26 ? 32'h0 :
         {sign_d, exponent_d, mantissa_d}
     ))))))));
 

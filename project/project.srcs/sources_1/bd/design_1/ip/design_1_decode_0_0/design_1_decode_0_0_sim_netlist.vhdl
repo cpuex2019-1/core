@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Wed Oct 30 21:10:58 2019
+-- Date        : Tue Nov  5 15:25:40 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_decode_0_0/design_1_decode_0_0_sim_netlist.vhdl
@@ -18,12 +18,11 @@ entity design_1_decode_0_0_decode is
   port (
     done : out STD_LOGIC;
     exec_command : out STD_LOGIC_VECTOR ( 5 downto 0 );
-    alu_command : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    offset : out STD_LOGIC_VECTOR ( 15 downto 0 );
     pc_out : out STD_LOGIC_VECTOR ( 31 downto 0 );
     addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
     rs : out STD_LOGIC_VECTOR ( 31 downto 0 );
     rt : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    sh : out STD_LOGIC_VECTOR ( 4 downto 0 );
     rd : out STD_LOGIC_VECTOR ( 4 downto 0 );
     rs_no : out STD_LOGIC_VECTOR ( 4 downto 0 );
     rt_no : out STD_LOGIC_VECTOR ( 4 downto 0 );
@@ -1338,7 +1337,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       C => clk,
       CE => \exec_command[5]_i_1_n_0\,
       D => command(0),
-      Q => alu_command(0),
+      Q => offset(0),
       R => '0'
     );
 \alu_command_reg[1]\: unisim.vcomponents.FDRE
@@ -1346,7 +1345,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       C => clk,
       CE => \exec_command[5]_i_1_n_0\,
       D => command(1),
-      Q => alu_command(1),
+      Q => offset(1),
       R => '0'
     );
 \alu_command_reg[2]\: unisim.vcomponents.FDRE
@@ -1354,7 +1353,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       C => clk,
       CE => \exec_command[5]_i_1_n_0\,
       D => command(2),
-      Q => alu_command(2),
+      Q => offset(2),
       R => '0'
     );
 \alu_command_reg[3]\: unisim.vcomponents.FDRE
@@ -1362,7 +1361,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       C => clk,
       CE => \exec_command[5]_i_1_n_0\,
       D => command(3),
-      Q => alu_command(3),
+      Q => offset(3),
       R => '0'
     );
 \alu_command_reg[4]\: unisim.vcomponents.FDRE
@@ -1370,7 +1369,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       C => clk,
       CE => \exec_command[5]_i_1_n_0\,
       D => command(4),
-      Q => alu_command(4),
+      Q => offset(4),
       R => '0'
     );
 \alu_command_reg[5]\: unisim.vcomponents.FDRE
@@ -1378,7 +1377,7 @@ addr0_carry_i_8: unisim.vcomponents.LUT2
       C => clk,
       CE => \exec_command[5]_i_1_n_0\,
       D => command(5),
-      Q => alu_command(5),
+      Q => offset(5),
       R => '0'
     );
 done_i_1: unisim.vcomponents.LUT1
@@ -1517,6 +1516,86 @@ fmode2_reg: unisim.vcomponents.FDRE
       D => fmode20,
       Q => fmode2,
       R => done_i_1_n_0
+    );
+\offset_reg[10]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(10),
+      Q => offset(10),
+      R => '0'
+    );
+\offset_reg[11]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(11),
+      Q => offset(11),
+      R => '0'
+    );
+\offset_reg[12]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(12),
+      Q => offset(12),
+      R => '0'
+    );
+\offset_reg[13]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(13),
+      Q => offset(13),
+      R => '0'
+    );
+\offset_reg[14]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(14),
+      Q => offset(14),
+      R => '0'
+    );
+\offset_reg[15]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(15),
+      Q => offset(15),
+      R => '0'
+    );
+\offset_reg[6]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(6),
+      Q => offset(6),
+      R => '0'
+    );
+\offset_reg[7]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(7),
+      Q => offset(7),
+      R => '0'
+    );
+\offset_reg[8]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(8),
+      Q => offset(8),
+      R => '0'
+    );
+\offset_reg[9]\: unisim.vcomponents.FDRE
+     port map (
+      C => clk,
+      CE => \exec_command[5]_i_1_n_0\,
+      D => command(9),
+      Q => offset(9),
+      R => '0'
     );
 \pc_out_reg[0]\: unisim.vcomponents.FDRE
      port map (
@@ -2857,46 +2936,6 @@ set_reg: unisim.vcomponents.FDRE
       Q => set_reg_n_0,
       R => done_i_1_n_0
     );
-\sh_reg[0]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \exec_command[5]_i_1_n_0\,
-      D => command(6),
-      Q => sh(0),
-      R => '0'
-    );
-\sh_reg[1]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \exec_command[5]_i_1_n_0\,
-      D => command(7),
-      Q => sh(1),
-      R => '0'
-    );
-\sh_reg[2]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \exec_command[5]_i_1_n_0\,
-      D => command(8),
-      Q => sh(2),
-      R => '0'
-    );
-\sh_reg[3]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \exec_command[5]_i_1_n_0\,
-      D => command(9),
-      Q => sh(3),
-      R => '0'
-    );
-\sh_reg[4]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => \exec_command[5]_i_1_n_0\,
-      D => command(10),
-      Q => sh(4),
-      R => '0'
-    );
 end STRUCTURE;
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -2910,6 +2949,7 @@ entity design_1_decode_0_0 is
     command : in STD_LOGIC_VECTOR ( 31 downto 0 );
     exec_command : out STD_LOGIC_VECTOR ( 5 downto 0 );
     alu_command : out STD_LOGIC_VECTOR ( 5 downto 0 );
+    offset : out STD_LOGIC_VECTOR ( 15 downto 0 );
     pc_out : out STD_LOGIC_VECTOR ( 31 downto 0 );
     addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
     rs : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -2941,6 +2981,8 @@ end design_1_decode_0_0;
 
 architecture STRUCTURE of design_1_decode_0_0 is
   signal \^command\ : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal \^offset\ : STD_LOGIC_VECTOR ( 15 downto 0 );
+  signal \^sh\ : STD_LOGIC_VECTOR ( 4 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
@@ -2949,11 +2991,15 @@ architecture STRUCTURE of design_1_decode_0_0 is
   attribute X_INTERFACE_PARAMETER of rstn : signal is "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0";
 begin
   \^command\(31 downto 0) <= command(31 downto 0);
+  alu_command(5 downto 0) <= \^offset\(5 downto 0);
+  offset(15 downto 11) <= \^offset\(15 downto 11);
+  offset(10 downto 6) <= \^sh\(4 downto 0);
+  offset(5 downto 0) <= \^offset\(5 downto 0);
   reg1(4 downto 0) <= \^command\(20 downto 16);
+  sh(4 downto 0) <= \^sh\(4 downto 0);
 inst: entity work.design_1_decode_0_0_decode
      port map (
       addr(31 downto 0) => addr(31 downto 0),
-      alu_command(5 downto 0) => alu_command(5 downto 0),
       clk => clk,
       command(31 downto 0) => \^command\(31 downto 0),
       done => done,
@@ -2961,6 +3007,9 @@ inst: entity work.design_1_decode_0_0_decode
       exec_command(5 downto 0) => exec_command(5 downto 0),
       fmode1 => fmode1,
       fmode2 => fmode2,
+      offset(15 downto 11) => \^offset\(15 downto 11),
+      offset(10 downto 6) => \^sh\(4 downto 0),
+      offset(5 downto 0) => \^offset\(5 downto 0),
       pc(31 downto 0) => pc(31 downto 0),
       pc_out(31 downto 0) => pc_out(31 downto 0),
       rd(4 downto 0) => rd(4 downto 0),
@@ -2971,7 +3020,6 @@ inst: entity work.design_1_decode_0_0_decode
       rs_no(4 downto 0) => rs_no(4 downto 0),
       rstn => rstn,
       rt(31 downto 0) => rt(31 downto 0),
-      rt_no(4 downto 0) => rt_no(4 downto 0),
-      sh(4 downto 0) => sh(4 downto 0)
+      rt_no(4 downto 0) => rt_no(4 downto 0)
     );
 end STRUCTURE;

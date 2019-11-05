@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Wed Oct 30 21:10:58 2019
+// Date        : Tue Nov  5 15:25:40 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_decode_0_0/design_1_decode_0_0_sim_netlist.v
@@ -22,6 +22,7 @@ module design_1_decode_0_0
     command,
     exec_command,
     alu_command,
+    offset,
     pc_out,
     addr,
     rs,
@@ -44,6 +45,7 @@ module design_1_decode_0_0
   input [31:0]command;
   output [5:0]exec_command;
   output [5:0]alu_command;
+  output [15:0]offset;
   output [31:0]pc_out;
   output [31:0]addr;
   output [31:0]rs;
@@ -62,7 +64,6 @@ module design_1_decode_0_0
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rstn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rstn;
 
   wire [31:0]addr;
-  wire [5:0]alu_command;
   wire clk;
   wire [31:0]command;
   wire done;
@@ -70,6 +71,7 @@ module design_1_decode_0_0
   wire [5:0]exec_command;
   wire fmode1;
   wire fmode2;
+  wire [15:0]\^offset ;
   wire [31:0]pc;
   wire [31:0]pc_out;
   wire [4:0]rd;
@@ -83,10 +85,13 @@ module design_1_decode_0_0
   wire [4:0]rt_no;
   wire [4:0]sh;
 
+  assign alu_command[5:0] = \^offset [5:0];
+  assign offset[15:11] = \^offset [15:11];
+  assign offset[10:6] = sh;
+  assign offset[5:0] = \^offset [5:0];
   assign reg1[4:0] = command[20:16];
   design_1_decode_0_0_decode inst
        (.addr(addr),
-        .alu_command(alu_command),
         .clk(clk),
         .command(command),
         .done(done),
@@ -94,6 +99,7 @@ module design_1_decode_0_0
         .exec_command(exec_command),
         .fmode1(fmode1),
         .fmode2(fmode2),
+        .offset({\^offset [15:11],sh,\^offset [5:0]}),
         .pc(pc),
         .pc_out(pc_out),
         .rd(rd),
@@ -104,20 +110,18 @@ module design_1_decode_0_0
         .rs_no(rs_no),
         .rstn(rstn),
         .rt(rt),
-        .rt_no(rt_no),
-        .sh(sh));
+        .rt_no(rt_no));
 endmodule
 
 (* ORIG_REF_NAME = "decode" *) 
 module design_1_decode_0_0_decode
    (done,
     exec_command,
-    alu_command,
+    offset,
     pc_out,
     addr,
     rs,
     rt,
-    sh,
     rd,
     rs_no,
     rt_no,
@@ -133,12 +137,11 @@ module design_1_decode_0_0_decode
     reg_out2);
   output done;
   output [5:0]exec_command;
-  output [5:0]alu_command;
+  output [15:0]offset;
   output [31:0]pc_out;
   output [31:0]addr;
   output [31:0]rs;
   output [31:0]rt;
-  output [4:0]sh;
   output [4:0]rd;
   output [4:0]rs_no;
   output [4:0]rt_no;
@@ -257,7 +260,6 @@ module design_1_decode_0_0_decode
   wire \addr[7]_i_1_n_0 ;
   wire \addr[8]_i_1_n_0 ;
   wire \addr[9]_i_1_n_0 ;
-  wire [5:0]alu_command;
   wire clk;
   wire [31:0]command;
   wire done;
@@ -271,6 +273,7 @@ module design_1_decode_0_0_decode
   wire fmode1_i_3_n_0;
   wire fmode2;
   wire fmode20;
+  wire [15:0]offset;
   wire [31:0]pc;
   wire [31:0]pc_out;
   wire [4:0]rd;
@@ -323,7 +326,6 @@ module design_1_decode_0_0_decode
   wire \rt_no[4]_i_2_n_0 ;
   wire set_i_1_n_0;
   wire set_reg_n_0;
-  wire [4:0]sh;
   wire [7:7]NLW_addr0_carry__2_CO_UNCONNECTED;
 
   CARRY8 addr0_carry
@@ -1082,37 +1084,37 @@ module design_1_decode_0_0_decode
        (.C(clk),
         .CE(\exec_command[5]_i_1_n_0 ),
         .D(command[0]),
-        .Q(alu_command[0]),
+        .Q(offset[0]),
         .R(1'b0));
   FDRE \alu_command_reg[1] 
        (.C(clk),
         .CE(\exec_command[5]_i_1_n_0 ),
         .D(command[1]),
-        .Q(alu_command[1]),
+        .Q(offset[1]),
         .R(1'b0));
   FDRE \alu_command_reg[2] 
        (.C(clk),
         .CE(\exec_command[5]_i_1_n_0 ),
         .D(command[2]),
-        .Q(alu_command[2]),
+        .Q(offset[2]),
         .R(1'b0));
   FDRE \alu_command_reg[3] 
        (.C(clk),
         .CE(\exec_command[5]_i_1_n_0 ),
         .D(command[3]),
-        .Q(alu_command[3]),
+        .Q(offset[3]),
         .R(1'b0));
   FDRE \alu_command_reg[4] 
        (.C(clk),
         .CE(\exec_command[5]_i_1_n_0 ),
         .D(command[4]),
-        .Q(alu_command[4]),
+        .Q(offset[4]),
         .R(1'b0));
   FDRE \alu_command_reg[5] 
        (.C(clk),
         .CE(\exec_command[5]_i_1_n_0 ),
         .D(command[5]),
-        .Q(alu_command[5]),
+        .Q(offset[5]),
         .R(1'b0));
   LUT1 #(
     .INIT(2'h1)) 
@@ -1218,6 +1220,66 @@ module design_1_decode_0_0_decode
         .D(fmode20),
         .Q(fmode2),
         .R(done_i_1_n_0));
+  FDRE \offset_reg[10] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[10]),
+        .Q(offset[10]),
+        .R(1'b0));
+  FDRE \offset_reg[11] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[11]),
+        .Q(offset[11]),
+        .R(1'b0));
+  FDRE \offset_reg[12] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[12]),
+        .Q(offset[12]),
+        .R(1'b0));
+  FDRE \offset_reg[13] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[13]),
+        .Q(offset[13]),
+        .R(1'b0));
+  FDRE \offset_reg[14] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[14]),
+        .Q(offset[14]),
+        .R(1'b0));
+  FDRE \offset_reg[15] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[15]),
+        .Q(offset[15]),
+        .R(1'b0));
+  FDRE \offset_reg[6] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[6]),
+        .Q(offset[6]),
+        .R(1'b0));
+  FDRE \offset_reg[7] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[7]),
+        .Q(offset[7]),
+        .R(1'b0));
+  FDRE \offset_reg[8] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[8]),
+        .Q(offset[8]),
+        .R(1'b0));
+  FDRE \offset_reg[9] 
+       (.C(clk),
+        .CE(\exec_command[5]_i_1_n_0 ),
+        .D(command[9]),
+        .Q(offset[9]),
+        .R(1'b0));
   FDRE \pc_out_reg[0] 
        (.C(clk),
         .CE(\exec_command[5]_i_1_n_0 ),
@@ -2234,36 +2296,6 @@ module design_1_decode_0_0_decode
         .D(set_i_1_n_0),
         .Q(set_reg_n_0),
         .R(done_i_1_n_0));
-  FDRE \sh_reg[0] 
-       (.C(clk),
-        .CE(\exec_command[5]_i_1_n_0 ),
-        .D(command[6]),
-        .Q(sh[0]),
-        .R(1'b0));
-  FDRE \sh_reg[1] 
-       (.C(clk),
-        .CE(\exec_command[5]_i_1_n_0 ),
-        .D(command[7]),
-        .Q(sh[1]),
-        .R(1'b0));
-  FDRE \sh_reg[2] 
-       (.C(clk),
-        .CE(\exec_command[5]_i_1_n_0 ),
-        .D(command[8]),
-        .Q(sh[2]),
-        .R(1'b0));
-  FDRE \sh_reg[3] 
-       (.C(clk),
-        .CE(\exec_command[5]_i_1_n_0 ),
-        .D(command[9]),
-        .Q(sh[3]),
-        .R(1'b0));
-  FDRE \sh_reg[4] 
-       (.C(clk),
-        .CE(\exec_command[5]_i_1_n_0 ),
-        .D(command[10]),
-        .Q(sh[4]),
-        .R(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

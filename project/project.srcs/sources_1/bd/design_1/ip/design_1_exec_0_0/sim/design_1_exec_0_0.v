@@ -59,6 +59,7 @@ module design_1_exec_0_0 (
   done,
   exec_command,
   alu_command,
+  offset,
   pc,
   addr,
   rs,
@@ -80,6 +81,7 @@ module design_1_exec_0_0 (
   uart_wd,
   uart_renable,
   uart_rdone,
+  uart_rsz,
   uart_rd,
   mem_addr,
   mem_wdata,
@@ -94,6 +96,7 @@ input wire enable;
 output wire done;
 input wire [5 : 0] exec_command;
 input wire [5 : 0] alu_command;
+input wire [15 : 0] offset;
 input wire [31 : 0] pc;
 input wire [31 : 0] addr;
 input wire [31 : 0] rs;
@@ -115,6 +118,7 @@ output wire [1 : 0] uart_wsz;
 output wire [31 : 0] uart_wd;
 output wire uart_renable;
 input wire uart_rdone;
+output wire [1 : 0] uart_rsz;
 input wire [31 : 0] uart_rd;
 output wire [18 : 0] mem_addr;
 output wire [31 : 0] mem_wdata;
@@ -133,6 +137,7 @@ input wire rstn;
     .done(done),
     .exec_command(exec_command),
     .alu_command(alu_command),
+    .offset(offset),
     .pc(pc),
     .addr(addr),
     .rs(rs),
@@ -154,6 +159,7 @@ input wire rstn;
     .uart_wd(uart_wd),
     .uart_renable(uart_renable),
     .uart_rdone(uart_rdone),
+    .uart_rsz(uart_rsz),
     .uart_rd(uart_rd),
     .mem_addr(mem_addr),
     .mem_wdata(mem_wdata),

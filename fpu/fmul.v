@@ -28,11 +28,7 @@ assign s_is_denormalized =
 assign t_is_denormalized =
     exponent_t == 8'd0;
 assign d_is_denormalized =
-// FIXME:
     {1'b0, exponent_s} + {1'b0, exponent_t} < 9'b010000000;
-
-//DEBUG:
-assign de = d_is_denormalized;
 
 // 指数が0ならば(数合わせのために)1にする
 wire [7:0] one_exponent_s, one_exponent_t;
@@ -86,7 +82,7 @@ assign shift_right =
 
 // NOTE: 左シフトはs/tが非正規化数であって、積が正規化数のときには0でない値をとる
 
-// FIXME: 指数より左シフトが大きければシフトしない
+// NOTE: 指数より左シフトが大きければシフトしない
 wire [7:0] shift;
 assign shift_left =
     {1'b0, one_exponent_s} + {1'b0, one_exponent_t} < {1'b0, shift} + 9'd127 ? 8'd0 : shift;
@@ -143,10 +139,6 @@ assign flag =
 
 assign one_mantissa_d = one_mantissa_d_24bit + {23'b0, flag};
 
-// 指数と仮数を決定する
-
-// 出力する
-
 assign overflow = 
     ({1'b0, exponent_s} + {1'b0, exponent_t} + {8'd0, carry}>= 9'b011111111 + 9'b001111111);
 assign underflow = 
@@ -171,8 +163,6 @@ assign mantissa_d =
         one_mantissa_d[22:0]
     : one_mantissa_d[22:0]
     ));
-
-// 出力の準備をする
 
 wire s_is_nan;
 assign s_is_nan =
@@ -214,10 +204,8 @@ assign d =
         {sign_d, 8'd0, 23'b0} 
     : (s_is_denormalized ?
         {sign_d, exponent_d, mantissa_d}
-        // {sign_d, exponent_d - shift_s, mantissa_d}
     : (t_is_denormalized ? 
         {sign_d, exponent_d, mantissa_d}
-        // {sign_d, exponent_d - shift_t, mantissa_d}
     : {sign_d, exponent_d, mantissa_d}
     )))))));
 
