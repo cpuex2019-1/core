@@ -50,10 +50,7 @@ module fetch(
 				pcenable_ <= enable ? 1'b0 : 1'b1;
 				pc_history <= 32'hffffffff;
 			end
-			// if(stall) begin
-			// 	command <= 32'hffffffff;
-			// end
-			if(set[0]) begin
+			if(set[1]) begin
 				command <= command == 32'hffffffff ? 32'h0 : inst_data;
 				done <= 1'b1;
 			end

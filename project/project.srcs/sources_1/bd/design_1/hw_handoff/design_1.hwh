@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov  5 15:23:47 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov  6 15:44:40 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -10,16 +10,6 @@
         <CONNECTION INSTANCE="rst_data_memory_300M" PORT="ext_reset_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
-      </CONNECTIONS>
-    </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_n" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_n">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_n"/>
@@ -28,6 +18,16 @@
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_p" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_p">
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_p"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -103,7 +103,7 @@
         <PARAMETER NAME="C_WRITE_DEPTH_B" VALUE="65536"/>
         <PARAMETER NAME="C_READ_DEPTH_B" VALUE="65536"/>
         <PARAMETER NAME="C_ADDRB_WIDTH" VALUE="16"/>
-        <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_B" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MUX_OUTPUT_REGS_A" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MUX_OUTPUT_REGS_B" VALUE="0"/>
@@ -164,7 +164,7 @@
         <PARAMETER NAME="Read_Width_B" VALUE="32"/>
         <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
         <PARAMETER NAME="Enable_B" VALUE="Always_Enabled"/>
-        <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="true"/>
+        <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Core" VALUE="false"/>
         <PARAMETER NAME="Use_REGCEA_Pin" VALUE="false"/>
         <PARAMETER NAME="Register_PortB_Output_of_Memory_Primitives" VALUE="false"/>
@@ -663,7 +663,7 @@
         <PARAMETER NAME="C_WRITE_DEPTH_B" VALUE="524288"/>
         <PARAMETER NAME="C_READ_DEPTH_B" VALUE="524288"/>
         <PARAMETER NAME="C_ADDRB_WIDTH" VALUE="19"/>
-        <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_A" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MEM_OUTPUT_REGS_B" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MUX_OUTPUT_REGS_A" VALUE="0"/>
         <PARAMETER NAME="C_HAS_MUX_OUTPUT_REGS_B" VALUE="0"/>
@@ -724,7 +724,7 @@
         <PARAMETER NAME="Read_Width_B" VALUE="32"/>
         <PARAMETER NAME="Operating_Mode_B" VALUE="WRITE_FIRST"/>
         <PARAMETER NAME="Enable_B" VALUE="Always_Enabled"/>
-        <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="true"/>
+        <PARAMETER NAME="Register_PortA_Output_of_Memory_Primitives" VALUE="false"/>
         <PARAMETER NAME="Register_PortA_Output_of_Memory_Core" VALUE="false"/>
         <PARAMETER NAME="Use_REGCEA_Pin" VALUE="false"/>
         <PARAMETER NAME="Register_PortB_Output_of_Memory_Primitives" VALUE="false"/>
@@ -1408,11 +1408,11 @@
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clka"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
             <CONNECTION INSTANCE="write_0" PORT="clk"/>
-            <CONNECTION INSTANCE="decode_0" PORT="clk"/>
             <CONNECTION INSTANCE="stall_0" PORT="clk"/>
-            <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
-            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
+            <CONNECTION INSTANCE="decode_0" PORT="clk"/>
+            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
+            <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -1931,11 +1931,11 @@
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
             <CONNECTION INSTANCE="write_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
             <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
