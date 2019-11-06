@@ -50,11 +50,13 @@ module exec(
 	reg stall_set;
 	reg[2:0] wselector_;
 	wire[2:0] wselector__;
+	wire[67:0] tmp_div10;
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
 	finv u_finv(ft, finv_d, finv_of, finv_uf);
 
+    assign tmp_div10 = {36'h0, rs_} * 68'hcccccccd;
 	assign wselector__ = wselector | wselector_;
 	assign rs_ = wselector__[1] && wselector__[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data : rs;
 	assign rt_ = wselector__[1] && wselector__[0] == fmode2 && (fmode2 || rd_out != 5'h0) && rd_out == rt_no ? data : rt;
@@ -123,14 +125,13 @@ module exec(
 							data <= pc + 32'h4;
 							pc_out <= {rs_[31:2], 2'b00};
 							wselector <= 3'b110;
+						end else if(alu_command == 6'b001100) begin	//ITOF
+							//TODO
+							//wselector <= 3'b011;
 						end else if(alu_command == 6'b011000) begin	//MUL
 							data <= rs_ * rt_;
-						end else if(alu_command == 6'b011010) begin	//DIV, MOD
-							if(sh === 5'b00010) begin
-								data <= rs_ / rt_;
-							end else begin
-								data <= rs_ % rt_;
-							end
+						end else if(alu_command == 6'b011010) begin	//DIV10
+							data <= tmp_div10[66:35];
 						end else if(alu_command == 6'b100000) begin	//ADD
 							data <= rs_ + rt_;
 						end else if(alu_command == 6'b100010) begin	//SUB
@@ -177,11 +178,25 @@ module exec(
 							wselector <= 3'b000;
 							fpu_set <= 1'b1;
 							done <= 1'b0;
+						end else if(alu_command == 6'b000100) begin	//SQRT
+							//TODO
+						end else if(alu_command == 6'b000101) begin	//SIN
+							//TODO
+						end else if(alu_command == 6'b000110) begin	//COS
+							//TODO
+						end else if(alu_command == 6'b000111) begin	//ATAN
+							//TODO
 						end else if(alu_command == 6'b001000) begin	//SLTF
 							data <= {31'h0, (rs_[31] == rt_[31] && ((rs_[30:0] < rt_[30:0])^rs_[31])) || (rs_[31] != rt_[31] && rs_[31])};
 							wselector <= 3'b010;
 						end else if(alu_command == 6'b001001) begin //FNEG
 							data <= {~rs_[31], rs_[30:0]};
+						end else if(alu_command == 6'b001010) begin //FABS
+							data <= {1'b0, rs_[30:0]};
+						end else if(alu_command == 6'b001011) begin //FLOOR
+							//TODO
+						end else if(alu_command == 6'b001100) begin //FTOI
+							//TODO
 						end else if(alu_command == 6'b111111) begin //MOVF
 							data <= rs;
 						end
