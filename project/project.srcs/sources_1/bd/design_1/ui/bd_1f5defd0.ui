@@ -11,9 +11,9 @@ preplace inst core_wrapper_0 -pg 1 -lvl 4 -y 310 -defaultsOSRD
 preplace inst rst_data_memory_300M -pg 1 -lvl 2 -y 540 -defaultsOSRD
 preplace inst axi_bram_ctrl_0_bram -pg 1 -lvl 5 -y 620 -defaultsOSRD
 preplace inst blk_mem_gen_0 -pg 1 -lvl 8 -y 390 -defaultsOSRD
+preplace inst fetch_0 -pg 1 -lvl 4 -y 590 -defaultsOSRD
 preplace inst exec_0 -pg 1 -lvl 7 -y 290 -defaultsOSRD
 preplace inst uart_buffer_0 -pg 1 -lvl 8 -y 120 -defaultsOSRD
-preplace inst fetch_0 -pg 1 -lvl 4 -y 590 -defaultsOSRD
 preplace inst stall_0 -pg 1 -lvl 6 -y 580 -defaultsOSRD
 preplace inst write_0 -pg 1 -lvl 3 -y 520 -defaultsOSRD
 preplace inst axi_uartlite_0 -pg 1 -lvl 9 -y 110 -defaultsOSRD

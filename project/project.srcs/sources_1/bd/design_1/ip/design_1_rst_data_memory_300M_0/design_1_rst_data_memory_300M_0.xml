@@ -30,7 +30,7 @@
           <spirit:name>FREQ_HZ</spirit:name>
           <spirit:displayName>Slowest Sync clock frequency</spirit:displayName>
           <spirit:description>Slowest Synchronous clock frequency</spirit:description>
-          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLOCK.FREQ_HZ">20000000</spirit:value>
+          <spirit:value spirit:format="long" spirit:resolve="user" spirit:id="BUSIFPARAM_VALUE.CLOCK.FREQ_HZ">36000000</spirit:value>
         </spirit:parameter>
         <spirit:parameter>
           <spirit:name>PHASE</spirit:name>
@@ -385,11 +385,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 05 06:23:43 UTC 2019</spirit:value>
+            <spirit:value>Wed Nov 06 08:14:00 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a1310d7</spirit:value>
+            <spirit:value>9:259c0a62</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -403,11 +403,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 05 06:23:43 UTC 2019</spirit:value>
+            <spirit:value>Wed Nov 06 08:14:00 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a1310d7</spirit:value>
+            <spirit:value>9:259c0a62</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -423,11 +423,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 05 06:23:43 UTC 2019</spirit:value>
+            <spirit:value>Wed Nov 06 08:14:00 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a1310d7</spirit:value>
+            <spirit:value>9:259c0a62</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -446,11 +446,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 05 06:23:42 UTC 2019</spirit:value>
+            <spirit:value>Wed Nov 06 06:44:38 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:34f2cc46</spirit:value>
+            <spirit:value>9:f3f02a23</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -466,11 +466,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 05 06:23:43 UTC 2019</spirit:value>
+            <spirit:value>Wed Nov 06 08:14:00 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:34f2cc46</spirit:value>
+            <spirit:value>9:f3f02a23</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -484,11 +484,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 05 06:23:43 UTC 2019</spirit:value>
+            <spirit:value>Wed Nov 06 08:14:00 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a1310d7</spirit:value>
+            <spirit:value>9:259c0a62</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -502,11 +502,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Nov 05 06:23:51 UTC 2019</spirit:value>
+            <spirit:value>Wed Nov 06 08:14:49 UTC 2019</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:7a1310d7</spirit:value>
+            <spirit:value>9:259c0a62</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -836,6 +836,18 @@
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
       <spirit:file>
+        <spirit:name>design_1_rst_data_memory_300M_0_stub.v</spirit:name>
+        <spirit:fileType>verilogSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
+        <spirit:name>design_1_rst_data_memory_300M_0_stub.vhdl</spirit:name>
+        <spirit:fileType>vhdlSource</spirit:fileType>
+        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
+        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
+      </spirit:file>
+      <spirit:file>
         <spirit:name>design_1_rst_data_memory_300M_0_sim_netlist.v</spirit:name>
         <spirit:fileType>verilogSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
@@ -847,18 +859,6 @@
         <spirit:fileType>vhdlSource</spirit:fileType>
         <spirit:userFileType>USED_IN_simulation</spirit:userFileType>
         <spirit:userFileType>USED_IN_single_language</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_rst_data_memory_300M_0_stub.v</spirit:name>
-        <spirit:fileType>verilogSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
-        <spirit:logicalName>xil_defaultlib</spirit:logicalName>
-      </spirit:file>
-      <spirit:file>
-        <spirit:name>design_1_rst_data_memory_300M_0_stub.vhdl</spirit:name>
-        <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>USED_IN_synth_blackbox_stub</spirit:userFileType>
         <spirit:logicalName>xil_defaultlib</spirit:logicalName>
       </spirit:file>
     </spirit:fileSet>

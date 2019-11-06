@@ -185,7 +185,7 @@ proc create_root_design { parentCell } {
    CONFIG.Load_Init_File {true} \
    CONFIG.Memory_Type {Single_Port_ROM} \
    CONFIG.Port_A_Write_Rate {0} \
-   CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
+   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
    CONFIG.Use_Byte_Write_Enable {false} \
    CONFIG.Use_RSTA_Pin {false} \
    CONFIG.use_bram_block {Stand_Alone} \
@@ -195,8 +195,8 @@ proc create_root_design { parentCell } {
   set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
   set_property -dict [ list \
    CONFIG.C_BAUDRATE {115200} \
-   CONFIG.C_S_AXI_ACLK_FREQ_HZ {20000000} \
-   CONFIG.C_S_AXI_ACLK_FREQ_HZ_d {20} \
+   CONFIG.C_S_AXI_ACLK_FREQ_HZ {36000000} \
+   CONFIG.C_S_AXI_ACLK_FREQ_HZ_d {36} \
    CONFIG.UARTLITE_BOARD_INTERFACE {rs232_uart} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_uartlite_0
@@ -211,7 +211,8 @@ proc create_root_design { parentCell } {
    CONFIG.Load_Init_File {false} \
    CONFIG.Read_Width_A {32} \
    CONFIG.Read_Width_B {32} \
-   CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
+   CONFIG.Register_PortA_Output_of_Memory_Core {false} \
+   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
    CONFIG.Use_Byte_Write_Enable {true} \
    CONFIG.Use_RSTA_Pin {false} \
    CONFIG.Write_Width_A {32} \
@@ -222,14 +223,14 @@ proc create_root_design { parentCell } {
   # Create instance: clk_wiz, and set properties
   set clk_wiz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz ]
   set_property -dict [ list \
-   CONFIG.CLKOUT1_JITTER {172.798} \
-   CONFIG.CLKOUT1_PHASE_ERROR {96.948} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {20} \
+   CONFIG.CLKOUT1_JITTER {256.973} \
+   CONFIG.CLKOUT1_PHASE_ERROR {234.038} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {36} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sysclk_125} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {8.000} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {40.500} \
    CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {50.000} \
-   CONFIG.MMCM_DIVCLK_DIVIDE {1} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {28.125} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {5} \
    CONFIG.RESET_BOARD_INTERFACE {reset} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $clk_wiz

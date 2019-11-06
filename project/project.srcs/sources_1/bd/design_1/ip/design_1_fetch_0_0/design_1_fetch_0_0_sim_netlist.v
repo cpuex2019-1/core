@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Tue Nov  5 15:25:38 2019
+// Date        : Wed Nov  6 17:14:56 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_fetch_0_0/design_1_fetch_0_0_sim_netlist.v
@@ -38,7 +38,7 @@ module design_1_fetch_0_0
   output inst_enable;
   output [15:0]inst_addr;
   input [31:0]inst_data;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 20000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 36000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rstn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input rstn;
 
   wire \<const1> ;
@@ -175,7 +175,6 @@ module design_1_fetch_0_0_fetch
   wire [31:0]next_pc;
   wire p_0_in;
   wire p_1_in;
-  wire p_2_in;
   wire [31:0]pc;
   wire \pc[31]_i_2_n_0 ;
   wire [31:0]pc_;
@@ -238,7 +237,6 @@ module design_1_fetch_0_0_fetch
   wire pcenable__i_1_n_0;
   wire pcenable__reg_n_0;
   wire rstn;
-  wire \set[0]_i_1_n_0 ;
   wire [7:6]\NLW_pc_2_inferred__0/i__carry__2_CO_UNCONNECTED ;
   wire [7:7]\NLW_pc_2_inferred__0/i__carry__2_O_UNCONNECTED ;
   wire [7:0]NLW_pc_3_carry_O_UNCONNECTED;
@@ -1939,24 +1937,11 @@ module design_1_fetch_0_0_fetch
         .D(pcenable__i_1_n_0),
         .Q(pcenable__reg_n_0),
         .R(1'b0));
-  LUT3 #(
-    .INIT(8'h08)) 
-    \set[0]_i_1 
-       (.I0(p_2_in),
-        .I1(rstn),
-        .I2(enable),
-        .O(\set[0]_i_1_n_0 ));
-  FDRE \set_reg[0] 
-       (.C(clk),
-        .CE(1'b1),
-        .D(\set[0]_i_1_n_0 ),
-        .Q(p_1_in),
-        .R(1'b0));
   FDRE \set_reg[1] 
        (.C(clk),
         .CE(1'b1),
         .D(enable),
-        .Q(p_2_in),
+        .Q(p_1_in),
         .R(p_0_in));
 endmodule
 `ifndef GLBL
