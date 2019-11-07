@@ -229,7 +229,7 @@ module exec(
 					done <= 1'b0;
 				end
 			end
-			if(mem_set[0]) begin
+			if(mem_set[1]) begin
 				data <= exec_command_ == 6'b100000 ? {24'h0, mem_rdata[7:0]} : mem_rdata;
 				wselector <= {2'b01, exec_command_ == 6'b110001};
 				done <= 1'b1;

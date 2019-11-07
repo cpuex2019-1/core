@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Mon Nov  4 15:39:31 2019
+-- Date        : Thu Nov  7 14:15:25 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim -rename_top design_1_axi_bram_ctrl_0_bram_0 -prefix
---               design_1_axi_bram_ctrl_0_bram_0_ design_1_axi_bram_ctrl_0_bram_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_bram_0/design_1_axi_bram_ctrl_0_bram_0_sim_netlist.vhdl
 -- Design      : design_1_axi_bram_ctrl_0_bram_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -20,6 +20,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_bindec is
     addra : in STD_LOGIC_VECTOR ( 3 downto 0 );
     ena : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_bindec : entity is "bindec";
 end design_1_axi_bram_ctrl_0_bram_0_bindec;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_bindec is
@@ -300,6 +302,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux is
     \douta[26]_INST_0_i_2_6\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \douta[26]_INST_0_i_2_7\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux : entity is "blk_mem_gen_mux";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux is
@@ -466,28 +470,27 @@ architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux is
   signal \douta[9]_INST_0_i_5_n_0\ : STD_LOGIC;
   signal \douta[9]_INST_0_i_6_n_0\ : STD_LOGIC;
   signal sel_pipe : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal sel_pipe_d1 : STD_LOGIC_VECTOR ( 3 downto 0 );
 begin
 \douta[0]_INST_0\: unisim.vcomponents.MUXF8
      port map (
       I0 => \douta[0]_INST_0_i_1_n_0\,
       I1 => \douta[0]_INST_0_i_2_n_0\,
       O => douta(0),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[0]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[0]_INST_0_i_3_n_0\,
       I1 => \douta[0]_INST_0_i_4_n_0\,
       O => \douta[0]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[0]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[0]_INST_0_i_5_n_0\,
       I1 => \douta[0]_INST_0_i_6_n_0\,
       O => \douta[0]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[0]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -496,9 +499,9 @@ begin
         port map (
       I0 => DOUTADOUT(0),
       I1 => \douta[7]_INST_0_i_1_0\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_1\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(0),
       O => \douta[0]_INST_0_i_3_n_0\
     );
@@ -509,9 +512,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_1_2\(0),
       I1 => \douta[7]_INST_0_i_1_3\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_4\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_1_5\(0),
       O => \douta[0]_INST_0_i_4_n_0\
     );
@@ -522,9 +525,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_0\(0),
       I1 => \douta[7]_INST_0_i_2_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_3\(0),
       O => \douta[0]_INST_0_i_5_n_0\
     );
@@ -535,9 +538,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_4\(0),
       I1 => \douta[7]_INST_0_i_2_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_7\(0),
       O => \douta[0]_INST_0_i_6_n_0\
     );
@@ -546,21 +549,21 @@ begin
       I0 => \douta[10]_INST_0_i_1_n_0\,
       I1 => \douta[10]_INST_0_i_2_n_0\,
       O => douta(10),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[10]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[10]_INST_0_i_3_n_0\,
       I1 => \douta[10]_INST_0_i_4_n_0\,
       O => \douta[10]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[10]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[10]_INST_0_i_5_n_0\,
       I1 => \douta[10]_INST_0_i_6_n_0\,
       O => \douta[10]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[10]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -569,9 +572,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_0\(1),
       I1 => \douta[16]_INST_0_i_1_1\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_2\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_3\(1),
       O => \douta[10]_INST_0_i_3_n_0\
     );
@@ -582,9 +585,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_4\(1),
       I1 => \douta[16]_INST_0_i_1_5\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_6\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_7\(1),
       O => \douta[10]_INST_0_i_4_n_0\
     );
@@ -595,9 +598,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_0\(1),
       I1 => \douta[16]_INST_0_i_2_1\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_2\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_3\(1),
       O => \douta[10]_INST_0_i_5_n_0\
     );
@@ -608,9 +611,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_4\(1),
       I1 => \douta[16]_INST_0_i_2_5\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_6\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_7\(1),
       O => \douta[10]_INST_0_i_6_n_0\
     );
@@ -619,21 +622,21 @@ begin
       I0 => \douta[11]_INST_0_i_1_n_0\,
       I1 => \douta[11]_INST_0_i_2_n_0\,
       O => douta(11),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[11]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[11]_INST_0_i_3_n_0\,
       I1 => \douta[11]_INST_0_i_4_n_0\,
       O => \douta[11]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[11]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[11]_INST_0_i_5_n_0\,
       I1 => \douta[11]_INST_0_i_6_n_0\,
       O => \douta[11]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[11]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -642,9 +645,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_0\(2),
       I1 => \douta[16]_INST_0_i_1_1\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_2\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_3\(2),
       O => \douta[11]_INST_0_i_3_n_0\
     );
@@ -655,9 +658,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_4\(2),
       I1 => \douta[16]_INST_0_i_1_5\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_6\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_7\(2),
       O => \douta[11]_INST_0_i_4_n_0\
     );
@@ -668,9 +671,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_0\(2),
       I1 => \douta[16]_INST_0_i_2_1\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_2\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_3\(2),
       O => \douta[11]_INST_0_i_5_n_0\
     );
@@ -681,9 +684,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_4\(2),
       I1 => \douta[16]_INST_0_i_2_5\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_6\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_7\(2),
       O => \douta[11]_INST_0_i_6_n_0\
     );
@@ -692,21 +695,21 @@ begin
       I0 => \douta[12]_INST_0_i_1_n_0\,
       I1 => \douta[12]_INST_0_i_2_n_0\,
       O => douta(12),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[12]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[12]_INST_0_i_3_n_0\,
       I1 => \douta[12]_INST_0_i_4_n_0\,
       O => \douta[12]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[12]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[12]_INST_0_i_5_n_0\,
       I1 => \douta[12]_INST_0_i_6_n_0\,
       O => \douta[12]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[12]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -715,9 +718,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_0\(3),
       I1 => \douta[16]_INST_0_i_1_1\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_2\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_3\(3),
       O => \douta[12]_INST_0_i_3_n_0\
     );
@@ -728,9 +731,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_4\(3),
       I1 => \douta[16]_INST_0_i_1_5\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_6\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_7\(3),
       O => \douta[12]_INST_0_i_4_n_0\
     );
@@ -741,9 +744,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_0\(3),
       I1 => \douta[16]_INST_0_i_2_1\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_2\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_3\(3),
       O => \douta[12]_INST_0_i_5_n_0\
     );
@@ -754,9 +757,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_4\(3),
       I1 => \douta[16]_INST_0_i_2_5\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_6\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_7\(3),
       O => \douta[12]_INST_0_i_6_n_0\
     );
@@ -765,21 +768,21 @@ begin
       I0 => \douta[13]_INST_0_i_1_n_0\,
       I1 => \douta[13]_INST_0_i_2_n_0\,
       O => douta(13),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[13]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[13]_INST_0_i_3_n_0\,
       I1 => \douta[13]_INST_0_i_4_n_0\,
       O => \douta[13]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[13]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[13]_INST_0_i_5_n_0\,
       I1 => \douta[13]_INST_0_i_6_n_0\,
       O => \douta[13]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[13]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -788,9 +791,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_0\(4),
       I1 => \douta[16]_INST_0_i_1_1\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_2\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_3\(4),
       O => \douta[13]_INST_0_i_3_n_0\
     );
@@ -801,9 +804,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_4\(4),
       I1 => \douta[16]_INST_0_i_1_5\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_6\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_7\(4),
       O => \douta[13]_INST_0_i_4_n_0\
     );
@@ -814,9 +817,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_0\(4),
       I1 => \douta[16]_INST_0_i_2_1\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_2\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_3\(4),
       O => \douta[13]_INST_0_i_5_n_0\
     );
@@ -827,9 +830,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_4\(4),
       I1 => \douta[16]_INST_0_i_2_5\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_6\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_7\(4),
       O => \douta[13]_INST_0_i_6_n_0\
     );
@@ -838,21 +841,21 @@ begin
       I0 => \douta[14]_INST_0_i_1_n_0\,
       I1 => \douta[14]_INST_0_i_2_n_0\,
       O => douta(14),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[14]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[14]_INST_0_i_3_n_0\,
       I1 => \douta[14]_INST_0_i_4_n_0\,
       O => \douta[14]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[14]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[14]_INST_0_i_5_n_0\,
       I1 => \douta[14]_INST_0_i_6_n_0\,
       O => \douta[14]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[14]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -861,9 +864,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_0\(5),
       I1 => \douta[16]_INST_0_i_1_1\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_2\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_3\(5),
       O => \douta[14]_INST_0_i_3_n_0\
     );
@@ -874,9 +877,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_4\(5),
       I1 => \douta[16]_INST_0_i_1_5\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_6\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_7\(5),
       O => \douta[14]_INST_0_i_4_n_0\
     );
@@ -887,9 +890,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_0\(5),
       I1 => \douta[16]_INST_0_i_2_1\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_2\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_3\(5),
       O => \douta[14]_INST_0_i_5_n_0\
     );
@@ -900,9 +903,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_4\(5),
       I1 => \douta[16]_INST_0_i_2_5\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_6\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_7\(5),
       O => \douta[14]_INST_0_i_6_n_0\
     );
@@ -911,21 +914,21 @@ begin
       I0 => \douta[15]_INST_0_i_1_n_0\,
       I1 => \douta[15]_INST_0_i_2_n_0\,
       O => douta(15),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[15]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[15]_INST_0_i_3_n_0\,
       I1 => \douta[15]_INST_0_i_4_n_0\,
       O => \douta[15]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[15]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[15]_INST_0_i_5_n_0\,
       I1 => \douta[15]_INST_0_i_6_n_0\,
       O => \douta[15]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[15]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -934,9 +937,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_0\(6),
       I1 => \douta[16]_INST_0_i_1_1\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_2\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_3\(6),
       O => \douta[15]_INST_0_i_3_n_0\
     );
@@ -947,9 +950,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_4\(6),
       I1 => \douta[16]_INST_0_i_1_5\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_6\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_7\(6),
       O => \douta[15]_INST_0_i_4_n_0\
     );
@@ -960,9 +963,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_0\(6),
       I1 => \douta[16]_INST_0_i_2_1\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_2\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_3\(6),
       O => \douta[15]_INST_0_i_5_n_0\
     );
@@ -973,9 +976,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_4\(6),
       I1 => \douta[16]_INST_0_i_2_5\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_6\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_7\(6),
       O => \douta[15]_INST_0_i_6_n_0\
     );
@@ -984,21 +987,21 @@ begin
       I0 => \douta[16]_INST_0_i_1_n_0\,
       I1 => \douta[16]_INST_0_i_2_n_0\,
       O => douta(16),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[16]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[16]_INST_0_i_3_n_0\,
       I1 => \douta[16]_INST_0_i_4_n_0\,
       O => \douta[16]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[16]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[16]_INST_0_i_5_n_0\,
       I1 => \douta[16]_INST_0_i_6_n_0\,
       O => \douta[16]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[16]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1007,9 +1010,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_0\(7),
       I1 => \douta[16]_INST_0_i_1_1\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_2\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_3\(7),
       O => \douta[16]_INST_0_i_3_n_0\
     );
@@ -1020,9 +1023,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_4\(7),
       I1 => \douta[16]_INST_0_i_1_5\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_6\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_7\(7),
       O => \douta[16]_INST_0_i_4_n_0\
     );
@@ -1033,9 +1036,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_0\(7),
       I1 => \douta[16]_INST_0_i_2_1\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_2\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_3\(7),
       O => \douta[16]_INST_0_i_5_n_0\
     );
@@ -1046,9 +1049,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_4\(7),
       I1 => \douta[16]_INST_0_i_2_5\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_6\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_7\(7),
       O => \douta[16]_INST_0_i_6_n_0\
     );
@@ -1057,21 +1060,21 @@ begin
       I0 => \douta[17]_INST_0_i_1_n_0\,
       I1 => \douta[17]_INST_0_i_2_n_0\,
       O => douta(17),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[17]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[17]_INST_0_i_3_n_0\,
       I1 => \douta[17]_INST_0_i_4_n_0\,
       O => \douta[17]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[17]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[17]_INST_0_i_5_n_0\,
       I1 => \douta[17]_INST_0_i_6_n_0\,
       O => \douta[17]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[17]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1080,9 +1083,9 @@ begin
         port map (
       I0 => \douta[17]_INST_0_i_1_0\(0),
       I1 => \douta[17]_INST_0_i_1_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[17]_INST_0_i_1_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[17]_INST_0_i_1_3\(0),
       O => \douta[17]_INST_0_i_3_n_0\
     );
@@ -1093,9 +1096,9 @@ begin
         port map (
       I0 => \douta[17]_INST_0_i_1_4\(0),
       I1 => \douta[17]_INST_0_i_1_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[17]_INST_0_i_1_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[17]_INST_0_i_1_7\(0),
       O => \douta[17]_INST_0_i_4_n_0\
     );
@@ -1106,9 +1109,9 @@ begin
         port map (
       I0 => \douta[17]_INST_0_i_2_0\(0),
       I1 => \douta[17]_INST_0_i_2_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[17]_INST_0_i_2_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[17]_INST_0_i_2_3\(0),
       O => \douta[17]_INST_0_i_5_n_0\
     );
@@ -1119,9 +1122,9 @@ begin
         port map (
       I0 => \douta[17]_INST_0_i_2_4\(0),
       I1 => \douta[17]_INST_0_i_2_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[17]_INST_0_i_2_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[17]_INST_0_i_2_7\(0),
       O => \douta[17]_INST_0_i_6_n_0\
     );
@@ -1130,21 +1133,21 @@ begin
       I0 => \douta[18]_INST_0_i_1_n_0\,
       I1 => \douta[18]_INST_0_i_2_n_0\,
       O => douta(18),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[18]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[18]_INST_0_i_3_n_0\,
       I1 => \douta[18]_INST_0_i_4_n_0\,
       O => \douta[18]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[18]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[18]_INST_0_i_5_n_0\,
       I1 => \douta[18]_INST_0_i_6_n_0\,
       O => \douta[18]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[18]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1153,9 +1156,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_0\(0),
       I1 => \douta[25]_INST_0_i_1_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_3\(0),
       O => \douta[18]_INST_0_i_3_n_0\
     );
@@ -1166,9 +1169,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_4\(0),
       I1 => \douta[25]_INST_0_i_1_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_7\(0),
       O => \douta[18]_INST_0_i_4_n_0\
     );
@@ -1179,9 +1182,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_0\(0),
       I1 => \douta[25]_INST_0_i_2_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_3\(0),
       O => \douta[18]_INST_0_i_5_n_0\
     );
@@ -1192,9 +1195,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_4\(0),
       I1 => \douta[25]_INST_0_i_2_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_7\(0),
       O => \douta[18]_INST_0_i_6_n_0\
     );
@@ -1203,21 +1206,21 @@ begin
       I0 => \douta[19]_INST_0_i_1_n_0\,
       I1 => \douta[19]_INST_0_i_2_n_0\,
       O => douta(19),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[19]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[19]_INST_0_i_3_n_0\,
       I1 => \douta[19]_INST_0_i_4_n_0\,
       O => \douta[19]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[19]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[19]_INST_0_i_5_n_0\,
       I1 => \douta[19]_INST_0_i_6_n_0\,
       O => \douta[19]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[19]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1226,9 +1229,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_0\(1),
       I1 => \douta[25]_INST_0_i_1_1\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_2\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_3\(1),
       O => \douta[19]_INST_0_i_3_n_0\
     );
@@ -1239,9 +1242,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_4\(1),
       I1 => \douta[25]_INST_0_i_1_5\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_6\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_7\(1),
       O => \douta[19]_INST_0_i_4_n_0\
     );
@@ -1252,9 +1255,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_0\(1),
       I1 => \douta[25]_INST_0_i_2_1\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_2\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_3\(1),
       O => \douta[19]_INST_0_i_5_n_0\
     );
@@ -1265,9 +1268,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_4\(1),
       I1 => \douta[25]_INST_0_i_2_5\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_6\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_7\(1),
       O => \douta[19]_INST_0_i_6_n_0\
     );
@@ -1276,21 +1279,21 @@ begin
       I0 => \douta[1]_INST_0_i_1_n_0\,
       I1 => \douta[1]_INST_0_i_2_n_0\,
       O => douta(1),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[1]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[1]_INST_0_i_3_n_0\,
       I1 => \douta[1]_INST_0_i_4_n_0\,
       O => \douta[1]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[1]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[1]_INST_0_i_5_n_0\,
       I1 => \douta[1]_INST_0_i_6_n_0\,
       O => \douta[1]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[1]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1299,9 +1302,9 @@ begin
         port map (
       I0 => DOUTADOUT(1),
       I1 => \douta[7]_INST_0_i_1_0\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_1\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(1),
       O => \douta[1]_INST_0_i_3_n_0\
     );
@@ -1312,9 +1315,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_1_2\(1),
       I1 => \douta[7]_INST_0_i_1_3\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_4\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_1_5\(1),
       O => \douta[1]_INST_0_i_4_n_0\
     );
@@ -1325,9 +1328,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_0\(1),
       I1 => \douta[7]_INST_0_i_2_1\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_2\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_3\(1),
       O => \douta[1]_INST_0_i_5_n_0\
     );
@@ -1338,9 +1341,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_4\(1),
       I1 => \douta[7]_INST_0_i_2_5\(1),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_6\(1),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_7\(1),
       O => \douta[1]_INST_0_i_6_n_0\
     );
@@ -1349,21 +1352,21 @@ begin
       I0 => \douta[20]_INST_0_i_1_n_0\,
       I1 => \douta[20]_INST_0_i_2_n_0\,
       O => douta(20),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[20]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[20]_INST_0_i_3_n_0\,
       I1 => \douta[20]_INST_0_i_4_n_0\,
       O => \douta[20]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[20]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[20]_INST_0_i_5_n_0\,
       I1 => \douta[20]_INST_0_i_6_n_0\,
       O => \douta[20]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[20]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1372,9 +1375,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_0\(2),
       I1 => \douta[25]_INST_0_i_1_1\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_2\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_3\(2),
       O => \douta[20]_INST_0_i_3_n_0\
     );
@@ -1385,9 +1388,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_4\(2),
       I1 => \douta[25]_INST_0_i_1_5\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_6\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_7\(2),
       O => \douta[20]_INST_0_i_4_n_0\
     );
@@ -1398,9 +1401,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_0\(2),
       I1 => \douta[25]_INST_0_i_2_1\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_2\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_3\(2),
       O => \douta[20]_INST_0_i_5_n_0\
     );
@@ -1411,9 +1414,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_4\(2),
       I1 => \douta[25]_INST_0_i_2_5\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_6\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_7\(2),
       O => \douta[20]_INST_0_i_6_n_0\
     );
@@ -1422,21 +1425,21 @@ begin
       I0 => \douta[21]_INST_0_i_1_n_0\,
       I1 => \douta[21]_INST_0_i_2_n_0\,
       O => douta(21),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[21]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[21]_INST_0_i_3_n_0\,
       I1 => \douta[21]_INST_0_i_4_n_0\,
       O => \douta[21]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[21]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[21]_INST_0_i_5_n_0\,
       I1 => \douta[21]_INST_0_i_6_n_0\,
       O => \douta[21]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[21]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1445,9 +1448,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_0\(3),
       I1 => \douta[25]_INST_0_i_1_1\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_2\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_3\(3),
       O => \douta[21]_INST_0_i_3_n_0\
     );
@@ -1458,9 +1461,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_4\(3),
       I1 => \douta[25]_INST_0_i_1_5\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_6\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_7\(3),
       O => \douta[21]_INST_0_i_4_n_0\
     );
@@ -1471,9 +1474,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_0\(3),
       I1 => \douta[25]_INST_0_i_2_1\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_2\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_3\(3),
       O => \douta[21]_INST_0_i_5_n_0\
     );
@@ -1484,9 +1487,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_4\(3),
       I1 => \douta[25]_INST_0_i_2_5\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_6\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_7\(3),
       O => \douta[21]_INST_0_i_6_n_0\
     );
@@ -1495,21 +1498,21 @@ begin
       I0 => \douta[22]_INST_0_i_1_n_0\,
       I1 => \douta[22]_INST_0_i_2_n_0\,
       O => douta(22),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[22]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[22]_INST_0_i_3_n_0\,
       I1 => \douta[22]_INST_0_i_4_n_0\,
       O => \douta[22]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[22]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[22]_INST_0_i_5_n_0\,
       I1 => \douta[22]_INST_0_i_6_n_0\,
       O => \douta[22]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[22]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1518,9 +1521,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_0\(4),
       I1 => \douta[25]_INST_0_i_1_1\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_2\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_3\(4),
       O => \douta[22]_INST_0_i_3_n_0\
     );
@@ -1531,9 +1534,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_4\(4),
       I1 => \douta[25]_INST_0_i_1_5\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_6\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_7\(4),
       O => \douta[22]_INST_0_i_4_n_0\
     );
@@ -1544,9 +1547,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_0\(4),
       I1 => \douta[25]_INST_0_i_2_1\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_2\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_3\(4),
       O => \douta[22]_INST_0_i_5_n_0\
     );
@@ -1557,9 +1560,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_4\(4),
       I1 => \douta[25]_INST_0_i_2_5\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_6\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_7\(4),
       O => \douta[22]_INST_0_i_6_n_0\
     );
@@ -1568,21 +1571,21 @@ begin
       I0 => \douta[23]_INST_0_i_1_n_0\,
       I1 => \douta[23]_INST_0_i_2_n_0\,
       O => douta(23),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[23]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[23]_INST_0_i_3_n_0\,
       I1 => \douta[23]_INST_0_i_4_n_0\,
       O => \douta[23]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[23]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[23]_INST_0_i_5_n_0\,
       I1 => \douta[23]_INST_0_i_6_n_0\,
       O => \douta[23]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[23]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1591,9 +1594,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_0\(5),
       I1 => \douta[25]_INST_0_i_1_1\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_2\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_3\(5),
       O => \douta[23]_INST_0_i_3_n_0\
     );
@@ -1604,9 +1607,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_4\(5),
       I1 => \douta[25]_INST_0_i_1_5\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_6\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_7\(5),
       O => \douta[23]_INST_0_i_4_n_0\
     );
@@ -1617,9 +1620,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_0\(5),
       I1 => \douta[25]_INST_0_i_2_1\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_2\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_3\(5),
       O => \douta[23]_INST_0_i_5_n_0\
     );
@@ -1630,9 +1633,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_4\(5),
       I1 => \douta[25]_INST_0_i_2_5\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_6\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_7\(5),
       O => \douta[23]_INST_0_i_6_n_0\
     );
@@ -1641,21 +1644,21 @@ begin
       I0 => \douta[24]_INST_0_i_1_n_0\,
       I1 => \douta[24]_INST_0_i_2_n_0\,
       O => douta(24),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[24]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[24]_INST_0_i_3_n_0\,
       I1 => \douta[24]_INST_0_i_4_n_0\,
       O => \douta[24]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[24]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[24]_INST_0_i_5_n_0\,
       I1 => \douta[24]_INST_0_i_6_n_0\,
       O => \douta[24]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[24]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1664,9 +1667,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_0\(6),
       I1 => \douta[25]_INST_0_i_1_1\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_2\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_3\(6),
       O => \douta[24]_INST_0_i_3_n_0\
     );
@@ -1677,9 +1680,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_4\(6),
       I1 => \douta[25]_INST_0_i_1_5\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_6\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_7\(6),
       O => \douta[24]_INST_0_i_4_n_0\
     );
@@ -1690,9 +1693,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_0\(6),
       I1 => \douta[25]_INST_0_i_2_1\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_2\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_3\(6),
       O => \douta[24]_INST_0_i_5_n_0\
     );
@@ -1703,9 +1706,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_4\(6),
       I1 => \douta[25]_INST_0_i_2_5\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_6\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_7\(6),
       O => \douta[24]_INST_0_i_6_n_0\
     );
@@ -1714,21 +1717,21 @@ begin
       I0 => \douta[25]_INST_0_i_1_n_0\,
       I1 => \douta[25]_INST_0_i_2_n_0\,
       O => douta(25),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[25]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[25]_INST_0_i_3_n_0\,
       I1 => \douta[25]_INST_0_i_4_n_0\,
       O => \douta[25]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[25]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[25]_INST_0_i_5_n_0\,
       I1 => \douta[25]_INST_0_i_6_n_0\,
       O => \douta[25]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[25]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1737,9 +1740,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_0\(7),
       I1 => \douta[25]_INST_0_i_1_1\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_2\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_3\(7),
       O => \douta[25]_INST_0_i_3_n_0\
     );
@@ -1750,9 +1753,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_1_4\(7),
       I1 => \douta[25]_INST_0_i_1_5\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_1_6\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_1_7\(7),
       O => \douta[25]_INST_0_i_4_n_0\
     );
@@ -1763,9 +1766,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_0\(7),
       I1 => \douta[25]_INST_0_i_2_1\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_2\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_3\(7),
       O => \douta[25]_INST_0_i_5_n_0\
     );
@@ -1776,9 +1779,9 @@ begin
         port map (
       I0 => \douta[25]_INST_0_i_2_4\(7),
       I1 => \douta[25]_INST_0_i_2_5\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[25]_INST_0_i_2_6\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[25]_INST_0_i_2_7\(7),
       O => \douta[25]_INST_0_i_6_n_0\
     );
@@ -1787,21 +1790,21 @@ begin
       I0 => \douta[26]_INST_0_i_1_n_0\,
       I1 => \douta[26]_INST_0_i_2_n_0\,
       O => douta(26),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[26]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[26]_INST_0_i_3_n_0\,
       I1 => \douta[26]_INST_0_i_4_n_0\,
       O => \douta[26]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[26]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[26]_INST_0_i_5_n_0\,
       I1 => \douta[26]_INST_0_i_6_n_0\,
       O => \douta[26]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[26]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1810,9 +1813,9 @@ begin
         port map (
       I0 => \douta[26]_INST_0_i_1_0\(0),
       I1 => \douta[26]_INST_0_i_1_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[26]_INST_0_i_1_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[26]_INST_0_i_1_3\(0),
       O => \douta[26]_INST_0_i_3_n_0\
     );
@@ -1823,9 +1826,9 @@ begin
         port map (
       I0 => \douta[26]_INST_0_i_1_4\(0),
       I1 => \douta[26]_INST_0_i_1_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[26]_INST_0_i_1_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[26]_INST_0_i_1_7\(0),
       O => \douta[26]_INST_0_i_4_n_0\
     );
@@ -1836,9 +1839,9 @@ begin
         port map (
       I0 => \douta[26]_INST_0_i_2_0\(0),
       I1 => \douta[26]_INST_0_i_2_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[26]_INST_0_i_2_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[26]_INST_0_i_2_3\(0),
       O => \douta[26]_INST_0_i_5_n_0\
     );
@@ -1849,9 +1852,9 @@ begin
         port map (
       I0 => \douta[26]_INST_0_i_2_4\(0),
       I1 => \douta[26]_INST_0_i_2_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[26]_INST_0_i_2_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[26]_INST_0_i_2_7\(0),
       O => \douta[26]_INST_0_i_6_n_0\
     );
@@ -1860,21 +1863,21 @@ begin
       I0 => \douta[2]_INST_0_i_1_n_0\,
       I1 => \douta[2]_INST_0_i_2_n_0\,
       O => douta(2),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[2]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[2]_INST_0_i_3_n_0\,
       I1 => \douta[2]_INST_0_i_4_n_0\,
       O => \douta[2]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[2]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[2]_INST_0_i_5_n_0\,
       I1 => \douta[2]_INST_0_i_6_n_0\,
       O => \douta[2]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[2]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1883,9 +1886,9 @@ begin
         port map (
       I0 => DOUTADOUT(2),
       I1 => \douta[7]_INST_0_i_1_0\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_1\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(2),
       O => \douta[2]_INST_0_i_3_n_0\
     );
@@ -1896,9 +1899,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_1_2\(2),
       I1 => \douta[7]_INST_0_i_1_3\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_4\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_1_5\(2),
       O => \douta[2]_INST_0_i_4_n_0\
     );
@@ -1909,9 +1912,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_0\(2),
       I1 => \douta[7]_INST_0_i_2_1\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_2\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_3\(2),
       O => \douta[2]_INST_0_i_5_n_0\
     );
@@ -1922,9 +1925,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_4\(2),
       I1 => \douta[7]_INST_0_i_2_5\(2),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_6\(2),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_7\(2),
       O => \douta[2]_INST_0_i_6_n_0\
     );
@@ -1933,21 +1936,21 @@ begin
       I0 => \douta[3]_INST_0_i_1_n_0\,
       I1 => \douta[3]_INST_0_i_2_n_0\,
       O => douta(3),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[3]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[3]_INST_0_i_3_n_0\,
       I1 => \douta[3]_INST_0_i_4_n_0\,
       O => \douta[3]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[3]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[3]_INST_0_i_5_n_0\,
       I1 => \douta[3]_INST_0_i_6_n_0\,
       O => \douta[3]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[3]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -1956,9 +1959,9 @@ begin
         port map (
       I0 => DOUTADOUT(3),
       I1 => \douta[7]_INST_0_i_1_0\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_1\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(3),
       O => \douta[3]_INST_0_i_3_n_0\
     );
@@ -1969,9 +1972,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_1_2\(3),
       I1 => \douta[7]_INST_0_i_1_3\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_4\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_1_5\(3),
       O => \douta[3]_INST_0_i_4_n_0\
     );
@@ -1982,9 +1985,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_0\(3),
       I1 => \douta[7]_INST_0_i_2_1\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_2\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_3\(3),
       O => \douta[3]_INST_0_i_5_n_0\
     );
@@ -1995,9 +1998,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_4\(3),
       I1 => \douta[7]_INST_0_i_2_5\(3),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_6\(3),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_7\(3),
       O => \douta[3]_INST_0_i_6_n_0\
     );
@@ -2006,21 +2009,21 @@ begin
       I0 => \douta[4]_INST_0_i_1_n_0\,
       I1 => \douta[4]_INST_0_i_2_n_0\,
       O => douta(4),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[4]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[4]_INST_0_i_3_n_0\,
       I1 => \douta[4]_INST_0_i_4_n_0\,
       O => \douta[4]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[4]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[4]_INST_0_i_5_n_0\,
       I1 => \douta[4]_INST_0_i_6_n_0\,
       O => \douta[4]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[4]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -2029,9 +2032,9 @@ begin
         port map (
       I0 => DOUTADOUT(4),
       I1 => \douta[7]_INST_0_i_1_0\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_1\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(4),
       O => \douta[4]_INST_0_i_3_n_0\
     );
@@ -2042,9 +2045,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_1_2\(4),
       I1 => \douta[7]_INST_0_i_1_3\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_4\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_1_5\(4),
       O => \douta[4]_INST_0_i_4_n_0\
     );
@@ -2055,9 +2058,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_0\(4),
       I1 => \douta[7]_INST_0_i_2_1\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_2\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_3\(4),
       O => \douta[4]_INST_0_i_5_n_0\
     );
@@ -2068,9 +2071,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_4\(4),
       I1 => \douta[7]_INST_0_i_2_5\(4),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_6\(4),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_7\(4),
       O => \douta[4]_INST_0_i_6_n_0\
     );
@@ -2079,21 +2082,21 @@ begin
       I0 => \douta[5]_INST_0_i_1_n_0\,
       I1 => \douta[5]_INST_0_i_2_n_0\,
       O => douta(5),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[5]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[5]_INST_0_i_3_n_0\,
       I1 => \douta[5]_INST_0_i_4_n_0\,
       O => \douta[5]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[5]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[5]_INST_0_i_5_n_0\,
       I1 => \douta[5]_INST_0_i_6_n_0\,
       O => \douta[5]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[5]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -2102,9 +2105,9 @@ begin
         port map (
       I0 => DOUTADOUT(5),
       I1 => \douta[7]_INST_0_i_1_0\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_1\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(5),
       O => \douta[5]_INST_0_i_3_n_0\
     );
@@ -2115,9 +2118,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_1_2\(5),
       I1 => \douta[7]_INST_0_i_1_3\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_4\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_1_5\(5),
       O => \douta[5]_INST_0_i_4_n_0\
     );
@@ -2128,9 +2131,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_0\(5),
       I1 => \douta[7]_INST_0_i_2_1\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_2\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_3\(5),
       O => \douta[5]_INST_0_i_5_n_0\
     );
@@ -2141,9 +2144,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_4\(5),
       I1 => \douta[7]_INST_0_i_2_5\(5),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_6\(5),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_7\(5),
       O => \douta[5]_INST_0_i_6_n_0\
     );
@@ -2152,21 +2155,21 @@ begin
       I0 => \douta[6]_INST_0_i_1_n_0\,
       I1 => \douta[6]_INST_0_i_2_n_0\,
       O => douta(6),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[6]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[6]_INST_0_i_3_n_0\,
       I1 => \douta[6]_INST_0_i_4_n_0\,
       O => \douta[6]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[6]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[6]_INST_0_i_5_n_0\,
       I1 => \douta[6]_INST_0_i_6_n_0\,
       O => \douta[6]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[6]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -2175,9 +2178,9 @@ begin
         port map (
       I0 => DOUTADOUT(6),
       I1 => \douta[7]_INST_0_i_1_0\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_1\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(6),
       O => \douta[6]_INST_0_i_3_n_0\
     );
@@ -2188,9 +2191,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_1_2\(6),
       I1 => \douta[7]_INST_0_i_1_3\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_4\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_1_5\(6),
       O => \douta[6]_INST_0_i_4_n_0\
     );
@@ -2201,9 +2204,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_0\(6),
       I1 => \douta[7]_INST_0_i_2_1\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_2\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_3\(6),
       O => \douta[6]_INST_0_i_5_n_0\
     );
@@ -2214,9 +2217,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_4\(6),
       I1 => \douta[7]_INST_0_i_2_5\(6),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_6\(6),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_7\(6),
       O => \douta[6]_INST_0_i_6_n_0\
     );
@@ -2225,21 +2228,21 @@ begin
       I0 => \douta[7]_INST_0_i_1_n_0\,
       I1 => \douta[7]_INST_0_i_2_n_0\,
       O => douta(7),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[7]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[7]_INST_0_i_3_n_0\,
       I1 => \douta[7]_INST_0_i_4_n_0\,
       O => \douta[7]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[7]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[7]_INST_0_i_5_n_0\,
       I1 => \douta[7]_INST_0_i_6_n_0\,
       O => \douta[7]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[7]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -2248,9 +2251,9 @@ begin
         port map (
       I0 => DOUTADOUT(7),
       I1 => \douta[7]_INST_0_i_1_0\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_1\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(7),
       O => \douta[7]_INST_0_i_3_n_0\
     );
@@ -2261,9 +2264,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_1_2\(7),
       I1 => \douta[7]_INST_0_i_1_3\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_1_4\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_1_5\(7),
       O => \douta[7]_INST_0_i_4_n_0\
     );
@@ -2274,9 +2277,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_0\(7),
       I1 => \douta[7]_INST_0_i_2_1\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_2\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_3\(7),
       O => \douta[7]_INST_0_i_5_n_0\
     );
@@ -2287,9 +2290,9 @@ begin
         port map (
       I0 => \douta[7]_INST_0_i_2_4\(7),
       I1 => \douta[7]_INST_0_i_2_5\(7),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[7]_INST_0_i_2_6\(7),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[7]_INST_0_i_2_7\(7),
       O => \douta[7]_INST_0_i_6_n_0\
     );
@@ -2298,21 +2301,21 @@ begin
       I0 => \douta[8]_INST_0_i_1_n_0\,
       I1 => \douta[8]_INST_0_i_2_n_0\,
       O => douta(8),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[8]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[8]_INST_0_i_3_n_0\,
       I1 => \douta[8]_INST_0_i_4_n_0\,
       O => \douta[8]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[8]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[8]_INST_0_i_5_n_0\,
       I1 => \douta[8]_INST_0_i_6_n_0\,
       O => \douta[8]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[8]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -2321,9 +2324,9 @@ begin
         port map (
       I0 => DOUTPADOUTP(0),
       I1 => \douta[8]_INST_0_i_1_0\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[8]_INST_0_i_1_1\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => ram_douta(8),
       O => \douta[8]_INST_0_i_3_n_0\
     );
@@ -2334,9 +2337,9 @@ begin
         port map (
       I0 => \douta[8]_INST_0_i_1_2\(0),
       I1 => \douta[8]_INST_0_i_1_3\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[8]_INST_0_i_1_4\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[8]_INST_0_i_1_5\(0),
       O => \douta[8]_INST_0_i_4_n_0\
     );
@@ -2347,9 +2350,9 @@ begin
         port map (
       I0 => \douta[8]_INST_0_i_2_0\(0),
       I1 => \douta[8]_INST_0_i_2_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[8]_INST_0_i_2_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[8]_INST_0_i_2_3\(0),
       O => \douta[8]_INST_0_i_5_n_0\
     );
@@ -2360,9 +2363,9 @@ begin
         port map (
       I0 => \douta[8]_INST_0_i_2_4\(0),
       I1 => \douta[8]_INST_0_i_2_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[8]_INST_0_i_2_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[8]_INST_0_i_2_7\(0),
       O => \douta[8]_INST_0_i_6_n_0\
     );
@@ -2371,21 +2374,21 @@ begin
       I0 => \douta[9]_INST_0_i_1_n_0\,
       I1 => \douta[9]_INST_0_i_2_n_0\,
       O => douta(9),
-      S => sel_pipe_d1(3)
+      S => sel_pipe(3)
     );
 \douta[9]_INST_0_i_1\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[9]_INST_0_i_3_n_0\,
       I1 => \douta[9]_INST_0_i_4_n_0\,
       O => \douta[9]_INST_0_i_1_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[9]_INST_0_i_2\: unisim.vcomponents.MUXF7
      port map (
       I0 => \douta[9]_INST_0_i_5_n_0\,
       I1 => \douta[9]_INST_0_i_6_n_0\,
       O => \douta[9]_INST_0_i_2_n_0\,
-      S => sel_pipe_d1(2)
+      S => sel_pipe(2)
     );
 \douta[9]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
@@ -2394,9 +2397,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_0\(0),
       I1 => \douta[16]_INST_0_i_1_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_3\(0),
       O => \douta[9]_INST_0_i_3_n_0\
     );
@@ -2407,9 +2410,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_1_4\(0),
       I1 => \douta[16]_INST_0_i_1_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_1_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_1_7\(0),
       O => \douta[9]_INST_0_i_4_n_0\
     );
@@ -2420,9 +2423,9 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_0\(0),
       I1 => \douta[16]_INST_0_i_2_1\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_2\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_3\(0),
       O => \douta[9]_INST_0_i_5_n_0\
     );
@@ -2433,55 +2436,11 @@ begin
         port map (
       I0 => \douta[16]_INST_0_i_2_4\(0),
       I1 => \douta[16]_INST_0_i_2_5\(0),
-      I2 => sel_pipe_d1(1),
+      I2 => sel_pipe(1),
       I3 => \douta[16]_INST_0_i_2_6\(0),
-      I4 => sel_pipe_d1(0),
+      I4 => sel_pipe(0),
       I5 => \douta[16]_INST_0_i_2_7\(0),
       O => \douta[9]_INST_0_i_6_n_0\
-    );
-\no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => sel_pipe(0),
-      Q => sel_pipe_d1(0),
-      R => '0'
-    );
-\no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => sel_pipe(1),
-      Q => sel_pipe_d1(1),
-      R => '0'
-    );
-\no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => sel_pipe(2),
-      Q => sel_pipe_d1(2),
-      R => '0'
-    );
-\no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[3]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => sel_pipe(3),
-      Q => sel_pipe_d1(3),
-      R => '0'
     );
 \no_softecc_sel_reg.ce_pri.sel_pipe_reg[0]\: unisim.vcomponents.FDRE
     generic map(
@@ -2537,10 +2496,11 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init is
     ram_douta : out STD_LOGIC_VECTOR ( 8 downto 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init is
@@ -2566,7 +2526,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -2791,7 +2751,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -2813,7 +2773,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -2844,7 +2803,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -3069,7 +3028,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -3091,7 +3050,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -3122,7 +3080,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -3347,7 +3305,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -3369,7 +3327,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -3400,7 +3357,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -3625,7 +3582,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -3647,7 +3604,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -3678,7 +3634,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -3903,7 +3859,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -3925,7 +3881,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -3956,7 +3911,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -4181,7 +4136,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -4203,7 +4158,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -4234,7 +4188,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -4459,7 +4413,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -4481,7 +4435,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -4512,7 +4465,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -4737,7 +4690,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -4759,7 +4712,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -4790,7 +4742,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -5015,7 +4967,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -5037,7 +4989,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -5068,7 +5019,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -5293,7 +5244,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -5315,7 +5266,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -5346,7 +5296,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -5571,7 +5521,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -5593,7 +5543,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -5624,7 +5573,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -5849,7 +5798,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -5871,7 +5820,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -5902,7 +5850,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -6127,7 +6075,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -6149,7 +6097,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     DOUTPADOUTP : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -6180,7 +6127,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -6405,7 +6352,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -6427,7 +6374,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -6458,7 +6404,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -6683,7 +6629,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -6705,7 +6651,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -6736,7 +6681,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -6961,7 +6906,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -6983,7 +6928,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -7014,7 +6958,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -7239,7 +7183,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -7261,7 +7205,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -7292,7 +7235,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -7517,7 +7460,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -7539,7 +7482,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -7570,7 +7512,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -7795,7 +7737,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -7817,7 +7759,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -7848,7 +7789,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -8073,7 +8014,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -8095,7 +8036,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -8126,7 +8066,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -8351,7 +8291,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -8373,7 +8313,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -8404,7 +8343,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -8629,7 +8568,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -8651,7 +8590,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -8682,7 +8620,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -8907,7 +8845,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -8929,7 +8867,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -8960,7 +8897,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -9185,7 +9122,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -9207,7 +9144,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -9238,7 +9174,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -9463,7 +9399,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -9485,7 +9421,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -9516,7 +9451,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -9741,7 +9676,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -9763,7 +9698,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -9794,7 +9728,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -10019,7 +9953,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -10041,7 +9975,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -10072,7 +10005,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -10297,7 +10230,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -10319,7 +10252,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -10350,7 +10282,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -10575,7 +10507,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -10597,9 +10529,9 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     ena_array : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    ena : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized34\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -10630,7 +10562,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -10855,7 +10787,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -10889,7 +10821,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -10920,7 +10851,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -11145,7 +11076,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -11167,9 +11098,9 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     ena_array : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    ena : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized36\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -11200,7 +11131,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -11425,7 +11356,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -11459,7 +11390,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -11490,7 +11420,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -11715,7 +11645,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -11737,7 +11667,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -11768,7 +11697,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -11993,7 +11922,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -12015,7 +11944,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -12046,7 +11974,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -12271,7 +12199,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -12293,7 +12221,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -12324,7 +12251,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -12549,7 +12476,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -12571,7 +12498,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -12602,7 +12528,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -12827,7 +12753,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -12849,7 +12775,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -12880,7 +12805,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -13105,7 +13030,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -13127,7 +13052,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -13158,7 +13082,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -13383,7 +13307,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -13405,7 +13329,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -13436,7 +13359,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -13661,7 +13584,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -13683,7 +13606,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -13714,7 +13636,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -13939,7 +13861,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -13961,7 +13883,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -13992,7 +13913,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -14217,7 +14138,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -14239,7 +14160,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -14270,7 +14190,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -14495,7 +14415,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -14514,9 +14434,9 @@ use UNISIM.VCOMPONENTS.ALL;
 entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized47\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 0 to 0 );
-    CASDOMUXB : out STD_LOGIC;
     ENARDEN : out STD_LOGIC;
     CASDOMUXA : in STD_LOGIC;
+    CASDOMUXB : in STD_LOGIC;
     ena : in STD_LOGIC;
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC;
@@ -14529,7 +14449,6 @@ end \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterize
 architecture STRUCTURE of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized47\ is
   signal CASDINA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal CASDINPA : STD_LOGIC_VECTOR ( 3 downto 0 );
-  signal \^casdomuxb\ : STD_LOGIC;
   signal \^enarden\ : STD_LOGIC;
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_CASOUTDBITERR_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_CASOUTSBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -14559,19 +14478,15 @@ architecture STRUCTURE of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrap
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
   attribute box_type : string;
   attribute box_type of \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_i_1\ : label is "soft_lutpair6";
   attribute box_type of \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_i_2\ : label is "soft_lutpair6";
 begin
-  CASDOMUXB <= \^casdomuxb\;
   ENARDEN <= \^enarden\;
 \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B\: unisim.vcomponents.RAMB36E2
     generic map(
       CASCADE_ORDER_A => "FIRST",
       CASCADE_ORDER_B => "FIRST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -14793,7 +14708,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -14818,7 +14733,7 @@ begin
       CASCADE_ORDER_A => "LAST",
       CASCADE_ORDER_B => "LAST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -15007,7 +14922,7 @@ begin
       CASDINPA(3 downto 0) => CASDINPA(3 downto 0),
       CASDINPB(3 downto 0) => B"0000",
       CASDOMUXA => CASDOMUXA,
-      CASDOMUXB => \^casdomuxb\,
+      CASDOMUXB => CASDOMUXB,
       CASDOMUXEN_A => ena,
       CASDOMUXEN_B => '0',
       CASDOUTA(31 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_CASDOUTA_UNCONNECTED\(31 downto 0),
@@ -15036,12 +14951,12 @@ begin
       DOUTPBDOUTP(3 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_DOUTPBDOUTP_UNCONNECTED\(3 downto 0),
       ECCPARITY(7 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_ECCPARITY_UNCONNECTED\(7 downto 0),
       ECCPIPECE => '0',
-      ENARDEN => \^casdomuxb\,
+      ENARDEN => CASDOMUXB,
       ENBWREN => '0',
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -15051,15 +14966,6 @@ begin
       SLEEP => sleep,
       WEA(3 downto 0) => B"0000",
       WEBWE(7 downto 0) => B"00000000"
-    );
-\DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_i_2\: unisim.vcomponents.LUT2
-    generic map(
-      INIT => X"8"
-    )
-        port map (
-      I0 => ena,
-      I1 => addra(15),
-      O => \^casdomuxb\
     );
 end STRUCTURE;
 library IEEE;
@@ -15119,7 +15025,7 @@ begin
       CASCADE_ORDER_A => "FIRST",
       CASCADE_ORDER_B => "FIRST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -15341,7 +15247,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -15357,7 +15263,7 @@ begin
       CASCADE_ORDER_A => "LAST",
       CASCADE_ORDER_B => "LAST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -15580,7 +15486,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -15649,7 +15555,7 @@ begin
       CASCADE_ORDER_A => "FIRST",
       CASCADE_ORDER_B => "FIRST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -15871,7 +15777,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -15887,7 +15793,7 @@ begin
       CASCADE_ORDER_A => "LAST",
       CASCADE_ORDER_B => "LAST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -16110,7 +16016,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -16132,7 +16038,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -16163,7 +16068,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -16388,7 +16293,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -16457,7 +16362,7 @@ begin
       CASCADE_ORDER_A => "FIRST",
       CASCADE_ORDER_B => "FIRST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -16679,7 +16584,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -16695,7 +16600,7 @@ begin
       CASCADE_ORDER_A => "LAST",
       CASCADE_ORDER_B => "LAST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -16918,7 +16823,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -16938,7 +16843,7 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
   port (
     douta : out STD_LOGIC_VECTOR ( 0 to 0 );
     CASDOMUXA : out STD_LOGIC;
-    CASDOMUXB : in STD_LOGIC;
+    ena_0 : out STD_LOGIC;
     ena : in STD_LOGIC;
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC;
@@ -16953,9 +16858,8 @@ architecture STRUCTURE of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrap
   signal CASDINA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal CASDINPA : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \^casdomuxa\ : STD_LOGIC;
-  signal \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1_n_0\ : STD_LOGIC;
   signal casdoa_mux_reg_top_d : STD_LOGIC;
-  signal casdoa_mux_reg_top_i_d : STD_LOGIC;
+  signal \^ena_0\ : STD_LOGIC;
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_CASOUTDBITERR_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_CASOUTSBITERR_UNCONNECTED\ : STD_LOGIC;
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_DBITERR_UNCONNECTED\ : STD_LOGIC;
@@ -16982,46 +16886,26 @@ architecture STRUCTURE of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrap
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_DOUTPBDOUTP_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_ECCPARITY_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\ : STD_LOGIC_VECTOR ( 8 downto 0 );
-  attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1\ : label is "soft_lutpair7";
   attribute box_type : string;
   attribute box_type of \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B\ : label is "PRIMITIVE";
   attribute box_type of \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T\ : label is "PRIMITIVE";
-  attribute SOFT_HLUTNM of \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_i_1\ : label is "soft_lutpair7";
 begin
   CASDOMUXA <= \^casdomuxa\;
-\DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_d_reg\: unisim.vcomponents.FDRE
+  ena_0 <= \^ena_0\;
+\DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_has_mem_regs.casdoa_mux_reg_top_d_reg\: unisim.vcomponents.FDRE
      port map (
       C => clka,
       CE => ena,
-      D => casdoa_mux_reg_top_i_d,
+      D => ena,
       Q => casdoa_mux_reg_top_d,
-      R => '0'
-    );
-\DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"74"
-    )
-        port map (
-      I0 => addra(15),
-      I1 => ena,
-      I2 => casdoa_mux_reg_top_i_d,
-      O => \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1_n_0\
-    );
-\DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_reg\: unisim.vcomponents.FDRE
-     port map (
-      C => clka,
-      CE => '1',
-      D => \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1_n_0\,
-      Q => casdoa_mux_reg_top_i_d,
-      R => '0'
+      R => \^ena_0\
     );
 \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B\: unisim.vcomponents.RAMB36E2
     generic map(
       CASCADE_ORDER_A => "FIRST",
       CASCADE_ORDER_B => "FIRST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -17243,7 +17127,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -17259,7 +17143,7 @@ begin
       CASCADE_ORDER_A => "LAST",
       CASCADE_ORDER_B => "LAST",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "TRUE",
       ENADDRENB => "FALSE",
@@ -17448,7 +17332,7 @@ begin
       CASDINPA(3 downto 0) => CASDINPA(3 downto 0),
       CASDINPB(3 downto 0) => B"0000",
       CASDOMUXA => \^casdomuxa\,
-      CASDOMUXB => CASDOMUXB,
+      CASDOMUXB => \^ena_0\,
       CASDOMUXEN_A => ena,
       CASDOMUXEN_B => '0',
       CASDOUTA(31 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_CASDOUTA_UNCONNECTED\(31 downto 0),
@@ -17477,12 +17361,12 @@ begin
       DOUTPBDOUTP(3 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_DOUTPBDOUTP_UNCONNECTED\(3 downto 0),
       ECCPARITY(7 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_ECCPARITY_UNCONNECTED\(7 downto 0),
       ECCPIPECE => '0',
-      ENARDEN => CASDOMUXB,
+      ENARDEN => \^ena_0\,
       ENBWREN => '0',
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -17495,13 +17379,22 @@ begin
     );
 \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_i_1\: unisim.vcomponents.LUT3
     generic map(
-      INIT => X"B8"
+      INIT => X"74"
     )
         port map (
-      I0 => casdoa_mux_reg_top_i_d,
+      I0 => addra(15),
       I1 => ena,
       I2 => casdoa_mux_reg_top_d,
       O => \^casdomuxa\
+    );
+\DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_i_2\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"8"
+    )
+        port map (
+      I0 => ena,
+      I1 => addra(15),
+      O => \^ena_0\
     );
 end STRUCTURE;
 library IEEE;
@@ -17514,9 +17407,9 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     addra_15_sp_1 : out STD_LOGIC;
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    ena : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized6\ : entity is "blk_mem_gen_prim_wrapper_init";
@@ -17547,7 +17440,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -17772,7 +17665,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -17806,7 +17699,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -17837,7 +17729,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -18062,7 +17954,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -18084,7 +17976,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18115,7 +18006,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -18340,7 +18231,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -18362,7 +18253,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameter
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18393,7 +18283,7 @@ begin
       CASCADE_ORDER_A => "NONE",
       CASCADE_ORDER_B => "NONE",
       CLOCK_DOMAINS => "COMMON",
-      DOA_REG => 1,
+      DOA_REG => 0,
       DOB_REG => 0,
       ENADDRENA => "FALSE",
       ENADDRENB => "FALSE",
@@ -18618,7 +18508,7 @@ begin
       INJECTDBITERR => '0',
       INJECTSBITERR => '0',
       RDADDRECC(8 downto 0) => \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED\(8 downto 0),
-      REGCEAREGCE => ena,
+      REGCEAREGCE => '0',
       REGCEB => '0',
       RSTRAMARSTRAM => '0',
       RSTRAMB => '0',
@@ -18639,10 +18529,11 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width is
     ram_douta : out STD_LOGIC_VECTOR ( 8 downto 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width is
@@ -18651,7 +18542,6 @@ begin
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       ram_douta(8 downto 0) => ram_douta(8 downto 0),
       sleep => sleep
@@ -18667,7 +18557,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized0\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18683,7 +18572,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18698,7 +18586,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized1\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18714,7 +18601,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18729,7 +18615,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized10\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18745,7 +18630,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18760,7 +18644,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized11\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18776,7 +18659,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18791,7 +18673,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized12\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18807,7 +18688,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18822,7 +18702,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized13\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18838,7 +18717,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18853,7 +18731,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized14\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18869,7 +18746,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18884,7 +18760,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized15\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18900,7 +18775,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18915,7 +18789,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized16\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18931,7 +18804,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18946,7 +18818,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized17\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18962,7 +18833,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -18977,7 +18847,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized18\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -18993,7 +18862,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19008,7 +18876,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized19\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19024,7 +18891,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19039,7 +18905,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized2\ 
     DOUTPADOUTP : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19055,7 +18920,6 @@ begin
       DOUTPADOUTP(0) => DOUTPADOUTP(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19070,7 +18934,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized20\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19086,7 +18949,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19101,7 +18963,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized21\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19117,7 +18978,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19132,7 +18992,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized22\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19149,7 +19008,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       sleep => sleep
     );
 end STRUCTURE;
@@ -19163,7 +19021,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized23\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19179,7 +19036,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19194,7 +19050,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized24\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19210,7 +19065,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19225,7 +19079,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized25\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19241,7 +19094,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19256,7 +19108,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized26\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19272,7 +19123,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19287,7 +19137,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized27\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19303,7 +19152,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19318,7 +19166,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized28\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19334,7 +19181,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19349,7 +19195,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized29\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19365,7 +19210,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19380,7 +19224,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized3\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19396,7 +19239,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19411,7 +19253,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized30\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19427,7 +19268,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19442,7 +19282,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized31\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19458,7 +19297,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19473,7 +19311,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized32\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19489,7 +19326,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19504,7 +19340,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized33\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19520,7 +19355,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19535,9 +19369,9 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized34\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     ena_array : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    ena : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized34\ : entity is "blk_mem_gen_prim_width";
@@ -19566,7 +19400,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized35\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19582,7 +19415,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19597,9 +19429,9 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized36\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     ena_array : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    ena : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized36\ : entity is "blk_mem_gen_prim_width";
@@ -19628,7 +19460,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized37\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19644,7 +19475,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19659,7 +19489,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized38\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19676,7 +19505,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2\ => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       sleep => sleep
     );
 end STRUCTURE;
@@ -19690,7 +19518,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized39\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19706,7 +19533,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19721,7 +19547,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized4\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19737,7 +19562,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19752,7 +19576,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized40\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19768,7 +19591,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19783,7 +19605,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized41\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19799,7 +19620,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19814,7 +19634,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized42\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19830,7 +19649,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19845,7 +19663,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized43\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19861,7 +19678,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19876,7 +19692,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized44\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19892,7 +19707,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19907,7 +19721,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized45\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19923,7 +19736,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19938,7 +19750,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized46\
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -19954,7 +19765,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -19966,9 +19776,9 @@ use UNISIM.VCOMPONENTS.ALL;
 entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized47\ is
   port (
     douta : out STD_LOGIC_VECTOR ( 0 to 0 );
-    CASDOMUXB : out STD_LOGIC;
     ENARDEN : out STD_LOGIC;
     CASDOMUXA : in STD_LOGIC;
+    CASDOMUXB : in STD_LOGIC;
     ena : in STD_LOGIC;
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC;
@@ -20068,7 +19878,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized5\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -20084,7 +19893,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -20130,7 +19938,7 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized51\
   port (
     douta : out STD_LOGIC_VECTOR ( 0 to 0 );
     CASDOMUXA : out STD_LOGIC;
-    CASDOMUXB : in STD_LOGIC;
+    CASDOMUXB : out STD_LOGIC;
     ena : in STD_LOGIC;
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC;
@@ -20146,12 +19954,12 @@ begin
 \prim_init.ram\: entity work.\design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized51\
      port map (
       CASDOMUXA => CASDOMUXA,
-      CASDOMUXB => CASDOMUXB,
       ENARDEN => ENARDEN,
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       douta(0) => douta(0),
       ena => ena,
+      ena_0 => CASDOMUXB,
       sleep => sleep
     );
 end STRUCTURE;
@@ -20165,9 +19973,9 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized6\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     addra_15_sp_1 : out STD_LOGIC;
     clka : in STD_LOGIC;
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
-    addra : in STD_LOGIC_VECTOR ( 15 downto 0 )
+    addra : in STD_LOGIC_VECTOR ( 15 downto 0 );
+    ena : in STD_LOGIC
   );
   attribute ORIG_REF_NAME : string;
   attribute ORIG_REF_NAME of \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized6\ : entity is "blk_mem_gen_prim_width";
@@ -20198,7 +20006,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized7\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -20214,7 +20021,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -20229,7 +20035,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized8\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -20245,7 +20050,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -20260,7 +20064,6 @@ entity \design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized9\ 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC_VECTOR ( 0 to 0 );
     clka : in STD_LOGIC;
     ena_array : in STD_LOGIC_VECTOR ( 0 to 0 );
-    ena : in STD_LOGIC;
     sleep : in STD_LOGIC;
     addra : in STD_LOGIC_VECTOR ( 11 downto 0 )
   );
@@ -20276,7 +20079,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0) => \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -20293,6 +20095,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr is
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr is
@@ -21170,7 +20974,6 @@ begin
      port map (
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       ram_douta(8 downto 0) => ram_douta(8 downto 0),
       sleep => sleep
@@ -21188,7 +20991,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[10].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(10),
       sleep => sleep
     );
@@ -21205,7 +21007,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[11].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(11),
       sleep => sleep
     );
@@ -21222,7 +21023,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[12].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(12),
       sleep => sleep
     );
@@ -21239,7 +21039,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[13].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(13),
       sleep => sleep
     );
@@ -21256,7 +21055,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[14].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(14),
       sleep => sleep
     );
@@ -21273,7 +21071,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[15].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(15),
       sleep => sleep
     );
@@ -21290,7 +21087,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[16].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -21307,7 +21103,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[17].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(1),
       sleep => sleep
     );
@@ -21324,7 +21119,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[18].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(2),
       sleep => sleep
     );
@@ -21341,7 +21135,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[19].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(3),
       sleep => sleep
     );
@@ -21358,7 +21151,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[1].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(1),
       sleep => sleep
     );
@@ -21375,7 +21167,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[20].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(4),
       sleep => sleep
     );
@@ -21392,7 +21183,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[21].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(5),
       sleep => sleep
     );
@@ -21409,7 +21199,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[22].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(6),
       sleep => sleep
     );
@@ -21427,7 +21216,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ => \ramloop[7].ram.r_n_9\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       sleep => sleep
     );
 \ramloop[24].ram.r\: entity work.\design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized23\
@@ -21443,7 +21231,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[24].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(8),
       sleep => sleep
     );
@@ -21460,7 +21247,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[25].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(9),
       sleep => sleep
     );
@@ -21477,7 +21263,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[26].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(10),
       sleep => sleep
     );
@@ -21494,7 +21279,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[27].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(11),
       sleep => sleep
     );
@@ -21511,7 +21295,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[28].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(12),
       sleep => sleep
     );
@@ -21528,7 +21311,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[29].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(13),
       sleep => sleep
     );
@@ -21545,7 +21327,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[2].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(2),
       sleep => sleep
     );
@@ -21562,7 +21343,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[30].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(14),
       sleep => sleep
     );
@@ -21579,7 +21359,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[31].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(15),
       sleep => sleep
     );
@@ -21596,7 +21375,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[32].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(0),
       sleep => sleep
     );
@@ -21613,7 +21391,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[33].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(1),
       sleep => sleep
     );
@@ -21630,7 +21407,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[34].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(2),
       sleep => sleep
     );
@@ -21664,7 +21440,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[36].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(4),
       sleep => sleep
     );
@@ -21698,7 +21473,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[38].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(6),
       sleep => sleep
     );
@@ -21716,7 +21490,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\ => \ramloop[7].ram.r_n_9\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       sleep => sleep
     );
 \ramloop[3].ram.r\: entity work.\design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized2\
@@ -21732,7 +21505,6 @@ begin
       DOUTPADOUTP(0) => \ramloop[3].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(3),
       sleep => sleep
     );
@@ -21749,7 +21521,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[40].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(8),
       sleep => sleep
     );
@@ -21766,7 +21537,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[41].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(9),
       sleep => sleep
     );
@@ -21783,7 +21553,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[42].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(10),
       sleep => sleep
     );
@@ -21800,7 +21569,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[43].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(11),
       sleep => sleep
     );
@@ -21817,7 +21585,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[44].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(12),
       sleep => sleep
     );
@@ -21834,7 +21601,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[45].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(13),
       sleep => sleep
     );
@@ -21851,7 +21617,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[46].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(14),
       sleep => sleep
     );
@@ -21868,7 +21633,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[47].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(15),
       sleep => sleep
     );
@@ -21907,7 +21671,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[4].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(4),
       sleep => sleep
     );
@@ -21957,7 +21720,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[5].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(5),
       sleep => sleep
     );
@@ -21974,7 +21736,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[6].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(6),
       sleep => sleep
     );
@@ -22008,7 +21769,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[8].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(8),
       sleep => sleep
     );
@@ -22025,7 +21785,6 @@ begin
       \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0) => \ramloop[9].ram.r_n_8\,
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
-      ena => ena,
       ena_array(0) => ena_array(9),
       sleep => sleep
     );
@@ -22042,6 +21801,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top is
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top is
@@ -22067,6 +21828,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth is
     clka : in STD_LOGIC;
     sleep : in STD_LOGIC
   );
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth : entity is "blk_mem_gen_v8_4_2_synth";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth;
 
 architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth is
@@ -22209,7 +21972,7 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 is
   attribute C_HAS_INJECTERR : integer;
   attribute C_HAS_INJECTERR of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
   attribute C_HAS_MEM_OUTPUT_REGS_B of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
@@ -22300,6 +22063,8 @@ entity design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 is
   attribute C_WRITE_WIDTH_B of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is 32;
   attribute C_XDEVICEFAMILY : string;
   attribute C_XDEVICEFAMILY of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is "kintexu";
+  attribute ORIG_REF_NAME : string;
+  attribute ORIG_REF_NAME of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is "blk_mem_gen_v8_4_2";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2 : entity is "yes";
 end design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2;
@@ -22541,7 +22306,7 @@ architecture STRUCTURE of design_1_axi_bram_ctrl_0_bram_0 is
   attribute C_HAS_INJECTERR : integer;
   attribute C_HAS_INJECTERR of U0 : label is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MEM_OUTPUT_REGS_A of U0 : label is 1;
+  attribute C_HAS_MEM_OUTPUT_REGS_A of U0 : label is 0;
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
   attribute C_HAS_MEM_OUTPUT_REGS_B of U0 : label is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;

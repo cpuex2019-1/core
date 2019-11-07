@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Tue Nov  5 15:25:39 2019
+-- Date        : Thu Nov  7 14:12:59 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_fetch_0_0/design_1_fetch_0_0_sim_netlist.vhdl
@@ -110,7 +110,6 @@ architecture STRUCTURE of design_1_fetch_0_0_fetch is
   signal \inst_addr[15]_INST_0_i_2_n_0\ : STD_LOGIC;
   signal p_0_in : STD_LOGIC;
   signal p_1_in : STD_LOGIC;
-  signal p_2_in : STD_LOGIC;
   signal \^pc\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal \pc[31]_i_2_n_0\ : STD_LOGIC;
   signal \pc_\ : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -171,7 +170,6 @@ architecture STRUCTURE of design_1_fetch_0_0_fetch is
   signal \pc_history[31]_i_1_n_0\ : STD_LOGIC;
   signal \pcenable__i_1_n_0\ : STD_LOGIC;
   signal \pcenable__reg_n_0\ : STD_LOGIC;
-  signal \set[0]_i_1_n_0\ : STD_LOGIC;
   signal \NLW_pc_2_inferred__0/i__carry__2_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 downto 6 );
   signal \NLW_pc_2_inferred__0/i__carry__2_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 7 to 7 );
   signal NLW_pc_3_carry_O_UNCONNECTED : STD_LOGIC_VECTOR ( 7 downto 0 );
@@ -2525,30 +2523,12 @@ pc_3_carry_i_8: unisim.vcomponents.LUT6
       Q => \pcenable__reg_n_0\,
       R => '0'
     );
-\set[0]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"08"
-    )
-        port map (
-      I0 => p_2_in,
-      I1 => rstn,
-      I2 => enable,
-      O => \set[0]_i_1_n_0\
-    );
-\set_reg[0]\: unisim.vcomponents.FDRE
-     port map (
-      C => clk,
-      CE => '1',
-      D => \set[0]_i_1_n_0\,
-      Q => p_1_in,
-      R => '0'
-    );
 \set_reg[1]\: unisim.vcomponents.FDRE
      port map (
       C => clk,
       CE => '1',
       D => enable,
-      Q => p_2_in,
+      Q => p_1_in,
       R => p_0_in
     );
 end STRUCTURE;

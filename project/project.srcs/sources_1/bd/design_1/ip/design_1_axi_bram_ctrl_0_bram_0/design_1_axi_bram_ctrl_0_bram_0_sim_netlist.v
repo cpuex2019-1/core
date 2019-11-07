@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Mon Nov  4 15:39:31 2019
+// Date        : Thu Nov  7 14:15:25 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top design_1_axi_bram_ctrl_0_bram_0 -prefix
-//               design_1_axi_bram_ctrl_0_bram_0_ design_1_axi_bram_ctrl_0_bram_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_bram_0/design_1_axi_bram_ctrl_0_bram_0_sim_netlist.v
 // Design      : design_1_axi_bram_ctrl_0_bram_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -78,7 +78,7 @@ module design_1_axi_bram_ctrl_0_bram_0
   (* C_HAS_ENA = "1" *) 
   (* C_HAS_ENB = "0" *) 
   (* C_HAS_INJECTERR = "0" *) 
-  (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
+  (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
   (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) 
   (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
@@ -191,6 +191,7 @@ module design_1_axi_bram_ctrl_0_bram_0
         .web(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "bindec" *) 
 module design_1_axi_bram_ctrl_0_bram_0_bindec
    (ena_array,
     addra,
@@ -334,6 +335,7 @@ module design_1_axi_bram_ctrl_0_bram_0_bindec
         .O(ena_array[7]));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
    (douta,
     addra,
@@ -888,7 +890,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width \ramloop[0].ram.r 
        (.addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[0]),
         .ram_douta(ram_douta),
         .sleep(sleep));
@@ -897,7 +898,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[10].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[10]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized10 \ramloop[11].ram.r 
@@ -905,7 +905,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[11].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[11]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized11 \ramloop[12].ram.r 
@@ -913,7 +912,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[12].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[12]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized12 \ramloop[13].ram.r 
@@ -921,7 +919,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[13].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[13]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized13 \ramloop[14].ram.r 
@@ -929,7 +926,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[14].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[14]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized14 \ramloop[15].ram.r 
@@ -937,7 +933,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[15].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[15]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized15 \ramloop[16].ram.r 
@@ -945,7 +940,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[16].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[0]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized16 \ramloop[17].ram.r 
@@ -953,7 +947,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[17].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[1]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized17 \ramloop[18].ram.r 
@@ -961,7 +954,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[18].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[2]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized18 \ramloop[19].ram.r 
@@ -969,7 +961,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[19].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[3]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized0 \ramloop[1].ram.r 
@@ -977,7 +968,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[1].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[1]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized19 \ramloop[20].ram.r 
@@ -985,7 +975,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[20].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[4]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized20 \ramloop[21].ram.r 
@@ -993,7 +982,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[21].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[5]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized21 \ramloop[22].ram.r 
@@ -1001,7 +989,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[22].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[6]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized22 \ramloop[23].ram.r 
@@ -1010,14 +997,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\ramloop[7].ram.r_n_9 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized23 \ramloop[24].ram.r 
        (.\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ({\ramloop[24].ram.r_n_0 ,\ramloop[24].ram.r_n_1 ,\ramloop[24].ram.r_n_2 ,\ramloop[24].ram.r_n_3 ,\ramloop[24].ram.r_n_4 ,\ramloop[24].ram.r_n_5 ,\ramloop[24].ram.r_n_6 ,\ramloop[24].ram.r_n_7 }),
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[24].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[8]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized24 \ramloop[25].ram.r 
@@ -1025,7 +1010,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[25].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[9]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized25 \ramloop[26].ram.r 
@@ -1033,7 +1017,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[26].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[10]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized26 \ramloop[27].ram.r 
@@ -1041,7 +1024,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[27].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[11]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized27 \ramloop[28].ram.r 
@@ -1049,7 +1031,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[28].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[12]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized28 \ramloop[29].ram.r 
@@ -1057,7 +1038,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[29].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[13]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized1 \ramloop[2].ram.r 
@@ -1065,7 +1045,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[2].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[2]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized29 \ramloop[30].ram.r 
@@ -1073,7 +1052,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[30].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[14]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized30 \ramloop[31].ram.r 
@@ -1081,7 +1059,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[31].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[15]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized31 \ramloop[32].ram.r 
@@ -1089,7 +1066,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[32].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[0]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized32 \ramloop[33].ram.r 
@@ -1097,7 +1073,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[33].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[1]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized33 \ramloop[34].ram.r 
@@ -1105,7 +1080,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[34].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[2]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized34 \ramloop[35].ram.r 
@@ -1121,7 +1095,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[36].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[4]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized36 \ramloop[37].ram.r 
@@ -1137,7 +1110,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[38].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[6]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized38 \ramloop[39].ram.r 
@@ -1146,14 +1118,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\ramloop[7].ram.r_n_9 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized2 \ramloop[3].ram.r 
        (.DOUTADOUT({\ramloop[3].ram.r_n_0 ,\ramloop[3].ram.r_n_1 ,\ramloop[3].ram.r_n_2 ,\ramloop[3].ram.r_n_3 ,\ramloop[3].ram.r_n_4 ,\ramloop[3].ram.r_n_5 ,\ramloop[3].ram.r_n_6 ,\ramloop[3].ram.r_n_7 }),
         .DOUTPADOUTP(\ramloop[3].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[3]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized39 \ramloop[40].ram.r 
@@ -1161,7 +1131,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[40].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[8]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized40 \ramloop[41].ram.r 
@@ -1169,7 +1138,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[41].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[9]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized41 \ramloop[42].ram.r 
@@ -1177,7 +1145,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[42].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[10]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized42 \ramloop[43].ram.r 
@@ -1185,7 +1152,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[43].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[11]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized43 \ramloop[44].ram.r 
@@ -1193,7 +1159,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[44].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[12]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized44 \ramloop[45].ram.r 
@@ -1201,7 +1166,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[45].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[13]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized45 \ramloop[46].ram.r 
@@ -1209,7 +1173,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[46].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[14]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized46 \ramloop[47].ram.r 
@@ -1217,7 +1180,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[47].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[15]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized47 \ramloop[48].ram.r 
@@ -1243,7 +1205,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[4].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[4]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized49 \ramloop[50].ram.r 
@@ -1278,7 +1239,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[5].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[5]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized5 \ramloop[6].ram.r 
@@ -1286,7 +1246,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[6].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[6]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized6 \ramloop[7].ram.r 
@@ -1302,7 +1261,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[8].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[8]),
         .sleep(sleep));
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized8 \ramloop[9].ram.r 
@@ -1310,11 +1268,11 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_generic_cstr
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[9].ram.r_n_8 ),
         .addra(addra[11:0]),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array[9]),
         .sleep(sleep));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_mux" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
    (douta,
     ena,
@@ -1777,31 +1735,30 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
   wire ena;
   wire [8:0]ram_douta;
   wire [3:0]sel_pipe;
-  wire [3:0]sel_pipe_d1;
 
   MUXF8 \douta[0]_INST_0 
        (.I0(\douta[0]_INST_0_i_1_n_0 ),
         .I1(\douta[0]_INST_0_i_2_n_0 ),
         .O(douta[0]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[0]_INST_0_i_1 
        (.I0(\douta[0]_INST_0_i_3_n_0 ),
         .I1(\douta[0]_INST_0_i_4_n_0 ),
         .O(\douta[0]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[0]_INST_0_i_2 
        (.I0(\douta[0]_INST_0_i_5_n_0 ),
         .I1(\douta[0]_INST_0_i_6_n_0 ),
         .O(\douta[0]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[0]_INST_0_i_3 
        (.I0(DOUTADOUT[0]),
         .I1(\douta[7]_INST_0_i_1_0 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_1 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[0]),
         .O(\douta[0]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -1809,9 +1766,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[0]_INST_0_i_4 
        (.I0(\douta[7]_INST_0_i_1_2 [0]),
         .I1(\douta[7]_INST_0_i_1_3 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_4 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_1_5 [0]),
         .O(\douta[0]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1819,9 +1776,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[0]_INST_0_i_5 
        (.I0(\douta[7]_INST_0_i_2_0 [0]),
         .I1(\douta[7]_INST_0_i_2_1 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_2 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_3 [0]),
         .O(\douta[0]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1829,34 +1786,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[0]_INST_0_i_6 
        (.I0(\douta[7]_INST_0_i_2_4 [0]),
         .I1(\douta[7]_INST_0_i_2_5 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_6 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_7 [0]),
         .O(\douta[0]_INST_0_i_6_n_0 ));
   MUXF8 \douta[10]_INST_0 
        (.I0(\douta[10]_INST_0_i_1_n_0 ),
         .I1(\douta[10]_INST_0_i_2_n_0 ),
         .O(douta[10]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[10]_INST_0_i_1 
        (.I0(\douta[10]_INST_0_i_3_n_0 ),
         .I1(\douta[10]_INST_0_i_4_n_0 ),
         .O(\douta[10]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[10]_INST_0_i_2 
        (.I0(\douta[10]_INST_0_i_5_n_0 ),
         .I1(\douta[10]_INST_0_i_6_n_0 ),
         .O(\douta[10]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[10]_INST_0_i_3 
        (.I0(\douta[16]_INST_0_i_1_0 [1]),
         .I1(\douta[16]_INST_0_i_1_1 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_2 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_3 [1]),
         .O(\douta[10]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -1864,9 +1821,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[10]_INST_0_i_4 
        (.I0(\douta[16]_INST_0_i_1_4 [1]),
         .I1(\douta[16]_INST_0_i_1_5 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_6 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_7 [1]),
         .O(\douta[10]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1874,9 +1831,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[10]_INST_0_i_5 
        (.I0(\douta[16]_INST_0_i_2_0 [1]),
         .I1(\douta[16]_INST_0_i_2_1 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_2 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_3 [1]),
         .O(\douta[10]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1884,34 +1841,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[10]_INST_0_i_6 
        (.I0(\douta[16]_INST_0_i_2_4 [1]),
         .I1(\douta[16]_INST_0_i_2_5 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_6 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_7 [1]),
         .O(\douta[10]_INST_0_i_6_n_0 ));
   MUXF8 \douta[11]_INST_0 
        (.I0(\douta[11]_INST_0_i_1_n_0 ),
         .I1(\douta[11]_INST_0_i_2_n_0 ),
         .O(douta[11]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[11]_INST_0_i_1 
        (.I0(\douta[11]_INST_0_i_3_n_0 ),
         .I1(\douta[11]_INST_0_i_4_n_0 ),
         .O(\douta[11]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[11]_INST_0_i_2 
        (.I0(\douta[11]_INST_0_i_5_n_0 ),
         .I1(\douta[11]_INST_0_i_6_n_0 ),
         .O(\douta[11]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[11]_INST_0_i_3 
        (.I0(\douta[16]_INST_0_i_1_0 [2]),
         .I1(\douta[16]_INST_0_i_1_1 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_2 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_3 [2]),
         .O(\douta[11]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -1919,9 +1876,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[11]_INST_0_i_4 
        (.I0(\douta[16]_INST_0_i_1_4 [2]),
         .I1(\douta[16]_INST_0_i_1_5 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_6 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_7 [2]),
         .O(\douta[11]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1929,9 +1886,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[11]_INST_0_i_5 
        (.I0(\douta[16]_INST_0_i_2_0 [2]),
         .I1(\douta[16]_INST_0_i_2_1 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_2 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_3 [2]),
         .O(\douta[11]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1939,34 +1896,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[11]_INST_0_i_6 
        (.I0(\douta[16]_INST_0_i_2_4 [2]),
         .I1(\douta[16]_INST_0_i_2_5 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_6 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_7 [2]),
         .O(\douta[11]_INST_0_i_6_n_0 ));
   MUXF8 \douta[12]_INST_0 
        (.I0(\douta[12]_INST_0_i_1_n_0 ),
         .I1(\douta[12]_INST_0_i_2_n_0 ),
         .O(douta[12]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[12]_INST_0_i_1 
        (.I0(\douta[12]_INST_0_i_3_n_0 ),
         .I1(\douta[12]_INST_0_i_4_n_0 ),
         .O(\douta[12]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[12]_INST_0_i_2 
        (.I0(\douta[12]_INST_0_i_5_n_0 ),
         .I1(\douta[12]_INST_0_i_6_n_0 ),
         .O(\douta[12]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[12]_INST_0_i_3 
        (.I0(\douta[16]_INST_0_i_1_0 [3]),
         .I1(\douta[16]_INST_0_i_1_1 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_2 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_3 [3]),
         .O(\douta[12]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -1974,9 +1931,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[12]_INST_0_i_4 
        (.I0(\douta[16]_INST_0_i_1_4 [3]),
         .I1(\douta[16]_INST_0_i_1_5 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_6 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_7 [3]),
         .O(\douta[12]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -1984,9 +1941,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[12]_INST_0_i_5 
        (.I0(\douta[16]_INST_0_i_2_0 [3]),
         .I1(\douta[16]_INST_0_i_2_1 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_2 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_3 [3]),
         .O(\douta[12]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -1994,34 +1951,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[12]_INST_0_i_6 
        (.I0(\douta[16]_INST_0_i_2_4 [3]),
         .I1(\douta[16]_INST_0_i_2_5 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_6 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_7 [3]),
         .O(\douta[12]_INST_0_i_6_n_0 ));
   MUXF8 \douta[13]_INST_0 
        (.I0(\douta[13]_INST_0_i_1_n_0 ),
         .I1(\douta[13]_INST_0_i_2_n_0 ),
         .O(douta[13]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[13]_INST_0_i_1 
        (.I0(\douta[13]_INST_0_i_3_n_0 ),
         .I1(\douta[13]_INST_0_i_4_n_0 ),
         .O(\douta[13]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[13]_INST_0_i_2 
        (.I0(\douta[13]_INST_0_i_5_n_0 ),
         .I1(\douta[13]_INST_0_i_6_n_0 ),
         .O(\douta[13]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[13]_INST_0_i_3 
        (.I0(\douta[16]_INST_0_i_1_0 [4]),
         .I1(\douta[16]_INST_0_i_1_1 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_2 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_3 [4]),
         .O(\douta[13]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2029,9 +1986,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[13]_INST_0_i_4 
        (.I0(\douta[16]_INST_0_i_1_4 [4]),
         .I1(\douta[16]_INST_0_i_1_5 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_6 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_7 [4]),
         .O(\douta[13]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2039,9 +1996,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[13]_INST_0_i_5 
        (.I0(\douta[16]_INST_0_i_2_0 [4]),
         .I1(\douta[16]_INST_0_i_2_1 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_2 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_3 [4]),
         .O(\douta[13]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2049,34 +2006,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[13]_INST_0_i_6 
        (.I0(\douta[16]_INST_0_i_2_4 [4]),
         .I1(\douta[16]_INST_0_i_2_5 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_6 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_7 [4]),
         .O(\douta[13]_INST_0_i_6_n_0 ));
   MUXF8 \douta[14]_INST_0 
        (.I0(\douta[14]_INST_0_i_1_n_0 ),
         .I1(\douta[14]_INST_0_i_2_n_0 ),
         .O(douta[14]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[14]_INST_0_i_1 
        (.I0(\douta[14]_INST_0_i_3_n_0 ),
         .I1(\douta[14]_INST_0_i_4_n_0 ),
         .O(\douta[14]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[14]_INST_0_i_2 
        (.I0(\douta[14]_INST_0_i_5_n_0 ),
         .I1(\douta[14]_INST_0_i_6_n_0 ),
         .O(\douta[14]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[14]_INST_0_i_3 
        (.I0(\douta[16]_INST_0_i_1_0 [5]),
         .I1(\douta[16]_INST_0_i_1_1 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_2 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_3 [5]),
         .O(\douta[14]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2084,9 +2041,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[14]_INST_0_i_4 
        (.I0(\douta[16]_INST_0_i_1_4 [5]),
         .I1(\douta[16]_INST_0_i_1_5 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_6 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_7 [5]),
         .O(\douta[14]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2094,9 +2051,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[14]_INST_0_i_5 
        (.I0(\douta[16]_INST_0_i_2_0 [5]),
         .I1(\douta[16]_INST_0_i_2_1 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_2 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_3 [5]),
         .O(\douta[14]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2104,34 +2061,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[14]_INST_0_i_6 
        (.I0(\douta[16]_INST_0_i_2_4 [5]),
         .I1(\douta[16]_INST_0_i_2_5 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_6 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_7 [5]),
         .O(\douta[14]_INST_0_i_6_n_0 ));
   MUXF8 \douta[15]_INST_0 
        (.I0(\douta[15]_INST_0_i_1_n_0 ),
         .I1(\douta[15]_INST_0_i_2_n_0 ),
         .O(douta[15]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[15]_INST_0_i_1 
        (.I0(\douta[15]_INST_0_i_3_n_0 ),
         .I1(\douta[15]_INST_0_i_4_n_0 ),
         .O(\douta[15]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[15]_INST_0_i_2 
        (.I0(\douta[15]_INST_0_i_5_n_0 ),
         .I1(\douta[15]_INST_0_i_6_n_0 ),
         .O(\douta[15]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[15]_INST_0_i_3 
        (.I0(\douta[16]_INST_0_i_1_0 [6]),
         .I1(\douta[16]_INST_0_i_1_1 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_2 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_3 [6]),
         .O(\douta[15]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2139,9 +2096,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[15]_INST_0_i_4 
        (.I0(\douta[16]_INST_0_i_1_4 [6]),
         .I1(\douta[16]_INST_0_i_1_5 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_6 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_7 [6]),
         .O(\douta[15]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2149,9 +2106,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[15]_INST_0_i_5 
        (.I0(\douta[16]_INST_0_i_2_0 [6]),
         .I1(\douta[16]_INST_0_i_2_1 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_2 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_3 [6]),
         .O(\douta[15]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2159,34 +2116,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[15]_INST_0_i_6 
        (.I0(\douta[16]_INST_0_i_2_4 [6]),
         .I1(\douta[16]_INST_0_i_2_5 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_6 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_7 [6]),
         .O(\douta[15]_INST_0_i_6_n_0 ));
   MUXF8 \douta[16]_INST_0 
        (.I0(\douta[16]_INST_0_i_1_n_0 ),
         .I1(\douta[16]_INST_0_i_2_n_0 ),
         .O(douta[16]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[16]_INST_0_i_1 
        (.I0(\douta[16]_INST_0_i_3_n_0 ),
         .I1(\douta[16]_INST_0_i_4_n_0 ),
         .O(\douta[16]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[16]_INST_0_i_2 
        (.I0(\douta[16]_INST_0_i_5_n_0 ),
         .I1(\douta[16]_INST_0_i_6_n_0 ),
         .O(\douta[16]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[16]_INST_0_i_3 
        (.I0(\douta[16]_INST_0_i_1_0 [7]),
         .I1(\douta[16]_INST_0_i_1_1 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_2 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_3 [7]),
         .O(\douta[16]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2194,9 +2151,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[16]_INST_0_i_4 
        (.I0(\douta[16]_INST_0_i_1_4 [7]),
         .I1(\douta[16]_INST_0_i_1_5 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_6 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_7 [7]),
         .O(\douta[16]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2204,9 +2161,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[16]_INST_0_i_5 
        (.I0(\douta[16]_INST_0_i_2_0 [7]),
         .I1(\douta[16]_INST_0_i_2_1 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_2 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_3 [7]),
         .O(\douta[16]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2214,34 +2171,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[16]_INST_0_i_6 
        (.I0(\douta[16]_INST_0_i_2_4 [7]),
         .I1(\douta[16]_INST_0_i_2_5 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_6 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_7 [7]),
         .O(\douta[16]_INST_0_i_6_n_0 ));
   MUXF8 \douta[17]_INST_0 
        (.I0(\douta[17]_INST_0_i_1_n_0 ),
         .I1(\douta[17]_INST_0_i_2_n_0 ),
         .O(douta[17]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[17]_INST_0_i_1 
        (.I0(\douta[17]_INST_0_i_3_n_0 ),
         .I1(\douta[17]_INST_0_i_4_n_0 ),
         .O(\douta[17]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[17]_INST_0_i_2 
        (.I0(\douta[17]_INST_0_i_5_n_0 ),
         .I1(\douta[17]_INST_0_i_6_n_0 ),
         .O(\douta[17]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[17]_INST_0_i_3 
        (.I0(\douta[17]_INST_0_i_1_0 ),
         .I1(\douta[17]_INST_0_i_1_1 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[17]_INST_0_i_1_2 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[17]_INST_0_i_1_3 ),
         .O(\douta[17]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2249,9 +2206,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[17]_INST_0_i_4 
        (.I0(\douta[17]_INST_0_i_1_4 ),
         .I1(\douta[17]_INST_0_i_1_5 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[17]_INST_0_i_1_6 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[17]_INST_0_i_1_7 ),
         .O(\douta[17]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2259,9 +2216,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[17]_INST_0_i_5 
        (.I0(\douta[17]_INST_0_i_2_0 ),
         .I1(\douta[17]_INST_0_i_2_1 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[17]_INST_0_i_2_2 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[17]_INST_0_i_2_3 ),
         .O(\douta[17]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2269,34 +2226,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[17]_INST_0_i_6 
        (.I0(\douta[17]_INST_0_i_2_4 ),
         .I1(\douta[17]_INST_0_i_2_5 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[17]_INST_0_i_2_6 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[17]_INST_0_i_2_7 ),
         .O(\douta[17]_INST_0_i_6_n_0 ));
   MUXF8 \douta[18]_INST_0 
        (.I0(\douta[18]_INST_0_i_1_n_0 ),
         .I1(\douta[18]_INST_0_i_2_n_0 ),
         .O(douta[18]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[18]_INST_0_i_1 
        (.I0(\douta[18]_INST_0_i_3_n_0 ),
         .I1(\douta[18]_INST_0_i_4_n_0 ),
         .O(\douta[18]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[18]_INST_0_i_2 
        (.I0(\douta[18]_INST_0_i_5_n_0 ),
         .I1(\douta[18]_INST_0_i_6_n_0 ),
         .O(\douta[18]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[18]_INST_0_i_3 
        (.I0(\douta[25]_INST_0_i_1_0 [0]),
         .I1(\douta[25]_INST_0_i_1_1 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_2 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_3 [0]),
         .O(\douta[18]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2304,9 +2261,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[18]_INST_0_i_4 
        (.I0(\douta[25]_INST_0_i_1_4 [0]),
         .I1(\douta[25]_INST_0_i_1_5 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_6 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_7 [0]),
         .O(\douta[18]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2314,9 +2271,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[18]_INST_0_i_5 
        (.I0(\douta[25]_INST_0_i_2_0 [0]),
         .I1(\douta[25]_INST_0_i_2_1 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_2 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_3 [0]),
         .O(\douta[18]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2324,34 +2281,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[18]_INST_0_i_6 
        (.I0(\douta[25]_INST_0_i_2_4 [0]),
         .I1(\douta[25]_INST_0_i_2_5 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_6 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_7 [0]),
         .O(\douta[18]_INST_0_i_6_n_0 ));
   MUXF8 \douta[19]_INST_0 
        (.I0(\douta[19]_INST_0_i_1_n_0 ),
         .I1(\douta[19]_INST_0_i_2_n_0 ),
         .O(douta[19]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[19]_INST_0_i_1 
        (.I0(\douta[19]_INST_0_i_3_n_0 ),
         .I1(\douta[19]_INST_0_i_4_n_0 ),
         .O(\douta[19]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[19]_INST_0_i_2 
        (.I0(\douta[19]_INST_0_i_5_n_0 ),
         .I1(\douta[19]_INST_0_i_6_n_0 ),
         .O(\douta[19]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[19]_INST_0_i_3 
        (.I0(\douta[25]_INST_0_i_1_0 [1]),
         .I1(\douta[25]_INST_0_i_1_1 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_2 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_3 [1]),
         .O(\douta[19]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2359,9 +2316,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[19]_INST_0_i_4 
        (.I0(\douta[25]_INST_0_i_1_4 [1]),
         .I1(\douta[25]_INST_0_i_1_5 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_6 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_7 [1]),
         .O(\douta[19]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2369,9 +2326,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[19]_INST_0_i_5 
        (.I0(\douta[25]_INST_0_i_2_0 [1]),
         .I1(\douta[25]_INST_0_i_2_1 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_2 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_3 [1]),
         .O(\douta[19]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2379,34 +2336,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[19]_INST_0_i_6 
        (.I0(\douta[25]_INST_0_i_2_4 [1]),
         .I1(\douta[25]_INST_0_i_2_5 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_6 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_7 [1]),
         .O(\douta[19]_INST_0_i_6_n_0 ));
   MUXF8 \douta[1]_INST_0 
        (.I0(\douta[1]_INST_0_i_1_n_0 ),
         .I1(\douta[1]_INST_0_i_2_n_0 ),
         .O(douta[1]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[1]_INST_0_i_1 
        (.I0(\douta[1]_INST_0_i_3_n_0 ),
         .I1(\douta[1]_INST_0_i_4_n_0 ),
         .O(\douta[1]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[1]_INST_0_i_2 
        (.I0(\douta[1]_INST_0_i_5_n_0 ),
         .I1(\douta[1]_INST_0_i_6_n_0 ),
         .O(\douta[1]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[1]_INST_0_i_3 
        (.I0(DOUTADOUT[1]),
         .I1(\douta[7]_INST_0_i_1_0 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_1 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[1]),
         .O(\douta[1]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2414,9 +2371,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[1]_INST_0_i_4 
        (.I0(\douta[7]_INST_0_i_1_2 [1]),
         .I1(\douta[7]_INST_0_i_1_3 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_4 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_1_5 [1]),
         .O(\douta[1]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2424,9 +2381,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[1]_INST_0_i_5 
        (.I0(\douta[7]_INST_0_i_2_0 [1]),
         .I1(\douta[7]_INST_0_i_2_1 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_2 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_3 [1]),
         .O(\douta[1]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2434,34 +2391,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[1]_INST_0_i_6 
        (.I0(\douta[7]_INST_0_i_2_4 [1]),
         .I1(\douta[7]_INST_0_i_2_5 [1]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_6 [1]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_7 [1]),
         .O(\douta[1]_INST_0_i_6_n_0 ));
   MUXF8 \douta[20]_INST_0 
        (.I0(\douta[20]_INST_0_i_1_n_0 ),
         .I1(\douta[20]_INST_0_i_2_n_0 ),
         .O(douta[20]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[20]_INST_0_i_1 
        (.I0(\douta[20]_INST_0_i_3_n_0 ),
         .I1(\douta[20]_INST_0_i_4_n_0 ),
         .O(\douta[20]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[20]_INST_0_i_2 
        (.I0(\douta[20]_INST_0_i_5_n_0 ),
         .I1(\douta[20]_INST_0_i_6_n_0 ),
         .O(\douta[20]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[20]_INST_0_i_3 
        (.I0(\douta[25]_INST_0_i_1_0 [2]),
         .I1(\douta[25]_INST_0_i_1_1 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_2 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_3 [2]),
         .O(\douta[20]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2469,9 +2426,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[20]_INST_0_i_4 
        (.I0(\douta[25]_INST_0_i_1_4 [2]),
         .I1(\douta[25]_INST_0_i_1_5 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_6 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_7 [2]),
         .O(\douta[20]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2479,9 +2436,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[20]_INST_0_i_5 
        (.I0(\douta[25]_INST_0_i_2_0 [2]),
         .I1(\douta[25]_INST_0_i_2_1 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_2 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_3 [2]),
         .O(\douta[20]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2489,34 +2446,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[20]_INST_0_i_6 
        (.I0(\douta[25]_INST_0_i_2_4 [2]),
         .I1(\douta[25]_INST_0_i_2_5 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_6 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_7 [2]),
         .O(\douta[20]_INST_0_i_6_n_0 ));
   MUXF8 \douta[21]_INST_0 
        (.I0(\douta[21]_INST_0_i_1_n_0 ),
         .I1(\douta[21]_INST_0_i_2_n_0 ),
         .O(douta[21]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[21]_INST_0_i_1 
        (.I0(\douta[21]_INST_0_i_3_n_0 ),
         .I1(\douta[21]_INST_0_i_4_n_0 ),
         .O(\douta[21]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[21]_INST_0_i_2 
        (.I0(\douta[21]_INST_0_i_5_n_0 ),
         .I1(\douta[21]_INST_0_i_6_n_0 ),
         .O(\douta[21]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[21]_INST_0_i_3 
        (.I0(\douta[25]_INST_0_i_1_0 [3]),
         .I1(\douta[25]_INST_0_i_1_1 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_2 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_3 [3]),
         .O(\douta[21]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2524,9 +2481,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[21]_INST_0_i_4 
        (.I0(\douta[25]_INST_0_i_1_4 [3]),
         .I1(\douta[25]_INST_0_i_1_5 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_6 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_7 [3]),
         .O(\douta[21]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2534,9 +2491,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[21]_INST_0_i_5 
        (.I0(\douta[25]_INST_0_i_2_0 [3]),
         .I1(\douta[25]_INST_0_i_2_1 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_2 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_3 [3]),
         .O(\douta[21]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2544,34 +2501,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[21]_INST_0_i_6 
        (.I0(\douta[25]_INST_0_i_2_4 [3]),
         .I1(\douta[25]_INST_0_i_2_5 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_6 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_7 [3]),
         .O(\douta[21]_INST_0_i_6_n_0 ));
   MUXF8 \douta[22]_INST_0 
        (.I0(\douta[22]_INST_0_i_1_n_0 ),
         .I1(\douta[22]_INST_0_i_2_n_0 ),
         .O(douta[22]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[22]_INST_0_i_1 
        (.I0(\douta[22]_INST_0_i_3_n_0 ),
         .I1(\douta[22]_INST_0_i_4_n_0 ),
         .O(\douta[22]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[22]_INST_0_i_2 
        (.I0(\douta[22]_INST_0_i_5_n_0 ),
         .I1(\douta[22]_INST_0_i_6_n_0 ),
         .O(\douta[22]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[22]_INST_0_i_3 
        (.I0(\douta[25]_INST_0_i_1_0 [4]),
         .I1(\douta[25]_INST_0_i_1_1 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_2 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_3 [4]),
         .O(\douta[22]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2579,9 +2536,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[22]_INST_0_i_4 
        (.I0(\douta[25]_INST_0_i_1_4 [4]),
         .I1(\douta[25]_INST_0_i_1_5 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_6 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_7 [4]),
         .O(\douta[22]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2589,9 +2546,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[22]_INST_0_i_5 
        (.I0(\douta[25]_INST_0_i_2_0 [4]),
         .I1(\douta[25]_INST_0_i_2_1 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_2 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_3 [4]),
         .O(\douta[22]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2599,34 +2556,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[22]_INST_0_i_6 
        (.I0(\douta[25]_INST_0_i_2_4 [4]),
         .I1(\douta[25]_INST_0_i_2_5 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_6 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_7 [4]),
         .O(\douta[22]_INST_0_i_6_n_0 ));
   MUXF8 \douta[23]_INST_0 
        (.I0(\douta[23]_INST_0_i_1_n_0 ),
         .I1(\douta[23]_INST_0_i_2_n_0 ),
         .O(douta[23]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[23]_INST_0_i_1 
        (.I0(\douta[23]_INST_0_i_3_n_0 ),
         .I1(\douta[23]_INST_0_i_4_n_0 ),
         .O(\douta[23]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[23]_INST_0_i_2 
        (.I0(\douta[23]_INST_0_i_5_n_0 ),
         .I1(\douta[23]_INST_0_i_6_n_0 ),
         .O(\douta[23]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[23]_INST_0_i_3 
        (.I0(\douta[25]_INST_0_i_1_0 [5]),
         .I1(\douta[25]_INST_0_i_1_1 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_2 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_3 [5]),
         .O(\douta[23]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2634,9 +2591,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[23]_INST_0_i_4 
        (.I0(\douta[25]_INST_0_i_1_4 [5]),
         .I1(\douta[25]_INST_0_i_1_5 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_6 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_7 [5]),
         .O(\douta[23]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2644,9 +2601,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[23]_INST_0_i_5 
        (.I0(\douta[25]_INST_0_i_2_0 [5]),
         .I1(\douta[25]_INST_0_i_2_1 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_2 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_3 [5]),
         .O(\douta[23]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2654,34 +2611,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[23]_INST_0_i_6 
        (.I0(\douta[25]_INST_0_i_2_4 [5]),
         .I1(\douta[25]_INST_0_i_2_5 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_6 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_7 [5]),
         .O(\douta[23]_INST_0_i_6_n_0 ));
   MUXF8 \douta[24]_INST_0 
        (.I0(\douta[24]_INST_0_i_1_n_0 ),
         .I1(\douta[24]_INST_0_i_2_n_0 ),
         .O(douta[24]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[24]_INST_0_i_1 
        (.I0(\douta[24]_INST_0_i_3_n_0 ),
         .I1(\douta[24]_INST_0_i_4_n_0 ),
         .O(\douta[24]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[24]_INST_0_i_2 
        (.I0(\douta[24]_INST_0_i_5_n_0 ),
         .I1(\douta[24]_INST_0_i_6_n_0 ),
         .O(\douta[24]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[24]_INST_0_i_3 
        (.I0(\douta[25]_INST_0_i_1_0 [6]),
         .I1(\douta[25]_INST_0_i_1_1 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_2 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_3 [6]),
         .O(\douta[24]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2689,9 +2646,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[24]_INST_0_i_4 
        (.I0(\douta[25]_INST_0_i_1_4 [6]),
         .I1(\douta[25]_INST_0_i_1_5 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_6 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_7 [6]),
         .O(\douta[24]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2699,9 +2656,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[24]_INST_0_i_5 
        (.I0(\douta[25]_INST_0_i_2_0 [6]),
         .I1(\douta[25]_INST_0_i_2_1 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_2 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_3 [6]),
         .O(\douta[24]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2709,34 +2666,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[24]_INST_0_i_6 
        (.I0(\douta[25]_INST_0_i_2_4 [6]),
         .I1(\douta[25]_INST_0_i_2_5 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_6 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_7 [6]),
         .O(\douta[24]_INST_0_i_6_n_0 ));
   MUXF8 \douta[25]_INST_0 
        (.I0(\douta[25]_INST_0_i_1_n_0 ),
         .I1(\douta[25]_INST_0_i_2_n_0 ),
         .O(douta[25]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[25]_INST_0_i_1 
        (.I0(\douta[25]_INST_0_i_3_n_0 ),
         .I1(\douta[25]_INST_0_i_4_n_0 ),
         .O(\douta[25]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[25]_INST_0_i_2 
        (.I0(\douta[25]_INST_0_i_5_n_0 ),
         .I1(\douta[25]_INST_0_i_6_n_0 ),
         .O(\douta[25]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[25]_INST_0_i_3 
        (.I0(\douta[25]_INST_0_i_1_0 [7]),
         .I1(\douta[25]_INST_0_i_1_1 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_2 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_3 [7]),
         .O(\douta[25]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2744,9 +2701,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[25]_INST_0_i_4 
        (.I0(\douta[25]_INST_0_i_1_4 [7]),
         .I1(\douta[25]_INST_0_i_1_5 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_1_6 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_1_7 [7]),
         .O(\douta[25]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2754,9 +2711,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[25]_INST_0_i_5 
        (.I0(\douta[25]_INST_0_i_2_0 [7]),
         .I1(\douta[25]_INST_0_i_2_1 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_2 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_3 [7]),
         .O(\douta[25]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2764,34 +2721,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[25]_INST_0_i_6 
        (.I0(\douta[25]_INST_0_i_2_4 [7]),
         .I1(\douta[25]_INST_0_i_2_5 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[25]_INST_0_i_2_6 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[25]_INST_0_i_2_7 [7]),
         .O(\douta[25]_INST_0_i_6_n_0 ));
   MUXF8 \douta[26]_INST_0 
        (.I0(\douta[26]_INST_0_i_1_n_0 ),
         .I1(\douta[26]_INST_0_i_2_n_0 ),
         .O(douta[26]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[26]_INST_0_i_1 
        (.I0(\douta[26]_INST_0_i_3_n_0 ),
         .I1(\douta[26]_INST_0_i_4_n_0 ),
         .O(\douta[26]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[26]_INST_0_i_2 
        (.I0(\douta[26]_INST_0_i_5_n_0 ),
         .I1(\douta[26]_INST_0_i_6_n_0 ),
         .O(\douta[26]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[26]_INST_0_i_3 
        (.I0(\douta[26]_INST_0_i_1_0 ),
         .I1(\douta[26]_INST_0_i_1_1 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[26]_INST_0_i_1_2 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[26]_INST_0_i_1_3 ),
         .O(\douta[26]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2799,9 +2756,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[26]_INST_0_i_4 
        (.I0(\douta[26]_INST_0_i_1_4 ),
         .I1(\douta[26]_INST_0_i_1_5 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[26]_INST_0_i_1_6 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[26]_INST_0_i_1_7 ),
         .O(\douta[26]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2809,9 +2766,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[26]_INST_0_i_5 
        (.I0(\douta[26]_INST_0_i_2_0 ),
         .I1(\douta[26]_INST_0_i_2_1 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[26]_INST_0_i_2_2 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[26]_INST_0_i_2_3 ),
         .O(\douta[26]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2819,34 +2776,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[26]_INST_0_i_6 
        (.I0(\douta[26]_INST_0_i_2_4 ),
         .I1(\douta[26]_INST_0_i_2_5 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[26]_INST_0_i_2_6 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[26]_INST_0_i_2_7 ),
         .O(\douta[26]_INST_0_i_6_n_0 ));
   MUXF8 \douta[2]_INST_0 
        (.I0(\douta[2]_INST_0_i_1_n_0 ),
         .I1(\douta[2]_INST_0_i_2_n_0 ),
         .O(douta[2]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[2]_INST_0_i_1 
        (.I0(\douta[2]_INST_0_i_3_n_0 ),
         .I1(\douta[2]_INST_0_i_4_n_0 ),
         .O(\douta[2]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[2]_INST_0_i_2 
        (.I0(\douta[2]_INST_0_i_5_n_0 ),
         .I1(\douta[2]_INST_0_i_6_n_0 ),
         .O(\douta[2]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[2]_INST_0_i_3 
        (.I0(DOUTADOUT[2]),
         .I1(\douta[7]_INST_0_i_1_0 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_1 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[2]),
         .O(\douta[2]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2854,9 +2811,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[2]_INST_0_i_4 
        (.I0(\douta[7]_INST_0_i_1_2 [2]),
         .I1(\douta[7]_INST_0_i_1_3 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_4 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_1_5 [2]),
         .O(\douta[2]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2864,9 +2821,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[2]_INST_0_i_5 
        (.I0(\douta[7]_INST_0_i_2_0 [2]),
         .I1(\douta[7]_INST_0_i_2_1 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_2 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_3 [2]),
         .O(\douta[2]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2874,34 +2831,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[2]_INST_0_i_6 
        (.I0(\douta[7]_INST_0_i_2_4 [2]),
         .I1(\douta[7]_INST_0_i_2_5 [2]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_6 [2]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_7 [2]),
         .O(\douta[2]_INST_0_i_6_n_0 ));
   MUXF8 \douta[3]_INST_0 
        (.I0(\douta[3]_INST_0_i_1_n_0 ),
         .I1(\douta[3]_INST_0_i_2_n_0 ),
         .O(douta[3]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[3]_INST_0_i_1 
        (.I0(\douta[3]_INST_0_i_3_n_0 ),
         .I1(\douta[3]_INST_0_i_4_n_0 ),
         .O(\douta[3]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[3]_INST_0_i_2 
        (.I0(\douta[3]_INST_0_i_5_n_0 ),
         .I1(\douta[3]_INST_0_i_6_n_0 ),
         .O(\douta[3]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[3]_INST_0_i_3 
        (.I0(DOUTADOUT[3]),
         .I1(\douta[7]_INST_0_i_1_0 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_1 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[3]),
         .O(\douta[3]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2909,9 +2866,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[3]_INST_0_i_4 
        (.I0(\douta[7]_INST_0_i_1_2 [3]),
         .I1(\douta[7]_INST_0_i_1_3 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_4 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_1_5 [3]),
         .O(\douta[3]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2919,9 +2876,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[3]_INST_0_i_5 
        (.I0(\douta[7]_INST_0_i_2_0 [3]),
         .I1(\douta[7]_INST_0_i_2_1 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_2 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_3 [3]),
         .O(\douta[3]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2929,34 +2886,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[3]_INST_0_i_6 
        (.I0(\douta[7]_INST_0_i_2_4 [3]),
         .I1(\douta[7]_INST_0_i_2_5 [3]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_6 [3]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_7 [3]),
         .O(\douta[3]_INST_0_i_6_n_0 ));
   MUXF8 \douta[4]_INST_0 
        (.I0(\douta[4]_INST_0_i_1_n_0 ),
         .I1(\douta[4]_INST_0_i_2_n_0 ),
         .O(douta[4]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[4]_INST_0_i_1 
        (.I0(\douta[4]_INST_0_i_3_n_0 ),
         .I1(\douta[4]_INST_0_i_4_n_0 ),
         .O(\douta[4]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[4]_INST_0_i_2 
        (.I0(\douta[4]_INST_0_i_5_n_0 ),
         .I1(\douta[4]_INST_0_i_6_n_0 ),
         .O(\douta[4]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[4]_INST_0_i_3 
        (.I0(DOUTADOUT[4]),
         .I1(\douta[7]_INST_0_i_1_0 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_1 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[4]),
         .O(\douta[4]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -2964,9 +2921,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[4]_INST_0_i_4 
        (.I0(\douta[7]_INST_0_i_1_2 [4]),
         .I1(\douta[7]_INST_0_i_1_3 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_4 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_1_5 [4]),
         .O(\douta[4]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -2974,9 +2931,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[4]_INST_0_i_5 
        (.I0(\douta[7]_INST_0_i_2_0 [4]),
         .I1(\douta[7]_INST_0_i_2_1 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_2 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_3 [4]),
         .O(\douta[4]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -2984,34 +2941,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[4]_INST_0_i_6 
        (.I0(\douta[7]_INST_0_i_2_4 [4]),
         .I1(\douta[7]_INST_0_i_2_5 [4]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_6 [4]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_7 [4]),
         .O(\douta[4]_INST_0_i_6_n_0 ));
   MUXF8 \douta[5]_INST_0 
        (.I0(\douta[5]_INST_0_i_1_n_0 ),
         .I1(\douta[5]_INST_0_i_2_n_0 ),
         .O(douta[5]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[5]_INST_0_i_1 
        (.I0(\douta[5]_INST_0_i_3_n_0 ),
         .I1(\douta[5]_INST_0_i_4_n_0 ),
         .O(\douta[5]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[5]_INST_0_i_2 
        (.I0(\douta[5]_INST_0_i_5_n_0 ),
         .I1(\douta[5]_INST_0_i_6_n_0 ),
         .O(\douta[5]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[5]_INST_0_i_3 
        (.I0(DOUTADOUT[5]),
         .I1(\douta[7]_INST_0_i_1_0 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_1 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[5]),
         .O(\douta[5]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -3019,9 +2976,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[5]_INST_0_i_4 
        (.I0(\douta[7]_INST_0_i_1_2 [5]),
         .I1(\douta[7]_INST_0_i_1_3 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_4 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_1_5 [5]),
         .O(\douta[5]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -3029,9 +2986,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[5]_INST_0_i_5 
        (.I0(\douta[7]_INST_0_i_2_0 [5]),
         .I1(\douta[7]_INST_0_i_2_1 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_2 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_3 [5]),
         .O(\douta[5]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -3039,34 +2996,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[5]_INST_0_i_6 
        (.I0(\douta[7]_INST_0_i_2_4 [5]),
         .I1(\douta[7]_INST_0_i_2_5 [5]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_6 [5]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_7 [5]),
         .O(\douta[5]_INST_0_i_6_n_0 ));
   MUXF8 \douta[6]_INST_0 
        (.I0(\douta[6]_INST_0_i_1_n_0 ),
         .I1(\douta[6]_INST_0_i_2_n_0 ),
         .O(douta[6]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[6]_INST_0_i_1 
        (.I0(\douta[6]_INST_0_i_3_n_0 ),
         .I1(\douta[6]_INST_0_i_4_n_0 ),
         .O(\douta[6]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[6]_INST_0_i_2 
        (.I0(\douta[6]_INST_0_i_5_n_0 ),
         .I1(\douta[6]_INST_0_i_6_n_0 ),
         .O(\douta[6]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[6]_INST_0_i_3 
        (.I0(DOUTADOUT[6]),
         .I1(\douta[7]_INST_0_i_1_0 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_1 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[6]),
         .O(\douta[6]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -3074,9 +3031,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[6]_INST_0_i_4 
        (.I0(\douta[7]_INST_0_i_1_2 [6]),
         .I1(\douta[7]_INST_0_i_1_3 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_4 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_1_5 [6]),
         .O(\douta[6]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -3084,9 +3041,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[6]_INST_0_i_5 
        (.I0(\douta[7]_INST_0_i_2_0 [6]),
         .I1(\douta[7]_INST_0_i_2_1 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_2 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_3 [6]),
         .O(\douta[6]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -3094,34 +3051,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[6]_INST_0_i_6 
        (.I0(\douta[7]_INST_0_i_2_4 [6]),
         .I1(\douta[7]_INST_0_i_2_5 [6]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_6 [6]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_7 [6]),
         .O(\douta[6]_INST_0_i_6_n_0 ));
   MUXF8 \douta[7]_INST_0 
        (.I0(\douta[7]_INST_0_i_1_n_0 ),
         .I1(\douta[7]_INST_0_i_2_n_0 ),
         .O(douta[7]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[7]_INST_0_i_1 
        (.I0(\douta[7]_INST_0_i_3_n_0 ),
         .I1(\douta[7]_INST_0_i_4_n_0 ),
         .O(\douta[7]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[7]_INST_0_i_2 
        (.I0(\douta[7]_INST_0_i_5_n_0 ),
         .I1(\douta[7]_INST_0_i_6_n_0 ),
         .O(\douta[7]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[7]_INST_0_i_3 
        (.I0(DOUTADOUT[7]),
         .I1(\douta[7]_INST_0_i_1_0 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_1 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[7]),
         .O(\douta[7]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -3129,9 +3086,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[7]_INST_0_i_4 
        (.I0(\douta[7]_INST_0_i_1_2 [7]),
         .I1(\douta[7]_INST_0_i_1_3 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_1_4 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_1_5 [7]),
         .O(\douta[7]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -3139,9 +3096,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[7]_INST_0_i_5 
        (.I0(\douta[7]_INST_0_i_2_0 [7]),
         .I1(\douta[7]_INST_0_i_2_1 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_2 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_3 [7]),
         .O(\douta[7]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -3149,34 +3106,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[7]_INST_0_i_6 
        (.I0(\douta[7]_INST_0_i_2_4 [7]),
         .I1(\douta[7]_INST_0_i_2_5 [7]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[7]_INST_0_i_2_6 [7]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[7]_INST_0_i_2_7 [7]),
         .O(\douta[7]_INST_0_i_6_n_0 ));
   MUXF8 \douta[8]_INST_0 
        (.I0(\douta[8]_INST_0_i_1_n_0 ),
         .I1(\douta[8]_INST_0_i_2_n_0 ),
         .O(douta[8]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[8]_INST_0_i_1 
        (.I0(\douta[8]_INST_0_i_3_n_0 ),
         .I1(\douta[8]_INST_0_i_4_n_0 ),
         .O(\douta[8]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[8]_INST_0_i_2 
        (.I0(\douta[8]_INST_0_i_5_n_0 ),
         .I1(\douta[8]_INST_0_i_6_n_0 ),
         .O(\douta[8]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[8]_INST_0_i_3 
        (.I0(DOUTPADOUTP),
         .I1(\douta[8]_INST_0_i_1_0 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[8]_INST_0_i_1_1 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(ram_douta[8]),
         .O(\douta[8]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -3184,9 +3141,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[8]_INST_0_i_4 
        (.I0(\douta[8]_INST_0_i_1_2 ),
         .I1(\douta[8]_INST_0_i_1_3 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[8]_INST_0_i_1_4 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[8]_INST_0_i_1_5 ),
         .O(\douta[8]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -3194,9 +3151,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[8]_INST_0_i_5 
        (.I0(\douta[8]_INST_0_i_2_0 ),
         .I1(\douta[8]_INST_0_i_2_1 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[8]_INST_0_i_2_2 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[8]_INST_0_i_2_3 ),
         .O(\douta[8]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -3204,34 +3161,34 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[8]_INST_0_i_6 
        (.I0(\douta[8]_INST_0_i_2_4 ),
         .I1(\douta[8]_INST_0_i_2_5 ),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[8]_INST_0_i_2_6 ),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[8]_INST_0_i_2_7 ),
         .O(\douta[8]_INST_0_i_6_n_0 ));
   MUXF8 \douta[9]_INST_0 
        (.I0(\douta[9]_INST_0_i_1_n_0 ),
         .I1(\douta[9]_INST_0_i_2_n_0 ),
         .O(douta[9]),
-        .S(sel_pipe_d1[3]));
+        .S(sel_pipe[3]));
   MUXF7 \douta[9]_INST_0_i_1 
        (.I0(\douta[9]_INST_0_i_3_n_0 ),
         .I1(\douta[9]_INST_0_i_4_n_0 ),
         .O(\douta[9]_INST_0_i_1_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   MUXF7 \douta[9]_INST_0_i_2 
        (.I0(\douta[9]_INST_0_i_5_n_0 ),
         .I1(\douta[9]_INST_0_i_6_n_0 ),
         .O(\douta[9]_INST_0_i_2_n_0 ),
-        .S(sel_pipe_d1[2]));
+        .S(sel_pipe[2]));
   LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
     \douta[9]_INST_0_i_3 
        (.I0(\douta[16]_INST_0_i_1_0 [0]),
         .I1(\douta[16]_INST_0_i_1_1 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_2 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_3 [0]),
         .O(\douta[9]_INST_0_i_3_n_0 ));
   LUT6 #(
@@ -3239,9 +3196,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[9]_INST_0_i_4 
        (.I0(\douta[16]_INST_0_i_1_4 [0]),
         .I1(\douta[16]_INST_0_i_1_5 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_1_6 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_1_7 [0]),
         .O(\douta[9]_INST_0_i_4_n_0 ));
   LUT6 #(
@@ -3249,9 +3206,9 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[9]_INST_0_i_5 
        (.I0(\douta[16]_INST_0_i_2_0 [0]),
         .I1(\douta[16]_INST_0_i_2_1 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_2 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_3 [0]),
         .O(\douta[9]_INST_0_i_5_n_0 ));
   LUT6 #(
@@ -3259,43 +3216,11 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
     \douta[9]_INST_0_i_6 
        (.I0(\douta[16]_INST_0_i_2_4 [0]),
         .I1(\douta[16]_INST_0_i_2_5 [0]),
-        .I2(sel_pipe_d1[1]),
+        .I2(sel_pipe[1]),
         .I3(\douta[16]_INST_0_i_2_6 [0]),
-        .I4(sel_pipe_d1[0]),
+        .I4(sel_pipe[0]),
         .I5(\douta[16]_INST_0_i_2_7 [0]),
         .O(\douta[9]_INST_0_i_6_n_0 ));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[0] 
-       (.C(clka),
-        .CE(ena),
-        .D(sel_pipe[0]),
-        .Q(sel_pipe_d1[0]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1] 
-       (.C(clka),
-        .CE(ena),
-        .D(sel_pipe[1]),
-        .Q(sel_pipe_d1[1]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[2] 
-       (.C(clka),
-        .CE(ena),
-        .D(sel_pipe[2]),
-        .Q(sel_pipe_d1[2]),
-        .R(1'b0));
-  FDRE #(
-    .INIT(1'b0)) 
-    \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[3] 
-       (.C(clka),
-        .CE(ena),
-        .D(sel_pipe[3]),
-        .Q(sel_pipe_d1[3]),
-        .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \no_softecc_sel_reg.ce_pri.sel_pipe_reg[0] 
@@ -3330,23 +3255,21 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_mux
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width
    (ram_douta,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [8:0]ram_douta;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire [8:0]ram_douta;
   wire sleep;
@@ -3354,7 +3277,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init \prim_init.ram 
        (.addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .ram_douta(ram_douta),
         .sleep(sleep));
@@ -3366,14 +3288,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized0
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3381,7 +3301,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized0
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3390,7 +3309,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized0
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3401,14 +3319,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized1
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3416,7 +3332,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized1
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3425,7 +3340,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized1
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3436,14 +3350,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized10
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3451,7 +3363,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized10
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3460,7 +3371,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized10
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3471,14 +3381,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized11
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3486,7 +3394,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized11
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3495,7 +3402,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized11
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3506,14 +3412,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized12
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3521,7 +3425,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized12
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3530,7 +3433,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized12
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3541,14 +3443,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized13
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3556,7 +3456,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized13
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3565,7 +3464,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized13
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3576,14 +3474,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized14
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3591,7 +3487,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized14
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3600,7 +3495,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized14
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3611,14 +3505,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized15
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3626,7 +3518,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized15
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3635,7 +3526,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized15
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3646,14 +3536,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized16
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3661,7 +3549,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized16
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3670,7 +3557,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized16
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3681,14 +3567,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized17
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3696,7 +3580,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized17
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3705,7 +3588,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized17
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3716,14 +3598,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized18
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3731,7 +3611,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized18
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3740,7 +3619,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized18
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3751,14 +3629,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized19
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3766,7 +3642,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized19
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3775,7 +3650,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized19
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3786,14 +3660,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized2
     DOUTPADOUTP,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]DOUTADOUT;
   output [0:0]DOUTPADOUTP;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3801,7 +3673,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized2
   wire [0:0]DOUTPADOUTP;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3810,7 +3681,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized2
         .DOUTPADOUTP(DOUTPADOUTP),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3821,14 +3691,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized20
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3836,7 +3704,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized20
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3845,7 +3712,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized20
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3856,14 +3722,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized21
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3871,7 +3735,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized21
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3880,7 +3743,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized21
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3891,14 +3753,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized22
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3907,7 +3767,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized22
   wire \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire sleep;
 
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized22 \prim_init.ram 
@@ -3916,7 +3775,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized22
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .sleep(sleep));
 endmodule
 
@@ -3926,14 +3784,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized23
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3941,7 +3797,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized23
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3950,7 +3805,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized23
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3961,14 +3815,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized24
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -3976,7 +3828,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized24
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -3985,7 +3836,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized24
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -3996,14 +3846,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized25
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4011,7 +3859,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized25
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4020,7 +3867,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized25
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4031,14 +3877,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized26
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4046,7 +3890,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized26
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4055,7 +3898,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized26
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4066,14 +3908,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized27
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4081,7 +3921,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized27
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4090,7 +3929,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized27
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4101,14 +3939,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized28
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4116,7 +3952,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized28
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4125,7 +3960,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized28
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4136,14 +3970,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized29
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4151,7 +3983,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized29
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4160,7 +3991,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized29
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4171,14 +4001,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized3
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4186,7 +4014,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized3
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4195,7 +4022,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized3
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4206,14 +4032,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized30
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4221,7 +4045,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized30
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4230,7 +4053,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized30
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4241,14 +4063,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized31
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4256,7 +4076,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized31
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4265,7 +4084,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized31
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4276,14 +4094,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized32
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4291,7 +4107,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized32
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4300,7 +4115,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized32
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4311,14 +4125,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized33
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4326,7 +4138,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized33
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4335,7 +4146,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized33
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4346,16 +4156,16 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized34
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     ena_array,
     clka,
-    ena,
     sleep,
-    addra);
+    addra,
+    ena);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]ena_array;
   input clka;
-  input ena;
   input sleep;
   input [15:0]addra;
+  input ena;
 
   wire [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
@@ -4381,14 +4191,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized35
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4396,7 +4204,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized35
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4405,7 +4212,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized35
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4416,16 +4222,16 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized36
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     ena_array,
     clka,
-    ena,
     sleep,
-    addra);
+    addra,
+    ena);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]ena_array;
   input clka;
-  input ena;
   input sleep;
   input [15:0]addra;
+  input ena;
 
   wire [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
@@ -4451,14 +4257,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized37
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4466,7 +4270,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized37
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4475,7 +4278,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized37
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4486,14 +4288,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized38
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4502,7 +4302,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized38
   wire \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire sleep;
 
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized38 \prim_init.ram 
@@ -4511,7 +4310,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized38
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .sleep(sleep));
 endmodule
 
@@ -4521,14 +4319,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized39
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4536,7 +4332,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized39
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4545,7 +4340,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized39
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4556,14 +4350,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized4
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4571,7 +4363,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized4
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4580,7 +4371,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized4
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4591,14 +4381,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized40
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4606,7 +4394,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized40
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4615,7 +4402,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized40
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4626,14 +4412,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized41
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4641,7 +4425,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized41
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4650,7 +4433,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized41
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4661,14 +4443,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized42
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4676,7 +4456,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized42
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4685,7 +4464,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized42
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4696,14 +4474,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized43
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4711,7 +4487,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized43
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4720,7 +4495,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized43
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4731,14 +4505,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized44
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4746,7 +4518,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized44
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4755,7 +4526,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized44
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4766,14 +4536,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized45
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4781,7 +4549,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized45
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4790,7 +4557,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized45
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4801,14 +4567,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized46
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4816,7 +4580,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized46
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4825,7 +4588,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized46
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -4833,17 +4595,17 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized47
    (douta,
-    CASDOMUXB,
     ENARDEN,
     CASDOMUXA,
+    CASDOMUXB,
     ena,
     clka,
     sleep,
     addra);
   output [0:0]douta;
-  output CASDOMUXB;
   output ENARDEN;
   input CASDOMUXA;
+  input CASDOMUXB;
   input ena;
   input clka;
   input sleep;
@@ -4953,14 +4715,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized5
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -4968,7 +4728,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized5
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -4977,7 +4736,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized5
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -5033,7 +4791,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized51
     ENARDEN);
   output [0:0]douta;
   output CASDOMUXA;
-  input CASDOMUXB;
+  output CASDOMUXB;
   input ena;
   input clka;
   input sleep;
@@ -5051,12 +4809,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized51
 
   design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized51 \prim_init.ram 
        (.CASDOMUXA(CASDOMUXA),
-        .CASDOMUXB(CASDOMUXB),
         .ENARDEN(ENARDEN),
         .addra(addra),
         .clka(clka),
         .douta(douta),
         .ena(ena),
+        .ena_0(CASDOMUXB),
         .sleep(sleep));
 endmodule
 
@@ -5066,16 +4824,16 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized6
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     addra_15_sp_1,
     clka,
-    ena,
     sleep,
-    addra);
+    addra,
+    ena);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output addra_15_sp_1;
   input clka;
-  input ena;
   input sleep;
   input [15:0]addra;
+  input ena;
 
   wire [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
@@ -5102,14 +4860,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized7
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -5117,7 +4873,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized7
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -5126,7 +4881,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized7
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -5137,14 +4891,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized8
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -5152,7 +4904,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized8
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -5161,7 +4912,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized8
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
@@ -5172,14 +4922,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized9
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -5187,7 +4935,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized9
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
 
@@ -5196,28 +4943,25 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_width__parameterized9
         .\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .addra(addra),
         .clka(clka),
-        .ena(ena),
         .ena_array(ena_array),
         .sleep(sleep));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init
    (ram_douta,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [8:0]ram_douta;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire [8:0]ram_douta;
   wire sleep;
@@ -5241,7 +4985,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -5462,7 +5206,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -5480,14 +5224,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -5495,7 +5237,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -5518,7 +5259,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -5739,7 +5480,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -5757,14 +5498,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -5772,7 +5511,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -5795,7 +5533,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -6016,7 +5754,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -6034,14 +5772,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -6049,7 +5785,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -6072,7 +5807,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -6293,7 +6028,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -6311,14 +6046,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -6326,7 +6059,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -6349,7 +6081,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -6570,7 +6302,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -6588,14 +6320,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -6603,7 +6333,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -6626,7 +6355,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -6847,7 +6576,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -6865,14 +6594,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -6880,7 +6607,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -6903,7 +6629,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -7124,7 +6850,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -7142,14 +6868,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -7157,7 +6881,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -7180,7 +6903,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -7401,7 +7124,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -7419,14 +7142,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -7434,7 +7155,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -7457,7 +7177,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -7678,7 +7398,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -7696,14 +7416,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -7711,7 +7429,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -7734,7 +7451,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -7955,7 +7672,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -7973,14 +7690,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -7988,7 +7703,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -8011,7 +7725,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -8232,7 +7946,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -8250,14 +7964,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -8265,7 +7977,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -8288,7 +7999,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -8509,7 +8220,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -8527,14 +8238,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -8542,7 +8251,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -8565,7 +8273,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -8786,7 +8494,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -8804,14 +8512,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     DOUTPADOUTP,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]DOUTADOUT;
   output [0:0]DOUTPADOUTP;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -8819,7 +8525,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]DOUTPADOUTP;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -8842,7 +8547,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -9063,7 +8768,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -9081,14 +8786,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -9096,7 +8799,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -9119,7 +8821,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -9340,7 +9042,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -9358,14 +9060,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -9373,7 +9073,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -9396,7 +9095,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -9617,7 +9316,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -9635,14 +9334,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -9651,7 +9348,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTSBITERR_UNCONNECTED ;
@@ -9673,7 +9369,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -9894,7 +9590,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -9912,14 +9608,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -9927,7 +9621,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -9950,7 +9643,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -10171,7 +9864,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -10189,14 +9882,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -10204,7 +9895,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -10227,7 +9917,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -10448,7 +10138,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -10466,14 +10156,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -10481,7 +10169,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -10504,7 +10191,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -10725,7 +10412,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -10743,14 +10430,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -10758,7 +10443,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -10781,7 +10465,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -11002,7 +10686,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -11020,14 +10704,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -11035,7 +10717,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -11058,7 +10739,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -11279,7 +10960,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -11297,14 +10978,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -11312,7 +10991,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -11335,7 +11013,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -11556,7 +11234,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -11574,14 +11252,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -11589,7 +11265,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -11612,7 +11287,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -11833,7 +11508,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -11851,14 +11526,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -11866,7 +11539,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -11889,7 +11561,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -12110,7 +11782,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -12128,14 +11800,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -12143,7 +11813,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -12166,7 +11835,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -12387,7 +12056,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -12405,14 +12074,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -12420,7 +12087,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -12443,7 +12109,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -12664,7 +12330,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -12682,14 +12348,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -12697,7 +12361,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -12720,7 +12383,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -12941,7 +12604,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -12959,14 +12622,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -12974,7 +12635,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -12997,7 +12657,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -13218,7 +12878,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -13236,16 +12896,16 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     ena_array,
     clka,
-    ena,
     sleep,
-    addra);
+    addra,
+    ena);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   output [0:0]ena_array;
   input clka;
-  input ena;
   input sleep;
   input [15:0]addra;
+  input ena;
 
   wire [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
@@ -13274,7 +12934,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -13495,7 +13155,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -13522,14 +13182,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -13537,7 +13195,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -13560,7 +13217,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -13781,7 +13438,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -13799,16 +13456,16 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     ena_array,
     clka,
-    ena,
     sleep,
-    addra);
+    addra,
+    ena);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   output [0:0]ena_array;
   input clka;
-  input ena;
   input sleep;
   input [15:0]addra;
+  input ena;
 
   wire [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
@@ -13837,7 +13494,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -14058,7 +13715,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -14085,14 +13742,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -14100,7 +13755,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -14123,7 +13777,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -14344,7 +13998,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -14362,14 +14016,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -14378,7 +14030,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTSBITERR_UNCONNECTED ;
@@ -14400,7 +14051,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -14621,7 +14272,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -14639,14 +14290,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -14654,7 +14303,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -14677,7 +14325,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -14898,7 +14546,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -14916,14 +14564,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -14931,7 +14577,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -14954,7 +14599,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -15175,7 +14820,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -15193,14 +14838,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -15208,7 +14851,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -15231,7 +14873,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -15452,7 +15094,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -15470,14 +15112,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -15485,7 +15125,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -15508,7 +15147,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -15729,7 +15368,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -15747,14 +15386,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -15762,7 +15399,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -15785,7 +15421,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -16006,7 +15642,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -16024,14 +15660,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -16039,7 +15673,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -16062,7 +15695,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -16283,7 +15916,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -16301,14 +15934,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -16316,7 +15947,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -16339,7 +15969,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -16560,7 +16190,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -16578,14 +16208,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -16593,7 +16221,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -16616,7 +16243,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -16837,7 +16464,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -16855,14 +16482,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -16870,7 +16495,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -16893,7 +16517,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -17114,7 +16738,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -17129,17 +16753,17 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized47
    (douta,
-    CASDOMUXB,
     ENARDEN,
     CASDOMUXA,
+    CASDOMUXB,
     ena,
     clka,
     sleep,
     addra);
   output [0:0]douta;
-  output CASDOMUXB;
   output ENARDEN;
   input CASDOMUXA;
+  input CASDOMUXB;
   input ena;
   input clka;
   input sleep;
@@ -17187,7 +16811,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("FIRST"),
     .CASCADE_ORDER_B("FIRST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -17408,7 +17032,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -17418,7 +17042,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .SLEEP(sleep),
         .WEA({1'b0,1'b0,1'b0,1'b0}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_i_1 
@@ -17430,7 +17053,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("LAST"),
     .CASCADE_ORDER_B("LAST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -17651,7 +17274,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -17661,13 +17284,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .SLEEP(sleep),
         .WEA({1'b0,1'b0,1'b0,1'b0}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_i_2 
-       (.I0(ena),
-        .I1(addra[15]),
-        .O(CASDOMUXB));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
@@ -17731,7 +17347,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("FIRST"),
     .CASCADE_ORDER_B("FIRST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -17952,7 +17568,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -17967,7 +17583,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("LAST"),
     .CASCADE_ORDER_B("LAST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -18188,7 +17804,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -18261,7 +17877,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("FIRST"),
     .CASCADE_ORDER_B("FIRST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -18482,7 +18098,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -18497,7 +18113,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("LAST"),
     .CASCADE_ORDER_B("LAST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -18718,7 +18334,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -18736,14 +18352,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -18751,7 +18365,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -18774,7 +18387,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -18995,7 +18608,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -19068,7 +18681,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("FIRST"),
     .CASCADE_ORDER_B("FIRST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -19289,7 +18902,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -19304,7 +18917,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("LAST"),
     .CASCADE_ORDER_B("LAST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -19525,7 +19138,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -19541,7 +19154,7 @@ endmodule
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameterized51
    (douta,
     CASDOMUXA,
-    CASDOMUXB,
+    ena_0,
     ena,
     clka,
     sleep,
@@ -19549,7 +19162,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     ENARDEN);
   output [0:0]douta;
   output CASDOMUXA;
-  input CASDOMUXB;
+  output ena_0;
   input ena;
   input clka;
   input sleep;
@@ -19559,15 +19172,13 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [31:0]CASDINA;
   wire [3:0]CASDINPA;
   wire CASDOMUXA;
-  wire CASDOMUXB;
-  wire \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1_n_0 ;
   wire ENARDEN;
   wire [15:0]addra;
   wire casdoa_mux_reg_top_d;
-  wire casdoa_mux_reg_top_i_d;
   wire clka;
   wire [0:0]douta;
   wire ena;
+  wire ena_0;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_CASOUTDBITERR_UNCONNECTED ;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_CASOUTSBITERR_UNCONNECTED ;
@@ -19596,32 +19207,18 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [7:0]\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_ECCPARITY_UNCONNECTED ;
   wire [8:0]\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED ;
 
-  FDRE \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_d_reg 
+  FDRE \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_has_mem_regs.casdoa_mux_reg_top_d_reg 
        (.C(clka),
         .CE(ena),
-        .D(casdoa_mux_reg_top_i_d),
+        .D(ena),
         .Q(casdoa_mux_reg_top_d),
-        .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
-  LUT3 #(
-    .INIT(8'h74)) 
-    \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1 
-       (.I0(addra[15]),
-        .I1(ena),
-        .I2(casdoa_mux_reg_top_i_d),
-        .O(\DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1_n_0 ));
-  FDRE \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_reg 
-       (.C(clka),
-        .CE(1'b1),
-        .D(\DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.cas_no_mem_regs.casdoa_mux_reg_top_i_d_i_1_n_0 ),
-        .Q(casdoa_mux_reg_top_i_d),
-        .R(1'b0));
+        .R(ena_0));
   (* box_type = "PRIMITIVE" *) 
   RAMB36E2 #(
     .CASCADE_ORDER_A("FIRST"),
     .CASCADE_ORDER_B("FIRST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -19842,7 +19439,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_B_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -19857,7 +19454,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("LAST"),
     .CASCADE_ORDER_B("LAST"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("TRUE"),
     .ENADDRENB("FALSE"),
@@ -20045,7 +19642,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .CASDINPA(CASDINPA),
         .CASDINPB({1'b0,1'b0,1'b0,1'b0}),
         .CASDOMUXA(CASDOMUXA),
-        .CASDOMUXB(CASDOMUXB),
+        .CASDOMUXB(ena_0),
         .CASDOMUXEN_A(ena),
         .CASDOMUXEN_B(1'b0),
         .CASDOUTA(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_CASDOUTA_UNCONNECTED [31:0]),
@@ -20073,12 +19670,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .DOUTPBDOUTP(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_DOUTPBDOUTP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_ECCPARITY_UNCONNECTED [7:0]),
         .ECCPIPECE(1'b0),
-        .ENARDEN(CASDOMUXB),
+        .ENARDEN(ena_0),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -20088,14 +19685,19 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .SLEEP(sleep),
         .WEA({1'b0,1'b0,1'b0,1'b0}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
-    .INIT(8'hB8)) 
+    .INIT(8'h74)) 
     \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_i_1 
-       (.I0(casdoa_mux_reg_top_i_d),
+       (.I0(addra[15]),
         .I1(ena),
         .I2(casdoa_mux_reg_top_d),
         .O(CASDOMUXA));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \DEVICE_8SERIES.NO_BMM_INFO.SP.CASCADED_PRIM36.ram_T_i_2 
+       (.I0(ena),
+        .I1(addra[15]),
+        .O(ena_0));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
@@ -20104,16 +19706,16 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     addra_15_sp_1,
     clka,
-    ena,
     sleep,
-    addra);
+    addra,
+    ena);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   output addra_15_sp_1;
   input clka;
-  input ena;
   input sleep;
   input [15:0]addra;
+  input ena;
 
   wire [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
@@ -20143,7 +19745,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -20364,7 +19966,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -20391,14 +19993,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -20406,7 +20006,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -20429,7 +20028,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -20650,7 +20249,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -20668,14 +20267,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -20683,7 +20280,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -20706,7 +20302,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -20927,7 +20523,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -20945,14 +20541,12 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     \DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
     clka,
     ena_array,
-    ena,
     sleep,
     addra);
   output [7:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   output [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   input clka;
   input [0:0]ena_array;
-  input ena;
   input sleep;
   input [11:0]addra;
 
@@ -20960,7 +20554,6 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
   wire [0:0]\DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
   wire [11:0]addra;
   wire clka;
-  wire ena;
   wire [0:0]ena_array;
   wire sleep;
   wire \NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASOUTDBITERR_UNCONNECTED ;
@@ -20983,7 +20576,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
     .CASCADE_ORDER_A("NONE"),
     .CASCADE_ORDER_B("NONE"),
     .CLOCK_DOMAINS("COMMON"),
-    .DOA_REG(1),
+    .DOA_REG(0),
     .DOB_REG(0),
     .ENADDRENA("FALSE"),
     .ENADDRENB("FALSE"),
@@ -21204,7 +20797,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_8SERIES.NO_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
-        .REGCEAREGCE(ena),
+        .REGCEAREGCE(1'b0),
         .REGCEB(1'b0),
         .RSTRAMARSTRAM(1'b0),
         .RSTRAMB(1'b0),
@@ -21216,6 +20809,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_prim_wrapper_init__parameteri
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_top
    (douta,
     addra,
@@ -21251,7 +20845,7 @@ endmodule
 (* C_EN_RDADDRA_CHG = "0" *) (* C_EN_RDADDRB_CHG = "0" *) (* C_EN_SAFETY_CKT = "0" *) 
 (* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     34.539724 mW" *) 
 (* C_FAMILY = "kintexu" *) (* C_HAS_AXI_ID = "0" *) (* C_HAS_ENA = "1" *) 
-(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
+(* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "0" *) 
 (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
 (* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
@@ -21267,7 +20861,7 @@ endmodule
 (* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) (* C_WRITE_DEPTH_A = "65536" *) 
 (* C_WRITE_DEPTH_B = "65536" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) (* C_WRITE_MODE_B = "WRITE_FIRST" *) 
 (* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "32" *) (* C_XDEVICEFAMILY = "kintexu" *) 
-(* downgradeipidentifiedwarnings = "yes" *) 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2
    (clka,
     rsta,
@@ -21533,6 +21127,7 @@ module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2
         .sleep(sleep));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_2_synth" *) 
 module design_1_axi_bram_ctrl_0_bram_0_blk_mem_gen_v8_4_2_synth
    (douta,
     addra,
