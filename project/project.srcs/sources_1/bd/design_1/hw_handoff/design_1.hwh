@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Nov  6 15:44:40 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov  7 14:11:23 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -1411,8 +1411,8 @@
             <CONNECTION INSTANCE="stall_0" PORT="clk"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
             <CONNECTION INSTANCE="decode_0" PORT="clk"/>
-            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
             <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
+            <CONNECTION INSTANCE="exec_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="locked" SIGIS="undef" SIGNAME="clk_wiz_locked">
@@ -1934,8 +1934,8 @@
             <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
             <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
             <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

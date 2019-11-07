@@ -1,9 +1,41 @@
+module shift_with_round(
+    input wire [63:0] s,
+    input wire [7:0] shift,
+    output wire [63:0] d,
+    output wire ulp,
+    output wire guard,
+    output wire round,
+    output wire sticky,
+    output wire flag
+);
+
+// NOTE: できるだけ誤差が少なくなるようにshiftする
+wire [63:0] t;
+assign t = s >> shift;
+
+wire [63:0] tmp;
+assign ulp = |(s & (1 << shift));
+assign guard = |(s & (1 << (shift - 8'd1)));
+assign round = |(s & (1 << (shift - 8'd2)));
+assign tmp = (1 << (shift - 8'd2)) - 64'd1;
+assign sticky = |(s & tmp);
+
+assign flag = 
+    (ulp && guard && (~round) && (~sticky)) ||
+    (guard && (~round) && sticky) ||
+    (guard && round);
+
+assign d = t + {63'd0, flag};
+
+endmodule
+
+// NOTE: FInv
 module finv(
     input wire [31:0] s,
     output wire [31:0] d,
     output wire overflow,
     output wire underflow
-    );
+);
 
 // 符号1bit、指数8bit、仮数23bitを読み出す
 wire [0:0] sign_s, sign_d;
@@ -22,7 +54,6 @@ assign one_mantissa_s = {1'b1, mantissa_s};
 assign sign_d = sign_s;
 
 // 指数を決める
-
 assign exponent_d = 
     exponent_s == 8'd254 ? 8'd0 :
     mantissa_s == 23'd0 ? 8'd254 - exponent_s : 8'd253 - exponent_s;
@@ -31,25 +62,41 @@ assign exponent_d =
 wire [7:0] upper8;
 wire [14:0] lower15;
 
-// NOTE: Newton法を回す
-wire [63:0] om;
+// Newton法を回す(targetの値を近似する)
+wire [63:0] target;
 wire [63:0] x0, x1, x2;
 wire [63:0] a1, a2, b1, b2, c1, c2;
-assign om = {32'b0, one_mantissa_s, 8'b0};
+wire [63:0] d1, e1, d2, e2;
+assign target = {32'b0, one_mantissa_s, 8'b0};
 
+// 初期値を決める
 assign x0 = {33'b1, upper8, lower15, 8'b0};
 
+wire ulp11, guard11, round11, sticky11, flag11;
+wire ulp12, guard12, round12, sticky12, flag12;
+wire ulp21, guard21, round21, sticky21, flag21;
+wire ulp22, guard22, round22, sticky22, flag22;
+
+// NOTE: shift_with_roundを使ったほうが誤差が出にくい
 assign a1 = x0 << 8'd1;
-assign b1 = (om * x0) >> 8'd31;
-assign c1 = (b1 * x0) >> 8'd32;
-assign x1 = a1 - c1;
+assign b1 = (target * x0);
+// shift_with_round u11(b1, 8'd31, c1, ulp11, guard11, round11, sticky11, flag11);
+assign c1 = b1 >> 8'd31;
+assign d1 = (c1 * x0);
+// shift_with_round u12(d1, 8'd32, e1, ulp12, guard12, round12, sticky12, flag12);
+assign e1 = d1 >> 8'd32;
+assign x1 = a1 - e1;
+
 assign a2 = x1 << 8'd1;
-assign b2 = (om * x1) >> 8'd31;
-assign c2 = (b2 * x1) >> 8'd32;
-assign x2 = a2 - c2;
+assign b2 = (target * x1);
+// shift_with_round u21(b2, 8'd31, c2, ulp21, guard21, round21, sticky21, flag21);
+assign c2 = b2 >> 8'd31;
+assign d2 = (c2 * x1);
+// shift_with_round u22(d2, 8'd32, e2, ulp22, guard22, round22, sticky22, flag22);
+assign e2 = d2 >> 8'd32;
+assign x2 = a2 - e2;
 
 // 仮数を決める
-// FIXME: 253, 254のときに
 wire ulp, guard, round, sticky, flag;
 assign ulp = x2[8:8];
 assign guard = x2[7:7];
