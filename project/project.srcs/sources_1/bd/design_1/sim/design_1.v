@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Wed Nov  6 17:13:59 2019
+//Date        : Thu Nov  7 10:27:13 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -35,7 +35,9 @@ module design_1
   wire decode_0_done;
   wire [5:0]decode_0_exec_command;
   wire decode_0_fmode1;
+  wire decode_0_fmode1_reg;
   wire decode_0_fmode2;
+  wire decode_0_fmode2_reg;
   wire [15:0]decode_0_offset;
   wire [31:0]decode_0_pc_out;
   wire [4:0]decode_0_rd;
@@ -169,7 +171,9 @@ module design_1
         .enable(stall_0_decode_enable),
         .exec_command(decode_0_exec_command),
         .fmode1(decode_0_fmode1),
+        .fmode1_reg(decode_0_fmode1_reg),
         .fmode2(decode_0_fmode2),
+        .fmode2_reg(decode_0_fmode2_reg),
         .offset(decode_0_offset),
         .pc(fetch_0_pc),
         .pc_out(decode_0_pc_out),
@@ -192,8 +196,8 @@ module design_1
         .done(exec_0_done),
         .enable(stall_0_exec_enable),
         .exec_command(decode_0_exec_command),
-        .fmode1(decode_0_fmode1),
-        .fmode2(decode_0_fmode2),
+        .fmode1(decode_0_fmode1_reg),
+        .fmode2(decode_0_fmode2_reg),
         .mem_addr(exec_0_mem_addr),
         .mem_enable(exec_0_mem_enable),
         .mem_rdata(blk_mem_gen_0_douta),

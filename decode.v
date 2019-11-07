@@ -16,8 +16,10 @@ module decode(
 	output reg[4:0] rd,
 	output reg[4:0] rs_no,
 	output reg[4:0] rt_no,
-	output reg fmode1,
-	output reg fmode2,
+	output reg fmode1_reg,
+	output reg fmode2_reg,
+	output wire fmode1,
+	output wire fmode2,
 	output wire[4:0] reg1,
 	output wire[4:0] reg2,
 	input wire[31:0] reg_out1,
@@ -26,17 +28,16 @@ module decode(
 	input wire rstn
 );
 
-	reg set;
-
 	assign reg1 = command[20:16];
 	assign reg2 = command[31:27] == 5'b00010 || command[31:29] == 3'b101 || command[31:26] == 6'b111001 ? command[25:21] : command[15:11];
+	assign fmode1 = command[31:26] == 6'b010001 || (command[31:26] == 6'b111111 && command[1]);
+	assign fmode2 = command[31:26] == 6'b010001 || command[31:26] === 6'b111001 || (command[31:26] == 6'b111111 && command[1]);
 
 	always @(posedge clk) begin
 		if(~rstn) begin
-			set <= 1'b0;
 			done <= 1'b0;
-			fmode1 <= 1'b0;
-			fmode2 <= 1'b0;
+			fmode1_reg <= 1'b0;
+			fmode2_reg <= 1'b0;
 		end else begin
 			done <= 1'b0;
 			if(enable) begin
@@ -48,12 +49,8 @@ module decode(
 				sh <= command[10:6];
 				alu_command <= command[5:0];
 				offset <= command[15:0];
-				set <= 1'b1;
-				fmode1 <= command[31:26] == 6'b010001 || (command[31:26] == 6'b111111 && command[1]);
-				fmode2 <= command[31:26] == 6'b010001 || command[31:26] === 6'b111001 || (command[31:26] == 6'b111111 && command[1]);
-			end
-			if(set) begin
-				set <= 1'b0;
+				fmode1_reg <= command[31:26] == 6'b010001 || (command[31:26] == 6'b111111 && command[1]);
+				fmode2_reg <= command[31:26] == 6'b010001 || command[31:26] === 6'b111001 || (command[31:26] == 6'b111111 && command[1]);
 				done <= 1'b1;
 				rs <= reg_out1;
 				rt <= reg_out2;
