@@ -40,7 +40,7 @@ module exec(
 
 	reg[63:0] tmp;
 	reg[31:0] fs, ft;
-	wire[31:0] fadd_d, fmul_d, finv_d;
+	wire[31:0] fadd_d, fmul_d, finv_d, sqrt_d, ftoi_d, itof_d;
 	wire fadd_of, fmul_of, finv_of, fmul_uf, finv_uf;
 	reg fpu_set;
 	reg[1:0] mem_set;
@@ -55,6 +55,9 @@ module exec(
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
 	finv u_finv(ft, finv_d, finv_of, finv_uf);
+	fsqrt u_fsqrt(fs, sqrt_d);
+	ftoi u_ftoi(fs, ftoi_d);
+	itof u_itof(fs, itof_d);
 
     assign tmp_div10 = {36'h0, rs_} * 68'hcccccccd;
 	assign wselector__ = wselector | wselector_;
@@ -126,8 +129,10 @@ module exec(
 							pc_out <= {rs_[31:2], 2'b00};
 							wselector <= 3'b110;
 						end else if(alu_command == 6'b001100) begin	//ITOF
-							//TODO
-							//wselector <= 3'b011;
+							fs <= rs_;
+							wselector <= 3'b000;
+							fpu_set <= 1'b1;
+							done <= 1'b0;
 						end else if(alu_command == 6'b011000) begin	//MUL
 							data <= rs_ * rt_;
 						end else if(alu_command == 6'b011010) begin	//DIV10
@@ -179,7 +184,10 @@ module exec(
 							fpu_set <= 1'b1;
 							done <= 1'b0;
 						end else if(alu_command == 6'b000100) begin	//SQRT
-							//TODO
+							fs <= rs_;
+							wselector <= 3'b000;
+							fpu_set <= 1'b1;
+							done <= 1'b0;
 						end else if(alu_command == 6'b000101) begin	//SIN
 							//TODO
 						end else if(alu_command == 6'b000110) begin	//COS
@@ -196,7 +204,10 @@ module exec(
 						end else if(alu_command == 6'b001011) begin //FLOOR
 							//TODO
 						end else if(alu_command == 6'b001100) begin //FTOI
-							//TODO
+							fs <= rs_;
+							wselector <= 3'b000;
+							fpu_set <= 1'b1;
+							done <= 1'b0;
 						end else if(alu_command == 6'b111111) begin //MOVF
 							data <= rs;
 						end
@@ -242,6 +253,15 @@ module exec(
 					wselector <= 3'b000;
 					fpu_set <= 1'b1;
 					done <= 1'b0;
+				end else if(alu_command_ == 6'b000100) begin	//SQRT
+					data <= sqrt_d;
+				end else if(alu_command_ == 6'b001100) begin	//ITOF, FTOI
+					if(exec_command_ == 6'b000000) begin
+						data <= itof_d;
+					end else begin
+						data <= ftoi_d;
+						wselector <= 3'b010;
+					end
 				end
 			end
 			if(mem_set[1]) begin

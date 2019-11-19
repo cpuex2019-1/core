@@ -195,8 +195,8 @@ proc create_root_design { parentCell } {
   set axi_uartlite_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_uartlite:2.0 axi_uartlite_0 ]
   set_property -dict [ list \
    CONFIG.C_BAUDRATE {115200} \
-   CONFIG.C_S_AXI_ACLK_FREQ_HZ {36000000} \
-   CONFIG.C_S_AXI_ACLK_FREQ_HZ_d {36} \
+   CONFIG.C_S_AXI_ACLK_FREQ_HZ {30000000} \
+   CONFIG.C_S_AXI_ACLK_FREQ_HZ_d {30} \
    CONFIG.UARTLITE_BOARD_INTERFACE {rs232_uart} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $axi_uartlite_0
@@ -223,13 +223,13 @@ proc create_root_design { parentCell } {
   # Create instance: clk_wiz, and set properties
   set clk_wiz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz ]
   set_property -dict [ list \
-   CONFIG.CLKOUT1_JITTER {256.973} \
-   CONFIG.CLKOUT1_PHASE_ERROR {234.038} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {36} \
+   CONFIG.CLKOUT1_JITTER {270.479} \
+   CONFIG.CLKOUT1_PHASE_ERROR {234.843} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {30} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sysclk_125} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {40.500} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {39.750} \
    CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {28.125} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {33.125} \
    CONFIG.MMCM_DIVCLK_DIVIDE {5} \
    CONFIG.RESET_BOARD_INTERFACE {reset} \
    CONFIG.USE_BOARD_FLOW {true} \
