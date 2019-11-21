@@ -40,7 +40,7 @@ module exec(
 
 	reg[63:0] tmp;
 	reg[31:0] fs, ft;
-	wire[31:0] fadd_d, fmul_d, finv_d, sqrt_d, ftoi_d, itof_d;
+	wire[31:0] fadd_d, fmul_d, finv_d, sqrt_d, ftoi_d, itof_d, floor_d;
 	wire fadd_of, fmul_of, finv_of, fmul_uf, finv_uf;
 	reg fpu_set;
 	reg[1:0] mem_set;
@@ -58,6 +58,7 @@ module exec(
 	fsqrt u_fsqrt(fs, sqrt_d);
 	ftoi u_ftoi(fs, ftoi_d);
 	itof u_itof(fs, itof_d);
+	floor u_floor(fs, floor_d);
 
     assign tmp_div10 = {36'h0, rs_} * 68'hcccccccd;
 	assign wselector__ = wselector | wselector_;
@@ -202,7 +203,10 @@ module exec(
 						end else if(alu_command == 6'b001010) begin //FABS
 							data <= {1'b0, rs_[30:0]};
 						end else if(alu_command == 6'b001011) begin //FLOOR
-							//TODO
+							fs <= rs_;
+							wselector <= 3'b000;
+							fpu_set <= 1'b1;
+							done <= 1'b0;
 						end else if(alu_command == 6'b001100) begin //FTOI
 							fs <= rs_;
 							wselector <= 3'b000;
@@ -255,6 +259,8 @@ module exec(
 					done <= 1'b0;
 				end else if(alu_command_ == 6'b000100) begin	//SQRT
 					data <= sqrt_d;
+				end else if(alu_command_ == 6'b001011) begin	//FLOOR
+					data <= floor_d;
 				end else if(alu_command_ == 6'b001100) begin	//ITOF, FTOI
 					if(exec_command_ == 6'b000000) begin
 						data <= itof_d;

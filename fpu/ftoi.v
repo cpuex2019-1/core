@@ -3,14 +3,6 @@ module ftoi(
   output wire [31:0] d
 );
 
-wire inf;
-wire zero;
-wire ulp;
-wire guard;
-wire round;
-wire sticky;
-wire flag;
-
 wire sign_s;
 wire [7:0] exponent_s, exponent_s_minus127;
 wire [22:0] mantissa_s;
@@ -21,6 +13,10 @@ assign exponent_s = s[30:23];
 assign exponent_s_minus127 = (exponent_s > 8'd127 ? exponent_s - 8'd127 : 8'd0);
 assign mantissa_s = s[22:0];
 
+// NOTE: tmp1 -> 32bit拡張するだけ
+// NOTE: tmp2 -> 指数の数だけshiftする
+// NOTE: tmp3 -> 丸めを加える
+// NOTE: tmp4 -> 符号を加える(必要なら補数をとる)
 wire [54:0] tmp1, tmp2;
 wire [31:0] tmp3, tmp4;
 assign tmp1 = {32'b1, mantissa_s};

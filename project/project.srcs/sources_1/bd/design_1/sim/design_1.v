@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Tue Nov 19 16:31:43 2019
+//Date        : Thu Nov 21 18:36:06 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -22,10 +22,10 @@ module design_1
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysclk_125 CLK_N" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME sysclk_125, CAN_DEBUG false, FREQ_HZ 125000000" *) input sysclk_125_clk_n;
   (* X_INTERFACE_INFO = "xilinx.com:interface:diff_clock:1.0 sysclk_125 CLK_P" *) input sysclk_125_clk_p;
 
-  wire [31:0]axi_bram_ctrl_0_bram_douta;
   wire axi_uartlite_0_UART_RxD;
   wire axi_uartlite_0_UART_TxD;
   wire [31:0]blk_mem_gen_0_douta;
+  wire [31:0]blk_mem_gen_1_douta;
   wire clk_wiz_locked;
   wire [31:0]core_wrapper_0_reg_out1;
   wire [31:0]core_wrapper_0_reg_out2;
@@ -63,8 +63,7 @@ module design_1
   wire [2:0]exec_0_wselector_out;
   wire [31:0]fetch_0_command;
   wire fetch_0_done;
-  wire [15:0]fetch_0_inst_addr;
-  wire fetch_0_inst_enable;
+  wire [16:0]fetch_0_inst_addr;
   wire [31:0]fetch_0_pc;
   wire reset_1;
   wire [0:0]rst_data_memory_300M_peripheral_aresetn;
@@ -109,11 +108,6 @@ module design_1
   assign rs232_uart_txd = axi_uartlite_0_UART_TxD;
   assign sysclk_125_1_CLK_N = sysclk_125_clk_n;
   assign sysclk_125_1_CLK_P = sysclk_125_clk_p;
-  design_1_axi_bram_ctrl_0_bram_0 axi_bram_ctrl_0_bram
-       (.addra(fetch_0_inst_addr),
-        .clka(data_memory_c0_ddr4_ui_clk),
-        .douta(axi_bram_ctrl_0_bram_douta),
-        .ena(fetch_0_inst_enable));
   design_1_axi_uartlite_0_0 axi_uartlite_0
        (.rx(axi_uartlite_0_UART_RxD),
         .s_axi_aclk(data_memory_c0_ddr4_ui_clk),
@@ -143,6 +137,10 @@ module design_1
         .douta(blk_mem_gen_0_douta),
         .ena(exec_0_mem_enable),
         .wea(exec_0_mem_wea));
+  design_1_blk_mem_gen_1_0 blk_mem_gen_1
+       (.addra(fetch_0_inst_addr),
+        .clka(data_memory_c0_ddr4_ui_clk),
+        .douta(blk_mem_gen_1_douta));
   design_1_clk_wiz_0 clk_wiz
        (.clk_in1_n(sysclk_125_1_CLK_N),
         .clk_in1_p(sysclk_125_1_CLK_P),
@@ -230,8 +228,7 @@ module design_1
         .done(fetch_0_done),
         .enable(stall_0_fetch_enable),
         .inst_addr(fetch_0_inst_addr),
-        .inst_data(axi_bram_ctrl_0_bram_douta),
-        .inst_enable(fetch_0_inst_enable),
+        .inst_data(blk_mem_gen_1_douta),
         .next_pc(write_0_next_pc),
         .pc(fetch_0_pc),
         .pcenable(write_0_pcenable),
