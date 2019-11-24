@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Thu Nov 21 18:36:06 2019
+//Date        : Sun Nov 24 15:43:42 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -26,6 +26,7 @@ module design_1
   wire axi_uartlite_0_UART_TxD;
   wire [31:0]blk_mem_gen_0_douta;
   wire [31:0]blk_mem_gen_1_douta;
+  wire clk_wiz_clk_out2;
   wire clk_wiz_locked;
   wire [31:0]core_wrapper_0_reg_out1;
   wire [31:0]core_wrapper_0_reg_out2;
@@ -139,12 +140,13 @@ module design_1
         .wea(exec_0_mem_wea));
   design_1_blk_mem_gen_1_0 blk_mem_gen_1
        (.addra(fetch_0_inst_addr),
-        .clka(data_memory_c0_ddr4_ui_clk),
+        .clka(clk_wiz_clk_out2),
         .douta(blk_mem_gen_1_douta));
   design_1_clk_wiz_0 clk_wiz
        (.clk_in1_n(sysclk_125_1_CLK_N),
         .clk_in1_p(sysclk_125_1_CLK_P),
         .clk_out1(data_memory_c0_ddr4_ui_clk),
+        .clk_out2(clk_wiz_clk_out2),
         .locked(clk_wiz_locked),
         .reset(reset_1));
   design_1_core_wrapper_0_0 core_wrapper_0
@@ -232,8 +234,7 @@ module design_1
         .next_pc(write_0_next_pc),
         .pc(fetch_0_pc),
         .pcenable(write_0_pcenable),
-        .rstn(rst_data_memory_300M_peripheral_aresetn),
-        .stall(write_0_stall_enable));
+        .rstn(rst_data_memory_300M_peripheral_aresetn));
   design_1_rst_data_memory_300M_0 rst_data_memory_300M
        (.aux_reset_in(1'b1),
         .dcm_locked(clk_wiz_locked),

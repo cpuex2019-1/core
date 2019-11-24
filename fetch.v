@@ -3,7 +3,6 @@
 module fetch(
 	input wire enable,
 	output reg done,
-	input wire stall,
 	input wire pcenable,
 	input wire[31:0] next_pc,
 	output reg[31:0] pc,
@@ -33,7 +32,7 @@ module fetch(
 			pc <= 32'hfffffffc;
 			pc_history <= 32'hffffffff;
 			pcenable_ <= 1'b0;
-			command <= 32'h0;
+			// command <= 32'h0;
 		end else begin
 			done <= 1'b0;
 			set <= {1'b0, set[1]};
@@ -42,14 +41,28 @@ module fetch(
 				pcenable_ <= 1'b0;
 				pc_history <= pc;
 				set <= 2'b10;
+				done <= 1'b1;
 			end
 			if(pcenable && pc_history != next_pc) begin
 				pcenable_ <= enable ? 1'b0 : 1'b1;
 				pc_history <= 32'hffffffff;
 			end
+			// if(set[1]) begin
+			// 	command <= command == 32'hffffffff ? 32'h0 : inst_data;
+			// 	done <= 1'b1;
+			// end
+		end
+	end
+
+	always @(negedge clk) begin
+		if(~rstn) begin
+			command <= 32'h0;
+			// done <= 1'b0;
+		end else begin
+			// done <= 1'b0;
 			if(set[1]) begin
 				command <= command == 32'hffffffff ? 32'h0 : inst_data;
-				done <= 1'b1;
+				// done <= 1'b1;
 			end
 		end
 	end

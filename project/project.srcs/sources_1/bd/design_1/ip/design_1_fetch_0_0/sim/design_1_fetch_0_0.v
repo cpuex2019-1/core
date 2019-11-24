@@ -57,7 +57,6 @@
 module design_1_fetch_0_0 (
   enable,
   done,
-  stall,
   pcenable,
   next_pc,
   pc,
@@ -70,7 +69,6 @@ module design_1_fetch_0_0 (
 
 input wire enable;
 output wire done;
-input wire stall;
 input wire pcenable;
 input wire [31 : 0] next_pc;
 output wire [31 : 0] pc;
@@ -87,7 +85,6 @@ input wire rstn;
   fetch inst (
     .enable(enable),
     .done(done),
-    .stall(stall),
     .pcenable(pcenable),
     .next_pc(next_pc),
     .pc(pc),

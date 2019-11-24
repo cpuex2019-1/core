@@ -94,6 +94,9 @@ module exec(
 			wselector <= 3'b000;
 			mem_set <= {1'b0, mem_set[1]};
 			mem_wea <= 4'b0000;
+			if(wselector[2]) begin
+				stall_set <= 1'b1;
+			end
 			if(wselector != 3'b000) begin
 				wselector_ <= wselector;
 			end
@@ -282,9 +285,6 @@ module exec(
 			end
 			if(uart_wdone) begin
 				done <= 1'b1;
-			end
-			if(wselector[2]) begin
-				stall_set <= 1'b1;
 			end
 		end
 	end

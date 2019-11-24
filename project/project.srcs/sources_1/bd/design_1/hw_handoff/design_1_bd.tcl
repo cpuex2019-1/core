@@ -227,14 +227,20 @@ proc create_root_design { parentCell } {
   # Create instance: clk_wiz, and set properties
   set clk_wiz [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz ]
   set_property -dict [ list \
-   CONFIG.CLKOUT1_JITTER {270.479} \
-   CONFIG.CLKOUT1_PHASE_ERROR {234.843} \
+   CONFIG.CLKOUT1_JITTER {306.093} \
+   CONFIG.CLKOUT1_PHASE_ERROR {249.865} \
    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {30} \
+   CONFIG.CLKOUT2_JITTER {261.690} \
+   CONFIG.CLKOUT2_PHASE_ERROR {249.865} \
+   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {60} \
+   CONFIG.CLKOUT2_USED {true} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sysclk_125} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {39.750} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {36.000} \
    CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {33.125} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {30.000} \
+   CONFIG.MMCM_CLKOUT1_DIVIDE {15} \
    CONFIG.MMCM_DIVCLK_DIVIDE {5} \
+   CONFIG.NUM_OUT_CLKS {2} \
    CONFIG.RESET_BOARD_INTERFACE {reset} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $clk_wiz
@@ -331,10 +337,11 @@ proc create_root_design { parentCell } {
   # Create port connections
   connect_bd_net -net blk_mem_gen_0_douta [get_bd_pins blk_mem_gen_0/douta] [get_bd_pins exec_0/mem_rdata]
   connect_bd_net -net blk_mem_gen_1_douta [get_bd_pins blk_mem_gen_1/douta] [get_bd_pins fetch_0/inst_data]
+  connect_bd_net -net clk_wiz_clk_out2 [get_bd_pins blk_mem_gen_1/clka] [get_bd_pins clk_wiz/clk_out2]
   connect_bd_net -net clk_wiz_locked [get_bd_pins clk_wiz/locked] [get_bd_pins rst_data_memory_300M/dcm_locked]
   connect_bd_net -net core_wrapper_0_reg_out1 [get_bd_pins core_wrapper_0/reg_out1] [get_bd_pins decode_0/reg_out1]
   connect_bd_net -net core_wrapper_0_reg_out2 [get_bd_pins core_wrapper_0/reg_out2] [get_bd_pins decode_0/reg_out2]
-  connect_bd_net -net data_memory_c0_ddr4_ui_clk [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins blk_mem_gen_1/clka] [get_bd_pins clk_wiz/clk_out1] [get_bd_pins core_wrapper_0/clk] [get_bd_pins decode_0/clk] [get_bd_pins exec_0/clk] [get_bd_pins fetch_0/clk] [get_bd_pins rst_data_memory_300M/slowest_sync_clk] [get_bd_pins stall_0/clk] [get_bd_pins uart_buffer_0/clk] [get_bd_pins write_0/clk]
+  connect_bd_net -net data_memory_c0_ddr4_ui_clk [get_bd_pins axi_uartlite_0/s_axi_aclk] [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins clk_wiz/clk_out1] [get_bd_pins core_wrapper_0/clk] [get_bd_pins decode_0/clk] [get_bd_pins exec_0/clk] [get_bd_pins fetch_0/clk] [get_bd_pins rst_data_memory_300M/slowest_sync_clk] [get_bd_pins stall_0/clk] [get_bd_pins uart_buffer_0/clk] [get_bd_pins write_0/clk]
   connect_bd_net -net decode_0_addr [get_bd_pins decode_0/addr] [get_bd_pins exec_0/addr]
   connect_bd_net -net decode_0_alu_command [get_bd_pins decode_0/alu_command] [get_bd_pins exec_0/alu_command]
   connect_bd_net -net decode_0_done [get_bd_pins decode_0/done] [get_bd_pins stall_0/decode_done]
@@ -383,7 +390,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net write_0_fmode [get_bd_pins core_wrapper_0/wfmode] [get_bd_pins write_0/fmode]
   connect_bd_net -net write_0_next_pc [get_bd_pins fetch_0/next_pc] [get_bd_pins write_0/next_pc]
   connect_bd_net -net write_0_pcenable [get_bd_pins fetch_0/pcenable] [get_bd_pins write_0/pcenable]
-  connect_bd_net -net write_0_stall_enable [get_bd_pins exec_0/stall_enable] [get_bd_pins fetch_0/stall] [get_bd_pins stall_0/stall_enable]
+  connect_bd_net -net write_0_stall_enable [get_bd_pins exec_0/stall_enable] [get_bd_pins stall_0/stall_enable]
   connect_bd_net -net write_0_uart_wenable [get_bd_pins exec_0/uart_wenable] [get_bd_pins uart_buffer_0/wenable]
   connect_bd_net -net write_0_wdata [get_bd_pins core_wrapper_0/wdata] [get_bd_pins write_0/wdata]
   connect_bd_net -net write_0_wenable [get_bd_pins core_wrapper_0/wenable] [get_bd_pins write_0/wenable]
