@@ -9,13 +9,15 @@
       "validated": "true"
     },
     "design_tree": {
-      "axi_bram_ctrl_0_bram": "",
       "axi_uartlite_0": "",
       "blk_mem_gen_0": "",
       "clk_wiz": "",
       "rst_data_memory_300M": "",
       "core_wrapper_0": "",
       "write_0": "",
+      "uart_buffer_0": "",
+      "decode_0": "",
+      "blk_mem_gen_1": "",
       "stall_0": "",
       "uart_buffer_0": "",
       "decode_0": "",
@@ -57,36 +59,6 @@
       }
     },
     "components": {
-      "axi_bram_ctrl_0_bram": {
-        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-        "xci_name": "design_1_axi_bram_ctrl_0_bram_0",
-        "parameters": {
-          "Coe_File": {
-            "value": "../../../../../../../inst_memory.coe"
-          },
-          "Enable_32bit_Address": {
-            "value": "false"
-          },
-          "Load_Init_File": {
-            "value": "true"
-          },
-          "Memory_Type": {
-            "value": "Single_Port_ROM"
-          },
-          "Port_A_Write_Rate": {
-            "value": "0"
-          },
-          "Register_PortA_Output_of_Memory_Primitives": {
-            "value": "false"
-          },
-          "Use_RSTA_Pin": {
-            "value": "false"
-          },
-          "use_bram_block": {
-            "value": "Stand_Alone"
-          }
-        }
-      },
       "axi_uartlite_0": {
         "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
         "xci_name": "design_1_axi_uartlite_0_0",
@@ -95,10 +67,10 @@
             "value": "115200"
           },
           "C_S_AXI_ACLK_FREQ_HZ": {
-            "value": "20000000"
+            "value": "30000000"
           },
           "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "20"
+            "value": "30"
           },
           "UARTLITE_BOARD_INTERFACE": {
             "value": "rs232_uart"
@@ -127,6 +99,9 @@
           "Read_Width_A": {
             "value": "32"
           },
+          "Register_PortA_Output_of_Memory_Core": {
+            "value": "false"
+          },
           "Register_PortA_Output_of_Memory_Primitives": {
             "value": "false"
           },
@@ -135,6 +110,9 @@
           },
           "Use_RSTA_Pin": {
             "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "491520"
           },
           "Write_Width_A": {
             "value": "32"
@@ -149,28 +127,46 @@
         "xci_name": "design_1_clk_wiz_0",
         "parameters": {
           "CLKOUT1_JITTER": {
-            "value": "172.798"
+            "value": "306.093"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "96.948"
+            "value": "249.865"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "20"
+            "value": "30"
+          },
+          "CLKOUT2_JITTER": {
+            "value": "261.690"
+          },
+          "CLKOUT2_PHASE_ERROR": {
+            "value": "249.865"
+          },
+          "CLKOUT2_REQUESTED_OUT_FREQ": {
+            "value": "60"
+          },
+          "CLKOUT2_USED": {
+            "value": "true"
           },
           "CLK_IN1_BOARD_INTERFACE": {
             "value": "sysclk_125"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "8.000"
+            "value": "36.000"
           },
           "MMCM_CLKIN2_PERIOD": {
             "value": "10.000"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "50.000"
+            "value": "30.000"
+          },
+          "MMCM_CLKOUT1_DIVIDE": {
+            "value": "15"
           },
           "MMCM_DIVCLK_DIVIDE": {
-            "value": "1"
+            "value": "5"
+          },
+          "NUM_OUT_CLKS": {
+            "value": "2"
           },
           "RESET_BOARD_INTERFACE": {
             "value": "reset"
@@ -214,7 +210,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "20000000",
+                "value": "30000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -299,7 +295,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "20000000",
+                "value": "30000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -370,76 +366,6 @@
           }
         }
       },
-      "stall_0": {
-        "vlnv": "xilinx.com:module_ref:stall:1.0",
-        "xci_name": "design_1_stall_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "stall",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rstn",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "design_1_clk_wiz_0_clk_out1",
-                "value_src": "default_prop"
-              },
-              "FREQ_HZ": {
-                "value": "20000000",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "rstn": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "fetch_done": {
-            "direction": "I"
-          },
-          "decode_done": {
-            "direction": "I"
-          },
-          "exec_done": {
-            "direction": "I"
-          },
-          "write_done": {
-            "direction": "I"
-          },
-          "fetch_enable": {
-            "direction": "O"
-          },
-          "decode_enable": {
-            "direction": "O"
-          },
-          "exec_enable": {
-            "direction": "O"
-          },
-          "write_enable": {
-            "direction": "O"
-          },
-          "stall_enable": {
-            "direction": "I"
-          }
-        }
-      },
       "uart_buffer_0": {
         "vlnv": "xilinx.com:module_ref:uart_buffer:1.0",
         "xci_name": "design_1_uart_buffer_0_0",
@@ -479,7 +405,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "20000000",
+                "value": "30000000",
                 "value_src": "ip_prop"
               },
               "HAS_BRESP": {
@@ -663,7 +589,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "20000000",
+                "value": "30000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -746,7 +672,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "20000000",
+                "value": "30000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -836,6 +762,12 @@
             "left": "4",
             "right": "0"
           },
+          "fmode1_reg": {
+            "direction": "O"
+          },
+          "fmode2_reg": {
+            "direction": "O"
+          },
           "fmode1": {
             "direction": "O"
           },
@@ -864,12 +796,51 @@
           }
         }
       },
-      "fetch_0": {
-        "vlnv": "xilinx.com:module_ref:fetch:1.0",
-        "xci_name": "design_1_fetch_0_0",
+      "blk_mem_gen_1": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "design_1_blk_mem_gen_1_0",
+        "parameters": {
+          "Coe_File": {
+            "value": "../../../../../../../inst_memory.coe"
+          },
+          "Enable_32bit_Address": {
+            "value": "false"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Load_Init_File": {
+            "value": "true"
+          },
+          "Memory_Type": {
+            "value": "Single_Port_ROM"
+          },
+          "Port_A_Write_Rate": {
+            "value": "0"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "false"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "131072"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      },
+      "stall_0": {
+        "vlnv": "xilinx.com:module_ref:stall:1.0",
+        "xci_name": "design_1_stall_0_0",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "fetch",
+          "ref_name": "stall",
           "boundary_crc": "0x0"
         },
         "ports": {
@@ -886,7 +857,90 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "20000000",
+                "value": "30000000",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rstn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "fetch_done": {
+            "direction": "I"
+          },
+          "decode_done": {
+            "direction": "I"
+          },
+          "exec_done": {
+            "direction": "I"
+          },
+          "write_done": {
+            "direction": "I"
+          },
+          "fetch_enable": {
+            "direction": "O"
+          },
+          "decode_enable": {
+            "direction": "O"
+          },
+          "exec_enable": {
+            "direction": "O"
+          },
+          "write_enable": {
+            "direction": "O"
+          },
+          "stall_enable": {
+            "direction": "I"
+          }
+        }
+      },
+      "uart_buffer_0": {
+        "vlnv": "xilinx.com:module_ref:uart_buffer:1.0",
+        "xci_name": "design_1_uart_buffer_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "uart_buffer",
+          "boundary_crc": "0x0"
+        },
+        "interface_ports": {
+          "uart": {
+            "mode": "Master",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "address_space_ref": "uart",
+            "parameters": {
+              "ADDR_WIDTH": {
+                "value": "32",
+                "value_src": "constant"
+              },
+              "ARUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "AWUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "BUSER_WIDTH": {
+                "value": "0",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_wiz_0_clk_out1",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "30000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -911,9 +965,6 @@
           "done": {
             "direction": "O"
           },
-          "stall": {
-            "direction": "I"
-          },
           "pcenable": {
             "direction": "I"
           },
@@ -932,12 +983,9 @@
             "left": "31",
             "right": "0"
           },
-          "inst_enable": {
-            "direction": "O"
-          },
           "inst_addr": {
             "direction": "O",
-            "left": "15",
+            "left": "16",
             "right": "0"
           },
           "inst_data": {
@@ -969,7 +1017,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "20000000",
+                "value": "30000000",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1294,10 +1342,11 @@
           "clk_wiz/clk_out1",
           "axi_uartlite_0/s_axi_aclk",
           "rst_data_memory_300M/slowest_sync_clk",
-          "axi_bram_ctrl_0_bram/clka",
           "blk_mem_gen_0/clka",
           "core_wrapper_0/clk",
           "write_0/clk",
+          "uart_buffer_0/clk",
+          "decode_0/clk",
           "stall_0/clk",
           "uart_buffer_0/clk",
           "decode_0/clk",
@@ -1311,6 +1360,8 @@
           "axi_uartlite_0/s_axi_aresetn",
           "core_wrapper_0/rstn",
           "write_0/rstn",
+          "uart_buffer_0/rstn",
+          "decode_0/rstn",
           "stall_0/rstn",
           "uart_buffer_0/rstn",
           "decode_0/rstn",
@@ -1412,8 +1463,7 @@
       "write_0_stall_enable": {
         "ports": [
           "exec_0/stall_enable",
-          "stall_0/stall_enable",
-          "fetch_0/stall"
+          "stall_0/stall_enable"
         ]
       },
       "fetch_0_pc": {
@@ -1455,33 +1505,13 @@
       "decode_0_fmode1": {
         "ports": [
           "decode_0/fmode1",
-          "core_wrapper_0/rfmode1",
-          "exec_0/fmode1"
+          "core_wrapper_0/rfmode1"
         ]
       },
       "decode_0_fmode2": {
         "ports": [
           "decode_0/fmode2",
-          "core_wrapper_0/rfmode2",
-          "exec_0/fmode2"
-        ]
-      },
-      "axi_bram_ctrl_0_bram_douta": {
-        "ports": [
-          "axi_bram_ctrl_0_bram/douta",
-          "fetch_0/inst_data"
-        ]
-      },
-      "fetch_0_inst_enable": {
-        "ports": [
-          "fetch_0/inst_enable",
-          "axi_bram_ctrl_0_bram/ena"
-        ]
-      },
-      "fetch_0_inst_addr": {
-        "ports": [
-          "fetch_0/inst_addr",
-          "axi_bram_ctrl_0_bram/addra"
+          "core_wrapper_0/rfmode2"
         ]
       },
       "exec_0_mem_addr": {
@@ -1524,6 +1554,36 @@
         "ports": [
           "decode_0/offset",
           "exec_0/offset"
+        ]
+      },
+      "decode_0_fmode2_reg": {
+        "ports": [
+          "decode_0/fmode2_reg",
+          "exec_0/fmode2"
+        ]
+      },
+      "decode_0_fmode1_reg": {
+        "ports": [
+          "decode_0/fmode1_reg",
+          "exec_0/fmode1"
+        ]
+      },
+      "fetch_0_inst_addr": {
+        "ports": [
+          "fetch_0/inst_addr",
+          "blk_mem_gen_1/addra"
+        ]
+      },
+      "blk_mem_gen_1_douta": {
+        "ports": [
+          "blk_mem_gen_1/douta",
+          "fetch_0/inst_data"
+        ]
+      },
+      "clk_wiz_clk_out2": {
+        "ports": [
+          "clk_wiz/clk_out2",
+          "blk_mem_gen_1/clka"
         ]
       }
     },

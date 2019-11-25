@@ -1,34 +1,3 @@
-module shift_with_round(
-    input wire [63:0] s,
-    input wire [7:0] shift,
-    output wire [63:0] d,
-    output wire ulp,
-    output wire guard,
-    output wire round,
-    output wire sticky,
-    output wire flag
-);
-
-// NOTE: できるだけ誤差が少なくなるようにshiftする
-wire [63:0] t;
-assign t = s >> shift;
-
-wire [63:0] tmp;
-assign ulp = |(s & (1 << shift));
-assign guard = |(s & (1 << (shift - 8'd1)));
-assign round = |(s & (1 << (shift - 8'd2)));
-assign tmp = (1 << (shift - 8'd2)) - 64'd1;
-assign sticky = |(s & tmp);
-
-assign flag = 
-    (ulp && guard && (~round) && (~sticky)) ||
-    (guard && (~round) && sticky) ||
-    (guard && round);
-
-assign d = t + {63'd0, flag};
-
-endmodule
-
 // NOTE: FInv
 module finv(
     input wire [31:0] s,

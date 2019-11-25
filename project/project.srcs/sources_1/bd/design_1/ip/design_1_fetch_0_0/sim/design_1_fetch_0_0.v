@@ -57,12 +57,10 @@
 module design_1_fetch_0_0 (
   enable,
   done,
-  stall,
   pcenable,
   next_pc,
   pc,
   command,
-  inst_enable,
   inst_addr,
   inst_data,
   clk,
@@ -71,15 +69,13 @@ module design_1_fetch_0_0 (
 
 input wire enable;
 output wire done;
-input wire stall;
 input wire pcenable;
 input wire [31 : 0] next_pc;
 output wire [31 : 0] pc;
 output wire [31 : 0] command;
-output wire inst_enable;
-output wire [15 : 0] inst_addr;
+output wire [16 : 0] inst_addr;
 input wire [31 : 0] inst_data;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 20000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 30000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -89,12 +85,10 @@ input wire rstn;
   fetch inst (
     .enable(enable),
     .done(done),
-    .stall(stall),
     .pcenable(pcenable),
     .next_pc(next_pc),
     .pc(pc),
     .command(command),
-    .inst_enable(inst_enable),
     .inst_addr(inst_addr),
     .inst_data(inst_data),
     .clk(clk),
