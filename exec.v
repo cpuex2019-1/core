@@ -30,10 +30,10 @@ module exec(
 	output reg[1:0] uart_rsz,
 	input wire[31:0] uart_rd,
 	output wire[18:0] mem_addr,
-	output reg[31:0] mem_wdata,
+	output wire[31:0] mem_wdata,
 	input wire[31:0] mem_rdata,
 	output wire mem_enable,
-	output reg[3:0] mem_wea,
+	output wire[3:0] mem_wea,
 	input wire clk,
 	input wire rstn
 );
@@ -67,6 +67,8 @@ module exec(
 	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data+{offset[15] ? 16'hffff : 16'h0, offset} : addr;
 	assign mem_enable = 1'b1;
 	assign mem_addr = enable ? addr_[20:2] : addr__[20:2];
+	assign mem_wdata = rt_;
+	assign mem_wea = exec_command == 6'b101011 || exec_command == 6'b111001 ? 4'b1111 : 4'b0000;
 
 	always @(posedge clk) begin
 		if(~rstn) begin
@@ -81,8 +83,6 @@ module exec(
 			uart_wd <= 32'h0;
 			uart_wenable <= 1'b0;
 			uart_renable <= 1'b0;
-			mem_wdata <= 32'h0;
-			mem_wea <= 4'b0000;
 			fs <= 32'h0;
 			ft <= 32'h0;
 			fpu_set <= 1'b0;
@@ -93,7 +93,6 @@ module exec(
 			stall_enable <= 1'b0;
 			wselector <= 3'b000;
 			mem_set <= {1'b0, mem_set[1]};
-			mem_wea <= 4'b0000;
 			if(wselector[2]) begin
 				stall_set <= 1'b1;
 			end
@@ -218,18 +217,10 @@ module exec(
 						end else if(alu_command == 6'b111111) begin //MOVF
 							data <= rs;
 						end
-					end else if(exec_command == 6'b100000) begin	//LB
-						mem_set <= 2'b10;
-						done <= 1'b0;
 					end else if(exec_command == 6'b100011 || exec_command == 6'b110001) begin	//LW, LF
 						mem_set <= 2'b10;
 						done <= 1'b0;
-					end else if(exec_command == 6'b101000) begin	//SB
-						mem_wdata <= {rt_[7:0], rt_[7:0], rt_[7:0], rt_[7:0]};
-						mem_wea[3:0] <= {addr_[1:0] == 2'b11, addr_[1:0] == 2'b10, addr_[1:0] == 2'b01, addr_[1:0] == 2'b00};
 					end else if(exec_command == 6'b101011 || exec_command == 6'b111001) begin	//SW, SF
-						mem_wdata <= rt_;
-						mem_wea[3:0] <= 4'b1111;
 					end else if(exec_command == 6'b110010) begin	//BC
 						pc_out <= pc + addr_;
 						wselector <= 3'b100;
@@ -274,7 +265,7 @@ module exec(
 				end
 			end
 			if(mem_set[1]) begin
-				data <= exec_command_ == 6'b100000 ? {24'h0, mem_rdata[7:0]} : mem_rdata;
+				data <= mem_rdata;
 				wselector <= {2'b01, exec_command_ == 6'b110001};
 				done <= 1'b1;
 			end
