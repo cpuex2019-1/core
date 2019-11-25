@@ -127,7 +127,7 @@ module exec(
 						end else if(alu_command == 6'b000111) begin	//SRA
 							tmp = {rs_[31] ? 32'hffffffff : 32'h0, rs_} >> rt_[4:0];
 							data <= tmp[31:0];
-						end else if(alu_command == 6'b001001) begin	//JALR
+						end else if(alu_command == 6'b001001) begin	//JR, JALR
 							data <= pc + 32'h4;
 							pc_out <= {rs_[31:2], 2'b00};
 							wselector <= 3'b110;

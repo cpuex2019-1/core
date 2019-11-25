@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Mon Nov 25 11:38:57 2019
+//Date        : Mon Nov 25 14:13:53 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -28,6 +28,7 @@ module design_1
   wire [31:0]blk_mem_gen_1_douta;
   wire clk_wiz_clk_out2;
   wire clk_wiz_locked;
+  wire [31:0]core_wrapper_0_jr_data;
   wire [31:0]core_wrapper_0_reg_out1;
   wire [31:0]core_wrapper_0_reg_out2;
   wire data_memory_c0_ddr4_ui_clk;
@@ -65,6 +66,7 @@ module design_1
   wire [31:0]fetch_0_command;
   wire fetch_0_done;
   wire [16:0]fetch_0_inst_addr;
+  wire [4:0]fetch_0_jr_reg;
   wire [31:0]fetch_0_pc;
   wire reset_1;
   wire [0:0]rst_data_memory_300M_peripheral_aresetn;
@@ -151,6 +153,8 @@ module design_1
         .reset(reset_1));
   design_1_core_wrapper_0_0 core_wrapper_0
        (.clk(data_memory_c0_ddr4_ui_clk),
+        .jr_data(core_wrapper_0_jr_data),
+        .jr_reg(fetch_0_jr_reg),
         .reg_out1(core_wrapper_0_reg_out1),
         .reg_out2(core_wrapper_0_reg_out2),
         .rfmode1(decode_0_fmode1),
@@ -231,6 +235,8 @@ module design_1
         .enable(stall_0_fetch_enable),
         .inst_addr(fetch_0_inst_addr),
         .inst_data(blk_mem_gen_1_douta),
+        .jr_data(core_wrapper_0_jr_data),
+        .jr_reg(fetch_0_jr_reg),
         .next_pc(write_0_next_pc),
         .pc(fetch_0_pc),
         .pcenable(write_0_pcenable),

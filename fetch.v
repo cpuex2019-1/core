@@ -7,6 +7,8 @@ module fetch(
 	input wire[31:0] next_pc,
 	output reg[31:0] pc,
 	output reg[31:0] command,
+	output wire[4:0] jr_reg,
+	input wire[31:0] jr_data,
 	output wire[16:0] inst_addr,
 	input wire[31:0] inst_data,
 	input wire clk,
@@ -17,10 +19,13 @@ module fetch(
 	reg pcenable_;
 	wire[31:0] pc_;
 
+	assign jr_reg = command[20:16];
+
 	assign pc_ = (pcenable && pc_history != next_pc) || pcenable_ ? next_pc :
 				 command[31:27] == 5'b00001 ? {4'b0000, command[25:0], 2'b00} :			//J, JAL
 				 command[31:26] == 6'b110010 ? pc + {4'b0000, command[25:0], 2'b00} : 	//BC
-				 command[31:27] == 5'b00010 && command[15] ? pc + {14'h3fff, command[15:0], 2'b00} : pc + 32'h4; //BEQ, BNE
+				 command[31:27] == 5'b00010 && command[15] ? pc + {14'h3fff, command[15:0], 2'b00} : //BEQ, BNE
+				 command[31:26] == 6'b000000 && command[5:0] == 6'b001001 ? {jr_data[31:2], 2'b00} : pc + 32'h4; //JR, JALR
 
 	assign inst_addr = pc_[18:2];
 

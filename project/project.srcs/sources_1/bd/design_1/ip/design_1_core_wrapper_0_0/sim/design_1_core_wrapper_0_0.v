@@ -61,6 +61,8 @@ module design_1_core_wrapper_0_0 (
   rreg2,
   reg_out1,
   reg_out2,
+  jr_reg,
+  jr_data,
   wenable,
   wfmode,
   wreg,
@@ -75,11 +77,13 @@ input wire [4 : 0] rreg1;
 input wire [4 : 0] rreg2;
 output wire [31 : 0] reg_out1;
 output wire [31 : 0] reg_out2;
+input wire [4 : 0] jr_reg;
+output wire [31 : 0] jr_data;
 input wire wenable;
 input wire wfmode;
 input wire [4 : 0] wreg;
 input wire [31 : 0] wdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 30000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 28000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -93,6 +97,8 @@ input wire rstn;
     .rreg2(rreg2),
     .reg_out1(reg_out1),
     .reg_out2(reg_out2),
+    .jr_reg(jr_reg),
+    .jr_data(jr_data),
     .wenable(wenable),
     .wfmode(wfmode),
     .wreg(wreg),
