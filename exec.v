@@ -39,7 +39,8 @@ module exec(
 );
 
 	reg[63:0] tmp;
-	reg[31:0] fs, ft;
+	reg[31:0] fs_, ft_;
+	wire[31:0] fs, ft;
 	wire[31:0] fadd_d, fmul_d, finv_d, sqrt_d, ftoi_d, itof_d, floor_d;
 	wire fadd_of, fmul_of, finv_of, fmul_uf, finv_uf;
 	reg fpu_set;
@@ -59,6 +60,9 @@ module exec(
 	ftoi u_ftoi(fs, ftoi_d);
 	itof u_itof(fs, itof_d);
 	floor u_floor(fs, floor_d);
+
+	assign fs = enable ? rs_ : fs_;
+	assign ft = enable ? (alu_command == 6'b000001 ? {~rt_[31], rt_[30:0]} : rt_) : ft_;
 
     assign tmp_div10 = {36'h0, rs_} * 68'hcccccccd;
 	assign wselector__ = wselector | wselector_;
@@ -83,8 +87,8 @@ module exec(
 			uart_wd <= 32'h0;
 			uart_wenable <= 1'b0;
 			uart_renable <= 1'b0;
-			fs <= 32'h0;
-			ft <= 32'h0;
+			fs_ <= 32'h0;
+			ft_ <= 32'h0;
 			fpu_set <= 1'b0;
 		end else begin
 			uart_renable <= 1'b0;
@@ -103,6 +107,8 @@ module exec(
 				wselector_ <= 3'b000;
 				stall_set <= 1'b0;
 				addr__ <= addr_;
+				fs_ <= rs_;
+				ft_ <= rt_;
 				if((wselector[2] || stall_set) && pc != pc_out) begin
 					stall_enable <= 1'b1;
 					done <= 1'b1;
@@ -132,10 +138,8 @@ module exec(
 							pc_out <= {rs_[31:2], 2'b00};
 							wselector <= 3'b110;
 						end else if(alu_command == 6'b001100) begin	//ITOF
-							fs <= rs_;
-							wselector <= 3'b000;
-							fpu_set <= 1'b1;
-							done <= 1'b0;
+							data <= itof_d;
+							wselector <= 3'b011;
 						end else if(alu_command == 6'b011000) begin	//MUL
 							data <= rs_ * rt_;
 						end else if(alu_command == 6'b011010) begin	//DIV10
@@ -180,17 +184,20 @@ module exec(
 						wselector <= 3'b010;
 					end else if(exec_command == 6'b010001) begin	//float
 						wselector <= 3'b011;
-						if(alu_command[5:2] == 4'b0000) begin
-							fs <= rs_;
-							ft <= alu_command[1:0] == 2'b01 ? {~rt_[31], rt_[30:0]} : rt_;
+						if(alu_command == 6'b000000) begin			//FADD
+							data <= fadd_d;
+						end else if(alu_command == 6'b000001) begin	//FSUB
+							data <= fadd_d;
+						end else if(alu_command == 6'b000010) begin	//FMUL
+							data <= fmul_d;
+						end else if(alu_command == 6'b000011) begin	//FDIV
+							ft_ <= finv_d;
+							alu_command_ <= 6'b000010;
 							wselector <= 3'b000;
 							fpu_set <= 1'b1;
 							done <= 1'b0;
 						end else if(alu_command == 6'b000100) begin	//SQRT
-							fs <= rs_;
-							wselector <= 3'b000;
-							fpu_set <= 1'b1;
-							done <= 1'b0;
+							data <= sqrt_d;
 						end else if(alu_command == 6'b000101) begin	//SIN
 							//TODO
 						end else if(alu_command == 6'b000110) begin	//COS
@@ -205,15 +212,10 @@ module exec(
 						end else if(alu_command == 6'b001010) begin //FABS
 							data <= {1'b0, rs_[30:0]};
 						end else if(alu_command == 6'b001011) begin //FLOOR
-							fs <= rs_;
-							wselector <= 3'b000;
-							fpu_set <= 1'b1;
-							done <= 1'b0;
+							data <= floor_d;
 						end else if(alu_command == 6'b001100) begin //FTOI
-							fs <= rs_;
-							wselector <= 3'b000;
-							fpu_set <= 1'b1;
-							done <= 1'b0;
+							data <= ftoi_d;
+							wselector <= 3'b010;
 						end else if(alu_command == 6'b111111) begin //MOVF
 							data <= rs;
 						end
@@ -241,27 +243,8 @@ module exec(
 				wselector <= 3'b011;
 				fpu_set <= 1'b0;
 				done <= 1'b1;
-				if(alu_command_[5:1] == 5'b00000) begin			//FADD, FSUB
-					data <= fadd_d;
-				end else if(alu_command_ == 6'b000010) begin	//FMUL
+				if(alu_command_ == 6'b000010) begin	//FMUL
 					data <= fmul_d;
-				end else if(alu_command_ == 6'b000011) begin	//FDIV
-					ft <= finv_d;
-					alu_command_ <= 6'b000010;
-					wselector <= 3'b000;
-					fpu_set <= 1'b1;
-					done <= 1'b0;
-				end else if(alu_command_ == 6'b000100) begin	//SQRT
-					data <= sqrt_d;
-				end else if(alu_command_ == 6'b001011) begin	//FLOOR
-					data <= floor_d;
-				end else if(alu_command_ == 6'b001100) begin	//ITOF, FTOI
-					if(exec_command_ == 6'b000000) begin
-						data <= itof_d;
-					end else begin
-						data <= ftoi_d;
-						wselector <= 3'b010;
-					end
 				end
 			end
 			if(mem_set[1]) begin
