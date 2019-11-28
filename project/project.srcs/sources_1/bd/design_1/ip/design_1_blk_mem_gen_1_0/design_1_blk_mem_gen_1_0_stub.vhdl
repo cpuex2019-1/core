@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Mon Nov 25 14:41:09 2019
+-- Date        : Tue Nov 26 19:37:28 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_blk_mem_gen_1_0 -prefix
---               design_1_blk_mem_gen_1_0_ design_1_blk_mem_gen_1_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_1_0/design_1_blk_mem_gen_1_0_stub.vhdl
 -- Design      : design_1_blk_mem_gen_1_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xcku040-ffva1156-2-e

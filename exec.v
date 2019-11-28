@@ -55,8 +55,8 @@ module exec(
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
 	fmul u_fmul(fs, ft, fmul_d, fmul_of, fmul_uf);
-	finv u_finv(ft, finv_d, finv_of, finv_uf);
-	fsqrt u_fsqrt(fs, sqrt_d);
+	finv u_finv(clk, ft, finv_d, finv_of, finv_uf);
+	fsqrt u_fsqrt(clk, fs, sqrt_d);
 	ftoi u_ftoi(fs, ftoi_d);
 	itof u_itof(fs, itof_d);
 	floor u_floor(fs, floor_d);
@@ -191,13 +191,13 @@ module exec(
 						end else if(alu_command == 6'b000010) begin	//FMUL
 							data <= fmul_d;
 						end else if(alu_command == 6'b000011) begin	//FDIV
-							ft_ <= finv_d;
-							alu_command_ <= 6'b000010;
 							wselector <= 3'b000;
 							fpu_set <= 1'b1;
 							done <= 1'b0;
 						end else if(alu_command == 6'b000100) begin	//SQRT
-							data <= sqrt_d;
+							wselector <= 3'b000;
+							fpu_set <= 1'b1;
+							done <= 1'b0;
 						end else if(alu_command == 6'b000101) begin	//SIN
 							//TODO
 						end else if(alu_command == 6'b000110) begin	//COS
@@ -245,6 +245,14 @@ module exec(
 				done <= 1'b1;
 				if(alu_command_ == 6'b000010) begin	//FMUL
 					data <= fmul_d;
+				end else if(alu_command_ == 6'b000011) begin	//FDIV
+					ft_ <= finv_d;
+					alu_command_ <= 6'b000010;
+					wselector <= 3'b000;
+					fpu_set <= 1'b1;
+					done <= 1'b0;
+				end else if(alu_command_ == 6'b000100) begin	//SQRT
+					data <= sqrt_d;
 				end
 			end
 			if(mem_set[1]) begin

@@ -65,10 +65,10 @@
             "value": "115200"
           },
           "C_S_AXI_ACLK_FREQ_HZ": {
-            "value": "28000000"
+            "value": "44010000"
           },
           "C_S_AXI_ACLK_FREQ_HZ_d": {
-            "value": "28"
+            "value": "44.010"
           },
           "UARTLITE_BOARD_INTERFACE": {
             "value": "rs232_uart"
@@ -125,22 +125,22 @@
         "xci_name": "design_1_clk_wiz_0",
         "parameters": {
           "CLKOUT1_JITTER": {
-            "value": "177.354"
+            "value": "136.265"
           },
           "CLKOUT1_PHASE_ERROR": {
-            "value": "219.418"
+            "value": "129.902"
           },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
-            "value": "28"
+            "value": "44"
           },
           "CLKOUT2_JITTER": {
-            "value": "161.271"
+            "value": "119.717"
           },
           "CLKOUT2_PHASE_ERROR": {
-            "value": "219.418"
+            "value": "129.902"
           },
           "CLKOUT2_REQUESTED_OUT_FREQ": {
-            "value": "56"
+            "value": "88"
           },
           "CLKOUT2_USED": {
             "value": "true"
@@ -149,19 +149,19 @@
             "value": "sysclk_125"
           },
           "MMCM_CLKFBOUT_MULT_F": {
-            "value": "56.000"
+            "value": "21.125"
           },
           "MMCM_CLKIN2_PERIOD": {
             "value": "10.000"
           },
           "MMCM_CLKOUT0_DIVIDE_F": {
-            "value": "50.000"
+            "value": "30.000"
           },
           "MMCM_CLKOUT1_DIVIDE": {
-            "value": "25"
+            "value": "15"
           },
           "MMCM_DIVCLK_DIVIDE": {
-            "value": "5"
+            "value": "2"
           },
           "NUM_OUT_CLKS": {
             "value": "2"
@@ -208,7 +208,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "28000000",
+                "value": "44010416",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -340,7 +340,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "28000000",
+                "value": "44010416",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -410,7 +410,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "28000000",
+                "value": "44010416",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -573,7 +573,7 @@
                 "value_src": "constant"
               },
               "FREQ_HZ": {
-                "value": "28000000",
+                "value": "44010416",
                 "value_src": "ip_prop"
               },
               "HAS_BRESP": {
@@ -757,7 +757,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "28000000",
+                "value": "44010416",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -840,7 +840,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "28000000",
+                "value": "44010416",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -927,7 +927,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "28000000",
+                "value": "44010416",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1022,7 +1022,7 @@
                 "value_src": "default_prop"
               },
               "FREQ_HZ": {
-                "value": "28000000",
+                "value": "44010416",
                 "value_src": "ip_prop"
               },
               "PHASE": {
@@ -1190,10 +1190,10 @@
       }
     },
     "interface_nets": {
-      "sysclk_125_1": {
+      "axi_uartlite_0_UART": {
         "interface_ports": [
-          "sysclk_125",
-          "clk_wiz/CLK_IN1_D"
+          "rs232_uart",
+          "axi_uartlite_0/UART"
         ]
       },
       "uart_buffer_0_uart": {
@@ -1202,10 +1202,10 @@
           "axi_uartlite_0/S_AXI"
         ]
       },
-      "axi_uartlite_0_UART": {
+      "sysclk_125_1": {
         "interface_ports": [
-          "rs232_uart",
-          "axi_uartlite_0/UART"
+          "sysclk_125",
+          "clk_wiz/CLK_IN1_D"
         ]
       }
     },

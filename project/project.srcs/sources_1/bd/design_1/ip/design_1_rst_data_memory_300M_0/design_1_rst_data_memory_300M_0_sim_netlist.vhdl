@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
--- Date        : Mon Nov 25 17:24:38 2019
+-- Date        : Thu Nov 28 14:29:11 2019
 -- Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_rst_data_memory_300M_0/design_1_rst_data_memory_300M_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top design_1_rst_data_memory_300M_0 -prefix
+--               design_1_rst_data_memory_300M_0_ design_1_rst_data_memory_300M_0_sim_netlist.vhdl
 -- Design      : design_1_rst_data_memory_300M_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -24,8 +24,6 @@ entity design_1_rst_data_memory_300M_0_cdc_sync is
     mb_debug_sys_rst : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_rst_data_memory_300M_0_cdc_sync : entity is "cdc_sync";
 end design_1_rst_data_memory_300M_0_cdc_sync;
 
 architecture STRUCTURE of design_1_rst_data_memory_300M_0_cdc_sync is
@@ -235,8 +233,6 @@ entity design_1_rst_data_memory_300M_0_upcnt_n is
     seq_cnt_en : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_rst_data_memory_300M_0_upcnt_n : entity is "upcnt_n";
 end design_1_rst_data_memory_300M_0_upcnt_n;
 
 architecture STRUCTURE of design_1_rst_data_memory_300M_0_upcnt_n is
@@ -401,8 +397,6 @@ entity design_1_rst_data_memory_300M_0_lpf is
     mb_debug_sys_rst : in STD_LOGIC;
     aux_reset_in : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_rst_data_memory_300M_0_lpf : entity is "lpf";
 end design_1_rst_data_memory_300M_0_lpf;
 
 architecture STRUCTURE of design_1_rst_data_memory_300M_0_lpf is
@@ -584,8 +578,6 @@ entity design_1_rst_data_memory_300M_0_sequence_psr is
     lpf_int : in STD_LOGIC;
     slowest_sync_clk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_rst_data_memory_300M_0_sequence_psr : entity is "sequence_psr";
 end design_1_rst_data_memory_300M_0_sequence_psr;
 
 architecture STRUCTURE of design_1_rst_data_memory_300M_0_sequence_psr is
@@ -924,8 +916,6 @@ entity design_1_rst_data_memory_300M_0_proc_sys_reset is
   attribute C_NUM_PERP_ARESETN of design_1_rst_data_memory_300M_0_proc_sys_reset : entity is 1;
   attribute C_NUM_PERP_RST : integer;
   attribute C_NUM_PERP_RST of design_1_rst_data_memory_300M_0_proc_sys_reset : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of design_1_rst_data_memory_300M_0_proc_sys_reset : entity is "proc_sys_reset";
 end design_1_rst_data_memory_300M_0_proc_sys_reset;
 
 architecture STRUCTURE of design_1_rst_data_memory_300M_0_proc_sys_reset is
@@ -1089,7 +1079,7 @@ architecture STRUCTURE of design_1_rst_data_memory_300M_0 is
   attribute x_interface_info of mb_reset : signal is "xilinx.com:signal:reset:1.0 mb_rst RST";
   attribute x_interface_parameter of mb_reset : signal is "XIL_INTERFACENAME mb_rst, POLARITY ACTIVE_HIGH, TYPE PROCESSOR, INSERT_VIP 0";
   attribute x_interface_info of slowest_sync_clk : signal is "xilinx.com:signal:clock:1.0 clock CLK";
-  attribute x_interface_parameter of slowest_sync_clk : signal is "XIL_INTERFACENAME clock, ASSOCIATED_RESET mb_reset:bus_struct_reset:interconnect_aresetn:peripheral_aresetn:peripheral_reset, FREQ_HZ 28000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0";
+  attribute x_interface_parameter of slowest_sync_clk : signal is "XIL_INTERFACENAME clock, ASSOCIATED_RESET mb_reset:bus_struct_reset:interconnect_aresetn:peripheral_aresetn:peripheral_reset, FREQ_HZ 44010416, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0";
   attribute x_interface_info of bus_struct_reset : signal is "xilinx.com:signal:reset:1.0 bus_struct_reset RST";
   attribute x_interface_parameter of bus_struct_reset : signal is "XIL_INTERFACENAME bus_struct_reset, POLARITY ACTIVE_HIGH, TYPE INTERCONNECT, INSERT_VIP 0";
   attribute x_interface_info of interconnect_aresetn : signal is "xilinx.com:signal:reset:1.0 interconnect_low_rst RST";

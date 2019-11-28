@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Mon Nov 25 17:24:37 2019
+// Date        : Thu Nov 28 14:29:10 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_clk_wiz_0/design_1_clk_wiz_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top design_1_clk_wiz_0 -prefix
+//               design_1_clk_wiz_0_ design_1_clk_wiz_0_sim_netlist.v
 // Design      : design_1_clk_wiz_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -43,7 +43,6 @@ module design_1_clk_wiz_0
         .reset(reset));
 endmodule
 
-(* ORIG_REF_NAME = "design_1_clk_wiz_0_clk_wiz" *) 
 module design_1_clk_wiz_0_design_1_clk_wiz_0_clk_wiz
    (clk_out1,
     clk_out2,
@@ -117,16 +116,16 @@ module design_1_clk_wiz_0_design_1_clk_wiz_0_clk_wiz
   (* OPT_MODIFIED = "MLO " *) 
   MMCME3_ADV #(
     .BANDWIDTH("OPTIMIZED"),
-    .CLKFBOUT_MULT_F(56.000000),
+    .CLKFBOUT_MULT_F(21.125000),
     .CLKFBOUT_PHASE(0.000000),
     .CLKFBOUT_USE_FINE_PS("FALSE"),
     .CLKIN1_PERIOD(8.000000),
     .CLKIN2_PERIOD(0.000000),
-    .CLKOUT0_DIVIDE_F(50.000000),
+    .CLKOUT0_DIVIDE_F(30.000000),
     .CLKOUT0_DUTY_CYCLE(0.500000),
     .CLKOUT0_PHASE(0.000000),
     .CLKOUT0_USE_FINE_PS("FALSE"),
-    .CLKOUT1_DIVIDE(25),
+    .CLKOUT1_DIVIDE(15),
     .CLKOUT1_DUTY_CYCLE(0.500000),
     .CLKOUT1_PHASE(0.000000),
     .CLKOUT1_USE_FINE_PS("FALSE"),
@@ -152,7 +151,7 @@ module design_1_clk_wiz_0_design_1_clk_wiz_0_clk_wiz
     .CLKOUT6_PHASE(0.000000),
     .CLKOUT6_USE_FINE_PS("FALSE"),
     .COMPENSATION("INTERNAL"),
-    .DIVCLK_DIVIDE(5),
+    .DIVCLK_DIVIDE(2),
     .IS_CLKFBIN_INVERTED(1'b0),
     .IS_CLKIN1_INVERTED(1'b0),
     .IS_CLKIN2_INVERTED(1'b0),
