@@ -46,7 +46,6 @@ module exec(
 	reg fpu_set;
 	reg[1:0] mem_set;
 	wire[31:0] rs_,rt_,addr_;
-	reg[31:0] addr__;
 	reg[5:0] alu_command_, exec_command_;
 	reg stall_set;
 	reg[2:0] wselector_;
@@ -70,7 +69,7 @@ module exec(
 	assign rt_ = wselector__[1] && wselector__[0] == fmode2 && (fmode2 || rd_out != 5'h0) && rd_out == rt_no ? data : rt;
 	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data+{offset[15] ? 16'hffff : 16'h0, offset} : addr;
 	assign mem_enable = 1'b1;
-	assign mem_addr = enable ? addr_[20:2] : addr__[20:2];
+	assign mem_addr = addr_[20:2];
 	assign mem_wdata = rt_;
 	assign mem_wea = exec_command == 6'b101011 || exec_command == 6'b111001 ? 4'b1111 : 4'b0000;
 
@@ -82,7 +81,6 @@ module exec(
 			wselector <= 3'b000;
 			wselector_ <= 3'b000;
 			pc_out <= 32'h0;
-			addr__ <= 32'h0;
 			uart_wsz <= 2'b00;
 			uart_wd <= 32'h0;
 			uart_wenable <= 1'b0;
@@ -106,7 +104,6 @@ module exec(
 			if(enable) begin
 				wselector_ <= 3'b000;
 				stall_set <= 1'b0;
-				addr__ <= addr_;
 				fs_ <= rs_;
 				ft_ <= rt_;
 				if((wselector[2] || stall_set) && pc != pc_out) begin

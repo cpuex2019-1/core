@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Nov 28 16:04:05 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec  3 11:33:12 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -8,6 +8,16 @@
       <CONNECTIONS>
         <CONNECTION INSTANCE="clk_wiz" PORT="reset"/>
         <CONNECTION INSTANCE="rst_data_memory_300M" PORT="ext_reset_in"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_n" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_n">
@@ -20,14 +30,14 @@
         <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_p"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
+    <PORT DIR="I" LEFT="3" NAME="DIP" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_DIP">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
+        <CONNECTION INSTANCE="inst_counter_0" PORT="selector"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
+    <PORT DIR="O" LEFT="7" NAME="LED" RIGHT="0" SIGIS="data" SIGNAME="inst_counter_0_sgnl">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
+        <CONNECTION INSTANCE="inst_counter_0" PORT="sgnl"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1400,11 +1410,12 @@
             <CONNECTION INSTANCE="rst_data_memory_300M" PORT="slowest_sync_clk"/>
             <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clka"/>
             <CONNECTION INSTANCE="write_0" PORT="clk"/>
-            <CONNECTION INSTANCE="stall_0" PORT="clk"/>
-            <CONNECTION INSTANCE="decode_0" PORT="clk"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
             <CONNECTION INSTANCE="fetch_0" PORT="clk"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
+            <CONNECTION INSTANCE="decode_0" PORT="clk"/>
+            <CONNECTION INSTANCE="stall_0" PORT="clk"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
+            <CONNECTION INSTANCE="inst_counter_0" PORT="clk"/>
             <CONNECTION INSTANCE="exec_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
@@ -1554,6 +1565,7 @@
         </PORT>
         <PORT DIR="O" LEFT="31" NAME="pc_out" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_pc_out">
           <CONNECTIONS>
+            <CONNECTION INSTANCE="inst_counter_0" PORT="pc"/>
             <CONNECTION INSTANCE="exec_0" PORT="pc"/>
           </CONNECTIONS>
         </PORT>
@@ -1660,6 +1672,7 @@
         <PORT DIR="O" NAME="done" SIGIS="undef" SIGNAME="exec_0_done">
           <CONNECTIONS>
             <CONNECTION INSTANCE="stall_0" PORT="exec_done"/>
+            <CONNECTION INSTANCE="inst_counter_0" PORT="exec_done"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="5" NAME="exec_command" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_exec_command">
@@ -1750,6 +1763,7 @@
         <PORT DIR="O" NAME="stall_enable" SIGIS="undef" SIGNAME="exec_0_stall_enable">
           <CONNECTIONS>
             <CONNECTION INSTANCE="stall_0" PORT="stall_enable"/>
+            <CONNECTION INSTANCE="inst_counter_0" PORT="stall"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="uart_wenable" SIGIS="undef" SIGNAME="exec_0_uart_wenable">
@@ -1900,6 +1914,51 @@
       </PORTS>
       <BUSINTERFACES/>
     </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/inst_counter_0" HWVERSION="1.0" INSTANCE="inst_counter_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="inst_counter" VLNV="xilinx.com:module_ref:inst_counter:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_inst_counter_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="exec_done" SIGIS="undef" SIGNAME="exec_0_done">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="exec_0" PORT="done"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="stall" SIGIS="undef" SIGNAME="exec_0_stall_enable">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="exec_0" PORT="stall_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="3" NAME="selector" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_DIP">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="DIP"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="pc" RIGHT="0" SIGIS="undef" SIGNAME="decode_0_pc_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="decode_0" PORT="pc_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="sgnl" RIGHT="0" SIGIS="undef" SIGNAME="inst_counter_0_sgnl">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="44010416" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="clk_wiz_clk_out1">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_wiz" PORT="clk_out1"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rstn" SIGIS="rst" SIGNAME="rst_data_memory_300M_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="rst_data_memory_300M" PORT="peripheral_aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
     <MODULE COREREVISION="13" FULLNAME="/rst_data_memory_300M" HWVERSION="5.0" INSTANCE="rst_data_memory_300M" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="proc_sys_reset" VLNV="xilinx.com:ip:proc_sys_reset:5.0">
       <DOCUMENTS>
         <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=proc_sys_reset;v=v5_0;d=pg164-proc-sys-reset.pdf"/>
@@ -1945,11 +2004,12 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_uartlite_0" PORT="s_axi_aresetn"/>
             <CONNECTION INSTANCE="write_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
             <CONNECTION INSTANCE="fetch_0" PORT="rstn"/>
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="inst_counter_0" PORT="rstn"/>
             <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>
