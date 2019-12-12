@@ -1,28 +1,11 @@
+// NOTE: 非正規化数の処理をショートカットしたFMul
 module fmul(
     input wire [31:0] s,
     input wire [31:0] t,
     output wire [31:0] d,
     output wire overflow,
     output wire underflow
-    // DEBUG:
-    // output wire shift_left,
-    // output wire [4:0] shift_right,
-    // output wire ulp,
-    // output wire guard,
-    // output wire round,
-    // output wire sticky,
-    // output wire flag,
-    // output wire d_is_denormalized
 );
-
-wire shift_left;
-wire [4:0] shift_right;
-wire ulp;
-wire guard;
-wire round;
-wire sticky;
-wire flag;
-wire d_is_denormalized;
 
 // 符号1bit、指数8bit、仮数23bitを読み出す
 wire [0:0] sign_s, sign_t, sign_d;
@@ -36,67 +19,30 @@ assign exponent_t = t[30:23];
 assign mantissa_s = s[22:0];
 assign mantissa_t = t[22:0];
 
-// 正規化されているか調べる(何桁落ちるかも調べる)
-wire s_is_denormalized, t_is_denormalized;
-// wire d_is_denormalized;
-assign s_is_denormalized =
-    exponent_s == 8'd0;
-assign t_is_denormalized =
-    exponent_t == 8'd0;
-assign d_is_denormalized =
-    {1'b0, exponent_s} + {1'b0, exponent_t} < 9'b010000000;
-
-// 指数が0ならば(数合わせのために)1にする
-wire [7:0] one_exponent_s, one_exponent_t;
-assign one_exponent_s =
-    s_is_denormalized ? 8'd1 : exponent_s;
-assign one_exponent_t =
-    t_is_denormalized ? 8'd1 : exponent_t;
-
 // 先頭bitを補完する
 wire [23:0] one_mantissa_s, one_mantissa_t;
-assign one_mantissa_s = 
-    s_is_denormalized ? {1'b0, mantissa_s} : {1'b1, mantissa_s};
-assign one_mantissa_t =
-    t_is_denormalized ? {1'b0, mantissa_t} : {1'b1, mantissa_t};
+assign one_mantissa_s = {1'b1, mantissa_s};
+assign one_mantissa_t = {1'b1, mantissa_t};
 
 // 符号を決める
 assign sign_d = (sign_s == sign_t) ? 0 : 1;
 
 // 24bitのone_mantissaどうしでMulを行う
 wire [47:0] one_mantissa_d_48bit;
-wire carry;
+assign one_mantissa_d_48bit = {24'b0, one_mantissa_s} * {24'b0, one_mantissa_t};
 
 // carryがあるか調べる(非正規化数になったら適切にシフトする)
-wire [47:0] one_mantissa_d_scaled;
-assign one_mantissa_d_48bit = {24'b0, one_mantissa_s} * {24'b0, one_mantissa_t};
-assign carry =
-    one_mantissa_d_48bit[47:47] && ~d_is_denormalized;
-
-// 正規化する
-wire [23:0] one_mantissa_d_24bit;
-wire [47:0] tmp;
-assign tmp = one_mantissa_d_48bit >> shift_right;
-assign one_mantissa_d_scaled = tmp << shift_left;
-
-// NOTE: 右シフトは正規化数同士の積が非正規化数になる場合には0でない値をとる
-
-assign shift_right =
-    d_is_denormalized && (s_is_denormalized || t_is_denormalized) ?
-        8'b01111111 - exponent_s - exponent_t
-    : d_is_denormalized ?
-        8'b01111111 - exponent_s - exponent_t + 8'b1
-    : 8'b00000000;
-
-// NOTE: 左シフトはs/tが非正規化数であって、積が正規化数のときには0でない値をとる
+wire carry;
+assign carry = one_mantissa_d_48bit[47:47];
 
 // NOTE: 指数より左シフトが大きければシフトしない
-// DEBUG: 大きければできる限りシフトする
 wire [7:0] shift;
+wire shift_left;
+wire [4:0] shift_right;
+
+assign shift_right = 5'd0;
 assign shift_left =
-    // {1'b0, one_exponent_s} + {1'b0, one_exponent_t} < {1'b0, shift} + 9'd127 ?
-        // {1'b0, shift} + 9'd127 - {1'b0, one_exponent_s} - {1'b0, one_exponent_t} : shift;
-    {1'b0, one_exponent_s} + {1'b0, one_exponent_t} < {1'b0, shift} + 9'd127 ? 8'd0 : shift;
+    {1'b0, exponent_s} + {1'b0, exponent_t} < {1'b0, shift} + 9'd127 ? 8'd0 : shift;
 
 assign shift = 
     (one_mantissa_d_48bit[47:47] == 1'b1) ? 0 :
@@ -124,8 +70,14 @@ assign shift =
     (one_mantissa_d_48bit[25:25] == 1'b1) ? 21 :
     (one_mantissa_d_48bit[24:24] == 1'b1) ? 22 : 23;
 
+// 正規化する
+wire [47:0] tmp;
+wire [47:0] one_mantissa_d_scaled;
+assign tmp = one_mantissa_d_48bit >> shift_right;
+assign one_mantissa_d_scaled = tmp << shift_left;
 
 // 繰り上がりの有無で場合分けする
+wire [23:0] one_mantissa_d_24bit;
 assign one_mantissa_d_24bit =
     carry == 1'b1 ?
     one_mantissa_d_scaled[47:24]:
@@ -133,7 +85,7 @@ assign one_mantissa_d_24bit =
         
 // 丸める
 wire [23:0] one_mantissa_d;
-// wire ulp, guard, round, sticky, flag;
+wire ulp, guard, round, sticky, flag;
 assign ulp = (carry == 1'b1) ?
     one_mantissa_d_scaled[24:24] :
     one_mantissa_d_scaled[23:23];
@@ -156,27 +108,23 @@ assign one_mantissa_d = one_mantissa_d_24bit + {23'b0, flag};
 assign overflow = 
     ({1'b0, exponent_s} + {1'b0, exponent_t} + {8'd0, carry} >= 9'b011111111 + 9'b001111111);
 assign underflow = 
-    ({1'b0, exponent_s} + {1'b0, exponent_t} < 9'b001111111 - 9'b000011000);
+    // ({1'b0, exponent_s} + {1'b0, exponent_t} < 9'b001111111 - 9'b000011000);
+    {1'b0, exponent_s} + {1'b0, exponent_t} < 9'b001111111;
+
 
 assign exponent_d =
     overflow ?
         8'b11111111
-    : (underflow ?
+    : underflow ?
         8'b00000000
-    : (d_is_denormalized ?
-       {7'b0, one_mantissa_d[23:23]}
-    : one_exponent_s + one_exponent_t + {7'b0, carry} - 8'b01111111 - shift_left
-    ));
+    : exponent_s + exponent_t + {7'b0, carry} - 8'b01111111 - shift_left;
 
 assign mantissa_d =
     overflow ?
         23'b0
-    : (underflow ?
+    : underflow ?
         23'b0
-    : (d_is_denormalized ?
-        one_mantissa_d[22:0]
-    : one_mantissa_d[22:0]
-    ));
+    : one_mantissa_d[22:0];
 
 wire s_is_nan;
 assign s_is_nan =
@@ -197,30 +145,21 @@ wire t_is_zero;
 assign t_is_zero =
     exponent_t == 8'd0 && mantissa_t == 8'd0;
 
-assign snan = s_is_nan;
-assign tnan = t_is_nan;
-
 assign d = 
     s_is_nan ?
         {sign_s, exponent_s, 1'b1, mantissa_s[21:0]}
-    : (t_is_nan ?
+    : t_is_nan ?
         {sign_t, exponent_t, 1'b1, mantissa_t[21:0]}
-    : (s_is_inf || t_is_inf) ?
+    : s_is_inf || t_is_inf ?
         {sign_d, 8'd255, 23'b0}
-    : (s_is_zero ?
+    : s_is_zero ?
         {sign_d, exponent_s, mantissa_s}
-    : (t_is_zero ?
+    : t_is_zero ?
         {sign_d, exponent_t, mantissa_t}
-    : (overflow ?
+    : overflow ?
         {sign_d, 8'd255, 23'b0}
-    : (underflow ?
+    : underflow ?
         {sign_d, 8'd0, 23'b0} 
-    : (s_is_denormalized ?
-        {sign_d, exponent_d, mantissa_d}
-    : (t_is_denormalized ? 
-        {sign_d, exponent_d, mantissa_d}
-    : {sign_d, exponent_d, mantissa_d}
-    )))))));
-
+    : {sign_d, exponent_d, mantissa_d};
 
 endmodule

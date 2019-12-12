@@ -202,7 +202,7 @@ module exec(
 						end else if(alu_command == 6'b000111) begin	//ATAN
 							//TODO
 						end else if(alu_command == 6'b001000) begin	//SLTF
-							data <= {31'h0, (rs_[31] == rt_[31] && ((rs_[30:0] < rt_[30:0])^rs_[31])) || (rs_[31] != rt_[31] && rs_[31])};
+							data <= {31'h0, (rs_[31] == rt_[31] && ((rs_[30:0] < rt_[30:0])^rs_[31])) || (rs_[31] != rt_[31] && rs_[31] && rs_[30:0] != 31'h0)};
 							wselector <= 3'b010;
 						end else if(alu_command == 6'b001001) begin //FNEG
 							data <= {~rs_[31], rs_[30:0]};

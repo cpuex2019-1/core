@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec  3 11:33:12 2019" VIVADOVERSION="2018.3">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Dec 10 19:43:05 2019" VIVADOVERSION="2018.3">
 
   <SYSTEMINFO ARCH="kintexu" BOARD="xilinx.com:kcu105:part0:1.5" DEVICE="xcku040" NAME="design_1" PACKAGE="ffva1156" SPEEDGRADE="-2"/>
 
@@ -10,14 +10,14 @@
         <CONNECTION INSTANCE="rst_data_memory_300M" PORT="ext_reset_in"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
+    <PORT DIR="I" LEFT="3" NAME="DIP" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_DIP">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
+        <CONNECTION INSTANCE="inst_counter_0" PORT="selector"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
+    <PORT DIR="O" LEFT="7" NAME="LED" RIGHT="0" SIGIS="data" SIGNAME="inst_counter_0_sgnl">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
+        <CONNECTION INSTANCE="inst_counter_0" PORT="sgnl"/>
       </CONNECTIONS>
     </PORT>
     <PORT CLKFREQUENCY="100000000" DIR="I" NAME="sysclk_125_clk_n" SIGIS="clk" SIGNAME="clk_wiz_clk_in1_n">
@@ -30,14 +30,14 @@
         <CONNECTION INSTANCE="clk_wiz" PORT="clk_in1_p"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="I" LEFT="3" NAME="DIP" RIGHT="0" SIGIS="data" SIGNAME="External_Ports_DIP">
+    <PORT DIR="I" NAME="rs232_uart_rxd" SIGIS="undef" SIGNAME="axi_uartlite_0_rx">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="inst_counter_0" PORT="selector"/>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="rx"/>
       </CONNECTIONS>
     </PORT>
-    <PORT DIR="O" LEFT="7" NAME="LED" RIGHT="0" SIGIS="data" SIGNAME="inst_counter_0_sgnl">
+    <PORT DIR="O" NAME="rs232_uart_txd" SIGIS="undef" SIGNAME="axi_uartlite_0_tx">
       <CONNECTIONS>
-        <CONNECTION INSTANCE="inst_counter_0" PORT="sgnl"/>
+        <CONNECTION INSTANCE="axi_uartlite_0" PORT="tx"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
@@ -1414,8 +1414,8 @@
             <CONNECTION INSTANCE="core_wrapper_0" PORT="clk"/>
             <CONNECTION INSTANCE="decode_0" PORT="clk"/>
             <CONNECTION INSTANCE="stall_0" PORT="clk"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
             <CONNECTION INSTANCE="inst_counter_0" PORT="clk"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="clk"/>
             <CONNECTION INSTANCE="exec_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
@@ -2008,8 +2008,8 @@
             <CONNECTION INSTANCE="core_wrapper_0" PORT="rstn"/>
             <CONNECTION INSTANCE="decode_0" PORT="rstn"/>
             <CONNECTION INSTANCE="stall_0" PORT="rstn"/>
-            <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
             <CONNECTION INSTANCE="inst_counter_0" PORT="rstn"/>
+            <CONNECTION INSTANCE="uart_buffer_0" PORT="rstn"/>
             <CONNECTION INSTANCE="exec_0" PORT="rstn"/>
           </CONNECTIONS>
         </PORT>

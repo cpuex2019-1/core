@@ -19,8 +19,8 @@
       "core_wrapper_0": "",
       "decode_0": "",
       "stall_0": "",
-      "uart_buffer_0": "",
       "inst_counter_0": "",
+      "uart_buffer_0": "",
       "exec_0": ""
     },
     "interface_ports": {
@@ -741,6 +741,76 @@
           }
         }
       },
+      "inst_counter_0": {
+        "vlnv": "xilinx.com:module_ref:inst_counter:1.0",
+        "xci_name": "design_1_inst_counter_0_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "inst_counter",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rstn",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_wiz_0_clk_out1",
+                "value_src": "default_prop"
+              },
+              "FREQ_HZ": {
+                "value": "44010416",
+                "value_src": "ip_prop"
+              },
+              "PHASE": {
+                "value": "0.0",
+                "value_src": "ip_prop"
+              }
+            }
+          },
+          "rstn": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "exec_done": {
+            "direction": "I"
+          },
+          "stall": {
+            "direction": "I"
+          },
+          "selector": {
+            "direction": "I",
+            "left": "3",
+            "right": "0",
+            "parameters": {
+              "LAYERED_METADATA": {
+                "value": "undef",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "pc": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "sgnl": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
       "uart_buffer_0": {
         "vlnv": "xilinx.com:module_ref:uart_buffer:1.0",
         "xci_name": "design_1_uart_buffer_0_0",
@@ -1025,76 +1095,6 @@
           }
         }
       },
-      "inst_counter_0": {
-        "vlnv": "xilinx.com:module_ref:inst_counter:1.0",
-        "xci_name": "design_1_inst_counter_0_0",
-        "reference_info": {
-          "ref_type": "hdl",
-          "ref_name": "inst_counter",
-          "boundary_crc": "0x0"
-        },
-        "ports": {
-          "clk": {
-            "type": "clk",
-            "direction": "I",
-            "parameters": {
-              "ASSOCIATED_RESET": {
-                "value": "rstn",
-                "value_src": "constant"
-              },
-              "CLK_DOMAIN": {
-                "value": "design_1_clk_wiz_0_clk_out1",
-                "value_src": "default_prop"
-              },
-              "FREQ_HZ": {
-                "value": "44010416",
-                "value_src": "ip_prop"
-              },
-              "PHASE": {
-                "value": "0.0",
-                "value_src": "ip_prop"
-              }
-            }
-          },
-          "rstn": {
-            "type": "rst",
-            "direction": "I",
-            "parameters": {
-              "POLARITY": {
-                "value": "ACTIVE_LOW",
-                "value_src": "constant"
-              }
-            }
-          },
-          "exec_done": {
-            "direction": "I"
-          },
-          "stall": {
-            "direction": "I"
-          },
-          "selector": {
-            "direction": "I",
-            "left": "3",
-            "right": "0",
-            "parameters": {
-              "LAYERED_METADATA": {
-                "value": "undef",
-                "value_src": "default_prop"
-              }
-            }
-          },
-          "pc": {
-            "direction": "I",
-            "left": "31",
-            "right": "0"
-          },
-          "sgnl": {
-            "direction": "O",
-            "left": "7",
-            "right": "0"
-          }
-        }
-      },
       "exec_0": {
         "vlnv": "xilinx.com:module_ref:exec:1.0",
         "xci_name": "design_1_exec_0_0",
@@ -1291,16 +1291,16 @@
           "clk_wiz/CLK_IN1_D"
         ]
       },
-      "uart_buffer_0_uart": {
-        "interface_ports": [
-          "uart_buffer_0/uart",
-          "axi_uartlite_0/S_AXI"
-        ]
-      },
       "axi_uartlite_0_UART": {
         "interface_ports": [
           "rs232_uart",
           "axi_uartlite_0/UART"
+        ]
+      },
+      "uart_buffer_0_uart": {
+        "interface_ports": [
+          "uart_buffer_0/uart",
+          "axi_uartlite_0/S_AXI"
         ]
       }
     },
@@ -1449,8 +1449,8 @@
           "core_wrapper_0/clk",
           "decode_0/clk",
           "stall_0/clk",
-          "uart_buffer_0/clk",
           "inst_counter_0/clk",
+          "uart_buffer_0/clk",
           "exec_0/clk"
         ]
       },
@@ -1463,8 +1463,8 @@
           "core_wrapper_0/rstn",
           "decode_0/rstn",
           "stall_0/rstn",
-          "uart_buffer_0/rstn",
           "inst_counter_0/rstn",
+          "uart_buffer_0/rstn",
           "exec_0/rstn"
         ]
       },

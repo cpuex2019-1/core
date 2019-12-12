@@ -1,9 +1,8 @@
+// NOTE: Itof
 module itof(
   input wire [31:0] s,
   output wire [31:0] d
 );
-
-// FIXME:
 
 wire sign_d;
 wire [7:0] exponent_d_minus127, exponent_d, shift;
@@ -15,6 +14,7 @@ assign abs_s = s[31:31] ? ~s + 32'd1 : s;
 
 assign sign_d = s[31:31];
 assign exponent_d_minus127 =
+    abs_s[31:31] ? 8'd31 :
     abs_s[30:30] ? 8'd30 :
     abs_s[29:29] ? 8'd29 :
     abs_s[28:28] ? 8'd28 :
@@ -63,8 +63,13 @@ assign flag =
     (guard && round);
 assign carry = &(tmp[31:9]) && flag;
 
-assign exponent_d = exponent_d_minus127 + 8'd127 + carry;
-assign mantissa_d = tmp[31:9] + {22'b0, flag};
+wire d_is_zero;
+assign d_is_zero = (s == 32'b0);
+
+assign exponent_d =
+    d_is_zero ? 8'b0 : exponent_d_minus127 + 8'd127 + carry;
+assign mantissa_d =
+    d_is_zero ? 23'b0 : tmp[31:9] + {22'b0, flag};
 
 assign d = {sign_d, exponent_d, mantissa_d};
 
