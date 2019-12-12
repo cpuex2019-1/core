@@ -20,74 +20,75 @@ preplace inst blk_mem_gen_1 -pg 1 -lvl 6 -y 920 -defaultsOSRD
 preplace inst stall_0 -pg 1 -lvl 6 -y 560 -defaultsOSRD
 preplace inst write_0 -pg 1 -lvl 3 -y 930 -defaultsOSRD
 preplace inst axi_uartlite_0 -pg 1 -lvl 9 -y 340 -defaultsOSRD
-preplace netloc fetch_0_done 1 5 1 1800
-preplace netloc exec_0_mem_wdata 1 7 1 2640
-preplace netloc stall_0_fetch_enable 1 4 3 1440 750 NJ 750 2180
+preplace netloc fetch_0_done 1 5 1 1900
+preplace netloc exec_0_mem_wdata 1 7 1 2760
+preplace netloc stall_0_fetch_enable 1 4 3 1550 700 NJ 700 2270
 preplace netloc decode_0_rs_no 1 3 4 N 260 NJ 260 NJ 260 NJ
-preplace netloc write_0_pcenable 1 3 2 N 890 1420J
-preplace netloc decode_0_fmode1 1 3 1 1090
-preplace netloc write_0_done 1 3 3 NJ 870 1410J 730 1780
+preplace netloc write_0_pcenable 1 3 2 N 890 1530J
+preplace netloc exec_0_wfrommem 1 2 6 690 550 NJ 550 NJ 550 1880J 750 NJ 750 2720
+preplace netloc decode_0_fmode1 1 3 1 1170
+preplace netloc write_0_done 1 3 3 1060J 880 1500J 690 1910
 preplace netloc decode_0_alu_command 1 3 4 N 100 NJ 100 NJ 100 NJ
-preplace netloc decode_0_fmode2 1 3 1 1070
-preplace netloc write_0_wdata 1 3 1 1070
+preplace netloc decode_0_fmode2 1 3 1 1160
+preplace netloc write_0_wdata 1 3 1 1160
 preplace netloc decode_0_fmode1_reg 1 3 4 N 300 NJ 300 NJ 300 NJ
-preplace netloc decode_0_pc_out 1 3 5 N 140 NJ 140 NJ 140 2230J 0 2680
-preplace netloc exec_0_mem_enable 1 7 1 2630
-preplace netloc write_0_stall_enable 1 5 3 1880 760 NJ 760 2650
-preplace netloc exec_0_uart_wd 1 7 1 2720
+preplace netloc decode_0_pc_out 1 3 5 N 140 NJ 140 NJ 140 2300J 950 2780
+preplace netloc exec_0_mem_enable 1 7 1 2750
+preplace netloc write_0_stall_enable 1 5 3 1970 710 NJ 710 2800
+preplace netloc exec_0_uart_wd 1 7 1 2770
 preplace netloc decode_0_sh 1 3 4 N 220 NJ 220 NJ 220 NJ
-preplace netloc write_0_wenable 1 3 1 1030
-preplace netloc fetch_0_command 1 2 4 660 490 NJ 490 NJ 490 1770
-preplace netloc exec_0_mem_wea 1 7 1 2620
-preplace netloc inst_counter_0_sgnl 1 8 2 NJ 950 3270
-preplace netloc write_0_uart_wenable 1 7 1 2740
-preplace netloc stall_0_wire_enable 1 2 5 670 550 NJ 550 NJ 550 1810J 680 2170
-preplace netloc exec_0_data_out 1 2 6 640 520 NJ 520 NJ 520 1840J 700 NJ 700 2590
-preplace netloc stall_0_exec_enable 1 6 1 2190
-preplace netloc data_memory_c0_ddr4_ui_clk 1 1 8 240 320 620 800 1080 900 1420 1000 1860 740 2200 520 2690 470 3030J
-preplace netloc stall_0_decode_enable 1 2 5 650 460 1030J 440 NJ 440 NJ 440 2170
+preplace netloc write_0_wenable 1 3 1 1130
+preplace netloc fetch_0_command 1 2 4 710 0 NJ 0 NJ 0 1870
+preplace netloc exec_0_mem_wea 1 7 1 2740
+preplace netloc inst_counter_0_sgnl 1 8 2 NJ 950 3400
+preplace netloc write_0_uart_wenable 1 7 1 2850
+preplace netloc stall_0_wire_enable 1 2 5 710 790 1040J 1060 NJ 1060 NJ 1060 2250
+preplace netloc exec_0_data_out 1 2 6 670 540 NJ 540 NJ 540 1920J 690 NJ 690 2710
+preplace netloc stall_0_exec_enable 1 6 1 2280
+preplace netloc data_memory_c0_ddr4_ui_clk 1 1 8 240 320 610 750 1100 920 1560 990 1890 440 2310 520 2830 480 3170J
+preplace netloc stall_0_decode_enable 1 2 5 660 730 1070J 1050 NJ 1050 NJ 1050 2260
 preplace netloc decode_0_exec_command 1 3 4 N 80 NJ 80 NJ 80 NJ
-preplace netloc exec_0_wselector_out 1 2 6 660 540 NJ 540 NJ 540 1820J 690 NJ 690 2600
+preplace netloc exec_0_wselector_out 1 2 6 700 770 1050J 1030 NJ 1030 NJ 1030 NJ 1030 2730
 preplace netloc fetch_0_inst_addr 1 5 1 N
-preplace netloc blk_mem_gen_1_douta 1 4 2 1440 990 1880
+preplace netloc blk_mem_gen_1_douta 1 4 2 1570 1010 1940
 preplace netloc decode_0_rt_no 1 3 4 N 280 NJ 280 NJ 280 NJ
-preplace netloc exec_0_uart_rsz 1 7 1 N
+preplace netloc exec_0_uart_rsz 1 7 1 2790
 preplace netloc decode_0_addr 1 3 4 N 160 NJ 160 NJ 160 NJ
-preplace netloc clk_wiz_clk_out2 1 1 5 260J 330 610J 470 NJ 470 NJ 470 1830
+preplace netloc clk_wiz_clk_out2 1 1 5 260J 330 600J 460 NJ 460 NJ 460 1930
 preplace netloc axi_uartlite_0_UART 1 9 1 N
-preplace netloc rst_data_memory_300M_peripheral_aresetn 1 2 7 600 810 1050 880 1430 740 1850 710 2210 530 2700 480 3040J
-preplace netloc DIP_1 1 0 8 NJ 850 NJ 850 630J 790 1020J 1010 NJ 1010 NJ 1010 NJ 1010 2740
+preplace netloc rst_data_memory_300M_peripheral_aresetn 1 2 7 620 760 1090 900 1540 720 1950 720 2320 530 2840 470 3180J
+preplace netloc DIP_1 1 0 8 NJ 850 NJ 850 630J 740 1110J 1020 NJ 1020 NJ 1020 2330J 940 N
 preplace netloc decode_0_rd 1 3 4 N 240 NJ 240 NJ 240 NJ
-preplace netloc uart_buffer_0_rdata 1 6 3 2230 510 2660J 490 3000
-preplace netloc exec_0_pc_out 1 2 6 670 1050 NJ 1050 NJ 1050 NJ 1050 NJ 1050 2610
-preplace netloc exec_0_uart_renable 1 7 1 N
-preplace netloc uart_buffer_0_rdone 1 6 3 2220 500 NJ 500 3020
+preplace netloc uart_buffer_0_rdata 1 6 3 2340 510 2850J 490 3140
+preplace netloc exec_0_pc_out 1 2 6 640 -10 NJ -10 NJ -10 NJ -10 NJ -10 2700
+preplace netloc exec_0_uart_renable 1 7 1 2780
+preplace netloc uart_buffer_0_rdone 1 6 3 2330 500 NJ 500 3160
 preplace netloc clk_wiz_locked 1 1 1 N
-preplace netloc decode_0_reg1 1 3 1 1060
-preplace netloc fetch_0_pc 1 2 4 630 500 NJ 500 NJ 500 1760
-preplace netloc exec_0_done 1 5 3 1870 730 NJ 730 2710
+preplace netloc decode_0_reg1 1 3 1 1050
+preplace netloc fetch_0_pc 1 2 4 680 720 1120J 1040 NJ 1040 1880
+preplace netloc exec_0_done 1 5 3 1960 730 NJ 730 2820
 preplace netloc decode_0_reg2 1 3 1 1040
 preplace netloc uart_buffer_0_uart 1 8 1 N
-preplace netloc exec_0_mem_addr 1 7 1 2670
-preplace netloc exec_0_rd_out 1 2 6 650 530 NJ 530 NJ 530 1790J 720 NJ 720 2580
-preplace netloc write_0_next_pc 1 3 2 N 910 1400J
-preplace netloc decode_0_done 1 3 3 1090 70 NJ 70 1880J
+preplace netloc exec_0_mem_addr 1 7 1 2810
+preplace netloc exec_0_rd_out 1 2 6 680 780 1080J 870 1510J 740 NJ 740 NJ 740 2700
+preplace netloc write_0_next_pc 1 3 2 N 910 1550J
+preplace netloc decode_0_done 1 3 3 1170 70 NJ 70 1940J
 preplace netloc decode_0_fmode2_reg 1 3 4 N 320 NJ 320 NJ 320 NJ
-preplace netloc fetch_0_jr_reg 1 3 3 1090 1020 NJ 1020 1760
+preplace netloc fetch_0_jr_reg 1 3 3 1170 1000 NJ 1000 1870
 preplace netloc decode_0_offset 1 3 4 N 120 NJ 120 NJ 120 NJ
-preplace netloc uart_buffer_0_wdone 1 6 3 2240 -10 NJ -10 3010
+preplace netloc uart_buffer_0_wdone 1 6 3 2340 0 NJ 0 3150
 preplace netloc decode_0_rs 1 3 4 N 180 NJ 180 NJ 180 NJ
-preplace netloc decode_0_rt 1 3 4 N 200 NJ 200 NJ 200 NJ
 preplace netloc sysclk_125_1 1 0 1 NJ
-preplace netloc blk_mem_gen_0_douta 1 6 2 2240 640 NJ
-preplace netloc core_wrapper_0_jr_data 1 4 1 1390
-preplace netloc write_0_fmode 1 3 1 1040
-preplace netloc write_0_wreg 1 3 1 1060
-preplace netloc exec_0_uart_wsz 1 7 1 2730
+preplace netloc decode_0_rt 1 3 4 N 200 NJ 200 NJ 200 NJ
+preplace netloc blk_mem_gen_0_douta 1 2 6 650 530 N 530 N 530 1940 680 2290 640 NJ
+preplace netloc core_wrapper_0_jr_data 1 4 1 1520
+preplace netloc write_0_fmode 1 3 1 1140
+preplace netloc write_0_wreg 1 3 1 1150
+preplace netloc exec_0_uart_wsz 1 7 1 2840
 preplace netloc reset_1 1 0 2 20 370 250
-preplace netloc core_wrapper_0_reg_out1 1 2 3 640 0 NJ 0 1440
-preplace netloc core_wrapper_0_reg_out2 1 2 3 670 480 NJ 480 1390
-levelinfo -pg 1 0 130 430 860 1250 1610 2030 2410 2870 3160 3300 -top -20 -bot 1060
+preplace netloc core_wrapper_0_reg_out1 1 2 3 690 470 NJ 470 1490
+preplace netloc core_wrapper_0_reg_out2 1 2 3 710 480 NJ 480 1480
+levelinfo -pg 1 0 130 430 880 1340 1720 2110 2530 3010 3290 3420 -top -20 -bot 1070
 "
 }
 {

@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Tue Dec 10 19:43:05 2019
+//Date        : Thu Dec 12 18:15:57 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -67,6 +67,7 @@ module design_1
   wire [1:0]exec_0_uart_rsz;
   wire [31:0]exec_0_uart_wd;
   wire [1:0]exec_0_uart_wsz;
+  wire exec_0_wfrommem;
   wire [2:0]exec_0_wselector_out;
   wire [31:0]fetch_0_command;
   wire fetch_0_done;
@@ -235,6 +236,7 @@ module design_1
         .uart_wdone(uart_buffer_0_wdone),
         .uart_wenable(write_0_uart_wenable),
         .uart_wsz(exec_0_uart_wsz),
+        .wfrommem(exec_0_wfrommem),
         .wselector(exec_0_wselector_out));
   design_1_fetch_0_0 fetch_0
        (.clk(data_memory_c0_ddr4_ui_clk),
@@ -307,6 +309,7 @@ module design_1
   design_1_write_0_0 write_0
        (.clk(data_memory_c0_ddr4_ui_clk),
         .data(exec_0_data_out),
+        .data_mem(blk_mem_gen_0_douta),
         .done(write_0_done),
         .enable(stall_0_wire_enable),
         .fmode(write_0_fmode),
@@ -317,6 +320,7 @@ module design_1
         .rstn(rst_data_memory_300M_peripheral_aresetn),
         .wdata(write_0_wdata),
         .wenable(write_0_wenable),
+        .wfrommem(exec_0_wfrommem),
         .wreg(write_0_wreg),
         .wselector(exec_0_wselector_out));
 endmodule

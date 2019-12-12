@@ -12,8 +12,10 @@ module exec(
 	input wire[31:0] rt,
 	input wire[4:0] sh,
 	output reg[2:0] wselector,
+	output wire wfrommem,
 	output reg[31:0] pc_out,
 	output reg[31:0] data,
+	output reg[31:0] data_mem,
 	input wire[4:0] rd_in,
 	output reg[4:0] rd_out,
 	input wire[4:0] rs_no,
@@ -44,8 +46,7 @@ module exec(
 	wire[31:0] fadd_d, fmul_d, finv_d, sqrt_d, ftoi_d, itof_d, floor_d;
 	wire fadd_of, fmul_of, finv_of, fmul_uf, finv_uf;
 	reg fpu_set;
-	reg[1:0] mem_set;
-	wire[31:0] rs_,rt_,addr_;
+	wire[31:0] data_,rs_,rt_,addr_;
 	reg[5:0] alu_command_, exec_command_;
 	reg stall_set;
 	reg[2:0] wselector_;
@@ -65,9 +66,11 @@ module exec(
 
     assign tmp_div10 = {36'h0, rs_} * 68'hcccccccd;
 	assign wselector__ = wselector | wselector_;
-	assign rs_ = wselector__[1] && wselector__[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data : rs;
-	assign rt_ = wselector__[1] && wselector__[0] == fmode2 && (fmode2 || rd_out != 5'h0) && rd_out == rt_no ? data : rt;
-	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data+{offset[15] ? 16'hffff : 16'h0, offset} : addr;
+	assign wfrommem = exec_command_ == 6'b100011 || exec_command_ == 6'b110001;
+	assign data_ = wfrommem ? mem_rdata : data;
+	assign rs_ = wselector__[1] && wselector__[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data_ : rs;
+	assign rt_ = wselector__[1] && wselector__[0] == fmode2 && (fmode2 || rd_out != 5'h0) && rd_out == rt_no ? data_ : rt;
+	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data_+{offset[15] ? 16'hffff : 16'h0, offset} : addr;
 	assign mem_enable = 1'b1;
 	assign mem_addr = addr_[20:2];
 	assign mem_wdata = rt_;
@@ -94,7 +97,6 @@ module exec(
 			done <= 1'b0;
 			stall_enable <= 1'b0;
 			wselector <= 3'b000;
-			mem_set <= {1'b0, mem_set[1]};
 			if(wselector[2]) begin
 				stall_set <= 1'b1;
 			end
@@ -217,8 +219,7 @@ module exec(
 							data <= rs;
 						end
 					end else if(exec_command == 6'b100011 || exec_command == 6'b110001) begin	//LW, LF
-						mem_set <= 2'b10;
-						done <= 1'b0;
+						wselector <= {2'b01, exec_command == 6'b110001};
 					end else if(exec_command == 6'b101011 || exec_command == 6'b111001) begin	//SW, SF
 					end else if(exec_command == 6'b110010) begin	//BC
 						pc_out <= pc + addr_;
@@ -252,11 +253,6 @@ module exec(
 					data <= sqrt_d;
 				end
 			end
-			if(mem_set[1]) begin
-				data <= mem_rdata;
-				wselector <= {2'b01, exec_command_ == 6'b110001};
-				done <= 1'b1;
-			end
 			if(uart_rdone) begin
 				data <= uart_rd;
 				wselector <= {1'b0, ~alu_command_[0], alu_command_[1]};
@@ -267,7 +263,6 @@ module exec(
 			end
 		end
 	end
-
 endmodule //exec
 
 `default_nettype wire

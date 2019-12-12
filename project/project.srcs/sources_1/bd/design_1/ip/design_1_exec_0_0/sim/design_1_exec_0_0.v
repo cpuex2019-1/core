@@ -66,8 +66,10 @@ module design_1_exec_0_0 (
   rt,
   sh,
   wselector,
+  wfrommem,
   pc_out,
   data,
+  data_mem,
   rd_in,
   rd_out,
   rs_no,
@@ -103,8 +105,10 @@ input wire [31 : 0] rs;
 input wire [31 : 0] rt;
 input wire [4 : 0] sh;
 output wire [2 : 0] wselector;
+output wire wfrommem;
 output wire [31 : 0] pc_out;
 output wire [31 : 0] data;
+output wire [31 : 0] data_mem;
 input wire [4 : 0] rd_in;
 output wire [4 : 0] rd_out;
 input wire [4 : 0] rs_no;
@@ -125,7 +129,7 @@ output wire [31 : 0] mem_wdata;
 input wire [31 : 0] mem_rdata;
 output wire mem_enable;
 output wire [3 : 0] mem_wea;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 44010416, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 35000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
@@ -144,8 +148,10 @@ input wire rstn;
     .rt(rt),
     .sh(sh),
     .wselector(wselector),
+    .wfrommem(wfrommem),
     .pc_out(pc_out),
     .data(data),
+    .data_mem(data_mem),
     .rd_in(rd_in),
     .rd_out(rd_out),
     .rs_no(rs_no),
