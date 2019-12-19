@@ -69,7 +69,6 @@ module design_1_exec_0_0 (
   wfrommem,
   pc_out,
   data,
-  data_mem,
   rd_in,
   rd_out,
   rs_no,
@@ -108,7 +107,6 @@ output wire [2 : 0] wselector;
 output wire wfrommem;
 output wire [31 : 0] pc_out;
 output wire [31 : 0] data;
-output wire [31 : 0] data_mem;
 input wire [4 : 0] rd_in;
 output wire [4 : 0] rd_out;
 input wire [4 : 0] rs_no;
@@ -151,7 +149,6 @@ input wire rstn;
     .wfrommem(wfrommem),
     .pc_out(pc_out),
     .data(data),
-    .data_mem(data_mem),
     .rd_in(rd_in),
     .rd_out(rd_out),
     .rs_no(rs_no),

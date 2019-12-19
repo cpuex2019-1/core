@@ -22,7 +22,8 @@ module write(
 	assign wenable = wselector[1];
 	assign fmode = wselector[0];
 	assign wreg = rd;
-	assign wdata = wfrommem ? data_mem : data;
+	// assign wdata = wfrommem ? data_mem : data;
+	assign wdata = data;
 
 	assign pcenable = wselector[2];
 	assign next_pc = pc;

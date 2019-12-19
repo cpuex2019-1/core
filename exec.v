@@ -15,7 +15,6 @@ module exec(
 	output wire wfrommem,
 	output reg[31:0] pc_out,
 	output reg[31:0] data,
-	output reg[31:0] data_mem,
 	input wire[4:0] rd_in,
 	output reg[4:0] rd_out,
 	input wire[4:0] rs_no,
@@ -46,12 +45,10 @@ module exec(
 	wire[31:0] fadd_d, fmul_d, finv_d, sqrt_d, ftoi_d, itof_d, floor_d;
 	wire fadd_of, fmul_of, finv_of, fmul_uf, finv_uf;
 	wire is_stall;
-	reg fpu_set;
+	reg fpu_set, load_set;
 	wire[31:0] data_,rs_,rt_,addr_;
 	reg[5:0] alu_command_, exec_command_;
 	reg stall_set;
-	reg[2:0] wselector_;
-	wire[2:0] wselector__;
 	wire[67:0] tmp_div10;
 
 	fadd u_fadd(fs, ft, fadd_d, fadd_of);
@@ -67,11 +64,10 @@ module exec(
 
 	assign is_stall = (wselector[2] || stall_set) && pc != pc_out;
     assign tmp_div10 = {36'h0, rs_} * 68'hcccccccd;
-	assign wselector__ = wselector | wselector_;
 	assign wfrommem = exec_command_ == 6'b100011 || exec_command_ == 6'b110001;
 	assign data_ = wfrommem ? mem_rdata : data;
-	assign rs_ = wselector__[1] && wselector__[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data_ : rs;
-	assign rt_ = wselector__[1] && wselector__[0] == fmode2 && (fmode2 || rd_out != 5'h0) && rd_out == rt_no ? data_ : rt;
+	assign rs_ = wselector[1] && wselector[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data_ : rs;
+	assign rt_ = wselector[1] && wselector[0] == fmode2 && (fmode2 || rd_out != 5'h0) && rd_out == rt_no ? data_ : rt;
 	assign addr_ = (exec_command[5:4] == 2'b10 || exec_command == 6'b110001 || exec_command == 6'b111001) && wselector[1] && wselector[0] == fmode1 && (fmode1 || rd_out != 5'h0) && rd_out == rs_no ? data_+{offset[15] ? 16'hffff : 16'h0, offset} : addr;
 	assign mem_enable = enable && ~is_stall;
 	assign mem_addr = addr_[20:2];
@@ -82,9 +78,9 @@ module exec(
 		if(~rstn) begin
 			stall_enable <= 1'b0;
 			stall_set <= 1'b0;
+			load_set <= 1'b0;
 			done <= 1'b0;
 			wselector <= 3'b000;
-			wselector_ <= 3'b000;
 			pc_out <= 32'h0;
 			uart_wsz <= 2'b00;
 			uart_wd <= 32'h0;
@@ -102,11 +98,7 @@ module exec(
 			if(wselector[2]) begin
 				stall_set <= 1'b1;
 			end
-			if(wselector != 3'b000) begin
-				wselector_ <= wselector;
-			end
 			if(enable) begin
-				wselector_ <= 3'b000;
 				stall_set <= 1'b0;
 				fs_ <= rs_;
 				ft_ <= rt_;
@@ -206,7 +198,7 @@ module exec(
 						end else if(alu_command == 6'b000111) begin	//ATAN
 							//TODO
 						end else if(alu_command == 6'b001000) begin	//SLTF
-							data <= {31'h0, (rs_[31] == rt_[31] && ((rs_[30:0] < rt_[30:0])^rs_[31])) || (rs_[31] != rt_[31] && rs_[31] && rs_[30:0] != 31'h0)};
+							data <= {31'h0, (rs_[31] == rt_[31] && ((rs_[30:0] < rt_[30:0])^rs_[31])) || (rs_[31] != rt_[31] && rs_[31] && (rt_[30:0] != 31'h0 || rs_[30:0] != 31'h0))};
 							wselector <= 3'b010;
 						end else if(alu_command == 6'b001001) begin //FNEG
 							data <= {~rs_[31], rs_[30:0]};
@@ -218,10 +210,11 @@ module exec(
 							data <= ftoi_d;
 							wselector <= 3'b010;
 						end else if(alu_command == 6'b111111) begin //MOVF
-							data <= rs;
+							data <= rs_;
 						end
 					end else if(exec_command == 6'b100011 || exec_command == 6'b110001) begin	//LW, LF
-						wselector <= {2'b01, exec_command == 6'b110001};
+						load_set <= 1'b1;
+						done <= 1'b0;
 					end else if(exec_command == 6'b101011 || exec_command == 6'b111001) begin	//SW, SF
 					end else if(exec_command == 6'b110010) begin	//BC
 						pc_out <= pc + addr_;
@@ -254,6 +247,12 @@ module exec(
 				end else if(alu_command_ == 6'b000100) begin	//SQRT
 					data <= sqrt_d;
 				end
+			end
+			if(load_set) begin
+				wselector <= {2'b01, exec_command_ == 6'b110001};
+				load_set <= 1'b0;
+				done <= 1'b1;
+				data <= mem_rdata;
 			end
 			if(uart_rdone) begin
 				data <= uart_rd;
