@@ -1,7 +1,7 @@
 //Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-//Date        : Thu Dec 19 16:45:30 2019
+//Date        : Mon Dec 23 11:47:32 2019
 //Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -80,7 +80,6 @@ module design_1
   wire stall_0_decode_enable;
   wire stall_0_exec_enable;
   wire stall_0_fetch_enable;
-  wire stall_0_wire_enable;
   wire sysclk_125_1_CLK_N;
   wire sysclk_125_1_CLK_P;
   wire [31:0]uart_buffer_0_rdata;
@@ -103,7 +102,6 @@ module design_1
   wire [3:0]uart_buffer_0_uart_WSTRB;
   wire uart_buffer_0_uart_WVALID;
   wire uart_buffer_0_wdone;
-  wire write_0_done;
   wire write_0_fmode;
   wire [31:0]write_0_next_pc;
   wire write_0_pcenable;
@@ -275,9 +273,7 @@ module design_1
         .fetch_done(fetch_0_done),
         .fetch_enable(stall_0_fetch_enable),
         .rstn(rst_data_memory_300M_peripheral_aresetn),
-        .stall_enable(write_0_stall_enable),
-        .write_done(write_0_done),
-        .write_enable(stall_0_wire_enable));
+        .stall_enable(write_0_stall_enable));
   design_1_uart_buffer_0_0 uart_buffer_0
        (.clk(data_memory_c0_ddr4_ui_clk),
         .rdata(uart_buffer_0_rdata),
@@ -307,17 +303,13 @@ module design_1
         .wenable(write_0_uart_wenable),
         .wsize(exec_0_uart_wsz));
   design_1_write_0_0 write_0
-       (.clk(data_memory_c0_ddr4_ui_clk),
-        .data(exec_0_data_out),
+       (.data(exec_0_data_out),
         .data_mem(blk_mem_gen_0_douta),
-        .done(write_0_done),
-        .enable(stall_0_wire_enable),
         .fmode(write_0_fmode),
         .next_pc(write_0_next_pc),
         .pc(exec_0_pc_out),
         .pcenable(write_0_pcenable),
         .rd(exec_0_rd_out),
-        .rstn(rst_data_memory_300M_peripheral_aresetn),
         .wdata(write_0_wdata),
         .wenable(write_0_wenable),
         .wfrommem(exec_0_wfrommem),

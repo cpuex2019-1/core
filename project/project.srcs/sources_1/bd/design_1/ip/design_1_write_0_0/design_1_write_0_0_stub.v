@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
-// Date        : Thu Dec 19 16:47:30 2019
+// Date        : Mon Dec 23 11:48:52 2019
 // Host        : LAPTOP-PI8IQ4LV running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               D:/cpuex/core/project/project.srcs/sources_1/bd/design_1/ip/design_1_write_0_0/design_1_write_0_0_stub.v
@@ -14,11 +14,9 @@
 // The synthesis directives are for Synopsys Synplify support to prevent IO buffer insertion.
 // Please paste the declaration into a Verilog source file or add the file as an additional source.
 (* X_CORE_INFO = "write,Vivado 2018.3" *)
-module design_1_write_0_0(enable, done, wselector, wfrommem, pc, data, 
-  data_mem, rd, pcenable, next_pc, wenable, fmode, wreg, wdata, clk, rstn)
-/* synthesis syn_black_box black_box_pad_pin="enable,done,wselector[2:0],wfrommem,pc[31:0],data[31:0],data_mem[31:0],rd[4:0],pcenable,next_pc[31:0],wenable,fmode,wreg[4:0],wdata[31:0],clk,rstn" */;
-  input enable;
-  output done;
+module design_1_write_0_0(wselector, wfrommem, pc, data, data_mem, rd, 
+  pcenable, next_pc, wenable, fmode, wreg, wdata)
+/* synthesis syn_black_box black_box_pad_pin="wselector[2:0],wfrommem,pc[31:0],data[31:0],data_mem[31:0],rd[4:0],pcenable,next_pc[31:0],wenable,fmode,wreg[4:0],wdata[31:0]" */;
   input [2:0]wselector;
   input wfrommem;
   input [31:0]pc;
@@ -31,6 +29,4 @@ module design_1_write_0_0(enable, done, wselector, wfrommem, pc, data,
   output fmode;
   output [4:0]wreg;
   output [31:0]wdata;
-  input clk;
-  input rstn;
 endmodule

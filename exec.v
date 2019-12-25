@@ -45,7 +45,7 @@ module exec(
 	wire[31:0] fadd_d, fmul_d, finv_d, sqrt_d, ftoi_d, itof_d, floor_d;
 	wire fadd_of, fmul_of, finv_of, fmul_uf, finv_uf;
 	wire is_stall;
-	reg fpu_set, load_set;
+	reg fpu_set;
 	wire[31:0] data_,rs_,rt_,addr_;
 	reg[5:0] alu_command_, exec_command_;
 	reg stall_set;
@@ -78,7 +78,6 @@ module exec(
 		if(~rstn) begin
 			stall_enable <= 1'b0;
 			stall_set <= 1'b0;
-			load_set <= 1'b0;
 			done <= 1'b0;
 			wselector <= 3'b000;
 			pc_out <= 32'h0;
@@ -213,8 +212,7 @@ module exec(
 							data <= rs_;
 						end
 					end else if(exec_command == 6'b100011 || exec_command == 6'b110001) begin	//LW, LF
-						load_set <= 1'b1;
-						done <= 1'b0;
+						wselector <= {2'b01, exec_command == 6'b110001};
 					end else if(exec_command == 6'b101011 || exec_command == 6'b111001) begin	//SW, SF
 					end else if(exec_command == 6'b110010) begin	//BC
 						pc_out <= pc + addr_;
@@ -247,12 +245,6 @@ module exec(
 				end else if(alu_command_ == 6'b000100) begin	//SQRT
 					data <= sqrt_d;
 				end
-			end
-			if(load_set) begin
-				wselector <= {2'b01, exec_command_ == 6'b110001};
-				load_set <= 1'b0;
-				done <= 1'b1;
-				data <= mem_rdata;
 			end
 			if(uart_rdone) begin
 				data <= uart_rd;

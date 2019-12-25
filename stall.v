@@ -4,35 +4,33 @@ module stall(
 	input wire fetch_done,
 	input wire decode_done,
 	input wire exec_done,
-	input wire write_done,
 	output wire fetch_enable,
 	output wire decode_enable,
 	output wire exec_enable,
-	output wire write_enable,
 	input wire stall_enable,
 	input wire clk,
 	input wire rstn
 );
 
-	reg[3:0] step;
-	reg[3:0] done;
-	wire[3:0] done_tmp;
+	reg[2:0] step;
+	reg[2:0] done;
+	wire[2:0] done_tmp;
 
-	assign done_tmp = done | {fetch_done, decode_done, exec_done, write_done};
-	assign {fetch_enable, decode_enable, exec_enable, write_enable} = done_tmp == 4'b1111 ? (stall_enable ? 4'b1100 : {1'b1, step[3:1]}) : 4'b0000;
+	assign done_tmp = done | {fetch_done, decode_done, exec_done};
+	assign {fetch_enable, decode_enable, exec_enable} = done_tmp == 3'b111 ? (stall_enable ? 4'b110 : {1'b1, step[2:1]}) : 3'b000;
 
 	always @(posedge clk) begin
 		if(~rstn) begin
-			step <= 4'b0000;
-			done <= 4'b1111;
+			step <= 3'b000;
+			done <= 3'b111;
 		end else begin
 			done <= done_tmp;
 			if(stall_enable) begin
-				step <= 4'b1000;
+				step <= 3'b100;
 			end
-			if(done_tmp == 4'b1111) begin
-				step <= stall_enable ? 4'b1100 : {1'b1, step[3:1]};
-				done <= stall_enable ? 4'b0011 : ~{1'b1, step[3:1]};
+			if(done_tmp == 3'b111) begin
+				step <= stall_enable ? 3'b110 : {1'b1, step[2:1]};
+				done <= stall_enable ? 3'b001 : ~{1'b1, step[2:1]};
 			end
 		end
 	end

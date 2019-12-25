@@ -58,11 +58,9 @@ module design_1_stall_0_0 (
   fetch_done,
   decode_done,
   exec_done,
-  write_done,
   fetch_enable,
   decode_enable,
   exec_enable,
-  write_enable,
   stall_enable,
   clk,
   rstn
@@ -71,11 +69,9 @@ module design_1_stall_0_0 (
 input wire fetch_done;
 input wire decode_done;
 input wire exec_done;
-input wire write_done;
 output wire fetch_enable;
 output wire decode_enable;
 output wire exec_enable;
-output wire write_enable;
 input wire stall_enable;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 35000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
@@ -88,11 +84,9 @@ input wire rstn;
     .fetch_done(fetch_done),
     .decode_done(decode_done),
     .exec_done(exec_done),
-    .write_done(write_done),
     .fetch_enable(fetch_enable),
     .decode_enable(decode_enable),
     .exec_enable(exec_enable),
-    .write_enable(write_enable),
     .stall_enable(stall_enable),
     .clk(clk),
     .rstn(rstn)

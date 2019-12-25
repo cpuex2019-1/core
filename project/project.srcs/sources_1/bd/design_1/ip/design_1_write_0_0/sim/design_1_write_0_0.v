@@ -55,8 +55,6 @@
 (* IP_DEFINITION_SOURCE = "module_ref" *)
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module design_1_write_0_0 (
-  enable,
-  done,
   wselector,
   wfrommem,
   pc,
@@ -68,13 +66,9 @@ module design_1_write_0_0 (
   wenable,
   fmode,
   wreg,
-  wdata,
-  clk,
-  rstn
+  wdata
 );
 
-input wire enable;
-output wire done;
 input wire [2 : 0] wselector;
 input wire wfrommem;
 input wire [31 : 0] pc;
@@ -87,16 +81,8 @@ output wire wenable;
 output wire fmode;
 output wire [4 : 0] wreg;
 output wire [31 : 0] wdata;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET rstn, FREQ_HZ 35000000, PHASE 0.0, CLK_DOMAIN design_1_clk_wiz_0_clk_out1, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
-input wire clk;
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME rstn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *)
-(* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 rstn RST" *)
-input wire rstn;
 
   write inst (
-    .enable(enable),
-    .done(done),
     .wselector(wselector),
     .wfrommem(wfrommem),
     .pc(pc),
@@ -108,8 +94,6 @@ input wire rstn;
     .wenable(wenable),
     .fmode(fmode),
     .wreg(wreg),
-    .wdata(wdata),
-    .clk(clk),
-    .rstn(rstn)
+    .wdata(wdata)
   );
 endmodule

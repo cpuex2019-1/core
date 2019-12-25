@@ -52,9 +52,11 @@ module uart_buffer(
 			// rtail <= 11'h72f;
 			// rtail <= 11'h2eb;
 			rlap <= 1'b0;
-			wbuffer <= 4096'h0;
+			// wbuffer <= 4096'h0;
+			wbuffer <= {8'haa, 4088'h0};
 			whead <= 9'h1ff;
-			wtail <= 9'h1ff;
+			// wtail <= 9'h1ff;
+			wtail <= 9'h1fe;
 			wlap <= 1'b0;
 			uart_araddr <= 32'h0;
 			uart_awaddr <= 32'h4;
